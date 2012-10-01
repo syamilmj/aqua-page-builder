@@ -1,0 +1,143 @@
+<?php
+/**
+ * The class to register, update and display blocks
+ *
+ * It provides an easy API for people to add their own blocks
+ * to the Aqua Page Builder
+ *
+ * @package Aqua Page Builder
+ */
+$aq_registered_blocks = array();
+ 
+class AQ_Block {
+ 	
+ 	//some vars
+ 	var $id_base;
+ 	var $block_options;
+ 	var $instance;
+ 	
+ 	/* PHP4 constructor */
+ 	function AQ_Block($id_base = false, $block_options = array()) {
+ 		AQ_Block::__construct($id_base, $block_options);
+ 	}
+ 	
+ 	/* PHP5 constructor */
+ 	function __construct($id_base = false, $block_options = array()) {
+ 		$this->id_base = isset($id_base) ? strtolower($id_base) : strtolower(get_class($this));
+ 		$this->block_options = $this->parse_block($block_options);
+ 	}
+ 	
+ 	function block($instance) {
+ 		die('function AQ_Block::block should not be accessed directly.');
+ 	}
+ 	
+ 	/**
+ 	 * The callback function to be called on blocks saving
+ 	 * 
+ 	 * You should use this to do any filtering, sanitation etc
+ 	 */
+ 	function update($new_instance, $old_instance) {
+ 		return $new_instance;
+ 	}
+ 	
+ 	/**
+ 	 * The block settings form 
+ 	 *
+ 	 * Use subclasses to override this function and generate
+ 	 * its own block forms
+ 	 */
+ 	function form($instance) {
+ 		echo '<p class="no-options-block">' . __('There are no options for this block.', 'aqpb') . '</p>';
+ 		return 'noform';
+ 	}
+ 	
+ 	/* Form callback function 
+ 	 *
+ 	 * Sets up some default values and construct the basic
+ 	 * structure of the block. Individual block can override
+ 	 * this function if they so choose
+ 	 */
+ 	function form_callback($instance = array()) {
+ 		
+ 		$instance = is_array($instance) ? wp_parse_args($instance, $this->block_options) : $this->block_options;
+ 		
+ 		//insert the dynamic block_id & block_saving_id into the array
+ 		$instance['block_id'] = 'aq_block_' . $instance['number'];
+ 		$instance['block_saving_id'] = 'aq_blocks[aq_block_'. $instance['number'] .']';
+ 		
+ 		//display the block
+ 		$this->before_block($instance);
+ 		$this->form($instance);
+ 		$this->after_block($instance);
+ 	}
+ 	
+ 	/* assign default block options if not yet set */
+ 	function parse_block($block_options) {
+ 		$defaults = array(
+ 			'id_base' => $this->id_base,
+ 			'order' => 0,
+ 			'name' => 'Custom',
+ 			'size' => 'span12',
+ 			'title' => '',
+ 			'parent' => 0,
+ 			'number' => '__i__',
+ 		);
+ 		
+ 		$block_options = is_array($block_options) ? wp_parse_args($block_options, $defaults) : $defaults;
+ 		
+ 		return $block_options;
+ 	}
+ 	
+ 	/* block form header */
+ 	function before_block($instance) {
+ 		extract($instance);
+ 		
+ 		$title = $title ? '<span class="in-block-title"> : '.$title.'</span>' : '';
+ 		
+ 		echo '<li id="template-block-'.$number.'" class="block block-'.$id_base.' '. $size .'">',
+ 				'<dl class="block-bar">',
+ 					'<dt class="block-handle">',
+ 						'<div class="block-title">',
+ 							$name , $title, 
+ 						'</div>',
+ 						'<span class="block-controls">',
+ 							'<a class="block-edit" id="edit-'.$number.'" title="Edit Block" href="#block-settings-'.$number.'">Edit Block</a>',
+ 						'</span>',
+ 					'</dt>',
+ 				'</dl>',
+ 				'<div class="block-settings cf" id="block-settings-'.$number.'">';
+ 			
+ 	}
+ 	
+ 	/* block form footer */
+ 	function after_block($instance) {
+ 		extract($instance);
+ 		
+ 		$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+ 		
+ 		echo '<input type="hidden" class="id_base" name="'.$block_saving_id.'[id_base]" value="'.$id_base.'" />';
+ 		echo '<input type="hidden" class="name" name="'.$block_saving_id.'[name]" value="'.$name.'" />';
+ 		echo '<input type="hidden" class="order" name="'.$block_saving_id.'[order]" value="'.$order.'" />';
+ 		echo '<input type="hidden" class="size" name="'.$block_saving_id.'[size]" value="'.$size.'" />';
+ 		echo '<input type="hidden" class="parent" name="'.$block_saving_id.'[parent]" value="'.$parent.'" />';
+ 		echo '<input type="hidden" class="number" name="'.$block_saving_id.'[number]" value="'.$number.'" />';
+ 		echo 	'</div>',
+ 			'</li>';
+ 			
+ 	}
+ 	
+}
+
+/* Register a block */
+function aq_register_block($block_class) {
+	global $aq_registered_blocks;
+	$aq_registered_blocks[strtolower($block_class)] = new $block_class;
+}
+
+/* Un-register a block */
+function aq_unregister_block($block_class) {
+	global $aq_registered_blocks;
+	foreach($aq_registered_blocks as $registered) {
+		if($registered->id_base == $block_class) unset($aq_registered_blocks[$block_class]);
+	}
+}
