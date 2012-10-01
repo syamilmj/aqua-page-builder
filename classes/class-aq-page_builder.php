@@ -188,10 +188,9 @@ class AQ_Page_Builder {
 	 * @since 1.0.0
 	 */
 	function blocks_archive() {
-	
-		$blocks = $this->args['available-blocks'];
+		global $aq_registered_blocks;
 		
-		foreach($blocks as $block) {
+		foreach($aq_registered_blocks as $block) {
 			$block->form_callback();
 		}
 	}
