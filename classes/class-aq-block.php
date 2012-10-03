@@ -40,7 +40,7 @@ class AQ_Block {
  		return $new_instance;
  	}
  	
- 	/**
+ 	/** 
  	 * The block settings form 
  	 *
  	 * Use subclasses to override this function and generate
@@ -51,19 +51,20 @@ class AQ_Block {
  		return 'noform';
  	}
  	
- 	/* Form callback function 
+ 	/** 
+ 	 * Form callback function 
  	 *
  	 * Sets up some default values and construct the basic
- 	 * structure of the block. Individual block can override
- 	 * this function if they so choose
+ 	 * structure of the block. Unless you know exactly what you're
+ 	 * doing, DO NOT override this function
  	 */
  	function form_callback($instance = array()) {
  		
  		$instance = is_array($instance) ? wp_parse_args($instance, $this->block_options) : $this->block_options;
  		
- 		//insert the dynamic block_id & block_saving_id into the array
- 		$instance['block_id'] = 'aq_block_' . $instance['number'];
- 		$instance['block_saving_id'] = 'aq_blocks[aq_block_'. $instance['number'] .']';
+ 		//insert the dynamic block_id
+ 		$this->block_id = 'aq_block_' . $instance['number'];
+ 		$instance['block_id'] = $this->block_id;
  		
  		//display the block
  		$this->before_block($instance);
@@ -115,29 +116,26 @@ class AQ_Block {
  		
  		$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
  		
- 		echo '<input type="hidden" class="id_base" name="'.$block_saving_id.'[id_base]" value="'.$id_base.'" />';
- 		echo '<input type="hidden" class="name" name="'.$block_saving_id.'[name]" value="'.$name.'" />';
- 		echo '<input type="hidden" class="order" name="'.$block_saving_id.'[order]" value="'.$order.'" />';
- 		echo '<input type="hidden" class="size" name="'.$block_saving_id.'[size]" value="'.$size.'" />';
- 		echo '<input type="hidden" class="parent" name="'.$block_saving_id.'[parent]" value="'.$parent.'" />';
- 		echo '<input type="hidden" class="number" name="'.$block_saving_id.'[number]" value="'.$number.'" />';
- 		echo 	'</div>',
+	 		echo '<input type="hidden" class="id_base" name="'.$this->get_field_name('id_base').'" value="'.$id_base.'" />';
+	 		echo '<input type="hidden" class="name" name="'.$this->get_field_name('name').'" value="'.$name.'" />';
+	 		echo '<input type="hidden" class="order" name="'.$this->get_field_name('order').'" value="'.$order.'" />';
+	 		echo '<input type="hidden" class="size" name="'.$this->get_field_name('size').'" value="'.$size.'" />';
+	 		echo '<input type="hidden" class="parent" name="'.$this->get_field_name('parent').'" value="'.$parent.'" />';
+	 		echo '<input type="hidden" class="number" name="'.$this->get_field_name('number').'" value="'.$number.'" />';
+ 		echo '</div>',
  			'</li>';
  			
  	}
  	
-}
-
-/* Register a block */
-function aq_register_block($block_class) {
-	global $aq_registered_blocks;
-	$aq_registered_blocks[strtolower($block_class)] = new $block_class;
-}
-
-/* Un-register a block */
-function aq_unregister_block($block_class) {
-	global $aq_registered_blocks;
-	foreach($aq_registered_blocks as $registered) {
-		if($registered->id_base == $block_class) unset($aq_registered_blocks[$block_class]);
-	}
+ 	function get_field_id($field) {
+ 		$field_id = isset($this->block_id) ? $this->block_id . '_' . $field : '';
+ 		return $field_id;
+ 	}
+ 	
+ 	function get_field_name($field) {
+ 		$field_name = isset($this->block_id) ? 'aq_blocks[' . $this->block_id. '][' . $field . ']': '';
+ 		return $field_name;
+ 	}
+ 	
+ 	
 }

@@ -17,7 +17,7 @@ class AQ_Column_Block extends AQ_Block {
 	
 	function form() {
 		echo '<p class="empty-column">',
-		__('Drag block items into this box', 'framework'),
+		__('Drag block items into this column box', 'framework'),
 		'</p>';
 		echo '<ul class="blocks column-blocks cf"></ul>';
 	}
@@ -35,8 +35,8 @@ class AQ_Column_Block extends AQ_Block {
 		
 		//column block header
 		if(isset($template_id)) {
-			echo '<li id="template-block-'.$number.'" class="block block-column '.$size.'">',
-				'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
+			echo '<li id="template-block-'.$number.'" class="block block-aq_column_block '.$size.'">',
+					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
 					'<p class="empty-column">',
 					__('Drag block items into this column box', 'framework'),
 					'</p>',
@@ -47,15 +47,15 @@ class AQ_Column_Block extends AQ_Block {
 			
 			//outputs the blocks
 			if($blocks) {
-				foreach($blocks as $key => $instance) {
+				foreach($blocks as $key => $child) {
 					global $aq_registered_blocks;
-					extract($instance);
+					extract($child);
 					
 					//get the block object
 					$block = $aq_registered_blocks[$id_base];
 					
 					if($parent == $col_order) {
-						$block->form_callback($instance);
+						$block->form_callback($child);
 					}
 				}
 			} 

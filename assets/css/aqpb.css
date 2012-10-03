@@ -162,6 +162,9 @@ a:hover, a:active, a:focus { color: #d54e21; }
 		margin: 4px 0;
 		line-height: 15px;
 	}
+#template-shortcode input {
+	width: 120px;
+}
 	
 	
 /*blocks*/

@@ -27,7 +27,6 @@ $template = isset($_REQUEST['template']) ? $_REQUEST['template'] : 0;
 
 // Template title & layout
 $template_name = isset($_REQUEST['template-name']) && !empty($_REQUEST['template-name']) ? htmlspecialchars($_REQUEST['template-name']) : 'No Title';
-$template_layout = isset($_REQUEST['template-layout']) && !empty($_REQUEST['template-layout']) ? $_REQUEST['template-layout'] : 'full-width';
 
 // Get all templates
 $templates = $this->get_templates();
@@ -49,14 +48,25 @@ switch($action) {
 
 	case 'create' :
 		
-		$new_id = $this->create_template($template_name, $template_layout);
-		$selected_template_id = $new_id;
+		$new_id = $this->create_template($template_name);
 		
-		//refresh templates var
-		$templates = $this->get_templates();
-		$selected_template_object = get_post($selected_template_id);
+		if(!is_wp_error($new_id)) {
+			$selected_template_id = $new_id;
 		
-		$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'framework') . '<strong>' . $template_name . '</strong>' . __(' page template has been successfully created', 'framework') . '</p></div>';
+			//refresh templates var
+			$templates = $this->get_templates();
+			$selected_template_object = get_post($selected_template_id);
+			
+			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'framework') . '<strong>' . $template_name . '</strong>' . __(' page template has been successfully created', 'framework') . '</p></div>';
+		} else {
+			$errors = '<ul>';
+			foreach( $new_id->get_error_messages() as $error ) {
+				$errors .= '<li><strong>'. $error . '</strong></li>';
+			}
+			$errors .= '</ul>';
+			
+			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'framework') . $errors . '</p></div>';
+		}
 		
 		break;
 		
@@ -64,7 +74,7 @@ switch($action) {
 	
 		$blocks = isset($_REQUEST['aq_blocks']) ? $_REQUEST['aq_blocks'] : '';
 		
-		$this->update_template($selected_template_id, $blocks, $template_name, $template_layout);
+		$this->update_template($selected_template_id, $blocks, $template_name);
 		
 		//refresh templates var
 		$templates = $this->get_templates();
@@ -94,9 +104,6 @@ if(!empty($messages)) foreach($messages as $message) { echo $message; }
 
 //disable blocks archive if no template
 $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
-
-//refresh template layout
-if($selected_template_id != 0) $template_layout = get_post_meta($selected_template_id, 'aq_template_layout', true);
 
 ?>
 
@@ -184,18 +191,9 @@ if($selected_template_id != 0) $template_layout = get_post_meta($selected_templa
 											<input name="template-name" id="template-name" type="text" class="template-name regular-text" title="Enter template name here" placeholder="Enter template name here" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
 										</label>
 										
-										<select name="template-layout">
-											<?php 
-											
-											// @todo checks which layout currently checked
-											$layouts = (array) $this->args['layouts'];
-											foreach($layouts as $key => $layout) {
-												echo '<option value="'.$key.'" '.selected( $template_layout, $key ).'>'.$layout.'</option>';
-											}
-											?>
-										</select>
-										
-										<br class="clear">
+										<div id="template-shortcode">
+											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>"]'/>
+										</div>
 										
 										<div class="publishing-action">
 											<?php submit_button( empty( $selected_template_id ) ? __( 'Create Template', 'framework' ) : __( 'Save Template', 'framework' ), 'button-primary ', 'save_template', false, array( 'id' => 'save_template_header' ) ); ?>

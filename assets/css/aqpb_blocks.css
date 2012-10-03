@@ -5,44 +5,44 @@
  */
 
 /*basic form elements*/
-.block-settings p.description.half {
+.block-settings .description.half {
 	width: 49%;
 	margin-right: 2%;
 	float: left;
 }
-.block-settings p.description.third {
+.block-settings .description.third {
 	width: 31.33%;
 	margin-right: 2%;
 	float: left;
 }
-.block-settings p.description.two-third {
+.block-settings .description.two-third {
 	width: 62.66%;
 	margin-right: 2%;
 	float: left;
 }
-	.block-settings p.description.half.last,
-	.block-settings p.description.third.last
-	.block-settings p.description.two-third.last {
+	.block-settings .description.half.last,
+	.block-settings .description.third.last
+	.block-settings .description.two-third.last {
 		margin-right: 0;
 	}
-	.span2 .block-settings p.description.half,
-	.span3 .block-settings p.description.half,
-	.span4 .block-settings p.description.half,
-	.span5 .block-settings p.description.half,
-	.span6 .block-settings p.description.half,
-	.span7 .block-settings p.description.half,
-	.span2 .block-settings p.description.third,
-	.span3 .block-settings p.description.third,
-	.span4 .block-settings p.description.third,
-	.span5 .block-settings p.description.third,
-	.span6 .block-settings p.description.third,
-	.span7 .block-settings p.description.third,
-	.span2 .block-settings p.description.two-third,
-	.span3 .block-settings p.description.two-third,
-	.span4 .block-settings p.description.two-third,
-	.span5 .block-settings p.description.two-third,
-	.span6 .block-settings p.description.two-third,
-	.span7 .block-settings p.description.two-third {
+	.span2 .block-settings .description.half,
+	.span3 .block-settings .description.half,
+	.span4 .block-settings .description.half,
+	.span5 .block-settings .description.half,
+	.span6 .block-settings .description.half,
+	.span7 .block-settings .description.half,
+	.span2 .block-settings .description.third,
+	.span3 .block-settings .description.third,
+	.span4 .block-settings .description.third,
+	.span5 .block-settings .description.third,
+	.span6 .block-settings .description.third,
+	.span7 .block-settings .description.third,
+	.span2 .block-settings .description.two-third,
+	.span3 .block-settings .description.two-third,
+	.span4 .block-settings .description.two-third,
+	.span5 .block-settings .description.two-third,
+	.span6 .block-settings .description.two-third,
+	.span7 .block-settings .description.two-third {
 		width: 100%;
 		margin-right: 0;
 		float: none;
@@ -66,14 +66,14 @@
 }
 
 /*columns*/
-#blocks-to-edit .block-column {
+#blocks-to-edit .block-aq_column_block {
 	padding: 4px;
 	background: #FCFCFC;
 	margin: 8px -5px -5px 15px;
 	border: 1px dotted #E3E3E3;
 	max-width: 734px;
 }
-#blocks-to-edit .block-column ul.blocks { 
+#blocks-to-edit .block-aq_column_block ul.blocks { 
 	min-height: 50px;
 	padding: 0;
 	margin: 0 0 0 -20px;
@@ -84,6 +84,12 @@
 	padding: 8px 10px 0;
 	color: #888;
 }
+
+/* color picker */
+.cw-color-picker {
+	display: none;
+}
+
 /** Customs
 Insert your own custom CSS below this line **/
 #blocks-archive .block-featured_portfolio .block-title { font-size: 11px; }

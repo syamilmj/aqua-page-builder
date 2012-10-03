@@ -33,10 +33,6 @@ class AQ_Page_Builder {
 			),
 			admin_url( 'themes.php' )
 		));
-		
-		global $aq_registered_blocks;
-		$this->args['available-blocks'] = $aq_registered_blocks;
-	
 	}
 	
 	/**
@@ -51,7 +47,7 @@ class AQ_Page_Builder {
 	}
 
 	function builder_page() {
-		$this->page = add_theme_page( THEMENAME, $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
+		$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
 		
 		//enqueueu styles/scripts on the builder page
 		add_action('admin_print_styles-'.$this->page, array(&$this, 'enqueue'));
@@ -66,16 +62,20 @@ class AQ_Page_Builder {
 		wp_register_style( 'aqpb-css', $this->url.'assets/css/aqpb.css', array(), time(), 'all');
 		wp_register_style( 'aqpb-blocks', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
 		wp_register_script('aqpb-js', $this->url . 'assets/js/aqpb.js', array('jquery'), time(), true);
+		wp_register_script('aqpb-fields', $this->url . 'assets/js/aqpb-fields.js', array('jquery'), time(), true);
 		
 		//enqueue 'em
 		wp_enqueue_style('aqpb-css');
 		wp_enqueue_style('aqpb-blocks');
+		wp_enqueue_style('farbtastic');
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('jquery-ui-resizable');
 		wp_enqueue_script('jquery-ui-draggable');
 		wp_enqueue_script('jquery-ui-droppable');
+		wp_enqueue_script('farbtastic');
 		wp_enqueue_script('aqpb-js');
+		wp_enqueue_script('aqpb-fields');
 		
 		//hook to register custom style/scripts
 		do_action('aq-page-builder-enqueue');
@@ -87,8 +87,6 @@ class AQ_Page_Builder {
 	 * @uses register_post_type
 	 */
 	function register_template_post_type() {
-		
-		//registers template post type
 		if(!post_type_exists('template')) {
 			register_post_type( 'template', array(
 				'labels' => array(
@@ -131,27 +129,6 @@ class AQ_Page_Builder {
 	}
 	
 	/**
-	 * Assign default values to block if don't yet exist
-	 */
-	function parse_block($block) {
-		
-		$defaults = array(
-			'order' => 0,
-			'name' => 'Custom',
-			'type' => 'text',
-			'size' => 'span12',
-			'title' => '',
-			'parent' => 0,
-			'number' => '__i__',
-		);
-		
-		$block = is_array($block) ? wp_parse_args($block, $defaults) : $defaults;
-		
-		return $block;
-		
-	}
-	
-	/**
 	 * Retrieve all blocks from template id
 	 *
 	 * @return array - $blocks
@@ -189,7 +166,6 @@ class AQ_Page_Builder {
 	 */
 	function blocks_archive() {
 		global $aq_registered_blocks;
-		
 		foreach($aq_registered_blocks as $block) {
 			$block->form_callback();
 		}
@@ -259,22 +235,25 @@ class AQ_Page_Builder {
 	 *
 	 * @since 1.0.0
 	 */
-	function create_template($title, $layout) {
+	function create_template($title) {
 		//wp security layer
 		check_admin_referer( 'create-template', 'create-template-nonce' );
 		
-		//set up template name
-		$template = array(
-			'post_title' => wp_strip_all_tags($title),
-			'post_type' => 'template',
-			'post_status' => 'publish',
-		);
-		
-		//create the template
-		$template_id = wp_insert_post($template);
-		
-		//update layout option
-		update_post_meta($template_id, 'aq_template_layout', $layout);
+		//create new template only if title don't yet exist
+		if(!get_page_by_title( $title, 'OBJECT', 'template' )) {
+			//set up template name
+			$template = array(
+				'post_title' => wp_strip_all_tags($title),
+				'post_type' => 'template',
+				'post_status' => 'publish',
+			);
+			
+			//create the template
+			$template_id = wp_insert_post($template);
+			
+		} else {
+			return new WP_Error('duplicate_template', 'Template names must be unique, try a different name');
+		}
 		
 		//return the new id of the template
 		return $template_id;
@@ -285,7 +264,7 @@ class AQ_Page_Builder {
 	 * 
 	 * @since 1.0.0
 	 */
-	function update_template($template_id, $blocks, $title, $layout) {
+	function update_template($template_id, $blocks, $title) {
 		
 		//first let's check if template id is valid
 		if(!$this->is_template($template_id)) wp_die('Error : Template id is not valid');
@@ -296,9 +275,6 @@ class AQ_Page_Builder {
 		//update the title
 		$template = array('ID' => $template_id, 'post_title'=> $title);
 		wp_update_post( $template );
-		
-		//update layout option
-		update_post_meta($template_id, 'aq_template_layout', $layout);
 		
 		//now let's save our blocks & prepare haystack
 		$blocks = is_array($blocks) ? $blocks : array();

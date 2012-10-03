@@ -26,16 +26,16 @@ class AQ_Slogan_Block extends AQ_Block {
 		
 		?>
 		<p class="description">
-			<label for="<?php echo $block_id ?>_title">
+			<label for="<?php echo $this->get_field_id('title') ?>">
 				Title (optional)
-				<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+				<input id="<?php echo $this->get_field_id('title') ?>" class="input-full" type="text" value="<?php echo $title ?>" name="<?php echo $this->get_field_name('title') ?>">
 			</label>
 		</p>
 		
 		<p class="description">
-			<label for="<?php echo $block_id ?>_text">
+			<label for="<?php echo $this->get_field_id('text') ?>">
 				Content
-				<textarea id="<?php echo $block_id ?>_text" class="textarea-full" name="<?php echo $block_saving_id ?>[text]" rows="5"><?php echo $text ?></textarea>
+				<textarea id="<?php echo $this->get_field_id('text') ?>" class="textarea-full" name="<?php echo $this->get_field_name('text') ?>" rows="5"><?php echo $text ?></textarea>
 			</label>
 		</p>
 		<?php

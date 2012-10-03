@@ -7,13 +7,41 @@
 
 jQuery.noConflict();
 
-/** Fire up jQuery - let's dance! 
- */
+/** Fire up jQuery - let's dance! **/
 jQuery(document).ready(function($){
-	//declare some vars
-	var block_archive, block_number, parent_id, block_id, intervalId;
 	
-	// Make unique id
+	/** Variables 
+	/**------------------------------------------------------------------------------------**/
+	var block_archive, 
+		block_number, 
+		parent_id, 
+		block_id, 
+		intervalId,
+		resizable_args = { // Resizable arguments
+			grid: 62,
+			handles: 'w,e',
+			maxWidth: 724,
+			minWidth: 104,
+			resize: function(event, ui) { 
+			    ui.helper.css("height", "inherit");
+			},
+			stop: function(event, ui) {
+				ui.helper.css('left', ui.originalPosition.left);
+				ui.helper.removeClass (function (index, css) {
+				    return (css.match (/\bspan\S+/g) || []).join(' ');
+				}).addClass(block_size( $(ui.helper).css('width') ));
+				ui.helper.find('> div > .size').val(block_size( $(ui.helper).css('width') ));
+			}
+		},
+		tabs_width = $('.aqpb-tabs').outerWidth(), 
+		mouseStilldown = false,
+		max_marginLeft = 720 - Math.abs(tabs_width),
+		activeTab_pos = $('.aqpb-tab-active').next().position(),
+		act_mleft;
+	
+	/** Functions 
+	/**------------------------------------------------------------------------------------**/
+	// create unique id
 	function makeid()
 	{
 	    var text = "";
@@ -25,21 +53,7 @@ jQuery(document).ready(function($){
 	    return text;
 	}
 	
-	// Open/close blocks
-	$('#page-builder a.block-edit').live( 'click', function() {
-		var blockID = $(this).parents('li').attr('id');
-		$('#' + blockID + ' .block-settings').slideToggle('fast');
-		
-		if( $('#' + blockID).hasClass('block-edit-active') == false ) {
-			$('#' + blockID).addClass('block-edit-active');
-		} else {
-			$('#' + blockID).removeClass('block-edit-active');
-		};
-		
-		return false;
-	});
-	
-	// Gets the correct class for block size
+	// Get correct class for block size
 	function block_size(width) {
 		var span = "span12";
 		
@@ -60,23 +74,90 @@ jQuery(document).ready(function($){
 		return span;
 	}
 	
-	// Resizable arguments
-	var resizable_args = {
-		grid: 62,
-		handles: 'w,e',
-		maxWidth: 724,
-		minWidth: 104,
-		resize: function(event, ui) { 
-		    ui.helper.css("height", "inherit");
-		},
-		stop: function(event, ui) {
-			ui.helper.css('left', ui.originalPosition.left);
-			ui.helper.removeClass (function (index, css) {
-			    return (css.match (/\bspan\S+/g) || []).join(' ');
-			}).addClass(block_size( $(ui.helper).css('width') ));
-			ui.helper.find('> div > .size').val(block_size( $(ui.helper).css('width') ));
+	// Blocks resizable dynamic width
+	function resizable_dynamic_width(blockID) {
+		var blockPar = $('#' + blockID).parent(),
+			maxWidth = parseInt($(blockPar).parent().parent().css('width'));
+		
+		//set maxWidth for blocks inside columns
+		if($(blockPar).hasClass('column-blocks')) {
+			$('#' + blockID).resizable( "option", "maxWidth", maxWidth );
+		}
+		
+		//set widths when the parent resized
+		$('#' + blockID).bind( "resizestop", function(event, ui) {
+			if($('#' + blockID).hasClass('block-aq_column_block')) {
+				var $blockColumn = $('#' + blockID),
+					new_maxWidth = parseInt($blockColumn.css('width'));
+					child_maxWidth = new Array();
+					
+				//reset maxWidth for child blocks
+				$blockColumn.find('ul.blocks > li').each(function() {
+					child_blockID = $(this).attr('id');
+					$('#' + child_blockID).resizable( "option", "maxWidth", new_maxWidth );
+					child_maxWidth.push(parseInt($('#' + child_blockID).css('width')));
+				});
+				
+				//get maxWidth of child blocks, use it to set the minWidth for column
+				var minWidth = Math.max.apply( Math, child_maxWidth );
+				$('#' + blockID).resizable( "option", "minWidth", minWidth );
+			}
+		});
+		
+	}
+	
+	/** Menu functions **/
+	function moveTabsLeft() {
+		if(max_marginLeft < $('.aqpb-tabs').css('margin-left').replace("px", "") ) {
+			$('.aqpb-tabs').animate({'marginLeft': ($('.aqpb-tabs').css('margin-left').replace("px", "") - 7) + 'px' }, 
+			1, 
+			function() {
+				if(mouseStilldown) {
+					moveTabsLeft();
+				}
+			});
 		}
 	}
+	
+	function moveTabsRight() {
+		if($('.aqpb-tabs').css('margin-left').replace("px", "") < 0) {
+			$('.aqpb-tabs').animate({'marginLeft': Math.abs($('.aqpb-tabs').css('margin-left').replace("px", ""))*(-1) + 7 + 'px' }, 
+			1, 
+			function() {
+				if(mouseStilldown) {
+					moveTabsRight();
+				}
+			});
+		}
+	}
+	
+	function centerActiveTab() {
+		if($('.aqpb-tab-active').hasClass('aqpb-tab-add')) {
+			act_mleft = 690 - $('.aqpb-tab-active').position().left - $('.aqpb-tab-active').width();
+			$('.aqpb-tabs').css('margin-left' , act_mleft + 'px');
+		} else
+		if(720 < activeTab_pos.left) {
+			act_mleft = 730 - activeTab_pos.left;
+			$('.aqpb-tabs').css('margin-left' , act_mleft + 'px');
+		}
+	}
+	
+	/** Actions
+	/**------------------------------------------------------------------------------------**/
+	
+	// Open/close blocks
+	$('#page-builder a.block-edit').live( 'click', function() {
+		var blockID = $(this).parents('li').attr('id');
+		$('#' + blockID + ' .block-settings').slideToggle('fast');
+		
+		if( $('#' + blockID).hasClass('block-edit-active') == false ) {
+			$('#' + blockID).addClass('block-edit-active');
+		} else {
+			$('#' + blockID).removeClass('block-edit-active');
+		};
+		
+		return false;
+	});
 	
 	// Blocks resizable
 	$('ul.blocks li.block').each(function() {
@@ -95,37 +176,6 @@ jQuery(document).ready(function($){
 		
 	});
 	
-	// Blocks resizable dynamic width
-	function resizable_dynamic_width(blockID) {
-		var blockPar = $('#' + blockID).parent(),
-			maxWidth = parseInt($(blockPar).parent().parent().css('width'));
-		
-		//set maxWidth for blocks inside columns
-		if($(blockPar).hasClass('column-blocks')) {
-			$('#' + blockID).resizable( "option", "maxWidth", maxWidth );
-		}
-		
-		//set widths when the parent resizes
-		$('#' + blockID).bind( "resizestop", function(event, ui) {
-			if($('#' + blockID).hasClass('block-column')) {
-				var $blockColumn = $('#' + blockID),
-					child_maxWidth = new Array();
-				
-				//reset maxWidth for child blocks
-				$blockColumn.find('ul.blocks > li').each(function() {
-					child_blockID = $(this).attr('id');
-					$('#' + child_blockID).resizable( "option", "maxWidth", maxWidth );
-					child_maxWidth.push(parseInt($('#' + child_blockID).css('width')));
-				});
-				
-				//get maxWidth of child blocks, use it to set the minWidth for column
-				var minWidth = Math.max.apply( Math, child_maxWidth );
-				$('#' + blockID).resizable( "option", "minWidth", minWidth );
-			}
-		});
-		
-	}
-	
 	// Blocks draggable (archive)
 	$('ul#blocks-archive > li.block').each(function() {
 		$(this).draggable({
@@ -142,15 +192,15 @@ jQuery(document).ready(function($){
 	$('ul#blocks-to-edit').sortable({
 		placeholder: "ui-state-highlight",
 		handle: '.block-handle, .block-settings-column',
-		connectWith: '#blocks-archive, .block-column ul.blocks',
+		connectWith: '#blocks-archive, .block-aq_column_block ul.blocks',
 	});
 	
 	// Columns Sortable
 	function columns_sortable() {
-		//$('ul#blocks-to-edit, .block-column ul.blocks').sortable('disable');
-		$('.block-column ul.blocks').sortable({
+		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
+		$('.block-aq_column_block ul.blocks').sortable({
 			placeholder: 'ui-state-highlight',
-			connectWith: '#blocks-archive, #blocks-to-edit, .block-column ul.blocks',
+			connectWith: '#blocks-archive, #blocks-to-edit, .block-aq_column_block ul.blocks',
 			items: 'li',
 		});
 	}
@@ -179,7 +229,7 @@ jQuery(document).ready(function($){
 		    ui.item.attr("id", block_archive.replace("__i__", block_number));
 		    
 		    //if column, remove handle bar
-		    if(ui.item.hasClass('block-column')) {
+		    if(ui.item.hasClass('block-aq_column_block')) {
 		    	ui.item.find('.block-bar').remove();
 		    	ui.item.find('.block-settings').removeClass('block-settings').addClass('block-settings-column');
 		    	if(ui.item.parent().hasClass('column-blocks')) { 
@@ -210,14 +260,14 @@ jQuery(document).ready(function($){
 				$(el).find('.order').last().val(index + 1);
 				
 				if($(el).parent().hasClass('column-blocks')) {
-					parent_id = $(el).parent().siblings('.order').val();
-					$(el).find('.parent').last().val(parent_id);
+					parent_order = $(el).parent().siblings('.order').val();
+					$(el).find('.parent').last().val(parent_order);
 				} else {
 					$(el).find('.parent').last().val(0);
-					if($(el).hasClass('block-column')) {
-						block_id = $(el).find('.order').last().val();
+					if($(el).hasClass('block-aq_column_block')) {
+						block_order = $(el).find('.order').last().val();
 						$(el).find('li.block').each(function(index,elem) {
-							$(elem).find('.parent').val(block_id);
+							$(elem).find('.parent').val(block_order);
 						});
 					}
 				}
@@ -270,12 +320,6 @@ jQuery(document).ready(function($){
 	});
 	
 	//nav tabs scrolling
-	var tabs_width = $('.aqpb-tabs').outerWidth(), 
-	mouseStilldown = false,
-	max_marginLeft = 720 - Math.abs(tabs_width),
-	activeTab_pos = $('.aqpb-tab-active').next().position(),
-	act_mleft;
-	
 	if(720 < tabs_width) {
 		$('.aqpb-tabs-arrow').show();
 		centerActiveTab();
@@ -295,40 +339,7 @@ jQuery(document).ready(function($){
 		
 	}
 	
-	function moveTabsLeft() {
-		if(max_marginLeft < $('.aqpb-tabs').css('margin-left').replace("px", "") ) {
-			$('.aqpb-tabs').animate({'marginLeft': ($('.aqpb-tabs').css('margin-left').replace("px", "") - 7) + 'px' }, 
-			1, 
-			function() {
-				if(mouseStilldown) {
-					moveTabsLeft();
-				}
-			});
-		}
-	}
 	
-	function moveTabsRight() {
-		if($('.aqpb-tabs').css('margin-left').replace("px", "") < 0) {
-			$('.aqpb-tabs').animate({'marginLeft': Math.abs($('.aqpb-tabs').css('margin-left').replace("px", ""))*(-1) + 7 + 'px' }, 
-			1, 
-			function() {
-				if(mouseStilldown) {
-					moveTabsRight();
-				}
-			});
-		}
-	}
-	
-	function centerActiveTab() {
-		if($('.aqpb-tab-active').hasClass('aqpb-tab-add')) {
-			act_mleft = 690 - $('.aqpb-tab-active').position().left - $('.aqpb-tab-active').width();
-			$('.aqpb-tabs').css('margin-left' , act_mleft + 'px');
-		} else
-		if(720 < activeTab_pos.left) {
-			act_mleft = 730 - activeTab_pos.left;
-			$('.aqpb-tabs').css('margin-left' , act_mleft + 'px');
-		}
-	}
 	
 	//sort nav order
 	$('.aqpb-tabs').sortable({
