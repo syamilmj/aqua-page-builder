@@ -69,7 +69,7 @@ if(class_exists('AQ_Page_Builder')) {
 	//color picker field
 	function aq_field_color_picker($default, $block_id, $name) {
 		$output = '<div class="aqpb-color-picker">';
-			$output .= '<input id="'. $block_id .'_'.$name.'" type="text" class="input-small input-color-picker" value="'. $default .'" name="aq_blocks['.$block_id.']['.$name.']" />';
+			$output .= '<input id="'. $block_id .'_'.$name.'" type="text" class="input-color-picker" value="'. $default .'" name="aq_blocks['.$block_id.']['.$name.']" />';
 			$output .= '<div class="cw-color-picker" rel="'. $block_id .'_'.$name.'"></div>';
 		$output .= '</div>';
 		return $output;

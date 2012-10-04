@@ -1,8 +1,11 @@
 /**
- * Blocks styling
- *
- * @package Aqua Page Builder
- */
+Blocks styling
+
+Styles for the individual blocks in the Aqua Page Builder
+
+DO NOT EDIT THIS
+
+*/
 
 /*basic form elements*/
 .block-settings .description.half {
@@ -93,6 +96,10 @@
 		background: #f5f5f5;
 		display: none;
 		position: absolute;
+		z-index: 99;
+	}
+	.block-settings .input-color-picker {
+		width: 70px;
 	}
 
 /** Customs

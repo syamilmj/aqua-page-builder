@@ -1,11 +1,11 @@
 /**
 Core Front-end Styling for Aqua Page Builder
 
-DO NOT EDIT THIS
-
 Themes should include their own styling for the blocks.
 That includes for responsive design etc, please don't
 ask me to add that for you. I hate responsive designs
+
+DO NOT EDIT THIS
 	
 **/
 
@@ -19,7 +19,6 @@ ask me to add that for you. I hate responsive designs
 For those who fancy fixed widths,
 copy this into your theme stylesheet
 
-.aq_row { margin-left: -20px; }
 [class*="aq_span"] {
 	float: left;
 	margin-left: 20px;
