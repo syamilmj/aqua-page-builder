@@ -298,18 +298,32 @@ class AQ_Page_Builder {
 		$blocks = is_array($blocks) ? $blocks : array();
 		$haystack = array();
 		$i = 1;
-		foreach ($blocks as $block) {
-			$meta_key = isset($block['number']) ? 'aq_block_' . $i : 'aq_block_0';
+		foreach ($blocks as $new_instance) {
+			global $aq_registered_blocks;
 			
-			//sanitize
-			//@todo use the update() in AQ_Block for greater control on sanitization
-			$block = array_map('htmlspecialchars', array_map('stripslashes', $block));
+			$old_key = isset($new_instance['number']) ? 'aq_block_' . $new_instance['number'] : 'aq_block_0';
+			$new_key = isset($new_instance['number']) ? 'aq_block_' . $i : 'aq_block_0';
+			
+			$old_instance = get_post_meta($template_id, $old_key, true);
+			
+			extract($new_instance);
+			
+			if(class_exists($id_base)) {
+				//get the block object
+				$block = $aq_registered_blocks[$id_base];
+				
+				//insert template_id into $instance
+				$new_instance['template_id'] = $template_id;
+				
+				//sanitize instance with AQ_Block::update()
+				$new_instance = $block->update($new_instance, $old_instance);
+			}
 			
 			//update block
-			update_post_meta($template_id, $meta_key, $block);
+			update_post_meta($template_id, $new_key, $new_instance);
 			
 			//prepare haystack
-			$haystack[] = $meta_key;
+			$haystack[] = $new_key;
 			
 			$i++;
 		}

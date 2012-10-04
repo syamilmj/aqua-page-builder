@@ -44,6 +44,7 @@ class AQ_Block {
  	 * You should use this to do any filtering, sanitation etc
  	 */
  	function update($new_instance, $old_instance) {
+ 		$new_instance = array_map('htmlspecialchars', array_map('stripslashes', $new_instance));
  		return $new_instance;
  	}
  	
