@@ -1,16 +1,14 @@
 <?php
-/** بسم الله الرحمن الرحيم **
- * @title AQ Page Builder
- * @author Syamil MJ
- * @authoruri http://aquagraphite.com
- * @description A custom WordPress page templates builder
- * @package WordPress
- * @subpackage Aqua Page Builder
- * @license GNU GENERAL PUBLIC LICENSE V3.0 (http://www.gnu.org/copyleft/gpl.html)
- *			You may not use this without my written permission
+/** 
+ * AQ_Page_Builder class
  *
+ * The core class that generates the functionalities for the
+ * Aqua Page Builder. Almost nothing inside in the class should
+ * be overridden by theme authors
+ *
+ * @since forever
  **/
-
+ 
 class AQ_Page_Builder {
 	
 	public $url = AQPB_DIR;

@@ -1,5 +1,6 @@
 <?php
-/*
+/** بسم الله الرحمن الرحيم **
+ *
  * Plugin Name: Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Easily create custom layouts and page elements.
@@ -13,7 +14,8 @@
  * @author    Syamil MJ <http://aquagraphite.com>
  * @copyright Copyright (c) 2012, Syamil MJ
  * @link      http://aquagraphite.com
- * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-3.0.html
+ * @notes	  You may not use this without my written permission
  *
  * @todo      
  */
@@ -36,12 +38,9 @@ require_once(AQPB_PATH . 'blocks/aq-column-block.php');
 require_once(AQPB_PATH . 'blocks/aq-clear-block.php');
 
 //register default blocks
-function aq_register_default_blocks() {
-	aq_register_block('AQ_Text_Block');
-	aq_register_block('AQ_Column_Block');
-	aq_register_block('AQ_Clear_Block');
-}
-add_action('aq_page_builder_init', 'aq_register_default_blocks');
+aq_register_block('AQ_Text_Block');
+aq_register_block('AQ_Column_Block');
+aq_register_block('AQ_Clear_Block');
 
 //custom action hook
 add_action('init', 'aq_page_builder_init');
