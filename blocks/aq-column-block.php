@@ -15,6 +15,10 @@ class AQ_Column_Block extends AQ_Block {
 		
 	}
 	
+	function block() {
+	
+	}
+	
 	function form() {
 		echo '<p class="empty-column">',
 		__('Drag block items into this column box', 'framework'),
@@ -62,12 +66,12 @@ class AQ_Column_Block extends AQ_Block {
 			echo '</ul>';
 			
 		} else {
-			$this->before_block($instance);
+			$this->before_form($instance);
 			$this->form($instance);
 		}
 				
 		//after block
-		$this->after_block($instance);
+		$this->after_form($instance);
 	}
 	
 }

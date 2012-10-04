@@ -20,7 +20,7 @@ class AQ_Page_Builder {
 	 * Stores public queryable vars
 	 *
 	 */
-	function __construct( $config = array()){
+	function __construct( $config = array()) {
 		
 		$defaults['menu_title'] = __('Page Builder', 'framework');
 		$defaults['page_title'] = __('Page Builder', 'framework');
@@ -43,7 +43,9 @@ class AQ_Page_Builder {
 	function init() {
 		add_action('admin_menu', array(&$this, 'builder_page'));
 		add_action('init', array(&$this, 'register_template_post_type'));
-		add_filter( 'contextual_help', array( &$this, 'contextual_help' ) );
+		add_filter( 'contextual_help', array( &$this, 'contextual_help' ));
+		add_action('template_redirect', array( &$this, 'preview_template' ));
+		if(!is_admin()) add_filter('init', array( &$this, 'view_enqueue' ));
 	}
 
 	function builder_page() {
@@ -79,6 +81,19 @@ class AQ_Page_Builder {
 		
 		//hook to register custom style/scripts
 		do_action('aq-page-builder-enqueue');
+	}
+	
+	/**
+	 * Register and enqueueu styles/scripts on front-end
+	 *
+	 * @since 1.0.0
+	 */
+	function view_enqueue() {
+		//register 'em
+		wp_register_style( 'aqpb-view', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+		
+		//enqueue 'em
+		wp_enqueue_style('aqpb-view');
 	}
 	
 	/**
@@ -198,17 +213,20 @@ class AQ_Page_Builder {
 				global $aq_registered_blocks;
 				extract($instance);
 				
-				//get the block object
-				$block = $aq_registered_blocks[$id_base];
-				
-				//insert template_id into $instance
-				$instance['template_id'] = $template_id;
-				
-				//display the block
-				if($parent == 0) {
-					$block->form_callback($instance);
+				if(class_exists($id_base)) {
+					//get the block object
+					$block = $aq_registered_blocks[$id_base];
+					
+					//insert template_id into $instance
+					$instance['template_id'] = $template_id;
+					
+					//display the block
+					if($parent == 0) {
+						$block->form_callback($instance);
+					}
 				}
 			}
+			
 		}
 	}
 	
@@ -263,7 +281,7 @@ class AQ_Page_Builder {
 	 * Function to update templates
 	 * 
 	 * @since 1.0.0
-	 */
+	**/
 	function update_template($template_id, $blocks, $title) {
 		
 		//first let's check if template id is valid
@@ -306,6 +324,11 @@ class AQ_Page_Builder {
 		
 	}
 	
+	/**
+	 * Delete page template
+	 *
+	 * @since 1.0.0
+	**/
 	function delete_template($template_id) {
 		
 		//first let's check if template id is valid
@@ -317,6 +340,102 @@ class AQ_Page_Builder {
 		//delete template, hard!
 		wp_delete_post( $template_id, true );
 		
+	}
+	
+	/**
+	 * Preview template
+	 *
+	 * Theme authors should attempt to make the preview
+	 * layout to be consistent with their themes by using
+	 * the filter provided in the function
+	 *
+	 * @since 1.0.0
+	 */
+	function preview_template() {
+		global $wp_query, $aq_page_builder;
+		$post_type = $wp_query->query_vars['post_type'];
+		
+		if($post_type == 'template') {
+			get_header();
+			?>
+				<div id="main" class="cf">
+					<div id="content" class="cf">
+						<?php $this->display_template(get_the_ID()); ?>
+					</div>
+				</div>
+			<?php
+			get_footer();
+			exit;
+		}
+	}
+	
+	/**
+	 * Display the template on the front end
+	 *
+	 * @since 1.0.0
+	**/
+	function display_template($template_id) {
+		//verify template
+		if(!$template_id) return;
+		if(!$this->is_template($template_id)) return;
+		
+		$blocks = $this->get_blocks($template_id);
+		$blocks = is_array($blocks) ? $blocks : array();
+		
+		//return early if no blocks
+		if(empty($blocks)) {
+			echo '<p class="empty-template">';
+			echo __('This template is empty', 'framework');
+			echo '</p>';
+			return;
+			
+		} else {
+			//template wrapper
+			echo '<div id="aq-template-wrapper-'.$template_id.'" class="aq-template-wrapper aq_row">';
+			
+			$overgrid = 0; $span = 0; $first = false;
+			
+			//outputs the blocks
+			foreach($blocks as $key => $instance) {
+				global $aq_registered_blocks;
+				extract($instance);
+				
+				if(class_exists($id_base)) {
+					//get the block object
+					$block = $aq_registered_blocks[$id_base];
+					
+					//insert template_id into $instance
+					$instance['template_id'] = $template_id;
+					
+					//display the block
+					if($parent == 0) {
+						
+						$col_size = absint(preg_replace("/[^0-9]/", '', $size));
+						
+						$overgrid = $span + $col_size;
+						
+						if($overgrid > 12 || $span == 12 || $span == 0) {
+							$span = 0;
+							$first = true;
+						}
+						
+						if($first == true) {
+							$instance['first'] = true;
+						}
+						
+						$block->block_callback($instance);
+						
+						$span = $span + $col_size;
+						
+						$overgrid = 0; //reset $overgrid
+						$first = false; //reset $first
+					}
+				}
+			}
+			
+			//close template wrapper
+			echo '</div>';
+		}
 	}
 	
 	/**

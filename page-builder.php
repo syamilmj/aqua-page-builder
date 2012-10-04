@@ -33,16 +33,12 @@ require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 //some default blocks
 require_once(AQPB_PATH . 'blocks/aq-text-block.php');
 require_once(AQPB_PATH . 'blocks/aq-column-block.php');
-require_once(AQPB_PATH . 'blocks/aq-slogan-block.php');
-require_once(AQPB_PATH . 'blocks/aq-portfolio-block.php');
 require_once(AQPB_PATH . 'blocks/aq-clear-block.php');
 
 //register default blocks
 function aq_register_default_blocks() {
 	aq_register_block('AQ_Text_Block');
 	aq_register_block('AQ_Column_Block');
-	aq_register_block('AQ_Slogan_Block');
-	aq_register_block('AQ_Portfolio_Block');
 	aq_register_block('AQ_Clear_Block');
 }
 add_action('aq_page_builder_init', 'aq_register_default_blocks');

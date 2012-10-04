@@ -1,0 +1,66 @@
+/**
+Core Front-end Styling for Aqua Page Builder
+
+DO NOT EDIT THIS
+
+Themes should include their own styling for the blocks.
+That includes for responsive design etc, please don't
+ask me to add that for you. I hate responsive designs
+	
+**/
+
+/** MISC **/
+.cf:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.cf{display:block;}
+
+/** Basic grid columns 
+-----------------------*/
+/** 
+For those who fancy fixed widths,
+copy this into your theme stylesheet
+
+.aq_row { margin-left: -20px; }
+[class*="aq_span"] {
+	float: left;
+	margin-left: 20px;
+}
+
+.aq-template-wrapper .aq_span12 {width: 940px;}
+.aq-template-wrapper .aq_span11 {width: 860px;}
+.aq-template-wrapper .aq_span10 {width: 780px;}
+.aq-template-wrapper .aq_span9 {width: 700px;}
+.aq-template-wrapper .aq_span8 {width: 620px;}
+.aq-template-wrapper .aq_span7 {width: 540px;}
+.aq-template-wrapper .aq_span6 {width: 460px;}
+.aq-template-wrapper .aq_span5 {width: 380px;}
+.aq-template-wrapper .aq_span4 {width: 300px;}
+.aq-template-wrapper .aq_span3 {width: 220px;}
+.aq-template-wrapper .aq_span2 {width: 140px;}
+.aq-template-wrapper .aq_span1 {width: 60px;}
+
+*/
+
+[class*="aq_span"] {
+	float: left;
+	margin-left: 5%;
+}
+
+.aq-template-wrapper .aq_span12 {width: 100%;}
+.aq-template-wrapper .aq_span11 {width: 91.25%;}
+.aq-template-wrapper .aq_span10 {width: 82.5%;}
+.aq-template-wrapper .aq_span9 {width: 73.75%;}
+.aq-template-wrapper .aq_span8 {width: 65%;}
+.aq-template-wrapper .aq_span7 {width: 56.25%;}
+.aq-template-wrapper .aq_span6 {width: 47.5%;}
+.aq-template-wrapper .aq_span5 {width: 38.75%;}
+.aq-template-wrapper .aq_span4 {width: 30%;}
+.aq-template-wrapper .aq_span3 {width: 21.25%;}
+.aq-template-wrapper .aq_span2 {width: 12.5%;}
+.aq-template-wrapper .aq_span1 {width: 3.75%;}
+
+.aq-template-wrapper .aq-first {margin-left: 0;}
+
+/* blocks */
+.aq-block {
+	margin-bottom: 20px;
+}

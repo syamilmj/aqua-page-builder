@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 		$(document).bind('click', function(e) {
 			var $clicked = $(e.target);
 			if (!$clicked.is(".cw-color-picker *") && (!$clicked.is(".input-color-picker")))
-				$(".cw-color-picker").slideUp();
+				$(".cw-color-picker").fadeOut();
 		});
 	});
 		

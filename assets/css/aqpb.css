@@ -4,8 +4,7 @@ Core Styling for Aqua Page Builder
 DO NOT EDIT THIS
 
 If you want to add your own styling, use the aqpb_blocks.css file
-or add your own css file
-	
+or add your own css file using the hooks
 **/
 
 /*generic*/
@@ -164,8 +163,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	}
 #template-shortcode input {
 	width: 120px;
-}
-	
+}	
 	
 /*blocks*/
 #page-builder .blocks {
@@ -368,6 +366,13 @@ margin-left: 20px;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
+#message.error ul {
+	margin-top: 0;
+}
+#message.error ul li {
+	margin-left: 20px;
+	list-style-type: disc;
+}
 
 
 

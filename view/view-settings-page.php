@@ -65,7 +65,7 @@ switch($action) {
 			}
 			$errors .= '</ul>';
 			
-			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'framework') . $errors . '</p></div>';
+			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'framework') . '</p>' . $errors . '</div>';
 		}
 		
 		break;
@@ -99,7 +99,7 @@ switch($action) {
 global $current_user;
 update_user_option($current_user->ID, 'recently_edited_template', $selected_template_id);
 
-//display messages
+//display admin notices & messages
 if(!empty($messages)) foreach($messages as $message) { echo $message; }
 
 //disable blocks archive if no template
@@ -192,7 +192,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 										</label>
 										
 										<div id="template-shortcode">
-											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>"]'/>
+											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>"]' onclick="select()"/>
 										</div>
 										
 										<div class="publishing-action">
