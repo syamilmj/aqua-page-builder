@@ -14,7 +14,7 @@
  * @author    Syamil MJ <http://aquagraphite.com>
  * @copyright Copyright (c) 2012, Syamil MJ
  * @link      http://aquagraphite.com
- * @license   http://www.gnu.org/licenses/old-licenses/gpl-3.0.html
+ * @license   http://www.gnu.org/copyleft/gpl.html
  * @notes	  You may not use this without my written permission
  *
  * @todo      
