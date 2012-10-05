@@ -174,6 +174,9 @@ jQuery(document).ready(function($){
 		$('#' + blockID).trigger("resize");
 		$('#' + blockID).trigger("resizestop");
 		
+		//disable resizable on .not-resizable blocks
+		$(".not-resizable").resizable("destroy");
+		
 	});
 	
 	// Blocks draggable (archive)
@@ -251,6 +254,9 @@ jQuery(document).ready(function($){
 		    
 		    //open on drop
 		    ui.item.find('a.block-edit').click();
+		    
+		    //disable resizable on .not-resizable blocks
+		    $(".not-resizable").resizable("destroy");
 		    
 		}
 		
@@ -338,8 +344,6 @@ jQuery(document).ready(function($){
 		});
 		
 	}
-	
-	
 	
 	//sort nav order
 	$('.aqpb-tabs').sortable({

@@ -24,6 +24,7 @@ class AQ_Block {
  	/* PHP5 constructor */
  	function __construct($id_base = false, $block_options = array()) {
  		$this->id_base = isset($id_base) ? strtolower($id_base) : strtolower(get_class($this));
+ 		$this->name = isset($block_options['name']) ? $block_options['name'] : ucwords(preg_replace("/[^A-Za-z0-9 ]/", '', $this->id_base));
  		$this->block_options = $this->parse_block($block_options);
  	}
  	
@@ -103,14 +104,15 @@ class AQ_Block {
  	/* assign default block options if not yet set */
  	function parse_block($block_options) {
  		$defaults = array(
- 			'id_base' => $this->id_base,
- 			'order' => 0,
- 			'name' => 'Custom',
- 			'size' => 'span12',
- 			'title' => '',
- 			'parent' => 0,
- 			'number' => '__i__',
- 			'first' => false
+ 			'id_base' => $this->id_base,	//the classname
+ 			'order' => 0, 					//block order
+ 			'name' => $this->name,			//block name
+ 			'size' => 'span12',				//default size
+ 			'title' => '',					//title field
+ 			'parent' => 0,					//block parent (for blocks inside columns)
+ 			'number' => '__i__',			//block consecutive numbering
+ 			'first' => false,				//column first
+ 			'resizable' => 1,				//whether block is resizable/not
  		);
  		
  		$block_options = is_array($block_options) ? wp_parse_args($block_options, $defaults) : $defaults;
@@ -136,8 +138,9 @@ class AQ_Block {
  		extract($instance);
  		
  		$title = $title ? '<span class="in-block-title"> : '.$title.'</span>' : '';
+ 		$resizable = $resizable ? '' : 'not-resizable';
  		
- 		echo '<li id="template-block-'.$number.'" class="block block-'.$id_base.' '. $size .'">',
+ 		echo '<li id="template-block-'.$number.'" class="block block-'.$id_base.' '. $size .' '.$resizable.'">',
  				'<dl class="block-bar">',
  					'<dt class="block-handle">',
  						'<div class="block-title">',
