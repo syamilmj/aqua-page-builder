@@ -123,7 +123,7 @@ class AQ_Block {
  		extract($instance);
  		$column_class = $first ? 'aq-first' : '';
  		
- 		echo '<div id="aq-block-'.$number.'" class="aq-block aq_'.$size.' '.$column_class.' cf">';
+ 		echo '<div id="aq-block-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' cf">';
  	}
  	
  	/* block footer */

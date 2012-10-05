@@ -59,7 +59,11 @@ copy this into your theme stylesheet
 
 .aq-template-wrapper .aq-first {margin-left: 0;}
 
-/* blocks */
-.aq-block {
-	margin-bottom: 20px;
-}
+/** Blocks 
+-----------------------*/
+.aq-block { margin-bottom: 20px; }
+
+/* clear block */
+.aq-block-aq_clear_block { margin-bottom: 0px; }
+.aq-block-hr-single { margin-bottom: 20px; }
+.aq-block-hr-double { margin-bottom: 0px; }

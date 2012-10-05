@@ -160,7 +160,7 @@ function aq_block_portfolio($block) {
 	<p class="description">
 		<label for="">
 			Number of Columns<br/>
-			<?php echo aq_field_select($columns_options, $columns, $block_id, 'columns'); ?>
+			<?php echo aq_field_select('columns', $block_id, $columns_options, $columns); ?>
 		</label>
 	</p>
 	<?php
@@ -210,7 +210,7 @@ function aq_block_widgets($block) {
 	<p class="description half last">
 		<label for="">
 			Choose sidebar/widget area<br/>
-			<?php echo aq_field_select($sidebar_options, $sidebar, $block_id, 'sidebar'); ?>
+			<?php echo aq_field_select('sidebar', $block_id, $sidebar_options, $sidebar); ?>
 		</label>
 	</p>
 	<?php

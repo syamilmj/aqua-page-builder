@@ -14,18 +14,24 @@ DO NOT EDIT THIS
 	float: left;
 }
 .block-settings .description.third {
-	width: 31.33%;
+	width: 32%;
 	margin-right: 2%;
 	float: left;
 }
-.block-settings .description.two-third {
-	width: 62.66%;
+	.block-settings .description.two-third {
+		width: 64%;
+		margin-right: 2%;
+		float: left;
+	}
+.block-settings .description.fourth {
+	width: 23.5%;
 	margin-right: 2%;
 	float: left;
-}
+}	
 	.block-settings .description.half.last,
 	.block-settings .description.third.last
-	.block-settings .description.two-third.last {
+	.block-settings .description.two-third.last,
+	.block-settings .description.fourth.last {
 		margin-right: 0;
 	}
 	.span2 .block-settings .description.half,
@@ -45,7 +51,12 @@ DO NOT EDIT THIS
 	.span4 .block-settings .description.two-third,
 	.span5 .block-settings .description.two-third,
 	.span6 .block-settings .description.two-third,
-	.span7 .block-settings .description.two-third {
+	.span7 .block-settings .description.two-third,
+	.span3 .block-settings .description.fourth,
+	.span4 .block-settings .description.fourth,
+	.span5 .block-settings .description.fourth,
+	.span6 .block-settings .description.fourth,
+	.span7 .block-settings .description.fourth {
 		width: 100%;
 		margin-right: 0;
 		float: none;

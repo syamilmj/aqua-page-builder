@@ -42,15 +42,15 @@ class AQ_Clear_Block extends AQ_Block {
 			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'framework') ?>
 		</p>
 		<p class="description half">
-			<label for="<?php echo $block_id ?>_horizontal_line">
+			<label for="<?php echo $this->get_field_id('line_color') ?>">
 				Pick a horizontal line<br/>
-				<?php echo aq_field_select($line_options, $horizontal_line, $block_id, 'horizontal_line'); ?>
+				<?php echo aq_field_select('horizontal_line', $block_id, $line_options, $horizontal_line, $block_id); ?>
 			</label>
 		</p>
 		<div class="description half">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
 				Pick a line color<br/>
-				<?php echo aq_field_color_picker($line_color, $block_id, 'line_color') ?>
+				<?php echo aq_field_color_picker('line_color', $block_id, $line_color) ?>
 			</label>
 			
 		</div>
@@ -65,11 +65,11 @@ class AQ_Clear_Block extends AQ_Block {
 			case 'none':
 				break;
 			case 'single':
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';margin-bottom:0;"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background-color:'.$line_color.';"/>';
 				break;
 			case 'double':
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';margin-bottom:0;"/>';
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';margin-bottom:0;"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-double" style="background-color:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background-color:'.$line_color.';"/>';
 				break;
 			case 'image':
 //				echo '<div class="aq-block-clear aq-block-hr-image cf" style="background:'.$image.'"></div>';

@@ -36,11 +36,13 @@ require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 require_once(AQPB_PATH . 'blocks/aq-text-block.php');
 require_once(AQPB_PATH . 'blocks/aq-column-block.php');
 require_once(AQPB_PATH . 'blocks/aq-clear-block.php');
+require_once(AQPB_PATH . 'blocks/aq-widgets-block.php');
 
 //register default blocks
 aq_register_block('AQ_Text_Block');
 aq_register_block('AQ_Column_Block');
 aq_register_block('AQ_Clear_Block');
+aq_register_block('AQ_Widgets_Block');
 
 //custom action hook
 add_action('init', 'aq_page_builder_init');

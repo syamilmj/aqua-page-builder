@@ -54,24 +54,40 @@ if(class_exists('AQ_Page_Builder')) {
 	 * @todo build this into a separate class instead!
 	**/
 	
-	//select field
-	function aq_field_select($options, $selected, $block_id, $name) {
+	/* Input field - Options: $size = min, small, full */
+	function aq_field_input($field_id, $block_id, $input, $size = 'full', $type = 'text') {
+		$output = '<input type="'.$type.'" id="'. $block_id .'_'.$field_id.'" class="input-'.$size.'" value="'.$input.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
+		
+		return $output;
+	}
+	
+	/* Textarea field */
+	function aq_field_textarea($field_id, $block_id, $text, $size = 'full') {
+		$output = '<textarea id="'. $block_id .'_'.$field_id.'" class="textarea-'.$size.'" name="aq_blocks['.$block_id.']['.$field_id.']" rows="5">'.$text.'</textarea>';
+		
+		return $output;
+	}
+	
+	
+	/* Select field */
+	function aq_field_select($field_id, $block_id, $options, $selected) {
 		$options = is_array($options) ? $options : array();
-		$output = '<select id="'. $block_id .'_'.$name.'" name="aq_blocks['.$block_id.']['.$name.']">';
+		$output = '<select id="'. $block_id .'_'.$field_id.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
 		foreach($options as $key=>$value) {
-			$output .= '<option value="'.$key.'" '.selected( $selected, $key, false ).'>'.$value.'</option>';
+			$output .= '<option value="'.$key.'" '.selected( $selected, $key, false ).'>'.htmlspecialchars($value).'</option>';
 		}
 		$output .= '</select>';
 		
 		return $output;
 	}
 	
-	//color picker field
-	function aq_field_color_picker($default, $block_id, $name) {
+	/* Color picker field */
+	function aq_field_color_picker($field_id, $block_id, $default) {
 		$output = '<div class="aqpb-color-picker">';
-			$output .= '<input id="'. $block_id .'_'.$name.'" type="text" class="input-color-picker" value="'. $default .'" name="aq_blocks['.$block_id.']['.$name.']" />';
-			$output .= '<div class="cw-color-picker" rel="'. $block_id .'_'.$name.'"></div>';
+			$output .= '<input id="'. $block_id .'_'.$field_id.'" type="text" class="input-color-picker" value="'. $default .'" name="aq_blocks['.$block_id.']['.$field_id.']" />';
+			$output .= '<div class="cw-color-picker" rel="'. $block_id .'_'.$field_id.'"></div>';
 		$output .= '</div>';
+		
 		return $output;
 	}
 	
