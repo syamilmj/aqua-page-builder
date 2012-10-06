@@ -120,20 +120,8 @@ class AQ_Block {
  		return $block_options;
  	}
  	
- 	/* block header */
- 	function before_block($instance) {
- 		extract($instance);
- 		$column_class = $first ? 'aq-first' : '';
- 		
- 		echo '<div id="aq-block-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' cf">';
- 	}
  	
- 	/* block footer */
- 	function after_block($instance) {
- 		extract($instance);
- 		echo '</div>';	
- 	}
- 	
+ 	//form header
  	function before_form($instance) {
  		extract($instance);
  		
@@ -154,6 +142,7 @@ class AQ_Block {
  				'<div class="block-settings cf" id="block-settings-'.$number.'">';
  	}
  	
+ 	//form footer
  	function after_form($instance) {
  		extract($instance);
  		
@@ -167,6 +156,20 @@ class AQ_Block {
  			echo '<input type="hidden" class="number" name="'.$this->get_field_name('number').'" value="'.$number.'" />';
  		echo '</div>',
  			'</li>';
+ 	}
+ 	
+ 	/* block header */
+ 	function before_block($instance) {
+ 		extract($instance);
+ 		$column_class = $first ? 'aq-first' : '';
+ 		
+ 		echo '<div id="aq-block-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' cf">';
+ 	}
+ 	
+ 	/* block footer */
+ 	function after_block($instance) {
+ 		extract($instance);
+ 		echo '</div>';	
  	}
  	
  	function get_field_id($field) {

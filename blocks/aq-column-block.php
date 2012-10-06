@@ -14,12 +14,8 @@ class AQ_Column_Block extends AQ_Block {
 		parent::__construct('aq_column_block', $block_options);
 		
 	}
-	
-	function block() {
-	
-	}
-	
-	function form() {
+
+	function form($instance) {
 		echo '<p class="empty-column">',
 		__('Drag block items into this column box', 'framework'),
 		'</p>';
@@ -30,7 +26,7 @@ class AQ_Column_Block extends AQ_Block {
 		$instance = is_array($instance) ? wp_parse_args($instance, $this->block_options) : $this->block_options;
 		
 		//insert the dynamic block_id & block_saving_id into the array
-		$instance['block_id'] = 'aq_block_' . $instance['number'];
+		$this->block_id = 'aq_block_' . $instance['number'];
 		$instance['block_saving_id'] = 'aq_blocks[aq_block_'. $instance['number'] .']';
 		
 		extract($instance);
@@ -41,10 +37,10 @@ class AQ_Column_Block extends AQ_Block {
 		if(isset($template_id)) {
 			echo '<li id="template-block-'.$number.'" class="block block-aq_column_block '.$size.'">',
 					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
-					'<p class="empty-column">',
-					__('Drag block items into this column box', 'framework'),
-					'</p>',
-					'<ul class="blocks column-blocks cf">';
+						'<p class="empty-column">',
+							__('Drag block items into this column box', 'framework'),
+						'</p>',
+						'<ul class="blocks column-blocks cf">';
 					
 			//check if column has blocks inside it
 			$blocks = aq_get_blocks($template_id);
@@ -63,7 +59,7 @@ class AQ_Column_Block extends AQ_Block {
 					}
 				}
 			} 
-			echo '</ul>';
+			echo 		'</ul>';
 			
 		} else {
 			$this->before_form($instance);
@@ -72,6 +68,71 @@ class AQ_Column_Block extends AQ_Block {
 				
 		//after block
 		$this->after_form($instance);
+	}
+	
+	function block_callback($instance) {
+		$instance = is_array($instance) ? wp_parse_args($instance, $this->block_options) : $this->block_options;
+		
+		extract($instance);
+		
+		$col_order = $order;
+		$col_size = absint(preg_replace("/[^0-9]/", '', $size));
+		
+		//column block header
+		if(isset($template_id)) {
+			$this->before_block($instance);
+			
+			//define vars
+			$overgrid = 0; $span = 0; $first = false;
+			
+			//check if column has blocks inside it
+			$blocks = aq_get_blocks($template_id);
+			
+			//outputs the blocks
+			if($blocks) {
+				foreach($blocks as $key => $child) {
+					global $aq_registered_blocks;
+					extract($child);
+					
+					if(class_exists($id_base)) {
+						//get the block object
+						$block = $aq_registered_blocks[$id_base];
+						
+						//insert template_id into $child
+						$child['template_id'] = $template_id;
+						
+						//display the block
+						if($parent == $col_order) {
+							
+							$child_col_size = absint(preg_replace("/[^0-9]/", '', $size));
+							
+							$overgrid = $span + $child_col_size;
+							
+							if($overgrid > $col_size || $span == $col_size || $span == 0) {
+								$span = 0;
+								$first = true;
+							}
+							
+							if($first == true) {
+								$child['first'] = true;
+							}
+							
+							$block->block_callback($child);
+							
+							$span = $span + $child_col_size;
+							
+							$overgrid = 0; //reset $overgrid
+							$first = false; //reset $first
+						}
+					}
+				}
+			} 
+			
+			$this->after_block($instance);
+			
+		} else {
+			//show nothing
+		}
 	}
 	
 }

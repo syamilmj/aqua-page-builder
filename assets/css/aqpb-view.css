@@ -41,21 +41,21 @@ copy this into your theme stylesheet
 
 [class*="aq_span"] {
 	float: left;
-	margin-left: 5%;
+	margin-left: 3%;
 }
 
-.aq-template-wrapper .aq_span12 {width: 100%;}
-.aq-template-wrapper .aq_span11 {width: 91.25%;}
-.aq-template-wrapper .aq_span10 {width: 82.5%;}
-.aq-template-wrapper .aq_span9 {width: 73.75%;}
-.aq-template-wrapper .aq_span8 {width: 65%;}
-.aq-template-wrapper .aq_span7 {width: 56.25%;}
-.aq-template-wrapper .aq_span6 {width: 47.5%;}
-.aq-template-wrapper .aq_span5 {width: 38.75%;}
-.aq-template-wrapper .aq_span4 {width: 30%;}
-.aq-template-wrapper .aq_span3 {width: 21.25%;}
-.aq-template-wrapper .aq_span2 {width: 12.5%;}
-.aq-template-wrapper .aq_span1 {width: 3.75%;}
+.aq-template-wrapper .aq_span1 { width:5.58%; }
+.aq-template-wrapper .aq_span2 { width:14.17%; }
+.aq-template-wrapper .aq_span3 { width:22.75%; }
+.aq-template-wrapper .aq_span4 { width:31.33%; }
+.aq-template-wrapper .aq_span5 { width:39.92%; }
+.aq-template-wrapper .aq_span6 { width:48.5%; }
+.aq-template-wrapper .aq_span7 { width:57.08%; }
+.aq-template-wrapper .aq_span8 { width:65.67%; }
+.aq-template-wrapper .aq_span9 { width:74.25%; }
+.aq-template-wrapper .aq_span10 { width:82.83%; }
+.aq-template-wrapper .aq_span11 { width:91.42%; }
+.aq-template-wrapper .aq_span12 { width:100%; }
 
 .aq-template-wrapper .aq-first {margin-left: 0;}
 
@@ -67,3 +67,110 @@ copy this into your theme stylesheet
 .aq-block-aq_clear_block { margin-bottom: 0px; }
 .aq-block-hr-single { margin-bottom: 20px; }
 .aq-block-hr-double { margin-bottom: 0px; }
+
+
+/* column block */
+
+/* To calculate the widths, use this (PHP):
+echo '<pre>';
+
+$columns = range(1,12);
+$childcols = array();
+foreach($columns as $column) {
+	$childcols = range(1, $column);
+	foreach($childcols as $childcol) {
+		$class = '.aq-template-wrapper .aq_span'.$column.' .aq_span'.$childcol;
+		
+		$margin = 5;
+		
+		$width = ( 100 + $margin ) / ( $column ) * ( $childcol ) - ( $margin );
+		
+		$width = round($width, 2);
+		
+		print_r($class . ' { width:'. $width .'%; }<br/>');
+	}
+	
+}
+
+echo '</pre>';
+
+**/
+.aq-block-aq_column_block { margin-bottom: 0px; }
+.aq-template-wrapper .aq_span1 .aq_span1 { width:100%; }
+.aq-template-wrapper .aq_span2 .aq_span1 { width:47.5%; }
+.aq-template-wrapper .aq_span2 .aq_span2 { width:100%; }
+.aq-template-wrapper .aq_span3 .aq_span1 { width:30%; }
+.aq-template-wrapper .aq_span3 .aq_span2 { width:65%; }
+.aq-template-wrapper .aq_span3 .aq_span3 { width:100%; }
+.aq-template-wrapper .aq_span4 .aq_span1 { width:21.25%; }
+.aq-template-wrapper .aq_span4 .aq_span2 { width:47.5%; }
+.aq-template-wrapper .aq_span4 .aq_span3 { width:73.75%; }
+.aq-template-wrapper .aq_span4 .aq_span4 { width:100%; }
+.aq-template-wrapper .aq_span5 .aq_span1 { width:16%; }
+.aq-template-wrapper .aq_span5 .aq_span2 { width:37%; }
+.aq-template-wrapper .aq_span5 .aq_span3 { width:58%; }
+.aq-template-wrapper .aq_span5 .aq_span4 { width:79%; }
+.aq-template-wrapper .aq_span5 .aq_span5 { width:100%; }
+.aq-template-wrapper .aq_span6 .aq_span1 { width:12.5%; }
+.aq-template-wrapper .aq_span6 .aq_span2 { width:30%; }
+.aq-template-wrapper .aq_span6 .aq_span3 { width:47.5%; }
+.aq-template-wrapper .aq_span6 .aq_span4 { width:65%; }
+.aq-template-wrapper .aq_span6 .aq_span5 { width:82.5%; }
+.aq-template-wrapper .aq_span6 .aq_span6 { width:100%; }
+.aq-template-wrapper .aq_span7 .aq_span1 { width:10%; }
+.aq-template-wrapper .aq_span7 .aq_span2 { width:25%; }
+.aq-template-wrapper .aq_span7 .aq_span3 { width:40%; }
+.aq-template-wrapper .aq_span7 .aq_span4 { width:55%; }
+.aq-template-wrapper .aq_span7 .aq_span5 { width:70%; }
+.aq-template-wrapper .aq_span7 .aq_span6 { width:85%; }
+.aq-template-wrapper .aq_span7 .aq_span7 { width:100%; }
+.aq-template-wrapper .aq_span8 .aq_span1 { width:8.13%; }
+.aq-template-wrapper .aq_span8 .aq_span2 { width:21.25%; }
+.aq-template-wrapper .aq_span8 .aq_span3 { width:34.38%; }
+.aq-template-wrapper .aq_span8 .aq_span4 { width:47.5%; }
+.aq-template-wrapper .aq_span8 .aq_span5 { width:60.63%; }
+.aq-template-wrapper .aq_span8 .aq_span6 { width:73.75%; }
+.aq-template-wrapper .aq_span8 .aq_span7 { width:86.88%; }
+.aq-template-wrapper .aq_span8 .aq_span8 { width:100%; }
+.aq-template-wrapper .aq_span9 .aq_span1 { width:6.67%; }
+.aq-template-wrapper .aq_span9 .aq_span2 { width:18.33%; }
+.aq-template-wrapper .aq_span9 .aq_span3 { width:30%; }
+.aq-template-wrapper .aq_span9 .aq_span4 { width:41.67%; }
+.aq-template-wrapper .aq_span9 .aq_span5 { width:53.33%; }
+.aq-template-wrapper .aq_span9 .aq_span6 { width:65%; }
+.aq-template-wrapper .aq_span9 .aq_span7 { width:76.67%; }
+.aq-template-wrapper .aq_span9 .aq_span8 { width:88.33%; }
+.aq-template-wrapper .aq_span9 .aq_span9 { width:100%; }
+.aq-template-wrapper .aq_span10 .aq_span1 { width:5.5%; }
+.aq-template-wrapper .aq_span10 .aq_span2 { width:16%; }
+.aq-template-wrapper .aq_span10 .aq_span3 { width:26.5%; }
+.aq-template-wrapper .aq_span10 .aq_span4 { width:37%; }
+.aq-template-wrapper .aq_span10 .aq_span5 { width:47.5%; }
+.aq-template-wrapper .aq_span10 .aq_span6 { width:58%; }
+.aq-template-wrapper .aq_span10 .aq_span7 { width:68.5%; }
+.aq-template-wrapper .aq_span10 .aq_span8 { width:79%; }
+.aq-template-wrapper .aq_span10 .aq_span9 { width:89.5%; }
+.aq-template-wrapper .aq_span10 .aq_span10 { width:100%; }
+.aq-template-wrapper .aq_span11 .aq_span1 { width:4.55%; }
+.aq-template-wrapper .aq_span11 .aq_span2 { width:14.09%; }
+.aq-template-wrapper .aq_span11 .aq_span3 { width:23.64%; }
+.aq-template-wrapper .aq_span11 .aq_span4 { width:33.18%; }
+.aq-template-wrapper .aq_span11 .aq_span5 { width:42.73%; }
+.aq-template-wrapper .aq_span11 .aq_span6 { width:52.27%; }
+.aq-template-wrapper .aq_span11 .aq_span7 { width:61.82%; }
+.aq-template-wrapper .aq_span11 .aq_span8 { width:71.36%; }
+.aq-template-wrapper .aq_span11 .aq_span9 { width:80.91%; }
+.aq-template-wrapper .aq_span11 .aq_span10 { width:90.45%; }
+.aq-template-wrapper .aq_span11 .aq_span11 { width:100%; }
+.aq-template-wrapper .aq_span12 .aq_span1 { width:3.75%; }
+.aq-template-wrapper .aq_span12 .aq_span2 { width:12.5%; }
+.aq-template-wrapper .aq_span12 .aq_span3 { width:21.25%; }
+.aq-template-wrapper .aq_span12 .aq_span4 { width:30%; }
+.aq-template-wrapper .aq_span12 .aq_span5 { width:38.75%; }
+.aq-template-wrapper .aq_span12 .aq_span6 { width:47.5%; }
+.aq-template-wrapper .aq_span12 .aq_span7 { width:56.25%; }
+.aq-template-wrapper .aq_span12 .aq_span8 { width:65%; }
+.aq-template-wrapper .aq_span12 .aq_span9 { width:73.75%; }
+.aq-template-wrapper .aq_span12 .aq_span10 { width:82.5%; }
+.aq-template-wrapper .aq_span12 .aq_span11 { width:91.25%; }
+.aq-template-wrapper .aq_span12 .aq_span12 { width:100%; }

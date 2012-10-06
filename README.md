@@ -1,7 +1,7 @@
 ## AQUA PAGE BUILDER 
 
 * Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
-* License:	GPLv3 [link](http://www.gnu.org/copyleft/gpl.html)
+* License:		GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
 * Notes:		You may not use this without my written permission
 
 ### Overview

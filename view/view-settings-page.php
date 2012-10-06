@@ -6,7 +6,11 @@
  * @package Aqua Page Builder
  *
  */
-
+if(isset($_POST) && $this->args['debug'] == true) {
+	echo '<pre>';
+	print_r($_POST);
+	echo '</pre>';
+}
 // Permissions Check
 if ( ! current_user_can('edit_theme_options') )
 	wp_die( __( 'Cheatin&#8217; uh?' ) );
@@ -118,8 +122,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 				<h3 class="hndle"><span><?php _e('Available Blocks', 'framework') ?></span><span id="removing-block"><?php _e('Deleting', 'framework') ?></span></h3>
 				<div class="inside">
 					<ul id="blocks-archive" class="cf">
-						<?php
-						$this->blocks_archive() ?>
+						<?php $this->blocks_archive() ?>
 					</ul>
 				</div>
 			</div>

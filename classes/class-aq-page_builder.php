@@ -373,6 +373,7 @@ class AQ_Page_Builder {
 				<div id="main" class="cf">
 					<div id="content" class="cf">
 						<?php $this->display_template(get_the_ID()); ?>
+						<?php if($this->args['debug'] == true) print_r(aq_get_blocks(get_the_ID())) //for debugging ?>
 					</div>
 				</div>
 			<?php

@@ -22,7 +22,8 @@ class AQ_Clear_Block extends AQ_Block {
 		$defaults = array(
 			'horizontal_line' => 'none',
 			'line_color' => '#353535',
-			'image' => '1',
+			'pattern' => '1',
+			'height' => ''
 		);
 		
 		$line_options = array(
@@ -38,19 +39,26 @@ class AQ_Clear_Block extends AQ_Block {
 		$line_color = isset($line_color) ? $line_color : '#353535';
 		
 		?>
-		<p class="description">
+		<p class="description note">
 			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'framework') ?>
 		</p>
-		<p class="description half">
+		<p class="description third">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
 				Pick a horizontal line<br/>
 				<?php echo aq_field_select('horizontal_line', $block_id, $line_options, $horizontal_line, $block_id); ?>
 			</label>
 		</p>
-		<div class="description half">
+		<div class="description third">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
 				Pick a line color<br/>
 				<?php echo aq_field_color_picker('line_color', $block_id, $line_color) ?>
+			</label>
+			
+		</div>
+		<div class="description third last">
+			<label for="<?php echo $this->get_field_id('height') ?>">
+				Height (optional)<br/>
+				<?php echo aq_field_input('height', $block_id, $height, 'min', 'number') ?>
 			</label>
 			
 		</div>
@@ -75,6 +83,11 @@ class AQ_Clear_Block extends AQ_Block {
 //				echo '<div class="aq-block-clear aq-block-hr-image cf" style="background:'.$image.'"></div>';
 				break;
 		}
+		
+		if($height) {
+			echo '<div class="cf" style="height:'.$height.'px"></div>';
+		}
+		
 	}
 	
 }

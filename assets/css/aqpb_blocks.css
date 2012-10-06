@@ -7,7 +7,7 @@ DO NOT EDIT THIS
 
 */
 
-/*basic form elements*/
+/** BASIC FORM ELEMENTS **/
 .block-settings .description.half {
 	width: 49%;
 	margin-right: 2%;
@@ -29,7 +29,7 @@ DO NOT EDIT THIS
 	float: left;
 }	
 	.block-settings .description.half.last,
-	.block-settings .description.third.last
+	.block-settings .description.third.last,
 	.block-settings .description.two-third.last,
 	.block-settings .description.fourth.last {
 		margin-right: 0;
@@ -61,8 +61,14 @@ DO NOT EDIT THIS
 		margin-right: 0;
 		float: none;
 	}
+
+.block-settings .description.note {
+	font-style: normal;
+}
+
+/** BASIC FORM INPUTS **/
 	
-/*inputs*/
+/* Inputs */
 .block-settings input[type="text"], .block-settings textarea { 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -79,7 +85,7 @@ DO NOT EDIT THIS
 	float: left;
 }
 
-/*columns*/
+/* Columns */
 #blocks-to-edit .block-aq_column_block {
 	padding: 4px;
 	background: #FCFCFC;
@@ -99,9 +105,10 @@ DO NOT EDIT THIS
 	color: #888;
 }
 
-/* color picker */
+/* Color Picker */
 .aqpb-color-picker {
 	position: relative;
+	margin-bottom: 5px;
 }
 	.cw-color-picker {
 		background: #f5f5f5;

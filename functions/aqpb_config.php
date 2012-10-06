@@ -30,6 +30,9 @@ function aq_page_builder_config() {
 		'left-sidebar' => 'Left Sidebar',
 	);
 	
+	//Debugging
+	$config['debug'] = false;
+	
 	// Available blocks
 	$config['available-blocks'] = array(
 		'text' => array(
