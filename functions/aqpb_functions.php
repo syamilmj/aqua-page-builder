@@ -82,11 +82,19 @@ if(class_exists('AQ_Page_Builder')) {
 	}
 	
 	/* Color picker field */
-	function aq_field_color_picker($field_id, $block_id, $default) {
+	function aq_field_color_picker($field_id, $block_id, $color) {
 		$output = '<div class="aqpb-color-picker">';
-			$output .= '<input id="'. $block_id .'_'.$field_id.'" type="text" class="input-color-picker" value="'. $default .'" name="aq_blocks['.$block_id.']['.$field_id.']" />';
+			$output .= '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-color-picker" value="'. $color .'" name="aq_blocks['.$block_id.']['.$field_id.']" />';
 			$output .= '<div class="cw-color-picker" rel="'. $block_id .'_'.$field_id.'"></div>';
 		$output .= '</div>';
+		
+		return $output;
+	}
+	
+	/* Single Checkbox */
+	function aq_field_checkbox($field_id, $block_id, $check) {
+		$output = '<input type="hidden" name="aq_blocks['.$block_id.']['.$field_id.']" value="0" />';
+		$output .= '<input type="checkbox" id="'. $block_id .'_'.$field_id.'" class="input-checkbox" name="aq_blocks['.$block_id.']['.$field_id.']" '. checked( 1, $check, false ) .' value="1"/>';
 		
 		return $output;
 	}
