@@ -66,4 +66,3 @@ $aq_plugin_updater_config = array(
 	'filename'	=> AQPB_FILENAME
 );
 $aq_plugin_updater = new AQ_Plugin_Updater($aq_plugin_updater_config);
-//set_site_transient('update_plugins', null); //updater testing
