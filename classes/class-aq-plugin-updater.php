@@ -1,5 +1,4 @@
 <?php
-
 // Take over the update check
 if(!class_exists('AQ_Plugin_Updater')) {
 	class AQ_Plugin_Updater {	
@@ -46,12 +45,15 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			// Start checking for an update
 			$raw_response = wp_remote_post($this->args['api_url'], $request_string);
+//			print_r($raw_response);//debugging
 			
+			// Process update data
 			if (!is_wp_error($raw_response) && ($raw_response['response']['code'] == 200))
 				$response = json_decode($raw_response['body']);
 			
-			if (is_object($response) && !empty($response)) // Feed the update data into WP updater
-				$checked_data->response[$this->args['slug'] .'/'. $this->args['slug'] .'.php'] = $response;
+			// Feed the update data into WP updater
+			if (is_object($response) && !empty($response))
+				$checked_data->response[$this->args['slug'] .'/'. $this->args['filename']] = $response;
 				
 			return $checked_data;
 		}
