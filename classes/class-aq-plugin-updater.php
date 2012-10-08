@@ -1,4 +1,5 @@
 <?php
+
 // Take over the update check
 if(!class_exists('AQ_Plugin_Updater')) {
 	class AQ_Plugin_Updater {	
@@ -6,11 +7,13 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			$defaults = array(
 				'api_url'	=> 'http://aquagraphite.com/api/',
-				'slug'		=> AQPB_DIRNAME,
-				'filename'	=> AQPB_FILENAME
+				'slug'		=> '',
+				'filename'	=> ''
 			);
 			
 			$this->args = wp_parse_args($config, $defaults);
+			
+			if(empty($this->args['slug']) || empty($this->args['filename'])) return false;
 			
 			//hook filters
 			add_filter('pre_set_site_transient_update_plugins', array($this, 'check_update'));
