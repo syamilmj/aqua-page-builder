@@ -17,9 +17,10 @@ theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 ### Developer's Guide
 
-http://aquagraphite.com/api/dev/aqua-page-builder
+Please refer to our wiki - [Aqua Page Builder's Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki)
 
-### Issues, Feedbacks, Help?
+### Bugs, Issues, Feedbacks, Help?
 
-Please use the Issues page on Aqua Page Builder's repository on github.
-If you need general help, please contact me directly via this [contact form](http://aquagraphite.com/about)
+Please report any bugs, issues, feedbacks or get help on the Aqua Page Builder's Issues page on Github - [Issues page](https://github.com/sy4mil/Aqua-Page-Builder/issues).
+
+If you need general help that can't possibly be answered on the Issues page, please contact me directly via this [contact form](http://aquagraphite.com/about).
