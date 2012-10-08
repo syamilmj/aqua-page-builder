@@ -1,7 +1,4 @@
 <?php
-//	Prevent direct access to script
-if(!defined(ABSPATH)) die('-1');
-
 // Take over the update check
 if(!class_exists('AQ_Plugin_Updater')) {
 	class AQ_Plugin_Updater {	
@@ -9,8 +6,8 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			$defaults = array(
 				'api_url'	=> 'http://aquagraphite.com/api/',
-				'slug'		=> '',
-				'filename'	=> ''
+				'slug'		=> AQPB_DIRNAME,
+				'filename'	=> AQPB_FILENAME
 			);
 			
 			$this->args = wp_parse_args($config, $defaults);
@@ -30,7 +27,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			$args = array(
 				'slug' => $this->args['slug'],
-				'version' => $checked_data->checked[$this->args['slug'] .'/'. $this->args['slug'] .'.php'],
+				'version' => $checked_data->checked[$this->args['slug'] .'/'. $this->args['filename']],
 			);
 			
 			$request_string = array(
@@ -52,7 +49,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			if (is_object($response) && !empty($response)) // Feed the update data into WP updater
 				$checked_data->response[$this->args['slug'] .'/'. $this->args['slug'] .'.php'] = $response;
-			
+				
 			return $checked_data;
 		}
 	
@@ -108,7 +105,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			$proper_destination = WP_PLUGIN_DIR.'/'.$this->args['slug'];
 			$wp_filesystem->move( $result['destination'], $proper_destination );
 			$result['destination'] = $proper_destination;
-			$activate = activate_plugin( WP_PLUGIN_DIR.'/'.$this->args['slug'] );
+			$activate = activate_plugin( WP_PLUGIN_DIR.'/'.$this->args['slug'].'/'.$this->args['filename'] );
 	
 			// Output the update message
 			$fail		= __('The plugin has been updated, but could not be reactivated. Please reactivate it manually.', 'framework');
