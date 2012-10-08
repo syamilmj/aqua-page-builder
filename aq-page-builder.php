@@ -27,10 +27,10 @@ define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');
-require_once(AQPB_PATH . 'functions/aqpb_functions.php');
+require_once(AQPB_PATH . 'functions/aqpb_blocks.php');
 require_once(AQPB_PATH . 'classes/class-aq-page-builder.php');
 require_once(AQPB_PATH . 'classes/class-aq-block.php');
-
+require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 
 //some default blocks
 require_once(AQPB_PATH . 'blocks/aq-text-block.php');
