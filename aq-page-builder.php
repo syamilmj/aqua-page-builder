@@ -1,7 +1,7 @@
 <?php
 /** بسم الله الرحمن الرحيم **
  *
- * Plugin Name: Page Builder
+ * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Easily create custom layouts and page elements.
  * Version: 1.0.0
@@ -27,10 +27,10 @@ define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');
-require_once(AQPB_PATH . 'functions/aqpb_blocks.php');
-require_once(AQPB_PATH . 'classes/class-aq-page_builder.php');
-require_once(AQPB_PATH . 'classes/class-aq-block.php');
 require_once(AQPB_PATH . 'functions/aqpb_functions.php');
+require_once(AQPB_PATH . 'classes/class-aq-page-builder.php');
+require_once(AQPB_PATH . 'classes/class-aq-block.php');
+
 
 //some default blocks
 require_once(AQPB_PATH . 'blocks/aq-text-block.php');

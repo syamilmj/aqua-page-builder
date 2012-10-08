@@ -8,11 +8,8 @@
  *
  * @since forever
  **/
-
-//	Prevent direct access to script
-if(!defined(ABSPATH)) die('-1');
-
-if(!class_exists('AQ_Page_Builder') {
+ 
+if(!class_exists('AQ_Page_Builder')) {
 	class AQ_Page_Builder {
 		
 		public $url = AQPB_DIR;

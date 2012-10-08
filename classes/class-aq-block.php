@@ -7,9 +7,6 @@
  *
  * @package Aqua Page Builder
  */
- 
-//	Prevent direct access to script
-if(!defined(ABSPATH)) die('-1');
 
 $aq_registered_blocks = array();
 
