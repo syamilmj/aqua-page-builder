@@ -88,7 +88,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			$request = wp_remote_post($this->args['api_url'], $request_string);
 			
 			if (is_wp_error($request)) {
-				$result = new WP_Error('plugins_api_failed', __('An Unexpected HTTP Error occurred during the API request.</p> <p><a href="?" onclick="document.location.reload(); return false;">Try again</a>'), $request->get_error_message());
+				$result = new WP_Error('plugins_api_failed', __('An Unexpected HTTP Error occurred during the API request.</p> <p><a href="?" onclick="document.location.reload(); return false;">Try again</a>', 'framework'), $request->get_error_message());
 			} else {
 				$result = unserialize($request['body']);
 				if ($result === false) {

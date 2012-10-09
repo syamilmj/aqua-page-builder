@@ -467,12 +467,12 @@ if(!class_exists('AQ_Page_Builder')) {
 				$screen->add_help_tab( array(
 				'id'		=> 'page-builder',
 				'title'		=> __('Page Builder'),
-				'content'	=> 'another text',
+				'content'	=> '<p>another text</p>',
 				) );
 				$screen->set_help_sidebar(
 					'<p><strong>' . __('For more information:') . '</strong></p>' .
-					'<p>' . __('<a href="http://aquagraphite.com/api/documentation/aqua-page-builder" target="_blank">Documentation on Menus</a>') . '</p>' .
-					'<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
+					'<p>' . __('<a href="http://aquagraphite.com/api/documentation/aqua-page-builder" target="_blank">Documentation</a>') . '</p>' .
+					'<p>' . __('<a href="http://aquagraphite.com/api/changelog/aqua-page-builder" target="_blank">Changelog</a>') . '</p>'
 				);
 			}
 		}

@@ -61,7 +61,7 @@ copy this into your theme stylesheet
 
 /** Blocks 
 -----------------------*/
-.aq-block { margin-bottom: 20px; }
+.aq-block {  }
 
 /* clear block */
 .aq-block-aq_clear_block { margin-bottom: 0px; }

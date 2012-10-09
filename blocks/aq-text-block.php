@@ -40,7 +40,7 @@ class AQ_Text_Block extends AQ_Block {
 	
 	function block($instance) {
 		extract($instance);
-		echo do_shortcode(htmlspecialchars_decode($text));
+		echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
 	}
 	
 }

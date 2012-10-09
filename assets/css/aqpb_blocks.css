@@ -8,6 +8,9 @@ DO NOT EDIT THIS
 */
 
 /** BASIC FORM ELEMENTS **/
+.block-settings .description {
+	margin: 2px 0 5px;
+}
 .block-settings .description.half {
 	width: 49%;
 	margin-right: 2%;
