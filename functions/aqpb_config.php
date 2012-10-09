@@ -18,10 +18,7 @@ function aq_page_builder_config() {
 	$config['contextual_help'] = 
 		'<p>' . __('The page builder allows you to create custom page templates which you can later use for your pages.', 'framework') . '<p>' .
 		'<p>' . __('To use the page builder, start by adding a new template. You can drag and drop the blocks on the left into the building area on the right of the screen. Each block has its own unique configuration which you can manually configure to suit your needs', 'framework') . '<p>' .
-		'<p>' . __('Please refer to the documentation that comes with the theme for more information on how to use this feature.', 'framework') . '<p>' .
-		
-		//this holds the copyright information, do not delete!
-		'<p style="text-align:right"><small>Aqua Page Builder &copy; 2012 by <a href="http://aquagraphite.com">Syamil MJ</a></small><p>';
+		'<p>' . __('Please refer to the documentation that comes with the theme for more information on how to use this feature.', 'framework') . '<p>';
 	
 	// Available Layouts
 	$config['layouts'] = array (

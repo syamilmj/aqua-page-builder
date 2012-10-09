@@ -16,7 +16,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			//hook filters
 			add_filter('pre_set_site_transient_update_plugins', array($this, 'check_update'));
-			add_filter('plugins_api', array($this, 'api_call'), 10, 3);
+			add_filter('plugins_api', array($this, 'plugin_api_call'), 10, 3);
 			add_filter( 'upgrader_post_install', array($this, 'upgrader_post_install'), 10, 3 );
 		}
 		
@@ -45,7 +45,6 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			// Start checking for an update
 			$raw_response = wp_remote_post($this->args['api_url'], $request_string);
-//			print_r($raw_response);//debugging
 			
 			// Process update data
 			if (!is_wp_error($raw_response) && ($raw_response['response']['code'] == 200))
@@ -63,7 +62,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 		 *
 		 * Handles the Plugin API Call
 		 */
-		function api_call($defaults, $action, $args) {
+		function plugin_api_call($defaults, $action, $args) {
 			global $wp_version;
 			
 			if ($args->slug != $this->args['slug'])

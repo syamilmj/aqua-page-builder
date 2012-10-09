@@ -462,7 +462,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				$screen->add_help_tab( array(
 				'id'		=> 'overview',
 				'title'		=> __('Overview'),
-				'content'	=> $this->args['contextual_help'],
+				'content'	=> $this->args['contextual_help'] . '<p style="text-align:right"><small>Aqua Page Builder &copy; 2012 by <a href="http://aquagraphite.com">Syamil MJ</a>  |  Version '.AQPB_VERSION.'</small></p>',
 				) );
 				$screen->add_help_tab( array(
 				'id'		=> 'page-builder',

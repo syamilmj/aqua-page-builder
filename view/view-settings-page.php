@@ -263,8 +263,9 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 					</div>
 				</form>
 			</div>
-		
-		
+			<p style="float:left"><small>Aqua Page Builder &copy; 2012 by <a href="http://aquagraphite.com">Syamil MJ</a></small></p>
+			<p style="float:right"><small>Version <?php echo AQPB_VERSION ?></small></p>
+			
 		</div>
 		
 		
