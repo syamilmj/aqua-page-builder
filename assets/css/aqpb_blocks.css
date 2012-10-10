@@ -9,8 +9,11 @@ DO NOT EDIT THIS
 
 /** BASIC FORM ELEMENTS **/
 .block-settings .description {
-	margin: 2px 0 5px;
+	margin: 5px 0 7px;
 }
+	.block-settings > p.description:last-child {
+		margin-bottom: 0;
+	}
 .block-settings .description.half {
 	width: 49%;
 	margin-right: 2%;
