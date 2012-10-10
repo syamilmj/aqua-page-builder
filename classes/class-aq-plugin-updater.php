@@ -1,4 +1,12 @@
 <?php
+/**
+ * AQ_Plugin_Updater Class
+ *
+ * Request for any later version of the plugin available
+ * on Github. Downloads it if user chose to update
+ *
+ * @author Syamil MJ <http://aquagraphite.com>
+ */
 // Take over the update check
 if(!class_exists('AQ_Plugin_Updater')) {
 	class AQ_Plugin_Updater {	
@@ -70,7 +78,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			
 			// Get the current version
 			$plugin_info = get_site_transient('update_plugins');
-			$current_version = $plugin_info->checked[$this->args['slug'] .'/'. $this->args['slug'] .'.php'];
+			$current_version = $plugin_info->checked[$this->args['slug'] .'/'.  $this->args['filename']];
 			$args->version = $current_version;
 			
 			$request_string = array(
@@ -82,7 +90,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 					'user-agent' => 'WordPress/' . $wp_version . '; ' . site_url(),
 					'timeout' => 30,
 					'redirection' => 0
-				);
+			);
 			
 			$request = wp_remote_post($this->args['api_url'], $request_string);
 			

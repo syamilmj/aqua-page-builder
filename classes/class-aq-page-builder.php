@@ -24,12 +24,12 @@ if(!class_exists('AQ_Page_Builder')) {
 			$defaults['menu_title'] = __('Page Builder', 'framework');
 			$defaults['page_title'] = __('Page Builder', 'framework');
 			$defaults['page_slug'] = __('aq-page-builder', 'framework');
+			$defaults['debug'] = false;
 			
 			$this->args = wp_parse_args($config, $defaults);
+			
 			$this->args['page_url'] = esc_url(add_query_arg(
-				array(
-					'page' => $this->args['page_slug']
-				),
+				array('page' => $this->args['page_slug']),
 				admin_url( 'themes.php' )
 			));
 		}
@@ -102,12 +102,13 @@ if(!class_exists('AQ_Page_Builder')) {
 		 */
 		function register_template_post_type() {
 			if(!post_type_exists('template')) {
-				register_post_type( 'template', array(
+			
+				$template_args = array(
 					'labels' => array(
 						'name' => 'Templates',
 					),
-					'public' => true,
-					'show_ui' => true,
+					'public' => false,
+					'show_ui' => false,
 					'capability_type' => 'page',
 					'hierarchical' => false,
 					'rewrite' => false,
@@ -115,7 +116,17 @@ if(!class_exists('AQ_Page_Builder')) {
 					'query_var' => false,
 					'can_export' => true,
 					'show_in_nav_menus' => false
-				) );
+				);
+				
+				if($this->args['debug'] == true && WP_DEBUG == true) {
+					$template_args['public'] = true;
+					$template_args['show_ui'] = true;
+				}
+				
+				register_post_type( 'template', $template_args);
+				
+			} else {
+				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'aqpb') .'</p></div>';"));
 			}
 		}
 		
