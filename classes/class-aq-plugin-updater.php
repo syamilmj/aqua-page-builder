@@ -111,18 +111,22 @@ if(!class_exists('AQ_Plugin_Updater')) {
 		function upgrader_post_install( $true, $hook_extra, $result ) {
 			global $wp_filesystem;
 			
-			echo '<p>' . __('Correcting plugin folder name & activating plugin...', 'framework') .'</p>';
+			if( isset($hook_extra['plugin']) && stristr($hook_extra['plugin'], $this->args['slug']) ) {
 			
-			// Move & Activate
-			$proper_destination = WP_PLUGIN_DIR.'/'.$this->args['slug'];
-			$wp_filesystem->move( $result['destination'], $proper_destination );
-			$result['destination'] = $proper_destination;
-			$activate = activate_plugin( WP_PLUGIN_DIR.'/'.$this->args['slug'].'/'.$this->args['filename'] );
-	
-			// Output the update message
-			$fail		= __('The plugin has been updated, but could not be reactivated. Please reactivate it manually.', 'framework');
-			$success	= __('Plugin reactivated successfully.', 'framework');
-			echo is_wp_error( $activate ) ? $fail : $success;
+				echo '<p>' . __('Correcting plugin folder name & activating plugin...', 'framework') .'</p>';
+				
+				// Move & Activate
+				$proper_destination = WP_PLUGIN_DIR.'/'.$this->args['slug'] .'/';
+				$wp_filesystem->move( $result['destination'], $proper_destination );
+				$result['destination'] = $proper_destination;
+				$activate = activate_plugin( $proper_destination .$this->args['filename'] );
+		
+				// Output the update message
+				$fail		= __('The plugin has been updated, but could not be reactivated. Please reactivate it manually.', 'framework');
+				$success	= __('Plugin reactivated successfully.', 'framework');
+				echo is_wp_error( $activate ) ? $fail : $success;
+			
+			}
 			
 			return $result;
 		

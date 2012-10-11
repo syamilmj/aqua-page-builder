@@ -44,7 +44,8 @@ if(!class_exists('AQ_Block')) {
 	 	/**
 	 	 * The callback function to be called on blocks saving
 	 	 * 
-	 	 * You should use this to do any filtering, sanitation etc
+	 	 * You should use this to do any filtering, sanitation etc. The default
+	 	 * filtering is sufficient for most cases, but nowhere near perfect!
 	 	 */
 	 	function update($new_instance, $old_instance) {
 	 		$new_instance = array_map('htmlspecialchars', array_map('stripslashes', $new_instance));
