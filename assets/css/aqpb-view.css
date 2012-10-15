@@ -174,3 +174,56 @@ echo '</pre>';
 .aq-template-wrapper .aq_span12 .aq_span10 { width:82.5%; }
 .aq-template-wrapper .aq_span12 .aq_span11 { width:91.25%; }
 .aq-template-wrapper .aq_span12 .aq_span12 { width:100%; }
+
+/* Alert Boxes */
+.aq_alert{
+	border:1px solid #d8d8d8; 
+	background-color:#FEFEFE;
+	padding:10px 20px;
+	margin:0.5em 0 20px;
+}
+	.aq_alert h1,
+	.aq_alert h2,
+	.aq_alert h3,
+	.aq_alert h4,
+	.aq_alert h5,
+	.aq_alert h6 {
+		margin: 0 0 5px;
+	}
+.aq_alert.info{background-color:#EFF9FF;border:1px solid #b4ddfa; color: #2b6181;}
+	.aq_alert.info h1,
+	.aq_alert.info h2,
+	.aq_alert.info h3,
+	.aq_alert.info h4,
+	.aq_alert.info h5,
+	.aq_alert.info h6 {
+		color: #2b6181;
+	}
+.aq_alert.note{background-color:#FFFCE5;border:1px solid #ffdc7d; color:#D69A2A;}
+	.aq_alert.note h1,
+	.aq_alert.note h2,
+	.aq_alert.note h3,
+	.aq_alert.note h4,
+	.aq_alert.note h5,
+	.aq_alert.note h6 {
+		color: #D69A2A;
+	}
+.aq_alert.warn{background-color:#ffcaca;border:1px solid #eb8d8d; color: #da3838;}
+	.aq_alert.warn h1,
+	.aq_alert.warn h2,
+	.aq_alert.warn h3,
+	.aq_alert.warn h4,
+	.aq_alert.warn h5,
+	.aq_alert.warn h6 {
+		color: #da3838;
+	}
+.aq_alert.tips{background-color:#d6fedd;border:1px solid #86d492; color:#589261;}
+	.aq_alert.tips h1,
+	.aq_alert.tips h2,
+	.aq_alert.tips h3,
+	.aq_alert.tips h4,
+	.aq_alert.tips h5,
+	.aq_alert.tips h6 {
+		color:#589261;
+	}
+.aq_alert h1, .aq_alert h2, .aq_alert h3 { margin: 0; }
