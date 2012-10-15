@@ -126,6 +126,56 @@ DO NOT EDIT THIS
 		width: 70px;
 	}
 
+/* Tabs/Toggles */
+.block-tabs-tab {
+	background: #fff;
+	border: 1px solid #d8d8d8;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.block-tabs-tabs-list {
+	position: relative;
+	
+}
+.block-tabs-tab-head,
+.block-tabs-tab-body {
+	padding: 10px;
+	position: relative;
+}
+	.block-tabs-tab-title {
+		margin-right: 20px;
+		float: left;
+	}
+	.block-tabs-tab-body {
+		padding-top: 0;
+		display: none;
+	}
+
+.block-tabs-tab-head-handle {
+	float: right;
+}
+	.block-tabs-tab-head-handle a {
+		position: absolute;
+		right: 0px;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 30px;
+		text-indent: -999em;
+		background: transparent url(../images/tab-arrows.png) no-repeat 8px -64px;
+		border-bottom-color: #eee;
+	}
+		.block-tabs-tab-head-handle a:hover {
+			background-position: 8px 0px;
+		}
+.block-tabs-add-new {
+	margin-top: 10px;
+}
+.block-tabs-tab-delete {
+	font-style: normal;
+}
+
 /** Customs
 Insert your own custom CSS below this line **/
 #blocks-archive .block-featured_portfolio .block-title { font-size: 11px; }

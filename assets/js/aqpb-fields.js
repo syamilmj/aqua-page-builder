@@ -10,7 +10,8 @@ jQuery.noConflict();
  */
 jQuery(document).ready(function($){
 
-	// colorpicker field
+	/** Colorpicker Field
+	----------------------------------------------- */
 	jQuery('.cw-color-picker').each(function(){
 		var $this = jQuery(this),
 			id = $this.attr('rel');
@@ -27,7 +28,8 @@ jQuery(document).ready(function($){
 		});
 	});
 	
-	// Media Uploader
+	/** Media Uploader
+	----------------------------------------------- */
 	jQuery('.aq_upload_button').each(function() {
 	
 		jQuery(this).click(function() {
@@ -55,6 +57,72 @@ jQuery(document).ready(function($){
 	
 	});
 	
-	// AJAX add new tab/toggle
+	/** Tabs Block
+	----------------------------------------------- */
+	// AJAX Add new tab
+	function aq_tabs_block_add_tab(tabs) {
+		
+		var blockID = tabs.attr('rel');
+		
+		var numArr = tabs.find('li').map(function(i, e){
+			return $(e).attr("rel");
+		});
+		
+		var maxNum = Math.max.apply(Math, numArr);
+		if (maxNum < 1 ) { maxNum = 0};
+		var newNum = maxNum + 1;
+		
+		var data = {
+			action: 'aq_block_tab_add_new',
+			security: $('#aqpb-nonce').val(),
+			count: newNum,
+			block_id: blockID
+		};
+		
+		$.post(ajaxurl, data, function(response) {
+			var check = response.charAt(response.length - 1);
+			
+			//check nonce
+			if(check == '-1') {
+				alert('An unknown error has occurred');
+			} else {
+				tabs.append(response);
+			}
+						
+		});
+	};
+	
+	// Tab Sortable
+	function aq_tabs_block_sortable() {
+		$('.block-tabs-tabs-list').sortable({
+			containment: "parent"
+		});
+	}
+	aq_tabs_block_sortable()
+	
+	$(document).on('click', 'a.block-tabs-add-new', function() {
+		var tabs = $(this).parent().children('ul.block-tabs-tabs-list');
+		aq_tabs_block_add_tab(tabs);
+		aq_tabs_block_sortable();
+		return false;
+		
+	});
+	
+	// Open/Close Tab
+	$(document).on('click', '.block-tabs-tab-head-handle a', function() {
+		var clicked = $(this);
+		$(clicked.get(0).parentNode.parentNode.parentNode).children('.block-tabs-tab-body').slideToggle();
+		return false;
+	});
+	
+	// Delete Tab
+	$(document).on('click', 'a.block-tabs-tab-delete', function() {
+		var clicked = $(this);
+		$(clicked.get(0).parentNode.parentNode.parentNode).children('.block-tabs-tab-head').css('background', 'red');
+		$(clicked.get(0).parentNode.parentNode.parentNode).slideUp(function() {
+			$(this).remove();
+		}).fadeOut('fast');
+		return false;
+	});
 		
 });

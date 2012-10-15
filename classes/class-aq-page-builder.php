@@ -83,7 +83,7 @@ if(!class_exists('AQ_Page_Builder')) {
 	        wp_enqueue_style('thickbox');  
 	        wp_enqueue_script('media-upload'); 
 			
-			//hook to register custom style/scripts
+			// Hook to register custom style/scripts
 			do_action('aq-page-builder-admin-enqueue');
 		}
 		
@@ -94,10 +94,15 @@ if(!class_exists('AQ_Page_Builder')) {
 		 */
 		function view_enqueue() {
 			//register 'em
-			wp_register_style( 'aqpb-view', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+			wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+			wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
 			
 			//enqueue 'em
-			wp_enqueue_style('aqpb-view');
+			wp_enqueue_style('aqpb-view-css');
+			wp_enqueue_script('aqpb-view-js');
+			
+			//hook to register custom style/scripts
+			do_action('aq-page-builder-view-enqueue');
 		}
 		
 		/**
