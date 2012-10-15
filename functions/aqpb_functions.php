@@ -43,7 +43,7 @@ if(class_exists('AQ_Page_Builder')) {
 		if ( !array_key_exists( 'template', $shortcode_tags ) ) {
 			add_shortcode( 'template', 'aq_display_template' );
 		} else {
-			add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'aqpb') .'</p></div>';"));
+			add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'framework') .'</p></div>';"));
 		}
 		
 	/** 
@@ -81,6 +81,19 @@ if(class_exists('AQ_Page_Builder')) {
 		return $output;
 	}
 	
+	/* Multiselect field */
+	function aq_field_multiselect($field_id, $block_id, $options, $selected_keys = array()) {
+		$output = '<select id="'. $block_id .'_'.$field_id.'" multiple="multiple" class="select of-input" name="aq_blocks['.$block_id.']['.$field_id.'][]">';
+		foreach ($options as $key => $option) {
+			$selected = '';
+			if(is_array($selected_keys) && in_array($key, $selected_keys)) $selected = 'selected="selected"';			
+			$output .= '<option id="'. $block_id .'_'.$field_id.'_'. $key .'" value="'.$key.'" '. $selected .' />'.$option.'</option>';
+		}
+		$output .= '</select>';
+		
+		return $output;
+	}
+	
 	/* Color picker field */
 	function aq_field_color_picker($field_id, $block_id, $color) {
 		$output = '<div class="aqpb-color-picker">';
@@ -98,6 +111,20 @@ if(class_exists('AQ_Page_Builder')) {
 		
 		return $output;
 	}
+	
+	/* Multi Checkbox */
+	function aq_field_multicheck($field_id, $block_id, $fields = array()) {
+	
+	}
+	
+	/* Media Uploader */
+	function aq_field_upload($field_id, $block_id, $media, $media_type = 'img') {
+		$output = '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-full" value="'.$media.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
+		$output .= '<a href="#" class="aq_upload_button button" rel="'.$media_type.'">Upload</a>';
+		
+		return $output;
+	}
+	
 	
 	/**--------------**/
 	

@@ -73,7 +73,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 		function plugin_api_call($defaults, $action, $args) {
 			global $wp_version;
 			
-			if ($args->slug != $this->args['slug'])
+			if (!isset($args->slug) || $args->slug != $this->args['slug'])
 				return false;
 			
 			// Get the current version

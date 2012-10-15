@@ -216,6 +216,8 @@ jQuery(document).ready(function($){
 	});
 	
 	$( "ul.blocks" ).bind( "sortstop", function(event, ui) {
+		
+		//if coming from archive
 		if (ui.item.hasClass('ui-draggable')) {
 		
 			//remove draggable class
@@ -235,11 +237,6 @@ jQuery(document).ready(function($){
 		    if(ui.item.hasClass('block-aq_column_block')) {
 		    	ui.item.find('.block-bar').remove();
 		    	ui.item.find('.block-settings').removeClass('block-settings').addClass('block-settings-column');
-		    	if(ui.item.parent().hasClass('column-blocks')) { 
-		    		$(this).sortable('cancel');
-		    		return false;
-		    	}
-		    	columns_sortable();
 		    }
 		    
 		    //init resize on newly added block
@@ -258,6 +255,15 @@ jQuery(document).ready(function($){
 		    //disable resizable on .not-resizable blocks
 		    $(".not-resizable").resizable("destroy");
 		    
+		}
+		
+		//if moving column inside column, cancel it
+		if(ui.item.hasClass('block-aq_column_block')) {
+			if(ui.item.parent().hasClass('column-blocks')) { 
+				$(this).sortable('cancel');
+				return false;
+			}
+			columns_sortable();
 		}
 		
 		//update order & parent ids

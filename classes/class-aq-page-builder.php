@@ -61,13 +61,13 @@ if(!class_exists('AQ_Page_Builder')) {
 		function enqueue() {
 			//register 'em
 			wp_register_style( 'aqpb-css', $this->url.'assets/css/aqpb.css', array(), time(), 'all');
-			wp_register_style( 'aqpb-blocks', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
+			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
 			wp_register_script('aqpb-js', $this->url . 'assets/js/aqpb.js', array('jquery'), time(), true);
-			wp_register_script('aqpb-fields', $this->url . 'assets/js/aqpb-fields.js', array('jquery'), time(), true);
+			wp_register_script('aqpb-fields-js', $this->url . 'assets/js/aqpb-fields.js', array('jquery'), time(), true);
 			
 			//enqueue 'em
 			wp_enqueue_style('aqpb-css');
-			wp_enqueue_style('aqpb-blocks');
+			wp_enqueue_style('aqpb-blocks-css');
 			wp_enqueue_style('farbtastic');
 			wp_enqueue_script('jquery');
 			wp_enqueue_script('jquery-ui-sortable');
@@ -76,7 +76,12 @@ if(!class_exists('AQ_Page_Builder')) {
 			wp_enqueue_script('jquery-ui-droppable');
 			wp_enqueue_script('farbtastic');
 			wp_enqueue_script('aqpb-js');
-			wp_enqueue_script('aqpb-fields');
+			wp_enqueue_script('aqpb-fields-js');
+			
+			// Media library uploader
+			wp_enqueue_script('thickbox');  
+	        wp_enqueue_style('thickbox');  
+	        wp_enqueue_script('media-upload'); 
 			
 			//hook to register custom style/scripts
 			do_action('aq-page-builder-admin-enqueue');
@@ -126,15 +131,8 @@ if(!class_exists('AQ_Page_Builder')) {
 				register_post_type( 'template', $template_args);
 				
 			} else {
-				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'aqpb') .'</p></div>';"));
+				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'framework') .'</p></div>';"));
 			}
-		}
-		
-		/**
-		 * AJAX functions for use in the page builder settings page
-		 */
-		function ajax_functions(){
-			
 		}
 		
 		/**

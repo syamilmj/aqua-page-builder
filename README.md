@@ -2,12 +2,6 @@
 
 * Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
 * License:		GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
-* Notes:		You may not use this without my written permission
-
-### Important Notes
-		
-* I'm opening this github repo for authors to start developing their themes to support Aqua Page Builder. They are not currently for public release so please don't release a theme that supports it until you get my personal permission to do so. Thank you :)
-* The plugin does not currently support multisite installation, sorry!
 
 ### Overview
 

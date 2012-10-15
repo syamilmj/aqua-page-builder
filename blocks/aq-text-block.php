@@ -35,6 +35,7 @@ class AQ_Text_Block extends AQ_Block {
 				<?php echo aq_field_textarea('text', $block_id, $text, $size = 'full') ?>
 			</label>
 		</p>
+		
 		<?php
 	}
 	
