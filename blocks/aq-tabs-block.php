@@ -85,7 +85,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 					</p>
 					<p class="tab-desc description">
 						<label for="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-content">
-							Tab Title<br/>
+							Tab Content<br/>
 							<textarea id="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-content" class="textarea-full" name="<?php echo $this->get_field_name('tabs') ?>[<?php echo $count ?>][content]" rows="5"><?php echo $tab['content'] ?></textarea>
 						</label>
 					</p>
@@ -146,7 +146,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 		
 		/* AJAX add tab */
 		function add_tab() {
-			$nonce=$_POST['security'];	
+			$nonce = $_POST['security'];	
 			if (! wp_verify_nonce($nonce, 'aqpb-settings-page-nonce') ) die('-1');
 			
 			$count = isset($_POST['count']) ? absint($_POST['count']) : false;
