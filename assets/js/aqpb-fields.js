@@ -29,31 +29,29 @@ jQuery(document).ready(function($){
 	});
 	
 	/** Media Uploader
-	----------------------------------------------- */
-	jQuery('.aq_upload_button').each(function() {
-	
-		jQuery(this).click(function() {
-			
-			// Setup vars
-			var $clicked = $(this),
-				template_id = $('#template').val(),
-				input_id = $clicked.prev().attr('id'),
-				media_type = $clicked.attr('rel');
-			
-			//Change "insert into post" to "Insert" Button
-			tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Insert');}, 100);
-			tbframe_interval;
-			
-			window.send_to_editor = function(html) {
+	----------------------------------------------- */	
+	$(document).on('click', '.aq_upload_button', function() {
+		
+		// Setup vars
+		var $clicked = $(this),
+			template_id = $('#template').val(),
+			input_id = $clicked.prev().attr('id'),
+			media_type = $clicked.attr('rel');
+		
+		//Change "insert into post" to "Insert" Button
+		tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Insert');}, 100);
+		tbframe_interval;
+		
+		window.send_to_editor = function(html) {
+			if(media_type == 'img') {
 				imgurl = jQuery('img',html).attr('src');
-				jQuery('#' + aq_input).val(html);
+				jQuery('#' + input_id).val(imgurl);
 				tb_remove();
 			}
-			
-			tb_show('Upload Media', 'media-upload.php?post_id='+ template_id +'&amp;TB_iframe=true');
-			return false;
+		}
 		
-		});
+		tb_show('Upload Media', 'media-upload.php?post_id='+ template_id +'&amp;TB_iframe=true');
+		return false;
 	
 	});
 	

@@ -176,6 +176,9 @@ DO NOT EDIT THIS
 	font-style: normal;
 }
 
+/* Upload */
+.input-upload { margin: 0 0 8px; }
+
 /** Customs
 Insert your own custom CSS below this line **/
 #blocks-archive .block-featured_portfolio .block-title { font-size: 11px; }
