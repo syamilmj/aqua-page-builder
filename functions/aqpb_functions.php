@@ -9,6 +9,10 @@
 
 if(class_exists('AQ_Page_Builder')) {
 	
+	/** 
+	 * Core functions
+	*******************/
+	 
 	/* Register a block */
 	function aq_register_block($block_class) {
 		global $aq_registered_blocks;
@@ -47,12 +51,12 @@ if(class_exists('AQ_Page_Builder')) {
 		}
 		
 	/** 
-	 * Fields helper functions
+	 * Form Field Helper functions
 	 *
 	 * Provides some default fields for use in the blocks
 	 *
 	 * @todo build this into a separate class instead!
-	**/
+	********************************************************/
 	
 	/* Input field - Options: $size = min, small, full */
 	function aq_field_input($field_id, $block_id, $input, $size = 'full', $type = 'text') {
@@ -119,14 +123,33 @@ if(class_exists('AQ_Page_Builder')) {
 	
 	/* Media Uploader */
 	function aq_field_upload($field_id, $block_id, $media, $media_type = 'img') {
-		$output = '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-full" value="'.$media.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
-		$output .= '<a href="#" class="aq_upload_button button" rel="'.$media_type.'">Upload</a>';
+		$output = '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-full input-upload" value="'.$media.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
+		$output .= '<a href="#" class="aq_upload_button button" rel="'.$media_type.'">Upload</a><p></p>';
 		
 		return $output;
 	}
 	
+	/** 
+	 * Misc Helper Functions
+	**************************/
 	
-	/**--------------**/
+	/** Get column width
+	 * @parameters - $size (column size), $grid (grid size e.g 940), $margin
+	 */
+	function aq_get_column_width($size, $grid = 940, $margin = 20) {
+		
+		$columns = range(1,12);
+		$widths = array();
+		foreach($columns as $column) {
+			$width = (( $grid + $margin ) / 12 * $column) - $margin;
+			$width = round($width);
+			$widths[$column] = $width;
+		}
+		
+		$column_id = absint(preg_replace("/[^0-9]/", '', $size));
+		$column_width = $widths[$column_id];
+		return $column_width;
+	}
 	
 }
 ?>
