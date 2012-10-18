@@ -320,6 +320,14 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	font-size: 12px;
 	line-height: 1;
 }
+.block-control-actions {
+	float: left;
+	padding: 5px 0 0;
+	width: 100%; 
+}
+.block-control-actions a { text-decoration: none; }
+.block-control-actions a:hover { text-decoration: underline; }
+.block-control-actions a.delete:hover { color: red; }
 
 /*grid*/
 .span12 { width: 724px; }

@@ -412,10 +412,10 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 			//return early if no blocks
 			if(empty($blocks)) {
+			
 				echo '<p class="empty-template">';
 				echo __('This template is empty', 'framework');
 				echo '</p>';
-				return;
 				
 			} else {
 				//template wrapper

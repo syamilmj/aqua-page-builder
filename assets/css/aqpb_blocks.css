@@ -177,6 +177,13 @@ DO NOT EDIT THIS
 }
 
 /* Upload */
+.screenshot { 
+	padding: 7px;
+	background: #fff;
+	border: 1px solid #dedede;
+	line-height: 0;
+}
+.screenshot img { max-width: 100% }
 .input-upload { margin: 0 0 8px; }
 
 /** Customs

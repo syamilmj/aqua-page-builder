@@ -11,13 +11,14 @@ jQuery.noConflict();
 jQuery(document).ready(function($){
 	
 	/** Variables 
-	/**------------------------------------------------------------------------------------**/
+	------------------------------------------------------------------------------------**/
+	
 	var block_archive, 
 		block_number, 
 		parent_id, 
 		block_id, 
 		intervalId,
-		resizable_args = { // Resizable arguments
+		resizable_args = {
 			grid: 62,
 			handles: 'w,e',
 			maxWidth: 724,
@@ -37,11 +38,15 @@ jQuery(document).ready(function($){
 		mouseStilldown = false,
 		max_marginLeft = 720 - Math.abs(tabs_width),
 		activeTab_pos = $('.aqpb-tab-active').next().position(),
-		act_mleft;
+		act_mleft,
+		$parent, 
+		$clicked;
+	
 	
 	/** Functions 
-	/**------------------------------------------------------------------------------------**/
-	// create unique id
+	------------------------------------------------------------------------------------**/
+	
+	/** create unique id **/
 	function makeid()
 	{
 	    var text = "";
@@ -53,7 +58,7 @@ jQuery(document).ready(function($){
 	    return text;
 	}
 	
-	// Get correct class for block size
+	/** Get correct class for block size **/
 	function block_size(width) {
 		var span = "span12";
 		
@@ -74,7 +79,7 @@ jQuery(document).ready(function($){
 		return span;
 	}
 	
-	// Blocks resizable dynamic width
+	/** Blocks resizable dynamic width **/
 	function resizable_dynamic_width(blockID) {
 		var blockPar = $('#' + blockID).parent(),
 			maxWidth = parseInt($(blockPar).parent().parent().css('width'));
@@ -143,10 +148,10 @@ jQuery(document).ready(function($){
 	}
 	
 	/** Actions
-	/**------------------------------------------------------------------------------------**/
+	------------------------------------------------------------------------------------**/
 	
-	// Open/close blocks
-	$('#page-builder a.block-edit').live( 'click', function() {
+	/** Open/close blocks **/
+	$(document).on('click', '#page-builder a.block-edit', function() {
 		var blockID = $(this).parents('li').attr('id');
 		$('#' + blockID + ' .block-settings').slideToggle('fast');
 		
@@ -159,7 +164,7 @@ jQuery(document).ready(function($){
 		return false;
 	});
 	
-	// Blocks resizable
+	/** Blocks resizable **/
 	$('ul.blocks li.block').each(function() {
 		var blockID = $(this).attr('id'),
 			blockPar = $(this).parent();
@@ -179,7 +184,7 @@ jQuery(document).ready(function($){
 		
 	});
 	
-	// Blocks draggable (archive)
+	/** Blocks draggable (archive) **/
 	$('ul#blocks-archive > li.block').each(function() {
 		$(this).draggable({
 			connectToSortable: "#blocks-to-edit",
@@ -191,14 +196,14 @@ jQuery(document).ready(function($){
 		});
 	});
 	
-	// Blocks sorting (settings)
+	/** Blocks sorting (settings) **/
 	$('ul#blocks-to-edit').sortable({
 		placeholder: "ui-state-highlight",
 		handle: '.block-handle, .block-settings-column',
 		connectWith: '#blocks-archive, .block-aq_column_block ul.blocks',
 	});
 	
-	// Columns Sortable
+	/** Columns Sortable **/
 	function columns_sortable() {
 		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
 		$('.block-aq_column_block ul.blocks').sortable({
@@ -209,7 +214,7 @@ jQuery(document).ready(function($){
 	}
 	columns_sortable();
 	
-	// Sortable bindings
+	/** Sortable bindings **/
 	$( "ul.blocks" ).bind( "sortstart", function(event, ui) {
 		ui.placeholder.css('width', ui.helper.css('width'));
 		$('.empty-template').remove();
@@ -294,7 +299,7 @@ jQuery(document).ready(function($){
 	
 	});
 	
-	// Blocks droppable (removing blocks)
+	/** Blocks droppable (removing blocks) **/
 	$('#page-builder-archive').droppable({
 		accept: "#blocks-to-edit .block",
 		tolerance: "pointer",
@@ -312,17 +317,33 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	//disable blocks archive if no template
+	/** Delete Block (via "Delete" anchor) **/
+	$(document).on('click', '.block-control-actions a', function() {
+		$clicked = $(this);
+		$parent = $(this.parentNode.parentNode.parentNode);
+		
+		if($clicked.hasClass('delete')) {
+			$parent.find('> .block-bar .block-handle').css('background', 'red');
+			$parent.slideUp(function() {
+				$(this).remove();
+			}).fadeOut('fast');
+		} else if($clicked.hasClass('close')) {
+			$parent.find('> .block-bar a.block-edit').click();
+		}
+		return false;
+	});
+	
+	/** Disable blocks archive if no template **/
 	$('#page-builder-column.metabox-holder-disabled').click( function() { return false })
 	$('#page-builder-column.metabox-holder-disabled #blocks-archive .block').draggable("destroy");
 	
-	//confirm delete template
+	/** Confirm delete template **/
 	$('a.template-delete').click( function() { 
 		var agree = confirm('You are about to permanently delete this template. \'Cancel\' to stop, \'OK\' to delete.');
 		if(agree) { return } else { return false }
 	});
 	
-	//cancel template save/create if no template name
+	/** Cancel template save/create if no template name **/
 	$('#save_template_header, #save_template_footer').click(function() {
 		var template_name = $('#template-name').val().trim();
 		if(template_name.length === 0) {
@@ -331,7 +352,7 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	//nav tabs scrolling
+	/** Nav tabs scrolling **/
 	if(720 < tabs_width) {
 		$('.aqpb-tabs-arrow').show();
 		centerActiveTab();
@@ -351,19 +372,20 @@ jQuery(document).ready(function($){
 		
 	}
 	
-	//sort nav order
+	/** Sort nav order **/
 	$('.aqpb-tabs').sortable({
 		items: 'a.aqpb-tab',
 		axis: 'x',
 	});
-	//prompt save on page change
-//	var aqpb_html = $('#update-page-template').html();
-//	$(window).bind('beforeunload', function(e) {
-//		var aqpb_html_new = $('#update-page-template').html();
-//		if(aqpb_html_new != aqpb_html) { 
-//			return "The changes you made will be lost if you navigate away from this page.";
-//		}
-//	});
+	
+	/** prompt save on page change **
+	var aqpb_html = $('#update-page-template').html();
+	$(window).bind('beforeunload', function(e) {
+		var aqpb_html_new = $('#update-page-template').html();
+		if(aqpb_html_new != aqpb_html) { 
+			return "The changes you made will be lost if you navigate away from this page.";
+		}
+	}); */
 
-// END jQuery	
+// what fish?
 });

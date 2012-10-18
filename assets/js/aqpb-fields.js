@@ -12,19 +12,21 @@ jQuery(document).ready(function($){
 
 	/** Colorpicker Field
 	----------------------------------------------- */
-	jQuery('.cw-color-picker').each(function(){
-		var $this = jQuery(this),
-			id = $this.attr('rel');
-		$this.farbtastic('#' + id);
-		$("#" + id).click(function() {
-			$this.fadeIn();
-		});
-		
-		//hide picker if click away
-		$(document).bind('click', function(e) {
-			var $clicked = $(e.target);
-			if (!$clicked.is(".cw-color-picker *") && (!$clicked.is(".input-color-picker")))
-				$(".cw-color-picker").fadeOut();
+	$('ul.blocks').bind('sortstop', function() {
+		$('.cw-color-picker').each(function(){
+			var $this = jQuery(this),
+				id = $this.attr('rel');
+			$this.farbtastic('#' + id);
+			$(document).on('click', "#" + id, function() {
+				$this.fadeIn();
+			});
+			
+			//hide picker if click away
+			$(document).bind('click', function(e) {
+				var $clicked = $(e.target);
+				if (!$clicked.is(".cw-color-picker *") && (!$clicked.is(".input-color-picker")))
+					$(".cw-color-picker").fadeOut();
+			});
 		});
 	});
 	
@@ -108,16 +110,15 @@ jQuery(document).ready(function($){
 	
 	// Open/Close Tab
 	$(document).on('click', '.block-tabs-tab-head-handle a', function() {
-		var clicked = $(this);
-		$(clicked.get(0).parentNode.parentNode.parentNode).children('.block-tabs-tab-body').slideToggle();
+		$(this.parentNode.parentNode.parentNode).children('.block-tabs-tab-body').slideToggle();
 		return false;
 	});
 	
 	// Delete Tab
 	$(document).on('click', 'a.block-tabs-tab-delete', function() {
-		var clicked = $(this);
-		$(clicked.get(0).parentNode.parentNode.parentNode).children('.block-tabs-tab-head').css('background', 'red');
-		$(clicked.get(0).parentNode.parentNode.parentNode).slideUp(function() {
+		var $parent = $(this.parentNode.parentNode.parentNode);
+		$parent.children('.block-tabs-tab-head').css('background', 'red');
+		$parent.slideUp(function() {
 			$(this).remove();
 		}).fadeOut('fast');
 		return false;
