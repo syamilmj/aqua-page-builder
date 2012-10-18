@@ -4,23 +4,22 @@
  * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Easily create custom page templates with drag-and-drop interface.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
  * License: GPLV3
  *
  * @package   Aqua Page Builder
- * @version   1.0.0
  * @author    Syamil MJ <http://aquagraphite.com>
  * @copyright Copyright (c) 2012, Syamil MJ
- * @link      http://aquagraphite.com
  * @license   http://www.gnu.org/copyleft/gpl.html
  *
- * @todo      
+ * @todo      - Drag-drop helper function
+ *			  - Preview template
  */
 
 //definitions
-define( 'AQPB_VERSION', '1.0.0' );
+define( 'AQPB_VERSION', '1.0.1' );
 define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 define( 'AQPB_DIRNAME', basename(dirname(__FILE__)) );
