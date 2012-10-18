@@ -126,36 +126,30 @@ DO NOT EDIT THIS
 		width: 70px;
 	}
 
-/* Tabs/Toggles */
-.block-tabs-tab {
-	background: #fff;
-	border: 1px solid #d8d8d8;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-.block-tabs-tabs-list {
-	position: relative;
-	
-}
-.block-tabs-tab-head,
-.block-tabs-tab-body {
-	padding: 10px;
-	position: relative;
-}
-	.block-tabs-tab-title {
+/** Sortable list field **/
+.aq-sortable-list { position: relative; }
+	.aq-sortable-list .sortable-item {
+		background: #fff;
+		border: 1px solid #d8d8d8;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.aq-sortable-list .sortable-head,
+	.aq-sortable-list .sortable-body {
+		padding: 10px;
+		position: relative;
+	}
+	.aq-sortable-list .sortable-title{
 		margin-right: 20px;
 		float: left;
 	}
-	.block-tabs-tab-body {
+	.aq-sortable-list .sortable-body{
 		padding-top: 0;
 		display: none;
 	}
-
-.block-tabs-tab-head-handle {
-	float: right;
-}
-	.block-tabs-tab-head-handle a {
+	.aq-sortable-list .sortable-handle { float: right; }
+	.aq-sortable-list .sortable-handle a { 
 		position: absolute;
 		right: 0px;
 		top: 0;
@@ -166,15 +160,9 @@ DO NOT EDIT THIS
 		background: transparent url(../images/tab-arrows.png) no-repeat 8px -64px;
 		border-bottom-color: #eee;
 	}
-		.block-tabs-tab-head-handle a:hover {
-			background-position: 8px 0px;
-		}
-.block-tabs-add-new {
-	margin-top: 10px;
-}
-.block-tabs-tab-delete {
-	font-style: normal;
-}
+	.aq-sortable-list .sortable-delete { font-style: normal; }
+	.aq-sortable-add-new { margin-top: 10px; }
+	
 
 /* Upload */
 .screenshot { 

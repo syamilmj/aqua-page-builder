@@ -39,7 +39,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			
 			?>
 			<div class="description cf">
-				<ul id="block-tabs-tabs-list-<?php echo $block_id ?>" class="block-tabs-tabs-list" rel="<?php echo $block_id ?>">
+				<ul id="aq-sortable-list-<?php echo $block_id ?>" class="aq-sortable-list" rel="<?php echo $block_id ?>">
 					<?php
 					$tabs = is_array($tabs) ? $tabs : $defaults['tabs'];
 					$count = 1;
@@ -50,7 +50,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 					?>
 				</ul>
 				<p></p>
-				<a href="#" class="block-tabs-add-new button">Add New</a>
+				<a href="#" rel="tab" class="aq-sortable-add-new button">Add New</a>
 				<p></p>
 			</div>
 			<p class="description">
@@ -65,18 +65,18 @@ if(!class_exists('AQ_Tabs_Block')) {
 		function tab($tab = array(), $count = 0) {
 				
 			?>
-			<li id="block-tabs-tab<?php echo $count ?>" class="block-tabs-tab" rel="<?php echo $count ?>">
+			<li id="<?php echo $this->get_field_id('testimonials') ?>-sortable-item-<?php echo $count ?>" class="sortable-item" rel="<?php echo $count ?>">
 				
-				<div class="block-tabs-tab-head cf">
-					<div class="block-tabs-tab-title">
+				<div class="sortable-head cf">
+					<div class="sortable-title">
 						<strong><?php echo $tab['title'] ?></strong>
 					</div>
-					<div class="block-tabs-tab-head-handle">
+					<div class="sortable-handle">
 						<a href="#">Open / Close</a>
 					</div>
 				</div>
 				
-				<div class="block-tabs-tab-body">
+				<div class="sortable-body">
 					<p class="tab-desc description">
 						<label for="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-title">
 							Tab Title<br/>
@@ -89,7 +89,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 							<textarea id="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-content" class="textarea-full" name="<?php echo $this->get_field_name('tabs') ?>[<?php echo $count ?>][content]" rows="5"><?php echo $tab['content'] ?></textarea>
 						</label>
 					</p>
-					<p class="tab-desc description"><a href="#" class="block-tabs-tab-delete">Delete</a></p>
+					<p class="tab-desc description"><a href="#" class="sortable-delete">Delete</a></p>
 				</div>
 				
 			</li>

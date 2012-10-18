@@ -57,23 +57,22 @@ jQuery(document).ready(function($){
 	
 	});
 	
-	/** Tabs Block
+	/** Sortable Lists
 	----------------------------------------------- */
-	// AJAX Add new tab
-	function aq_tabs_block_add_tab(tabs) {
+	// AJAX Add New <list-item>
+	function aq_sortable_list_add_item(action_id, items) {
 		
-		var blockID = tabs.attr('rel');
-		
-		var numArr = tabs.find('li').map(function(i, e){
-			return $(e).attr("rel");
-		});
+		var blockID = items.attr('rel'),
+			numArr = items.find('li').map(function(i, e){
+				return $(e).attr("rel");
+			});
 		
 		var maxNum = Math.max.apply(Math, numArr);
 		if (maxNum < 1 ) { maxNum = 0};
 		var newNum = maxNum + 1;
 		
 		var data = {
-			action: 'aq_block_tab_add_new',
+			action: 'aq_block_'+action_id+'_add_new',
 			security: $('#aqpb-nonce').val(),
 			count: newNum,
 			block_id: blockID
@@ -86,36 +85,31 @@ jQuery(document).ready(function($){
 			if(check == '-1') {
 				alert('An unknown error has occurred');
 			} else {
-				tabs.append(response);
+				items.append(response);
 			}
 						
 		});
 	};
 	
-	// Tab Sortable
-	function aq_tabs_block_sortable() {
-		$('.block-tabs-tabs-list').sortable({
+	// Initialise sortable list fields
+	function aq_sortable_list_init() {
+		$('.aq-sortable-list').sortable({
 			containment: "parent"
 		});
 	}
-	aq_tabs_block_sortable()
+	aq_sortable_list_init();
 	
-	$(document).on('click', 'a.block-tabs-add-new', function() {
-		var tabs = $(this).parent().children('ul.block-tabs-tabs-list');
-		aq_tabs_block_add_tab(tabs);
-		aq_tabs_block_sortable();
-		return false;
-		
-	});
-	
-	// Open/Close Tab
-	$(document).on('click', '.block-tabs-tab-head-handle a', function() {
-		$(this.parentNode.parentNode.parentNode).children('.block-tabs-tab-body').slideToggle();
+	$(document).on('click', 'a.aq-sortable-add-new', function() {
+		var action_id = $(this).attr('rel'),
+			items = $(this).parent().children('ul.aq-sortable-list');
+			
+		aq_sortable_list_add_item(action_id, items);
+		aq_sortable_list_init
 		return false;
 	});
 	
-	// Delete Tab
-	$(document).on('click', 'a.block-tabs-tab-delete', function() {
+	// Delete Sortable Item
+	$(document).on('click', '.aq-sortable-list a.sortable-delete', function() {
 		var $parent = $(this.parentNode.parentNode.parentNode);
 		$parent.children('.block-tabs-tab-head').css('background', 'red');
 		$parent.slideUp(function() {
@@ -123,5 +117,13 @@ jQuery(document).ready(function($){
 		}).fadeOut('fast');
 		return false;
 	});
+	
+	// Open/Close Sortable Item
+	$(document).on('click', '.aq-sortable-list .sortable-handle a', function() {
+		$(this.parentNode.parentNode.parentNode).children('.sortable-body').slideToggle();
+		return false;
+	});
+	
+	
 		
 });

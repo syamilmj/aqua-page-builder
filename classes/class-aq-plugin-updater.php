@@ -59,7 +59,7 @@ if(!class_exists('AQ_Plugin_Updater')) {
 				$response = json_decode($raw_response['body']);
 			
 			// Feed the update data into WP updater
-			if (is_object($response) && !empty($response))
+			if (isset($response) && is_object($response) && !empty($response))
 				$checked_data->response[$this->args['slug'] .'/'. $this->args['filename']] = $response;
 				
 			return $checked_data;
