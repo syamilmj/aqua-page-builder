@@ -304,7 +304,7 @@ echo '</pre>';
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	margin: 0 0 10px;
+	margin: 0.5em 0 10px;
 	position: relative;
 }
 	.aq_block_toggles div.arrow { 
@@ -315,7 +315,7 @@ echo '</pre>';
 		position: absolute;
 		right: 15px;
 		top: 13px;
-		background-image: url(images/dropdown-arrows.png);
+		background-image: url(../images/dropdown-arrows.png);
 		background-repeat: no-repeat;
 		background-position: -40px -3px;
 	}
@@ -336,7 +336,7 @@ echo '</pre>';
 	.aq_block_toggles:hover div.arrow { background-position: -9px -3px; }
 	.aq_block_toggles .tab-body { 
 		display: none;
-		background: url(images/drop-bg.png) repeat-x 0 top;
+		background: url(../images/drop-bg.png) repeat-x 0 top;
 		overflow: hidden;
 		padding: 15px 15px 5px;
 		-webkit-border-bottom-right-radius: 3px;

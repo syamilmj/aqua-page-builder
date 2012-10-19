@@ -120,7 +120,19 @@ jQuery(document).ready(function($){
 	
 	// Open/Close Sortable Item
 	$(document).on('click', '.aq-sortable-list .sortable-handle a', function() {
+		var $clicked = $(this);
+		
+		$clicked.addClass('sortable-clicked');
+		
+		$clicked.parents('.aq-sortable-list').find('.sortable-body').each(function(i, el) {
+			if($(el).is(':visible') && $(el).prev().find('a').hasClass('sortable-clicked') == false) {
+				$(el).slideUp();
+			}
+		});
 		$(this.parentNode.parentNode.parentNode).children('.sortable-body').slideToggle();
+		
+		$clicked.removeClass('sortable-clicked');
+		
 		return false;
 	});
 	

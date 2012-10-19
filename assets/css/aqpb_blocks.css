@@ -140,11 +140,11 @@ DO NOT EDIT THIS
 		padding: 10px;
 		position: relative;
 	}
-	.aq-sortable-list .sortable-title{
+	.aq-sortable-list .sortable-title {
 		margin-right: 20px;
 		float: left;
 	}
-	.aq-sortable-list .sortable-body{
+	.aq-sortable-list .sortable-body {
 		padding-top: 0;
 		display: none;
 	}

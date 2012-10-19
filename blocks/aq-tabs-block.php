@@ -108,17 +108,21 @@ if(!class_exists('AQ_Tabs_Block')) {
 				$output .= '<div id="aq-tabs-'. rand(1, 100) .'" class="aq_block_tabs"><div class="aq-tab-inner">';
 					$output .= '<ul class="aq-nav cf">';
 					
+					$i = 1;
 					foreach( $tabs as $tab ){
-						$output .= '<li><a href="#aq-tab-'. sanitize_title( $tab['title'] ) .'">' . $tab['title'] . '</a></li>';
+						$output .= '<li><a href="#aq-tab-'. sanitize_title( $tab['title'] ) . $i .'">' . $tab['title'] . '</a></li>';
+						$i++;
 					}
 					
 					$output .= '</ul>';
 					
 					$i = 1;
 					foreach($tabs as $tab) {
-						$tabs_hide = $i == 1 ? '' : 'ui-tabs-hide'; $i++;
+						$tabs_hide = $i == 1 ? '' : 'ui-tabs-hide';
 						
-						$output .= '<div id="aq-tab-'. sanitize_title( $tab['title'] ) .'" class="aq-tab '.$tabs_hide.'">'. wpautop(do_shortcode(htmlspecialchars_decode($tab['content']))) .'</div>';
+						$output .= '<div id="aq-tab-'. sanitize_title( $tab['title'] ) . $i .'" class="aq-tab '.$tabs_hide.'">'. wpautop(do_shortcode(htmlspecialchars_decode($tab['content']))) .'</div>';
+						
+						$i++;
 					}
 				
 				$output .= '</div></div>';
