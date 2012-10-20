@@ -3,10 +3,7 @@
  * Front-end js for Aqua Page Builder blocks
  */
 
-jQuery.noConflict();
-
-/** Fire up jQuery - let's dance! 
- */
+/** Fire up jQuery - let's dance! */
 jQuery(document).ready(function($){
 	
 	/** Tabs & Toggles

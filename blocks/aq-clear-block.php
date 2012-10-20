@@ -73,14 +73,14 @@ class AQ_Clear_Block extends AQ_Block {
 			case 'none':
 				break;
 			case 'single':
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background-color:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';"/>';
 				break;
 			case 'double':
-				echo '<hr class="aq-block-clear aq-block-hr-double" style="background-color:'.$line_color.';"/>';
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background-color:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-double" style="background:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';"/>';
 				break;
 			case 'image':
-//				echo '<div class="aq-block-clear aq-block-hr-image cf" style="background:'.$image.'"></div>';
+				echo '<hr class="aq-block-clear aq-block-hr-image cf"/>';
 				break;
 		}
 		

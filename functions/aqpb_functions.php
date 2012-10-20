@@ -49,6 +49,7 @@ if(class_exists('AQ_Page_Builder')) {
 		ob_end_clean();
 		
 		$template = $template ? $template : '';
+		
 		return $template;
 		
 	}

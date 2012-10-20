@@ -310,7 +310,9 @@ if(!class_exists('AQ_Page_Builder')) {
 			//now let's save our blocks & prepare haystack
 			$blocks = is_array($blocks) ? $blocks : array();
 			$haystack = array();
+			$template_transient_data = array();
 			$i = 1;
+			
 			foreach ($blocks as $new_instance) {
 				global $aq_registered_blocks;
 				
@@ -335,11 +337,18 @@ if(!class_exists('AQ_Page_Builder')) {
 				//update block
 				update_post_meta($template_id, $new_key, $new_instance);
 				
+				//store instance into $template_transient_data
+				$template_transient_data[$new_key] = $new_instance;
+				
 				//prepare haystack
 				$haystack[] = $new_key;
 				
 				$i++;
 			}
+			
+			//update transient
+			$template_transient = 'aq_template_' . $template_id;
+			set_transient( $template_transient, $template_transient_data );
 			
 			//use haystack to check for deleted blocks
 			$curr_blocks = $this->get_blocks($template_id);
@@ -366,6 +375,10 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 			//delete template, hard!
 			wp_delete_post( $template_id, true );
+			
+			//delete template transient
+			$template_transient = 'aq_template_' . $template_id;
+			delete_transient( $template_transient );
 			
 		}
 		
@@ -407,7 +420,16 @@ if(!class_exists('AQ_Page_Builder')) {
 			if(!$template_id) return;
 			if(!$this->is_template($template_id)) return;
 			
-			$blocks = $this->get_blocks($template_id);
+			//get transient if available
+			$template_transient = 'aq_template_' . $template_id;
+			$template_transient_data = get_transient($template_transient);
+			
+			if($template_transient_data == false) {
+				$blocks = $this->get_blocks($template_id);
+			} else {
+				$blocks = $template_transient_data;
+			}
+			
 			$blocks = is_array($blocks) ? $blocks : array();
 			
 			//return early if no blocks
