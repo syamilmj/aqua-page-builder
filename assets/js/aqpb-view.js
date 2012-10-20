@@ -14,16 +14,33 @@ jQuery(document).ready(function($){
 	}
 	
 	// Toggles
-	$('.aq_block_toggles .tab-head, .aq_block_toggles .arrow').each( function() {
+	$('.aq_block_toggle .tab-head, .aq_block_toggle .arrow').each( function() {
 		var toggle = $(this).parent();
 		
 		$(this).click(function() {
-			toggle.find('.tab-body').slideToggle('400ms', function() {
-				// Animation complete.
-			});
+			toggle.find('.tab-body').slideToggle();
 			return false;
 		});
 		
+	});
+	
+	// Accordion
+	$(document).on('click', '.aq_block_accordion_wrapper .tab-head, .aq_block_accordion_wrapper .arrow', function() {
+		var $clicked = $(this);
+		
+		$clicked.addClass('clicked');
+		
+		$clicked.parents('.aq_block_accordion_wrapper').find('.tab-body').each(function(i, el) {
+			if($(el).is(':visible') && ( $(el).prev().hasClass('clicked') || $(el).prev().prev().hasClass('clicked') ) == false ) {
+				$(el).slideUp();
+			}
+		});
+		
+		$clicked.parent().children('.tab-body').slideToggle();
+		
+		$clicked.removeClass('clicked');
+		
+		return false;
 	});
 	
 });

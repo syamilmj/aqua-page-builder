@@ -34,7 +34,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 			
 			$tab_types = array(
 				'tab' => 'Tabs',
-				'toggle' => 'Toggles'
+				'toggle' => 'Toggles',
+				'accordion' => 'Accordion'
 			);
 			
 			?>
@@ -105,7 +106,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			
 			if($type == 'tab') {
 			
-				$output .= '<div id="aq-tabs-'. rand(1, 100) .'" class="aq_block_tabs"><div class="aq-tab-inner">';
+				$output .= '<div id="aq_block_tabs_'. rand(1, 100) .'" class="aq_block_tabs"><div class="aq-tab-inner">';
 					$output .= '<ul class="aq-nav cf">';
 					
 					$i = 1;
@@ -130,7 +131,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			} elseif ($type == 'toggle') {
 				
 				foreach( $tabs as $tab ){
-					$output  .= '<div class="aq_block_toggles">';
+					$output  .= '<div class="aq_block_toggle">';
 						$output .= '<h2 class="tab-head">'. $tab['title'] .'</h2>';
 						$output .= '<div class="arrow"></div>';
 						$output .= '<div class="tab-body close cf">';
@@ -138,6 +139,34 @@ if(!class_exists('AQ_Tabs_Block')) {
 						$output .= '</div>';
 					$output .= '</div>';
 				}
+				
+			} elseif ($type == 'accordion') {
+				
+				$count = count($tabs);
+				$i = 1;
+				
+				$output .= '<div id="aq_block_accordion_wrapper_'.rand(1,100).'" class="aq_block_accordion_wrapper">';
+				
+				foreach( $tabs as $tab ){
+					
+					$open = $i == 1 ? 'open' : 'close';
+					
+					$child = '';
+					if($i == 1) $child = 'first-child';
+					if($i == $count) $child = 'last-child';
+					$i++;
+					
+					$output  .= '<div class="aq_block_accordion '.$child.'">';
+						$output .= '<h2 class="tab-head">'. $tab['title'] .'</h2>';
+						$output .= '<div class="arrow"></div>';
+						$output .= '<div class="tab-body '.$open.' cf">';
+							$output .= wpautop(do_shortcode(htmlspecialchars_decode($tab['content'])));
+						$output .= '</div>';
+					$output .= '</div>';
+				}
+				
+				$output .= '</div>';
+				
 			}
 			
 			echo $output;

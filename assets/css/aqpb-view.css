@@ -296,9 +296,10 @@ echo '</pre>';
 		left: 0;
 	}
 
-/* $Toggles 
+/* Toggles & Accordion
 ====================================================================*/
-.aq_block_toggles {
+.aq_block_toggle,
+.aq_block_accordion {
 	background: #fff;
 	border: 1px solid #D8D8D8;
 	-moz-border-radius: 3px;
@@ -307,7 +308,35 @@ echo '</pre>';
 	margin: 0.5em 0 10px;
 	position: relative;
 }
-	.aq_block_toggles div.arrow { 
+	.aq_block_accordion { 
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+		border-top: none;
+		margin: 0;
+	}
+	.aq_block_accordion.first-child { 
+		border-top: 1px solid #D8D8D8;
+		margin: 0.5em 0 0;
+		-webkit-border-top-left-radius: 3px;
+		-webkit-border-top-right-radius: 3px;
+		-moz-border-radius-topleft: 3px;
+		-moz-border-radius-topright: 3px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	.aq_block_accordion.last-child { 
+		margin: 0 0 10px;
+		-webkit-border-bottom-right-radius: 3px;
+		-webkit-border-bottom-left-radius: 3px;
+		-moz-border-radius-bottomright: 3px;
+		-moz-border-radius-bottomleft: 3px;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+	
+	.aq_block_toggle div.arrow,
+	.aq_block_accordion div.arrow { 
 		display: block;
 		float: right;
 		width: 14px;
@@ -319,7 +348,8 @@ echo '</pre>';
 		background-repeat: no-repeat;
 		background-position: -40px -3px;
 	}
-	.aq_block_toggles h2.tab-head { 
+	.aq_block_toggle h2.tab-head,
+	.aq_block_accordion h2.tab-head { 
 		font-size: 14px;
 		line-height: 21px;
 		font-weight: normal;
@@ -332,9 +362,12 @@ echo '</pre>';
 		-ms-user-select: none;
 		user-select: none;
 	}
-	.aq_block_toggles h2.tab-head a {  }
-	.aq_block_toggles:hover div.arrow { background-position: -9px -3px; }
-	.aq_block_toggles .tab-body { 
+	.aq_block_toggle h2.tab-head a,
+	.aq_block_accordion h2.tab-head a {  }
+	.aq_block_toggle:hover div.arrow,
+	.aq_block_accordion:hover div.arrow { background-position: -9px -3px; }
+	.aq_block_toggle .tab-body,
+	.aq_block_accordion .tab-body { 
 		display: none;
 		background: url(../images/drop-bg.png) repeat-x 0 top;
 		overflow: hidden;
@@ -346,6 +379,7 @@ echo '</pre>';
 		border-bottom-right-radius: 3px;
 		border-bottom-left-radius: 3px;
 	}
-	.aq_block_toggles .tab-body.open { 
+	.aq_block_toggle .tab-body.open,
+	.aq_block_accordion .tab-body.open{ 
 		display: block;
 	}
