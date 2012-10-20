@@ -37,10 +37,20 @@ if(class_exists('AQ_Page_Builder')) {
 	
 	/** Display the template (for front-end usage only) **/
 	function aq_display_template( $atts, $content = null) {
+		
 		global $aq_page_builder;
 		$defaults = array('id' => 0);
 		extract( shortcode_atts( $defaults, $atts ) );
-		$aq_page_builder->display_template($id);
+		
+		//capture template output into string
+		ob_start();
+			$aq_page_builder->display_template($id);
+			$template = ob_get_contents();
+		ob_end_clean();
+		
+		$template = $template ? $template : '';
+		return $template;
+		
 	}
 		//add the [template] shortcode
 		global $shortcode_tags;
