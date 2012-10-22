@@ -100,25 +100,17 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * Register and enqueueu styles/scripts on front-end
 		 *
 		 * @since 1.0.0
-		 * @todo min version, theme unload script
+		 * @todo min versions
 		 */
 		function view_enqueue() {
 			
-			/* Enable/Disable default css/js on front-end so that
-			 * themes may override if they want */
-			$enable_view_css = apply_filters('aqpb_enable_view_css', true);
-			$enable_view_js = apply_filters('aqpb_enable_view_js', true);
-			
 			// front-end css
-			if($enable_view_css) {
-				wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
-				wp_enqueue_style('aqpb-view-css');
-			}
+			wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+			wp_enqueue_style('aqpb-view-css');
+				
 			// front-end js
-			if($enable_view_js) {
-				wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
-				wp_enqueue_script('aqpb-view-js');
-			}
+			wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
+			wp_enqueue_script('aqpb-view-js');
 			
 			//hook to register custom styles/scripts
 			do_action('aq-page-builder-view-enqueue');
