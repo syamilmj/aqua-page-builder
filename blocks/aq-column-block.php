@@ -66,8 +66,25 @@ class AQ_Column_Block extends AQ_Block {
 			$this->form($instance);
 		}
 				
-		//after block
+		//form footer
 		$this->after_form($instance);
+	}
+	
+	//form footer
+	function after_form($instance) {
+		extract($instance);
+		
+		$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+			
+			echo '<div class="block-control-actions cf"><a href="#" class="delete">Delete</a></div>';
+			echo '<input type="hidden" class="id_base" name="'.$this->get_field_name('id_base').'" value="'.$id_base.'" />';
+			echo '<input type="hidden" class="name" name="'.$this->get_field_name('name').'" value="'.$name.'" />';
+			echo '<input type="hidden" class="order" name="'.$this->get_field_name('order').'" value="'.$order.'" />';
+			echo '<input type="hidden" class="size" name="'.$this->get_field_name('size').'" value="'.$size.'" />';
+			echo '<input type="hidden" class="parent" name="'.$this->get_field_name('parent').'" value="'.$parent.'" />';
+			echo '<input type="hidden" class="number" name="'.$this->get_field_name('number').'" value="'.$number.'" />';
+		echo '</div>',
+			'</li>';
 	}
 	
 	function block_callback($instance) {

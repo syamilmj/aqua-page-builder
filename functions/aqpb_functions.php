@@ -35,32 +35,6 @@ if(class_exists('AQ_Page_Builder')) {
 		return $blocks;
 	}
 	
-	/** Display the template (for front-end usage only) **/
-	function aq_display_template( $atts, $content = null) {
-		
-		global $aq_page_builder;
-		$defaults = array('id' => 0);
-		extract( shortcode_atts( $defaults, $atts ) );
-		
-		//capture template output into string
-		ob_start();
-			$aq_page_builder->display_template($id);
-			$template = ob_get_contents();
-		ob_end_clean();
-		
-		$template = $template ? $template : '';
-		
-		return $template;
-		
-	}
-		//add the [template] shortcode
-		global $shortcode_tags;
-		if ( !array_key_exists( 'template', $shortcode_tags ) ) {
-			add_shortcode( 'template', 'aq_display_template' );
-		} else {
-			add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'framework') .'</p></div>';"));
-		}
-		
 	/** 
 	 * Form Field Helper functions
 	 *
@@ -100,8 +74,7 @@ if(class_exists('AQ_Page_Builder')) {
 	function aq_field_multiselect($field_id, $block_id, $options, $selected_keys = array()) {
 		$output = '<select id="'. $block_id .'_'.$field_id.'" multiple="multiple" class="select of-input" name="aq_blocks['.$block_id.']['.$field_id.'][]">';
 		foreach ($options as $key => $option) {
-			$selected = '';
-			if(is_array($selected_keys) && in_array($key, $selected_keys)) $selected = 'selected="selected"';			
+			$selected = (is_array($selected_keys) && in_array($key, $selected_keys)) ? $selected = 'selected="selected"' : '';			
 			$output .= '<option id="'. $block_id .'_'.$field_id.'_'. $key .'" value="'.$key.'" '. $selected .' />'.$option.'</option>';
 		}
 		$output .= '</select>';
@@ -128,7 +101,7 @@ if(class_exists('AQ_Page_Builder')) {
 	}
 	
 	/* Multi Checkbox */
-	function aq_field_multicheck($field_id, $block_id, $fields = array()) {
+	function aq_field_multicheck($field_id, $block_id, $fields = array(), $selected = array()) {
 	
 	}
 	
@@ -160,6 +133,19 @@ if(class_exists('AQ_Page_Builder')) {
 		$column_id = absint(preg_replace("/[^0-9]/", '', $size));
 		$column_width = $widths[$column_id];
 		return $column_width;
+	}
+	
+	/** Recursive sanitize
+	 * For those complex multidim arrays 
+	 * Has impact on server load on template save, so use only where necessary 
+	 */
+	function aq_recursive_sanitize($value) {
+		if(is_array($value)) {
+			$value = array_map('aq_recursive_sanitize', $value);
+		} else {
+			$value = htmlspecialchars(stripslashes($value));
+		}
+		return $value;
 	}
 	
 }

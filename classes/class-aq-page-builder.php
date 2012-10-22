@@ -17,7 +17,6 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		/**
 		 * Stores public queryable vars
-		 *
 		 */
 		function __construct( $config = array()) {
 			
@@ -32,6 +31,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				array('page' => $this->args['page_slug']),
 				admin_url( 'themes.php' )
 			));
+			
 		}
 		
 		/**
@@ -40,25 +40,33 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function init() {
+		
 			add_action('admin_menu', array(&$this, 'builder_page'));
 			add_action('init', array(&$this, 'register_template_post_type'));
-			add_filter( 'contextual_help', array( &$this, 'contextual_help' ));
-			add_action('template_redirect', array( &$this, 'preview_template' ));
-			if(!is_admin()) add_filter('init', array( &$this, 'view_enqueue' ));
+			add_action('init', array(&$this, 'add_shortcode'));
+			add_action('template_redirect', array(&$this, 'preview_template'));
+			add_filter('contextual_help', array(&$this, 'contextual_help'));
+			if(!is_admin()) add_filter('init', array(&$this, 'view_enqueue'));
+			
 		}
 	
 		function builder_page() {
+		
 			$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
 			
 			//enqueueu styles/scripts on the builder page
 			add_action('admin_print_styles-'.$this->page, array(&$this, 'enqueue'));
+			
 		}
 		
 		/**
 		 * Register and enqueueu styles/scripts
-		 * @since 1.0
+		 *
+		 * @since 1.0.0
+		 * @todo min versions
 		 */
 		function enqueue() {
+		
 			//register 'em
 			wp_register_style( 'aqpb-css', $this->url.'assets/css/aqpb.css', array(), time(), 'all');
 			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
@@ -85,24 +93,36 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 			// Hook to register custom style/scripts
 			do_action('aq-page-builder-admin-enqueue');
+			
 		}
 		
 		/**
 		 * Register and enqueueu styles/scripts on front-end
 		 *
 		 * @since 1.0.0
+		 * @todo min version, theme unload script
 		 */
 		function view_enqueue() {
-			//register 'em
-			wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
-			wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
 			
-			//enqueue 'em
-			wp_enqueue_style('aqpb-view-css');
-			wp_enqueue_script('aqpb-view-js');
+			/* Enable/Disable default css/js on front-end so that
+			 * themes may override if they want */
+			$enable_view_css = apply_filters('aqpb_enable_view_css', true);
+			$enable_view_js = apply_filters('aqpb_enable_view_js', true);
 			
-			//hook to register custom style/scripts
+			// front-end css
+			if($enable_view_css) {
+				wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+				wp_enqueue_style('aqpb-view-css');
+			}
+			// front-end js
+			if($enable_view_js) {
+				wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
+				wp_enqueue_script('aqpb-view-js');
+			}
+			
+			//hook to register custom styles/scripts
 			do_action('aq-page-builder-view-enqueue');
+			
 		}
 		
 		/**
@@ -111,6 +131,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @uses register_post_type
 		 */
 		function register_template_post_type() {
+		
 			if(!post_type_exists('template')) {
 			
 				$template_args = array(
@@ -138,6 +159,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			} else {
 				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'framework') .'</p></div>';"));
 			}
+			
 		}
 		
 		/**
@@ -154,6 +176,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			}
 			
 			return true;
+			
 		}
 		
 		/**
@@ -163,7 +186,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function get_blocks($template_id) {
-			
+		
 			//verify template
 			if(!$template_id) return;
 			if(!$this->is_template($template_id)) return;
@@ -185,6 +208,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			array_multisort($sort, SORT_NUMERIC, $blocks);
 			
 			return $blocks;
+			
 		}
 		
 		/**
@@ -193,10 +217,12 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function blocks_archive() {
+		
 			global $aq_registered_blocks;
 			foreach($aq_registered_blocks as $block) {
 				$block->form_callback();
 			}
+			
 		}
 		
 		/**
@@ -241,6 +267,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				}
 				
 			}
+			
 		}
 		
 		/**
@@ -248,6 +275,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function get_templates() {
+		
 			$args = array (
 				'nopaging' => true,
 				'post_type' => 'template',
@@ -259,6 +287,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			$templates = get_posts($args);
 			
 			return $templates;
+			
 		}
 		
 		/**
@@ -267,6 +296,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function create_template($title) {
+		
 			//wp security layer
 			check_admin_referer( 'create-template', 'create-template-nonce' );
 			
@@ -288,6 +318,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 			//return the new id of the template
 			return $template_id;
+			
 		}
 		
 		/**
@@ -392,6 +423,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 */
 		function preview_template() {
+		
 			global $wp_query, $aq_page_builder;
 			$post_type = $wp_query->query_vars['post_type'];
 			
@@ -408,6 +440,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				get_footer();
 				exit;
 			}
+			
 		}
 		
 		/**
@@ -416,6 +449,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		**/
 		function display_template($template_id) {
+		
 			//verify template
 			if(!$template_id) return;
 			if(!$this->is_template($template_id)) return;
@@ -486,31 +520,71 @@ if(!class_exists('AQ_Page_Builder')) {
 				//close template wrapper
 				echo '</div>';
 			}
+			
+		}
+		
+		/**
+		 * Add the [template] shortcode */
+		function add_shortcode() {
+		
+			global $shortcode_tags;
+			if ( !array_key_exists( 'template', $shortcode_tags ) ) {
+				add_shortcode( 'template', array(&$this, 'do_shortcode') );
+			} else {
+				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'framework') .'</p></div>';"));
+			}
+			
+		}
+		
+		function do_shortcode($atts, $content = null) {
+		
+			$defaults = array('id' => 0);
+			extract( shortcode_atts( $defaults, $atts ) );
+			
+			//capture template output into string
+			ob_start();
+				$this->display_template($id);
+				$template = ob_get_contents();
+			ob_end_clean();
+			
+			$template = $template ? $template : '';
+			
+			return $template;
+			
 		}
 		
 		/**
 		 * Contextual help tab
 		 */
 		function contextual_help() {
-			
+		
 			$screen = get_current_screen();
+			$contextual_helps = apply_filters('aqpb_contextual_helps', array());
+			
 			if($screen->id == $this->page) {
-				$screen->add_help_tab( array(
-				'id'		=> 'overview',
-				'title'		=> __('Overview'),
-				'content'	=> $this->args['contextual_help'] . '<p style="text-align:right"><small>Aqua Page Builder &copy; 2012 by <a href="http://aquagraphite.com">Syamil MJ</a>  |  Version '.AQPB_VERSION.'</small></p>',
-				) );
-				$screen->add_help_tab( array(
-				'id'		=> 'page-builder',
-				'title'		=> __('Page Builder'),
-				'content'	=> '<p>another text</p>',
-				) );
+				// Help tab sidebar
 				$screen->set_help_sidebar(
 					'<p><strong>' . __('For more information:') . '</strong></p>' .
 					'<p>' . __('<a href="http://aquagraphite.com/api/documentation/aqua-page-builder" target="_blank">Documentation</a>') . '</p>' .
 					'<p>' . __('<a href="http://aquagraphite.com/api/changelog/aqua-page-builder" target="_blank">Changelog</a>') . '</p>'
 				);
+				
+				// Main overview tab
+				$screen->add_help_tab( array(
+				'id'		=> 'overview',
+				'title'		=> __('Overview'),
+				'content'	=> $this->args['contextual_help'],
+				) );
+				
+				/** Additional help tabs */
+				if(!empty($contextual_helps)) {
+					foreach($contextual_helps as $help) {
+						$screen->add_help_tab($help);
+					}
+				}
+				
 			}
+			
 		}
 		
 		/**
@@ -518,7 +592,9 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0
 		 */
 		function builder_settings_show(){
+		
 			require_once(AQPB_PATH . 'view/view-settings-page.php');
+			
 		}
 	}
 }

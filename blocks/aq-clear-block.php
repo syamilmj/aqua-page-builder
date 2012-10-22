@@ -58,7 +58,7 @@ class AQ_Clear_Block extends AQ_Block {
 		<div class="description third last">
 			<label for="<?php echo $this->get_field_id('height') ?>">
 				Height (optional)<br/>
-				<?php echo aq_field_input('height', $block_id, $height, 'min', 'number') ?>
+				<?php echo aq_field_input('height', $block_id, $height, 'min', 'number') ?> px
 			</label>
 			
 		</div>

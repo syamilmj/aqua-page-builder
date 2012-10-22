@@ -50,15 +50,9 @@ aq_register_block('AQ_Widgets_Block');
 aq_register_block('AQ_Alert_Block');
 aq_register_block('AQ_Tabs_Block');
 
-//custom action hook
-add_action('init', 'aq_page_builder_init');
-function aq_page_builder_init() {
-	do_action('aq_page_builder_init');
-}
-
 //fire up page builder
 $aqpb_config = aq_page_builder_config();
-$aq_page_builder = new AQ_Page_Builder($aqpb_config);
+$aq_page_builder =& new AQ_Page_Builder($aqpb_config);
 $aq_page_builder->init();
 
 //set up & fire up plugin updater

@@ -10,6 +10,7 @@ function aq_page_builder_config() {
 
 	$config = array(); //initialise array
 	
+	/* Page Config */
 	$config['menu_title'] = __('Page Builder', 'framework');
 	$config['page_title'] = __('Page Builder', 'framework');
 	$config['page_slug'] = __('aq-page-builder', 'framework');
@@ -21,9 +22,9 @@ function aq_page_builder_config() {
 		'<p>' . __('To use the page builder, start by adding a new template. You can drag and drop the blocks on the left into the building area on the right of the screen. Each block has its own unique configuration which you can manually configure to suit your needs', 'framework') . '<p>' .
 		'<p>' . __('Please refer to the', 'framework') . '<a href="http://aquagraphite.com/api/documentation/aqua-page-builder" target="_blank" alt="Aqua Page Builder Documentation">'. __(' documentation page ', 'framework') . '</a>'. __('for more information on how to use this feature.', 'framework') . '<p>';
 	
-	//Debugging
+	/* Debugging */
 	$config['debug'] = false;
 	
-	return apply_filters('aq-page-builder-config', $config);
+	return $config;
 	
 }

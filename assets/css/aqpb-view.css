@@ -308,6 +308,8 @@ echo '</pre>';
 	margin: 0.5em 0 10px;
 	position: relative;
 }
+.aq_block_toggles_wrapper { margin: 0 0 20px; }
+.aq_block_accordion_wrapper { margin: 0.5em 0 20px; }
 	.aq_block_accordion { 
 		-moz-border-radius: 0px;
 		-webkit-border-radius: 0px;

@@ -271,6 +271,8 @@ jQuery(document).ready(function($){
 			columns_sortable();
 		}
 		
+		//@todo - resize column to maximum width of dropped item
+		
 		//update order & parent ids
 		$('ul.blocks').each( function() {
 			$(this).children('li.block').each( function(index, el) {

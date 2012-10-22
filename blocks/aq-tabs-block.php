@@ -130,6 +130,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 				
 			} elseif ($type == 'toggle') {
 				
+				$output .= '<div id="aq_block_toggles_wrapper_'.rand(1,100).'" class="aq_block_toggles_wrapper">';
+				
 				foreach( $tabs as $tab ){
 					$output  .= '<div class="aq_block_toggle">';
 						$output .= '<h2 class="tab-head">'. $tab['title'] .'</h2>';
@@ -139,6 +141,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 						$output .= '</div>';
 					$output .= '</div>';
 				}
+				
+				$output .= '</div>';
 				
 			} elseif ($type == 'accordion') {
 				
@@ -173,10 +177,6 @@ if(!class_exists('AQ_Tabs_Block')) {
 			
 		}
 		
-		function update($new_instance, $old_instance) {
-			return $new_instance;
-		}
-		
 		/* AJAX add tab */
 		function add_tab() {
 			$nonce = $_POST['security'];	
@@ -198,6 +198,11 @@ if(!class_exists('AQ_Tabs_Block')) {
 			}
 			
 			die();
+		}
+		
+		function update($new_instance, $old_instance) {
+			$new_instance = aq_recursive_sanitize($new_instance);
+			return $new_instance;
 		}
 	}
 }
