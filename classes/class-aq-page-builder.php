@@ -539,8 +539,6 @@ if(!class_exists('AQ_Page_Builder')) {
 				$template = ob_get_contents();
 			ob_end_clean();
 			
-			$template = $template ? $template : '';
-			
 			return $template;
 			
 		}
