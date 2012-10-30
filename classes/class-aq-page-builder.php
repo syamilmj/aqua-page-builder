@@ -47,15 +47,32 @@ if(!class_exists('AQ_Page_Builder')) {
 			add_action('template_redirect', array(&$this, 'preview_template'));
 			add_filter('contextual_help', array(&$this, 'contextual_help'));
 			if(!is_admin()) add_filter('init', array(&$this, 'view_enqueue'));
+			add_action('admin_bar_menu', array(&$this, 'add_admin_bar'), 1000);
 			
 		}
-	
+		
+		/** 
+		 * Create Settings Page
+		 *
+		 * @since 1.0.0
+		 */
 		function builder_page() {
 		
 			$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
 			
 			//enqueueu styles/scripts on the builder page
 			add_action('admin_print_styles-'.$this->page, array(&$this, 'enqueue'));
+			
+		}
+		
+		/**
+		 * Add shortcut to Admin Bar menu
+		 *
+		 * @since 1.0.4
+		 */
+		function add_admin_bar(){
+			global $wp_admin_bar;
+			$wp_admin_bar->add_menu( array( 'id' => 'aq-page-builder', 'parent' => 'appearance', 'title' => 'Page Builder', 'href' => admin_url('themes.php?page='.$this->args['page_slug']) ) );
 			
 		}
 		
@@ -528,6 +545,8 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 		}
 		
+		/**
+		 * Shortcode function */
 		function do_shortcode($atts, $content = null) {
 		
 			$defaults = array('id' => 0);
@@ -544,8 +563,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/**
-		 * Contextual help tab
-		 */
+		 * Contextual help tabs */
 		function contextual_help() {
 		
 			$screen = get_current_screen();
@@ -579,13 +597,15 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		/**
 		 * Main page builder settings page display
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		function builder_settings_show(){
 		
 			require_once(AQPB_PATH . 'view/view-settings-page.php');
 			
 		}
+		
+		
 	}
 }
 // not much to say when you're high above the mucky-muck

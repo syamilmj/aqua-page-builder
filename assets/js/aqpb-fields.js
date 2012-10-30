@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
 
 	/** Colorpicker Field
 	----------------------------------------------- */
-	$('ul.blocks').bind('sortstop', function() {
+	function aqpb_colorpicker() {
 		$('.cw-color-picker').each(function(){
 			var $this = jQuery(this),
 				id = $this.attr('rel');
@@ -28,6 +28,10 @@ jQuery(document).ready(function($){
 					$(".cw-color-picker").fadeOut();
 			});
 		});
+	}
+	aqpb_colorpicker();
+	$('ul.blocks').bind('sortstop', function() {
+		aqpb_colorpicker();
 	});
 	
 	/** Media Uploader

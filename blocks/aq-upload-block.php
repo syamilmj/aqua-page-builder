@@ -24,7 +24,7 @@ if(!class_exists('AQ_Upload_Block') {
 		}
 		
 		function block($instance) {
-		
+			if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
 		}
 		
 	}

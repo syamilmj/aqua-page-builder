@@ -175,6 +175,10 @@ echo '</pre>';
 .aq-template-wrapper .aq_span12 .aq_span11 { width:91.25%; }
 .aq-template-wrapper .aq_span12 .aq_span12 { width:100%; }
 
+/* General 
+========================================================================*/
+h4.aq-block-title { margin:  0 0 20px; }
+
 /* Alert Boxes 
 ========================================================================*/
 .aq_alert{

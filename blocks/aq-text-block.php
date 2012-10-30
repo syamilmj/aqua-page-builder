@@ -41,6 +41,8 @@ class AQ_Text_Block extends AQ_Block {
 	
 	function block($instance) {
 		extract($instance);
+		
+		if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
 		echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
 	}
 	

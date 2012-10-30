@@ -111,7 +111,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 					
 					$i = 1;
 					foreach( $tabs as $tab ){
-						$output .= '<li><a href="#aq-tab-'. sanitize_title( $tab['title'] ) . $i .'">' . $tab['title'] . '</a></li>';
+						$tab_selected = $i == 1 ? 'ui-tab-selected' : '';
+						$output .= '<li class="'.$tab_selected.'"><a href="#aq-tab-'. sanitize_title( $tab['title'] ) . $i .'">' . $tab['title'] . '</a></li>';
 						$i++;
 					}
 					

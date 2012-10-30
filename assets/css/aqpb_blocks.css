@@ -8,10 +8,12 @@ DO NOT EDIT THIS
 */
 
 /** BASIC FORM ELEMENTS **/
-.block-settings .description {
+.block-settings .description,
+.block-settings p {
 	margin: 5px 0 7px;
 }
-	.block-settings > p.description:last-child {
+	.block-settings > p.description:last-child,
+	.block-settings > p:last-child {
 		margin-bottom: 0;
 	}
 .block-settings .description.half {
@@ -85,6 +87,7 @@ DO NOT EDIT THIS
 	.block-settings .input-full { width: 100%; }
 
 	.block-settings .textarea-full { width: 100%; }
+	.block-settings select { width: 100%; }
 	
 .block-settings .description-float { 
 	margin-right: 10px;

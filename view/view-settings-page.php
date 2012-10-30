@@ -124,6 +124,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 					<ul id="blocks-archive" class="cf">
 						<?php $this->blocks_archive() ?>
 					</ul>
+					<p><?php _e('Need help? Use the Help tab in the upper right of your screen.', 'framework') ?></p>
 				</div>
 			</div>
 		</div>
@@ -240,8 +241,14 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 								<?php 
 								if($selected_template_id === 0) {
 									echo '<p class="empty-template">';
-									echo __('Dude, you can totally create a new template by filling in template title above and clicking that sexy blue Create Template button.<br/><br/>Then you can just drag and drop shit around from left into this box, resize \'em and fiddle with the settings.<br/><br/>Make sure to click Save Template when you\'re done (D\'oh).', 'framework');
+									echo __('To create a custom page template, give it a name above and click Create Template. Then choose blocks like text, widgets or tabs &amp; toggles from the left column to add to this template.
+									<br/><br/>
+									You can drag and drop the blocks to put them in the order you want. Click on the small arrow at the corner of each block to reveal additional configuration options. You can also resize each block by clicking on either side of the block (Note that some blocks are not resizable)
+									<br/><br/>
+									When you have finished building your custom page template, make sure you click the Save Template button.', 'framework');
 									echo '</p>';
+									
+									
 								} else {
 									$this->display_blocks($selected_template_id); 
 								}
