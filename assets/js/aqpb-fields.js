@@ -98,10 +98,16 @@ jQuery(document).ready(function($){
 	// Initialise sortable list fields
 	function aq_sortable_list_init() {
 		$('.aq-sortable-list').sortable({
-			containment: "parent"
+			containment: "parent",
+			placeholder: "ui-state-highlight"
 		});
 	}
 	aq_sortable_list_init();
+	
+	$('ul.blocks').bind('sortstop', function() {
+		aq_sortable_list_init();
+	});
+	
 	
 	$(document).on('click', 'a.aq-sortable-add-new', function() {
 		var action_id = $(this).attr('rel'),

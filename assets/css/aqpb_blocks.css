@@ -165,6 +165,11 @@ DO NOT EDIT THIS
 	}
 	.aq-sortable-list .sortable-delete { font-style: normal; }
 	.aq-sortable-add-new { margin-top: 10px; }
+	#page-builder .aq-sortable-list .ui-state-highlight { 
+		height: 38px;
+		margin: 0 0 6px;
+		float: none;
+	}
 	
 
 /* Upload */

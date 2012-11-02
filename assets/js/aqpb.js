@@ -113,7 +113,6 @@ jQuery(document).ready(function($){
 	
 	/** Update block order **/
 	function update_block_order() {
-		
 		$('ul.blocks').each( function() {
 			$(this).children('li.block').each( function(index, el) {
 				$(el).find('.order').last().val(index + 1);
