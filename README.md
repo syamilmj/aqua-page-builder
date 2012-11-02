@@ -2,6 +2,7 @@
 
 * Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
 * License:		GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
+* Notes:		Please keep the credits intact, also a linkback to my [profile](http://themeforest.net/user/SyamilMJ). Thanks! :)
 
 ### Overview
 
