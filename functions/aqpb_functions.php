@@ -3,8 +3,9 @@
  * Aqua Page Builder functions
  *
  * This holds the external functions which can be used by the theme
- *
  * Requires the AQ_Page_Builder class
+ *
+ * @todo - multicheck, image checkbox, better colorpicker
 **/
 
 if(class_exists('AQ_Page_Builder')) {

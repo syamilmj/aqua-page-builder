@@ -15,14 +15,16 @@
  * @license   http://www.gnu.org/copyleft/gpl.html
  *
  * @todo      - Preview template
+ 			  - Inactive blocks (for staging)
+ 			  - TinyMCE integration
  */
 
 //definitions
-define( 'AQPB_VERSION', '1.0.4' );
-define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
-define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
-define( 'AQPB_DIRNAME', basename(dirname(__FILE__)) );
-define( 'AQPB_FILENAME', basename(__FILE__));
+if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.4' );
+if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
+if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
+if(!defined('AQPB_DIRNAME')) define( 'AQPB_DIRNAME', basename(dirname(__FILE__)) );
+if(!defined('AQPB_FILENAME')) define( 'AQPB_FILENAME', basename(__FILE__));
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');
