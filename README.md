@@ -13,10 +13,12 @@ Similar to the Widgets &amps Menus, Aqua Page Builder features the drag and drop
 
 ### User Guide
 
-I've written a quite extensive guide for the users so they can get up and running
+I've written a basic guide for the users so they can get up and running
 with the plugin in no time. The link to this guide is provided in the "Help" tab
 for easier access, but you can also link to it manually in the theme description or
-theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder (lie)
+theme documentation: [Aqua Page Builder Documentation](http://aquagraphite.com/api/documentation/aqua-page-builder)
+
+If you're adding custom blocks (which you should) then please supply your own documentation.
 
 ### Developer's Guide
 
