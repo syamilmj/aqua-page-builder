@@ -17,6 +17,7 @@
  * @todo      - Preview template
  			  - Inactive blocks (for staging)
  			  - TinyMCE integration
+ 			  - Template tabs sorting
  */
 
 //definitions
