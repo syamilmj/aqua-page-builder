@@ -11,6 +11,10 @@ It follows the same user interface used by the Menus & Widgets admin pages - mak
 
 Similar to the Widgets &amps Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
 
+### Demo
+
+I have created a WordPress theme that demonstrates the plugin's capabilities, featuring a handful of custom blocks which you can use to learn from to build your own custom blocks for your own theme. I'd highly encourage you to purchase the theme. It's not free but consider it as a token of appreciation for my works :smile: See [Cuvette](http://aquagraphite.com/cuvette)
+
 ### User Guide
 
 I've written a basic guide for the users so they can get up and running
