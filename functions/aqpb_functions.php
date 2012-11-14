@@ -24,7 +24,7 @@ if(class_exists('AQ_Page_Builder')) {
 	function aq_unregister_block($block_class) {
 		global $aq_registered_blocks;
 		foreach($aq_registered_blocks as $block) {
-			if($block->id_base == $block_class) unset($aq_registered_blocks[$block_class]);
+			if(strcasecmp($block->id_base, $block_class) == 0) unset($aq_registered_blocks[$block_class]);
 		}
 	}
 	
