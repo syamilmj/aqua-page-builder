@@ -6,11 +6,14 @@
  * @package Aqua Page Builder
  *
  */
+ 
+// Debugging
 if(isset($_POST) && $this->args['debug'] == true) {
 	echo '<pre>';
 	print_r($_POST);
 	echo '</pre>';
 }
+
 // Permissions Check
 if ( ! current_user_can('edit_theme_options') )
 	wp_die( __( 'Cheatin&#8217; uh?' ) );
