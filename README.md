@@ -20,7 +20,7 @@ I have created a WordPress theme that demonstrates the plugin's capabilities, fe
 I've written a quite extensive guide for the users so they can get up and running
 with the plugin in no time. The link to this guide is provided in the "Help" tab
 for easier access, but you can also link to it manually in the theme description or
-theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder (lie)
+theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 ### Developer's Guide
 
