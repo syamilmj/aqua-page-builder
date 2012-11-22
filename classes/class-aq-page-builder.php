@@ -205,7 +205,8 @@ if(!class_exists('AQ_Page_Builder')) {
 			$all = get_post_custom($template_id);
 			foreach($all as $key => $block) {
 				if(substr($key, 0, 9) == 'aq_block_') {
-					$blocks[$key] = get_post_meta($template_id, $key, true);
+					$block_instance = get_post_meta($template_id, $key, true);
+					if(is_array($block_instance)) $blocks[$key] = $block_instance;
 				}
 			}
 			
