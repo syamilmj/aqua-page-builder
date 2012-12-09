@@ -1,8 +1,6 @@
 ## AQUA PAGE BUILDER 
 
 * Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
-* License:		GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
-* Notes:		Please keep the credits intact, also a linkback to my [profile](http://themeforest.net/user/SyamilMJ). Thanks! :)
 
 ### Overview
 
@@ -10,6 +8,13 @@ Aqua Page Builder is a powerful WordPress plugin that allows you to create an un
 It follows the same user interface used by the Menus & Widgets admin pages - making you feel right at home with the UI.
 
 Similar to the Widgets &amps Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
+
+### License (IMPORTANT)
+
+Aqua Page Builder is released under GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html). You are free to redistribute & modify copies of the plugin under the following conditions:
+
+* All links & credits must be kept intact
+* For commercial usage (e.g in themes you're selling on any marketplace, or a commercial website), you are required to link to my [Themeforest Profile Page](http://themeforest.net/user/SyamilMJ) using the following text: [Aqua Page Builder](https://github.com/sy4mil/Aqua-Page-Builder) by [Syamil MJ]((http://themeforest.net/user/SyamilMJ)
 
 ### Demo
 
