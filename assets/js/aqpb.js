@@ -86,7 +86,7 @@ jQuery(document).ready(function($){
 		
 		//set maxWidth for blocks inside columns
 		if($(blockPar).hasClass('column-blocks')) {
-			$('#' + blockID).resizable( "option", "maxWidth", maxWidth );
+			$('#' + blockID + '.ui-resizable').resizable( "option", "maxWidth", maxWidth );
 		}
 		
 		//set widths when the parent resized
@@ -99,13 +99,13 @@ jQuery(document).ready(function($){
 				//reset maxWidth for child blocks
 				$blockColumn.find('ul.blocks > li').each(function() {
 					child_blockID = $(this).attr('id');
-					$('#' + child_blockID).resizable( "option", "maxWidth", new_maxWidth );
+					$('#' + child_blockID + '.ui-resizable').resizable( "option", "maxWidth", new_maxWidth );
 					child_maxWidth.push(parseInt($('#' + child_blockID).css('width')));
 				});
 				
 				//get maxWidth of child blocks, use it to set the minWidth for column
 				var minWidth = Math.max.apply( Math, child_maxWidth );
-				$('#' + blockID).resizable( "option", "minWidth", minWidth );
+				$('#' + blockID + '.ui-resizable').resizable( "option", "minWidth", minWidth );
 			}
 		});
 		
@@ -143,9 +143,9 @@ jQuery(document).ready(function($){
 	
 	function columns_sortable() {
 		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
-		$('.block-aq_column_block ul.blocks').sortable({
+		$('#blocks-to-edit .block-aq_column_block ul.blocks').sortable({
 			placeholder: 'ui-state-highlight',
-			connectWith: '#blocks-archive, #blocks-to-edit, .block-aq_column_block ul.blocks',
+//			connectWith: '#blocks-archive, #blocks-to-edit, .block-aq_column_block ul.blocks',
 			items: 'li',
 		});
 	}
@@ -219,7 +219,7 @@ jQuery(document).ready(function($){
 		$('#' + blockID).trigger("resizestop");
 		
 		//disable resizable on .not-resizable blocks
-		$(".not-resizable").resizable("destroy");
+		$(".ui-resizable.not-resizable").resizable("destroy");
 		
 	});
 	
@@ -289,7 +289,7 @@ jQuery(document).ready(function($){
 		    ui.item.find('a.block-edit').click();
 		    
 		    //disable resizable on .not-resizable blocks
-		    $(".not-resizable").resizable("destroy");
+		    $(".ui-resizable.not-resizable").resizable("destroy");
 		    
 		}
 		

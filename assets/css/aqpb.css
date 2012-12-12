@@ -278,7 +278,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 
 /*blocks archive*/
 #blocks-archive { 
-	margin-right: -10px;
+	margin-right: -12px;
 	padding: 10px 0 0;	
 }
 #blocks-archive .block { 
