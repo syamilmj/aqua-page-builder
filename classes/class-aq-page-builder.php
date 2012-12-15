@@ -689,7 +689,7 @@ if(!class_exists('AQ_Page_Builder')) {
 						}
 
 						/** Send shortcode to editor */
-						window.send_to_editor('[aqpb id="' + id + '"]');
+						window.send_to_editor('[template id="' + id + '"]');
 					}
 				</script>
 
