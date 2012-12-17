@@ -54,7 +54,7 @@ if(!class_exists('AQ_Alert_Block')) {
 				</label>
 			</p>
 			<p class="description half last">
-				<label for="<?php echo $this->get_field_id('type') ?>">
+				<label for="<?php echo $this->get_field_id('style') ?>">
 					Additional inline css styling (optional)<br/>
 					<?php echo aq_field_input('style', $block_id, $style) ?>
 				</label>

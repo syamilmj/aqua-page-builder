@@ -4,7 +4,7 @@
  * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Easily create custom page templates with drag-and-drop interface.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
  * License: GPLV3
@@ -17,10 +17,11 @@
  * @todo      - Preview template
  			  - Inactive blocks (for staging)
  			  - TinyMCE integration
+ 			  - Template tabs sorting
  */
 
 //definitions
-if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.4' );
+if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.5b' );
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 if(!defined('AQPB_DIRNAME')) define( 'AQPB_DIRNAME', basename(dirname(__FILE__)) );
@@ -54,7 +55,7 @@ aq_register_block('AQ_Tabs_Block');
 //fire up page builder
 $aqpb_config = aq_page_builder_config();
 $aq_page_builder =& new AQ_Page_Builder($aqpb_config);
-$aq_page_builder->init();
+if(!is_network_admin()) $aq_page_builder->init();
 
 //set up & fire up plugin updater
 $aq_plugin_updater_config = array(
