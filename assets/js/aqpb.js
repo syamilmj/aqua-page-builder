@@ -143,10 +143,10 @@ jQuery(document).ready(function($){
 	
 	function columns_sortable() {
 		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
-		$('#blocks-to-edit .block-aq_column_block ul.blocks').sortable({
-			placeholder: 'ui-state-highlight',
-//			connectWith: '#blocks-archive, #blocks-to-edit, .block-aq_column_block ul.blocks',
-			items: 'li',
+		$('#page-builder .column-blocks').sortable({
+			placeholder: 'placeholder',
+			connectWith: '#blocks-to-edit, .column-blocks',
+			items: 'li'
 		});
 	}
 	
@@ -224,7 +224,7 @@ jQuery(document).ready(function($){
 	});
 	
 	/** Blocks draggable (archive) **/
-	$('ul#blocks-archive > li.block').each(function() {
+	$('#blocks-archive > li.block').each(function() {
 		$(this).draggable({
 			connectToSortable: "#blocks-to-edit",
 			helper: 'clone',
@@ -236,10 +236,11 @@ jQuery(document).ready(function($){
 	});
 	
 	/** Blocks sorting (settings) **/
-	$('ul#blocks-to-edit').sortable({
-		placeholder: "ui-state-highlight",
+	$('#blocks-to-edit').sortable({
+		placeholder: "placeholder",
 		handle: '.block-handle, .block-settings-column',
-		connectWith: '#blocks-archive, .block-aq_column_block ul.blocks',
+		connectWith: '#blocks-archive, .column-blocks',
+		items: 'li'
 	});
 	
 	/** Columns Sortable **/
@@ -318,11 +319,11 @@ jQuery(document).ready(function($){
 		tolerance: "pointer",
 		over : function(event, ui) {
 			$(this).find('#removing-block').fadeIn('fast');
-			ui.draggable.parent().find('.ui-state-highlight').hide();
+			ui.draggable.parent().find('.placeholder').hide();
 		},
 		out : function(event, ui) {
 			$(this).find('#removing-block').fadeOut('fast');
-			ui.draggable.parent().find('.ui-state-highlight').show();
+			ui.draggable.parent().find('.placeholder').show();
 		},
 		drop: function(ev, ui) {
 	        ui.draggable.remove();

@@ -288,7 +288,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 }
 #blocks-archive .block-settings,
 #blocks-archive .block-controls,
-#blocks-archive .ui-state-highlight { 
+#blocks-archive .placeholder { 
 	display: none;
 }
 
@@ -364,11 +364,11 @@ margin-left: 20px;
 		cursor: w-resize;
 		left: -10px;
 	}
-	#page-builder .ui-state-highlight {
+	#page-builder .placeholder {
 		background: #f5f5f5;
 		border: 1px dashed #bbb;
 		float: left;
-		height: 34px;
+		height: 36px;
 		margin: 13px 0 0 20px;
 		width: 300px;
 		-webkit-box-sizing: border-box;
