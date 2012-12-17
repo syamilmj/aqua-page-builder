@@ -86,7 +86,7 @@ jQuery(document).ready(function($){
 		
 		//set maxWidth for blocks inside columns
 		if($(blockPar).hasClass('column-blocks')) {
-			$('#' + blockID).resizable( "option", "maxWidth", maxWidth );
+			$('#' + blockID + '.ui-resizable').resizable( "option", "maxWidth", maxWidth );
 		}
 		
 		//set widths when the parent resized
@@ -99,13 +99,13 @@ jQuery(document).ready(function($){
 				//reset maxWidth for child blocks
 				$blockColumn.find('ul.blocks > li').each(function() {
 					child_blockID = $(this).attr('id');
-					$('#' + child_blockID).resizable( "option", "maxWidth", new_maxWidth );
+					$('#' + child_blockID + '.ui-resizable').resizable( "option", "maxWidth", new_maxWidth );
 					child_maxWidth.push(parseInt($('#' + child_blockID).css('width')));
 				});
 				
 				//get maxWidth of child blocks, use it to set the minWidth for column
 				var minWidth = Math.max.apply( Math, child_maxWidth );
-				$('#' + blockID).resizable( "option", "minWidth", minWidth );
+				$('#' + blockID + '.ui-resizable').resizable( "option", "minWidth", minWidth );
 			}
 		});
 		
@@ -143,10 +143,10 @@ jQuery(document).ready(function($){
 	
 	function columns_sortable() {
 		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
-		$('.block-aq_column_block ul.blocks').sortable({
-			placeholder: 'ui-state-highlight',
-			connectWith: '#blocks-archive, #blocks-to-edit, .block-aq_column_block ul.blocks',
-			items: 'li',
+		$('#page-builder .column-blocks').sortable({
+			placeholder: 'placeholder',
+			connectWith: '#blocks-to-edit, .column-blocks',
+			items: 'li'
 		});
 	}
 	
@@ -219,12 +219,12 @@ jQuery(document).ready(function($){
 		$('#' + blockID).trigger("resizestop");
 		
 		//disable resizable on .not-resizable blocks
-		$(".not-resizable").resizable("destroy");
+		$(".ui-resizable.not-resizable").resizable("destroy");
 		
 	});
 	
 	/** Blocks draggable (archive) **/
-	$('ul#blocks-archive > li.block').each(function() {
+	$('#blocks-archive > li.block').each(function() {
 		$(this).draggable({
 			connectToSortable: "#blocks-to-edit",
 			helper: 'clone',
@@ -236,10 +236,11 @@ jQuery(document).ready(function($){
 	});
 	
 	/** Blocks sorting (settings) **/
-	$('ul#blocks-to-edit').sortable({
-		placeholder: "ui-state-highlight",
+	$('#blocks-to-edit').sortable({
+		placeholder: "placeholder",
 		handle: '.block-handle, .block-settings-column',
-		connectWith: '#blocks-archive, .block-aq_column_block ul.blocks',
+		connectWith: '#blocks-archive, .column-blocks',
+		items: 'li'
 	});
 	
 	/** Columns Sortable **/
@@ -289,7 +290,7 @@ jQuery(document).ready(function($){
 		    ui.item.find('a.block-edit').click();
 		    
 		    //disable resizable on .not-resizable blocks
-		    $(".not-resizable").resizable("destroy");
+		    $(".ui-resizable.not-resizable").resizable("destroy");
 		    
 		}
 		
@@ -318,11 +319,11 @@ jQuery(document).ready(function($){
 		tolerance: "pointer",
 		over : function(event, ui) {
 			$(this).find('#removing-block').fadeIn('fast');
-			ui.draggable.parent().find('.ui-state-highlight').hide();
+			ui.draggable.parent().find('.placeholder').hide();
 		},
 		out : function(event, ui) {
 			$(this).find('#removing-block').fadeOut('fast');
-			ui.draggable.parent().find('.ui-state-highlight').show();
+			ui.draggable.parent().find('.placeholder').show();
 		},
 		drop: function(ev, ui) {
 	        ui.draggable.remove();
