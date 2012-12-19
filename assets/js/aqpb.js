@@ -188,7 +188,6 @@ jQuery(document).ready(function($){
 	
 	/** Actions
 	------------------------------------------------------------------------------------**/
-	
 	/** Open/close blocks **/
 	$(document).on('click', '#page-builder a.block-edit', function() {
 		var blockID = $(this).parents('li').attr('id');
@@ -393,6 +392,9 @@ jQuery(document).ready(function($){
 		items: 'a.aqpb-tab',
 		axis: 'x',
 	});
+	
+	/** Apply CSS float:left to blocks **/
+	$('li.block').css('float', 'left');
 	
 	/** prompt save on page change **
 	var aqpb_html = $('#update-page-template').html();

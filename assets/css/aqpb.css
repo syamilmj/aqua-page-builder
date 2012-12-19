@@ -284,7 +284,6 @@ a:hover, a:active, a:focus { color: #d54e21; }
 #blocks-archive .block { 
 	margin: 0 10px 10px 0;
 	width: 120px;
-	float: left;
 }
 #blocks-archive .block-settings,
 #blocks-archive .block-controls,
@@ -343,7 +342,6 @@ a:hover, a:active, a:focus { color: #d54e21; }
 .span2 { width: 104px; }
 .span1 { width: 42px; }
 [class*="span"] {
-float: left;
 margin-left: 20px;
 }
 
@@ -382,30 +380,3 @@ margin-left: 20px;
 	margin-left: 20px;
 	list-style-type: disc;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
