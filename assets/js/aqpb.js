@@ -188,6 +188,9 @@ jQuery(document).ready(function($){
 	
 	/** Actions
 	------------------------------------------------------------------------------------**/
+	/** Apply CSS float:left to blocks **/
+	$('li.block').css('float', 'none');
+	
 	/** Open/close blocks **/
 	$(document).on('click', '#page-builder a.block-edit', function() {
 		var blockID = $(this).parents('li').attr('id');
@@ -394,7 +397,7 @@ jQuery(document).ready(function($){
 	});
 	
 	/** Apply CSS float:left to blocks **/
-	$('li.block').css('float', 'left');
+	$('li.block').css('float', '');
 	
 	/** prompt save on page change **
 	var aqpb_html = $('#update-page-template').html();
