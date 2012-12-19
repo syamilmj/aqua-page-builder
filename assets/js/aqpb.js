@@ -146,7 +146,7 @@ jQuery(document).ready(function($){
 		$('#page-builder .column-blocks').sortable({
 			placeholder: 'placeholder',
 			connectWith: '#blocks-to-edit, .column-blocks',
-			items: 'li'
+			items: 'li.block'
 		});
 	}
 	
@@ -240,7 +240,7 @@ jQuery(document).ready(function($){
 		placeholder: "placeholder",
 		handle: '.block-handle, .block-settings-column',
 		connectWith: '#blocks-archive, .column-blocks',
-		items: 'li'
+		items: 'li.block'
 	});
 	
 	/** Columns Sortable **/
