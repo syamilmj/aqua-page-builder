@@ -61,7 +61,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
 			
 			//enqueueu styles/scripts on the builder page
-			add_action('admin_print_styles-'.$this->page, array(&$this, 'enqueue'));
+			add_action('admin_print_styles-'.$this->page, array(&$this, 'admin_enqueue'));
 			
 		}
 		
@@ -82,15 +82,15 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.0
 		 * @todo min versions
 		 */
-		function enqueue() {
+		function admin_enqueue() {
 		
-			//register 'em
+			// Register 'em
 			wp_register_style( 'aqpb-css', $this->url.'assets/css/aqpb.css', array(), time(), 'all');
 			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
 			wp_register_script('aqpb-js', $this->url . 'assets/js/aqpb.js', array('jquery'), time(), true);
 			wp_register_script('aqpb-fields-js', $this->url . 'assets/js/aqpb-fields.js', array('jquery'), time(), true);
 			
-			//enqueue 'em
+			// Enqueue 'em
 			wp_enqueue_style('aqpb-css');
 			wp_enqueue_style('aqpb-blocks-css');
 			wp_enqueue_style('farbtastic');
@@ -138,6 +138,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * Register template post type
 		 *
 		 * @uses register_post_type
+		 * @since 1.0.0
 		 */
 		function register_template_post_type() {
 		
@@ -173,6 +174,8 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		/**
 		 * Checks if template with given id exists
+		 *
+		 * @since 1.0.0
 		 */
 		function is_template($template_id) {
 		
@@ -191,8 +194,8 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Retrieve all blocks from template id
 		 *
-		 * @return array - $blocks
-		 * @since 1.0.0
+		 * @return	array - $blocks
+		 * @since	1.0.0
 		 */
 		function get_blocks($template_id) {
 		
@@ -224,7 +227,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Display blocks archive
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		 */
 		function blocks_archive() {
 		
@@ -238,7 +241,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Display template blocks
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		 */
 		function display_blocks( $template_id ) {
 			
@@ -282,7 +285,8 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		/**
 		 * Get all saved templates
-		 * @since 1.0.0
+		 *
+		 * @since	1.0.0
 		 */
 		function get_templates() {
 		
@@ -303,7 +307,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Creates a new template
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		 */
 		function create_template($title) {
 		
@@ -334,7 +338,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Function to update templates
 		 * 
-		 * @since 1.0.0
+		 * @since	1.0.0
 		**/
 		function update_template($template_id, $blocks, $title) {
 			
@@ -404,7 +408,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Delete page template
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		**/
 		function delete_template($template_id) {
 			
@@ -430,7 +434,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * layout to be consistent with their themes by using
 		 * the filter provided in the function
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		 */
 		function preview_template() {
 		
@@ -456,7 +460,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Display the template on the front end
 		 *
-		 * @since 1.0.0
+		 * @since	1.0.0
 		**/
 		function display_template($template_id) {
 		
@@ -534,7 +538,10 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/**
-		 * Add the [template] shortcode */
+		 * Add the [template] shortcode
+		 *
+		 * @since 1.0.0
+		 */
 		function add_shortcode() {
 		
 			global $shortcode_tags;
@@ -547,7 +554,10 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/**
-		 * Shortcode function */
+		 * Shortcode function
+		 *
+		 * @since 1.0.0
+		 */
 		function do_shortcode($atts, $content = null) {
 		
 			$defaults = array('id' => 0);
@@ -564,7 +574,10 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/**
-		 * Contextual help tabs */
+		 * Contextual help tabs
+		 *
+		 * @since 1.0.0
+		 */
 		function contextual_help() {
 		
 			$screen = get_current_screen();
@@ -598,7 +611,8 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		/**
 		 * Main page builder settings page display
-		 * @since 1.0.0
+		 *
+		 * @since	1.0.0
 		 */
 		function builder_settings_show(){
 		

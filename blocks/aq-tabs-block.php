@@ -111,7 +111,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 					
 					$i = 1;
 					foreach( $tabs as $tab ){
-						$tab_selected = $i == 1 ? 'ui-tab-selected' : '';
+						$tab_selected = $i == 1 ? 'ui-tabs-active' : '';
 						$output .= '<li class="'.$tab_selected.'"><a href="#aq-tab-'. sanitize_title( $tab['title'] ) . $i .'">' . $tab['title'] . '</a></li>';
 						$i++;
 					}
@@ -120,9 +120,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 					
 					$i = 1;
 					foreach($tabs as $tab) {
-						$tabs_hide = $i == 1 ? '' : 'ui-tabs-hide';
 						
-						$output .= '<div id="aq-tab-'. sanitize_title( $tab['title'] ) . $i .'" class="aq-tab '.$tabs_hide.'">'. wpautop(do_shortcode(htmlspecialchars_decode($tab['content']))) .'</div>';
+						$output .= '<div id="aq-tab-'. sanitize_title( $tab['title'] ) . $i .'" class="aq-tab">'. wpautop(do_shortcode(htmlspecialchars_decode($tab['content']))) .'</div>';
 						
 						$i++;
 					}

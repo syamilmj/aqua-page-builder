@@ -279,13 +279,13 @@ h4.aq-block-title { margin:  0 0 20px; }
 	   -moz-border-radius: 3px 3px 0 0;
 	   		border-radius: 3px 3px 0 0;
 }
-	
+
 .aq_block_tabs ul.aq-nav li a:hover {
 	background: #fff;
 	margin: 0;
 }
 
-.aq_block_tabs ul.aq-nav li.ui-tabs-selected a {
+.aq_block_tabs ul.aq-nav li.ui-tabs-active a {
 	height: 27px;
 	background: #fff;
 }
@@ -294,6 +294,7 @@ h4.aq-block-title { margin:  0 0 20px; }
 	background: #fff;
 	padding: 15px 15px 5px;
 	border: 1px solid #dfdfdf;
+	display: none;
 }
 	.aq_block_tabs .aq-tab.first-child { 
 		position: relative; 

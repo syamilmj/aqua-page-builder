@@ -1,8 +1,6 @@
 ## AQUA PAGE BUILDER 
 
 * Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
-* License:		GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
-* Notes:		Please keep the credits intact, also a linkback to my [profile](http://themeforest.net/user/SyamilMJ). Thanks! :)
 
 ### Overview
 
@@ -11,18 +9,23 @@ It follows the same user interface used by the Menus & Widgets admin pages - mak
 
 Similar to the Widgets &amps Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
 
+### License (IMPORTANT)
+
+Aqua Page Builder is released under GPLv3 - [http://www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html). You are free to redistribute & modify copies of the plugin under the following conditions:
+
+* All links & credits must be kept intact
+* For commercial usage (e.g in themes you're selling on any marketplace, or a commercial website), you are required to link to my [Themeforest Profile Page](http://themeforest.net/user/SyamilMJ) using the following text: [Aqua Page Builder](https://github.com/sy4mil/Aqua-Page-Builder) by [Syamil MJ]((http://themeforest.net/user/SyamilMJ)
+
 ### Demo
 
 I have created a WordPress theme that demonstrates the plugin's capabilities, featuring a handful of custom blocks which you can use to learn from to build your own custom blocks for your own theme. I'd highly encourage you to purchase the theme. It's not free but consider it as a token of appreciation for my works :smile: See [Cuvette](http://aquagraphite.com/cuvette)
 
 ### User Guide
 
-I've written a basic guide for the users so they can get up and running
+I've written a quite extensive guide for the users so they can get up and running
 with the plugin in no time. The link to this guide is provided in the "Help" tab
 for easier access, but you can also link to it manually in the theme description or
-theme documentation: [Aqua Page Builder Documentation](http://aquagraphite.com/api/documentation/aqua-page-builder)
-
-If you're adding custom blocks (which you should) then please supply your own documentation.
+theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 ### Developer's Guide
 

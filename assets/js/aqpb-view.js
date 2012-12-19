@@ -10,7 +10,9 @@ jQuery(document).ready(function($){
 	-------------------------------*/
 	// Tabs
 	if(jQuery().tabs) {
-		$(".aq_block_tabs").tabs({ fx: { opacity: 'show' } });
+		$(".aq_block_tabs").tabs({ 
+			show: true 
+		});
 	}
 	
 	// Toggles
