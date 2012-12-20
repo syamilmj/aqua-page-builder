@@ -48,6 +48,10 @@ if(!class_exists('AQ_Page_Builder')) {
 			add_filter('contextual_help', array(&$this, 'contextual_help'));
 			if(!is_admin()) add_filter('init', array(&$this, 'view_enqueue'));
 			add_action('admin_bar_menu', array(&$this, 'add_admin_bar'), 1000);
+
+			/** TinyMCE button */
+			add_filter( 'media_buttons_context', array(&$this, 'add_media_button') );
+			add_action( 'admin_footer', array(&$this, 'add_media_display') );
 			
 		}
 		
@@ -571,6 +575,105 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 			return $template;
 			
+		}
+
+
+		/**
+		 * Media button shortcode
+		 *
+		 * @since unknown
+		 */
+		function add_media_button( $button ) {
+
+			global $pagenow, $wp_version;
+
+			$output = '';
+
+			if ( in_array( $pagenow, array( 'post.php', 'page.php', 'post-new.php', 'post-edit.php' ) ) ) {
+
+				if ( version_compare( $wp_version, '3.5', '<' ) ) {
+					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Aqua Template', 'framework' )  . '" />';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Aqua Template', 'framework' )  . '">' . $img . '</a>';
+				} else {
+					$img 	= '<span class="wp-media-buttons-icon" style="background-image: url(' . AQPB_DIR . '/assets/images/aqua-media-button.png ); margin-top: -1px;"></span>';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Aqua Template', 'framework' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'framework' ) . '</a>';
+				}
+				
+			}
+
+			return $button . $output;
+
+		}
+
+		/**
+		 * Media button display
+		 *
+		 * @since unknown
+		 */
+		function add_media_display() {
+
+			global $pagenow;
+
+			/** Only run in post/page new and edit */
+			if ( in_array( $pagenow, array( 'post.php', 'page.php', 'post-new.php', 'post-edit.php' ) ) ) {
+				/** Get all published templates */
+				$templates = get_posts( array( 
+					'post_type' 		=> 'template', 
+					'posts_per_page'	=> -1,
+					'post_status' 		=> 'publish',
+					'order'				=> 'ASC',
+					'orderby'			=> 'title'
+		    		)
+				);
+
+				?>
+				<script type="text/javascript">
+					function insertTemplate() {
+						var id = jQuery( '#select-aqpb-template' ).val();
+
+						/** Alert user if there is no template selected */
+						if ( '' == id ) {
+							alert("<?php echo esc_js( __( 'Please select your template first!', 'framework' ) ); ?>");
+							return;
+						}
+
+						/** Send shortcode to editor */
+						window.send_to_editor('[template id="' + id + '"]');
+					}
+				</script>
+
+				<div id="aqpb-iframe-container" style="display: none;">
+					<div class="wrap" style="padding: 1em">
+
+						<?php do_action( 'aqpb_before_iframe_display', $templates ); ?>	
+
+						<?php
+						/** If there is no template created yet */
+						if ( empty( $templates ) ) {
+							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'framework' ), '<a href="' .admin_url().'themes.php?page=aq-page-builder">', '</a>' );
+							return;
+						}
+						?>						
+
+						<h3><?php _e( 'Choose Your Aqua Template', 'framework' ); ?></h3><br />
+						<select id="select-aqpb-template" style="clear: both; min-width:200px; display: inline-block; margin-right: 3em;">
+						<?php
+							foreach ( $templates as $template )
+								echo '<option value="' . absint( $template->ID ) . '">' . esc_attr( $template->post_title ) . '</option>';
+						?>
+						</select>
+
+						<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'framework' ); ?>" onclick="insertTemplate();" />
+						<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'framework' ); ?>"><?php echo esc_attr__( 'Cancel', 'framework' ); ?></a>
+
+						<?php do_action( 'aqpb_after_iframe_display', $templates ); ?>
+
+					</div>
+				</div>
+
+				<?php
+			} /** End Coditional Statement for post, page, new and edit post */
+
 		}
 		
 		/**
