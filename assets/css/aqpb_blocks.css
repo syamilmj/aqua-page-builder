@@ -119,15 +119,10 @@ DO NOT EDIT THIS
 	position: relative;
 	margin-bottom: 5px;
 }
-	.cw-color-picker {
-		background: #f5f5f5;
-		display: none;
-		position: absolute;
-		z-index: 99;
-	}
 	.block-settings .input-color-picker {
 		width: 70px;
 	}
+	
 
 /** Sortable list field **/
 .aq-sortable-list { position: relative; }
@@ -176,11 +171,13 @@ DO NOT EDIT THIS
 #TB_window {
 	z-index: 9999;
 }
-.screenshot { 
+.screenshot {
+	float: left;
 	padding: 7px;
 	background: #fff;
 	border: 1px solid #dedede;
 	line-height: 0;
+	margin: 0 0 10px;
 }
 .screenshot img { max-width: 100% }
 .input-upload { margin: 0 0 8px; }

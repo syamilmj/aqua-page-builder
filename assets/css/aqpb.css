@@ -126,6 +126,9 @@ a:hover, a:active, a:focus { color: #d54e21; }
 			-webkit-box-shadow: inset 0 1px 0 #fff;
 			box-shadow: inset 0 1px 0 #fff;
 		}
+	.aqpb-tab-sortable {
+		float: left;
+	}
 	
 /*header*/
 #page-builder .major-publishing-actions { 
@@ -224,6 +227,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 }
 	#page-builder .block-title {overflow: hidden;}
 	#blocks-archive .block-title {position: absolute;}
+	.in-block-title { color: #606060; }
 #page-builder .block-controls { 
 	font-size: 12px;
 	position: absolute;
@@ -382,30 +386,3 @@ margin-left: 20px;
 	margin-left: 20px;
 	list-style-type: disc;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

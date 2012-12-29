@@ -146,7 +146,7 @@ jQuery(document).ready(function($){
 		$('#page-builder .column-blocks').sortable({
 			placeholder: 'placeholder',
 			connectWith: '#blocks-to-edit, .column-blocks',
-			items: 'li'
+			items: 'li.block'
 		});
 	}
 	
@@ -188,6 +188,8 @@ jQuery(document).ready(function($){
 	
 	/** Actions
 	------------------------------------------------------------------------------------**/
+	/** Apply CSS float:left to blocks **/
+	$('li.block').css('float', 'none');
 	
 	/** Open/close blocks **/
 	$(document).on('click', '#page-builder a.block-edit', function() {
@@ -240,7 +242,7 @@ jQuery(document).ready(function($){
 		placeholder: "placeholder",
 		handle: '.block-handle, .block-settings-column',
 		connectWith: '#blocks-archive, .column-blocks',
-		items: 'li'
+		items: 'li.block'
 	});
 	
 	/** Columns Sortable **/
@@ -390,9 +392,12 @@ jQuery(document).ready(function($){
 	
 	/** Sort nav order **/
 	$('.aqpb-tabs').sortable({
-		items: 'a.aqpb-tab',
+		items: '.aqpb-tab-sortable',
 		axis: 'x',
 	});
+	
+	/** Apply CSS float:left to blocks **/
+	$('li.block').css('float', '');
 	
 	/** prompt save on page change **
 	var aqpb_html = $('#update-page-template').html();
