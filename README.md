@@ -1,6 +1,8 @@
 ## AQUA PAGE BUILDER 
 
-* Author:		Syamil MJ - [Aquagraphite.com](http://aquagraphite.com)
+* Author:		Syamil MJ
+* Author URI:	[Aquagraphite.com](http://aquagraphite.com)
+* Contributors:	[Arya Prakasa](https://twitter.com/arya_prakasa)
 
 ### Overview
 

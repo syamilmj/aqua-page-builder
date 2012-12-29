@@ -13,54 +13,63 @@ jQuery(document).ready(function($){
 	/** Colorpicker Field
 	----------------------------------------------- */
 	function aqpb_colorpicker() {
-		$('.cw-color-picker').each(function(){
-			var $this = jQuery(this),
-				id = $this.attr('rel');
-			$this.farbtastic('#' + id);
-			$(document).on('click', "#" + id, function() {
-				$this.fadeIn();
-			});
+		$('#page-builder .input-color-picker').each(function(){
+			var $this	= $(this),
+				parent	= $this.parent();
+				
+			$this.wpColorPicker();
 			
-			//hide picker if click away
-			$(document).bind('click', function(e) {
-				var $clicked = $(e.target);
-				if (!$clicked.is(".cw-color-picker *") && (!$clicked.is(".input-color-picker")))
-					$(".cw-color-picker").fadeOut();
-			});
+//			hide picker if click away
+//			$(document).bind('click', function(e) {
+//				var $clicked = $(e.target);
+//				if (!$clicked.is($(parent).find('*'))) {
+//					$this.iris('hide');
+//				}
+//			});
 		});
 	}
+	
 	aqpb_colorpicker();
+	
 	$('ul.blocks').bind('sortstop', function() {
 		aqpb_colorpicker();
 	});
 	
 	/** Media Uploader
 	----------------------------------------------- */	
-	$(document).on('click', '.aq_upload_button', function() {
-		
-		// Setup vars
-		var $clicked = $(this),
-			template_id = $('#template').val(),
+	$(document).on('click', '.aq_upload_button', function(event) {
+		var $clicked = $(this), frame,
 			input_id = $clicked.prev().attr('id'),
 			media_type = $clicked.attr('rel');
+			
+		event.preventDefault();
 		
-		//Change "insert into post" to "Insert" Button
-		tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Insert');}, 100);
-		tbframe_interval;
-		
-		window.send_to_editor = function(html) {
-			if(media_type == 'img') {
-				imgurl = jQuery('img',html).attr('src');
-				jQuery('#' + input_id).val(imgurl);
-				tb_remove();
-			}
+		// If the media frame already exists, reopen it.
+		if ( frame ) {
+			frame.open();
+			return;
 		}
 		
-		tb_show('Upload Media', 'media-upload.php?post_id='+ template_id +'&amp;TB_iframe=true');
-		return false;
+		// Create the media frame.
+		frame = wp.media.frames.customHeader = wp.media({
+			// Set the media type
+			library: {
+				type: media_type
+			},
+		});
+		
+		// When an image is selected, run a callback.
+		frame.on( 'select', function() {
+			// Grab the selected attachment.
+			var attachment = frame.state().get('selection').first();
+				$('#' + input_id).val(attachment.attributes.url);
+				$('#' + input_id).parent().parent().parent().find('.screenshot img').attr('src', attachment.attributes.url);
+		});
+
+		frame.open();
 	
 	});
-	
+			
 	/** Sortable Lists
 	----------------------------------------------- */
 	// AJAX Add New <list-item>

@@ -3,7 +3,7 @@
  *
  * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
- * Description: Easily create custom page templates with drag-and-drop interface.
+ * Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
  * Version: 1.0.6b
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
@@ -16,16 +16,14 @@
  *
  * @todo      - Preview template
  			  - Inactive blocks (for staging)
- 			  - TinyMCE integration
  			  - Template tabs sorting
+ 			  - Duplicate block
  */
 
 //definitions
 if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.6b' );
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
-if(!defined('AQPB_DIRNAME')) define( 'AQPB_DIRNAME', basename(dirname(__FILE__)) );
-if(!defined('AQPB_FILENAME')) define( 'AQPB_FILENAME', basename(__FILE__));
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');
@@ -58,9 +56,9 @@ $aq_page_builder =& new AQ_Page_Builder($aqpb_config);
 if(!is_network_admin()) $aq_page_builder->init();
 
 //set up & fire up plugin updater
-$aq_plugin_updater_config = array(
+$aqpb_updater_config = array(
 	'api_url'	=> 'http://aquagraphite.com/api/',
-	'slug'		=> AQPB_DIRNAME,
-	'filename'	=> AQPB_FILENAME
+	'slug'		=> 'aqua-page-builder',
+	'filename'	=> 'aq-page-builder.php'
 );
-$aq_plugin_updater = new AQ_Plugin_Updater($aq_plugin_updater_config);
+$aqpb_updater = new AQ_Plugin_Updater($aqpb_updater_config);

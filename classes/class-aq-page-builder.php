@@ -14,6 +14,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		public $url = AQPB_DIR;
 		public $config = array();
+		private $admin_notices;
 		
 		/**
 		 * Stores public queryable vars
@@ -50,8 +51,8 @@ if(!class_exists('AQ_Page_Builder')) {
 			add_action('admin_bar_menu', array(&$this, 'add_admin_bar'), 1000);
 
 			/** TinyMCE button */
-			add_filter( 'media_buttons_context', array(&$this, 'add_media_button') );
-			add_action( 'admin_footer', array(&$this, 'add_media_display') );
+			add_filter('media_buttons_context', array(&$this, 'add_media_button') );
+			add_action('admin_footer', array(&$this, 'add_media_display') );
 			
 		}
 		
@@ -97,20 +98,22 @@ if(!class_exists('AQ_Page_Builder')) {
 			// Enqueue 'em
 			wp_enqueue_style('aqpb-css');
 			wp_enqueue_style('aqpb-blocks-css');
-			wp_enqueue_style('farbtastic');
+			wp_enqueue_style('wp-color-picker');
 			wp_enqueue_script('jquery');
 			wp_enqueue_script('jquery-ui-sortable');
 			wp_enqueue_script('jquery-ui-resizable');
 			wp_enqueue_script('jquery-ui-draggable');
 			wp_enqueue_script('jquery-ui-droppable');
-			wp_enqueue_script('farbtastic');
+			wp_enqueue_script('iris');
+			wp_enqueue_script('wp-color-picker');
 			wp_enqueue_script('aqpb-js');
 			wp_enqueue_script('aqpb-fields-js');
 			
 			// Media library uploader
 			wp_enqueue_script('thickbox');  
 	        wp_enqueue_style('thickbox');  
-	        wp_enqueue_script('media-upload'); 
+	        wp_enqueue_script('media-upload');
+	        wp_enqueue_media();
 			
 			// Hook to register custom style/scripts
 			do_action('aq-page-builder-admin-enqueue');
@@ -581,7 +584,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Media button shortcode
 		 *
-		 * @since unknown
+		 * @since 1.0.6
 		 */
 		function add_media_button( $button ) {
 
@@ -592,11 +595,11 @@ if(!class_exists('AQ_Page_Builder')) {
 			if ( in_array( $pagenow, array( 'post.php', 'page.php', 'post-new.php', 'post-edit.php' ) ) ) {
 
 				if ( version_compare( $wp_version, '3.5', '<' ) ) {
-					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Aqua Template', 'framework' )  . '" />';
-					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Aqua Template', 'framework' )  . '">' . $img . '</a>';
+					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Page Template', 'framework' )  . '" />';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Page Template', 'framework' )  . '">' . $img . '</a>';
 				} else {
 					$img 	= '<span class="wp-media-buttons-icon" style="background-image: url(' . AQPB_DIR . '/assets/images/aqua-media-button.png ); margin-top: -1px;"></span>';
-					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Aqua Template', 'framework' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'framework' ) . '</a>';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Page Template', 'framework' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'framework' ) . '</a>';
 				}
 				
 			}
@@ -608,7 +611,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		/**
 		 * Media button display
 		 *
-		 * @since unknown
+		 * @since 1.0.6
 		 */
 		function add_media_display() {
 
@@ -655,7 +658,7 @@ if(!class_exists('AQ_Page_Builder')) {
 						}
 						?>						
 
-						<h3><?php _e( 'Choose Your Aqua Template', 'framework' ); ?></h3><br />
+						<h3><?php _e( 'Choose Your Page Template', 'framework' ); ?></h3><br />
 						<select id="select-aqpb-template" style="clear: both; min-width:200px; display: inline-block; margin-right: 3em;">
 						<?php
 							foreach ( $templates as $template )

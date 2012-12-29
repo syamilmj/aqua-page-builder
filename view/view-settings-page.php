@@ -146,9 +146,9 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 							<?php
 							foreach ( (array) $templates as $template ) {
 								if($selected_template_id == $template->ID) {
-									echo '<span class="aqpb-tab aqpb-tab-active">'. htmlspecialchars($template->post_title) .'</span>';
+									echo '<span class="aqpb-tab aqpb-tab-active aqpb-tab-sortable">'. htmlspecialchars($template->post_title) .'</span>';
 								} else {
-									echo '<a class="aqpb-tab" data-template_id="'.$template->ID.'" href="' . esc_url(add_query_arg(
+									echo '<a class="aqpb-tab aqpb-tab-sortable" data-template_id="'.$template->ID.'" href="' . esc_url(add_query_arg(
 										array(
 											'page' => $this->args['page_slug'], 
 											'action' => 'edit',

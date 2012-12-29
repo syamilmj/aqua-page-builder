@@ -7,6 +7,7 @@
  *
  * @author Syamil MJ <http://aquagraphite.com>
  */
+
 // Take over the update check
 if(!class_exists('AQ_Plugin_Updater')) {
 	class AQ_Plugin_Updater {	
@@ -25,7 +26,8 @@ if(!class_exists('AQ_Plugin_Updater')) {
 			//hook filters
 			add_filter('pre_set_site_transient_update_plugins', array($this, 'check_update'));
 			add_filter('plugins_api', array($this, 'plugin_api_call'), 10, 3);
-			add_filter( 'upgrader_post_install', array($this, 'upgrader_post_install'), 10, 3 );
+			add_filter('upgrader_post_install', array($this, 'upgrader_post_install'), 10, 3 );
+			
 		}
 		
 		function check_update($checked_data) {

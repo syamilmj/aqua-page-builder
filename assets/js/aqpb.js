@@ -392,7 +392,7 @@ jQuery(document).ready(function($){
 	
 	/** Sort nav order **/
 	$('.aqpb-tabs').sortable({
-		items: 'a.aqpb-tab',
+		items: '.aqpb-tab-sortable',
 		axis: 'x',
 	});
 	

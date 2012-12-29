@@ -85,10 +85,9 @@ if(class_exists('AQ_Page_Builder')) {
 	}
 	
 	/* Color picker field */
-	function aq_field_color_picker($field_id, $block_id, $color) {
+	function aq_field_color_picker($field_id, $block_id, $color, $default = '') {
 		$output = '<div class="aqpb-color-picker">';
-			$output .= '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-color-picker" value="'. $color .'" name="aq_blocks['.$block_id.']['.$field_id.']" />';
-			$output .= '<div class="cw-color-picker" rel="'. $block_id .'_'.$field_id.'"></div>';
+			$output .= '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-color-picker" value="'. $color .'" name="aq_blocks['.$block_id.']['.$field_id.']" data-default-color="'. $default .'"/>';
 		$output .= '</div>';
 		
 		return $output;
@@ -108,7 +107,7 @@ if(class_exists('AQ_Page_Builder')) {
 	}
 	
 	/* Media Uploader */
-	function aq_field_upload($field_id, $block_id, $media, $media_type = 'img') {
+	function aq_field_upload($field_id, $block_id, $media, $media_type = 'image') {
 		$output = '<input type="text" id="'. $block_id .'_'.$field_id.'" class="input-full input-upload" value="'.$media.'" name="aq_blocks['.$block_id.']['.$field_id.']">';
 		$output .= '<a href="#" class="aq_upload_button button" rel="'.$media_type.'">Upload</a><p></p>';
 		
