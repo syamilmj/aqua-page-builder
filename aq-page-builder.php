@@ -21,11 +21,7 @@
  */
 
 //definitions
-<<<<<<< HEAD
-if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.5' );
-=======
 if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.6' );
->>>>>>> dev
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 
