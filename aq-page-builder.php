@@ -30,7 +30,6 @@ require_once(AQPB_PATH . 'functions/aqpb_config.php');
 require_once(AQPB_PATH . 'functions/aqpb_blocks.php');
 require_once(AQPB_PATH . 'classes/class-aq-page-builder.php');
 require_once(AQPB_PATH . 'classes/class-aq-block.php');
-require_once(AQPB_PATH . 'classes/class-aq-block.php');
 require_once(AQPB_PATH . 'classes/class-aq-plugin-updater.php');
 require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 
