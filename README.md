@@ -30,6 +30,16 @@ theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 Please refer to our wiki - [Aqua Page Builder's Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki)
 
+### Donations
+
+<a href="https://www.wfp.org/donate/fillthecup?icn=homepage-donate-cup&ici=small-button-link"><img src="https://www.wfp.org/sites/default/files/640x300_donation-form.jpg"/></a>
+
+With your support, the World Food Programme is fighting hunger every day, whether we’re saving lives in an emergency or nourishing the bodies and minds of children by providing school meals.
+ 
+It takes just one dollar to fill four cups with nutritious meals. Working together, we can build a world without hunger.
+
+**<a href="https://www.wfp.org/donate/fillthecup?icn=homepage-donate-cup&ici=small-button-link">FILL THE CUP!</a>**
+
 ### Bugs, Issues, Feedbacks, Help?
 
 Please report any bugs, issues, feedbacks or get help on the Aqua Page Builder's Issues page on Github - [Issues page](https://github.com/sy4mil/Aqua-Page-Builder/issues).

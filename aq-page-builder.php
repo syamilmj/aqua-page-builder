@@ -1,23 +1,35 @@
 <?php
 /** بسم الله الرحمن الرحيم **
+
+Plugin Name: Aqua Page Builder
+Plugin URI: http://aquagraphite.com/page-builder
+Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
+Version: 1.0.6
+Author: Syamil MJ
+Author URI: http://aquagraphite.com
+
+*/
+ 
+/**
+ * Copyright (c) 2013 Syamil MJ. All rights reserved.
  *
- * Plugin Name: Aqua Page Builder
- * Plugin URI: http://aquagraphite.com/page-builder
- * Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
- * Version: 1.0.6
- * Author: Syamil MJ
- * Author URI: http://aquagraphite.com
- * License: GPLV3
+ * Released under the GPL license
+ * http://www.opensource.org/licenses/gpl-license.php
  *
- * @package   Aqua Page Builder
- * @author    Syamil MJ <http://aquagraphite.com>
- * @copyright Copyright (c) 2012, Syamil MJ
- * @license   http://www.gnu.org/copyleft/gpl.html
+ * This is an add-on for WordPress
+ * http://wordpress.org/
  *
- * @todo      - Preview template
- 			  - Inactive blocks (for staging)
- 			  - Template tabs sorting
- 			  - Duplicate block
+ * **********************************************************************
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * **********************************************************************
  */
 
 //definitions
