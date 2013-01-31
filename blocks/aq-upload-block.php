@@ -1,6 +1,6 @@
 <?php 
 /* Media Uploader Block */
-if(!class_exists('AQ_Upload_Block') {
+if(!class_exists('AQ_Upload_Block')) {
 	class AQ_Upload_Block {
 		
 		function __construct() {
