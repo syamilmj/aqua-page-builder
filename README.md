@@ -50,3 +50,6 @@ It takes just one dollar to fill four cups with nutritious meals. Working togeth
 Please report any bugs, issues, feedbacks or get help on the Aqua Page Builder's Issues page on Github - [Issues page](https://github.com/sy4mil/Aqua-Page-Builder/issues).
 
 If you need general help that can't possibly be answered on the Issues page, please contact me directly via this [contact form](http://aquagraphite.com/about).
+
+
+Full changelog here - http://aquagraphite.com/api/changelog/aqua-page-builder
