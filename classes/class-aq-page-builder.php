@@ -42,12 +42,12 @@ if(!class_exists('AQ_Page_Builder')) {
 		 */
 		function init() {
 		
-			add_action('admin_menu', array(&$this, 'builder_page'));
+			add_action('admin_menu', array(&$this, 'admin_pages'));
 			add_action('init', array(&$this, 'register_template_post_type'));
 			add_action('init', array(&$this, 'add_shortcode'));
 			add_action('template_redirect', array(&$this, 'preview_template'));
 			add_filter('contextual_help', array(&$this, 'contextual_help'));
-			if(!is_admin()) add_filter('init', array(&$this, 'view_enqueue'));
+			if(!is_admin()) add_action('init', array(&$this, 'view_enqueue'));
 			add_action('admin_bar_menu', array(&$this, 'add_admin_bar'), 1000);
 
 			/** TinyMCE button */
@@ -57,13 +57,13 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/** 
-		 * Create Settings Page
+		 * Create Admin Pages
 		 *
 		 * @since 1.0.0
 		 */
-		function builder_page() {
+		function admin_pages() {
 		
-			$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_settings_show'));
+			$this->page = add_theme_page( $this->args['page_title'], $this->args['menu_title'], 'manage_options', $this->args['page_slug'], array(&$this, 'builder_page_show'));
 			
 			//enqueueu styles/scripts on the builder page
 			add_action('admin_print_styles-'.$this->page, array(&$this, 'admin_enqueue'));
@@ -716,13 +716,13 @@ if(!class_exists('AQ_Page_Builder')) {
 		}
 		
 		/**
-		 * Main page builder settings page display
+		 * Main page builder page display
 		 *
 		 * @since	1.0.0
 		 */
-		function builder_settings_show(){
+		function builder_page_show(){
 		
-			require_once(AQPB_PATH . 'view/view-settings-page.php');
+			require_once(AQPB_PATH . 'view/view-builder-page.php');
 			
 		}
 		

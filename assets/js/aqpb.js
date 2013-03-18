@@ -251,6 +251,7 @@ jQuery(document).ready(function($){
 	/** Sortable bindings **/
 	$( "ul.blocks" ).bind( "sortstart", function(event, ui) {
 		ui.placeholder.css('width', ui.helper.css('width'));
+		ui.placeholder.css('height', ( ui.helper.css('height').replace("px", "") - 13 ) + 'px' );
 		$('.empty-template').remove();
 	});
 	

@@ -18,14 +18,6 @@ jQuery(document).ready(function($){
 				parent	= $this.parent();
 				
 			$this.wpColorPicker();
-			
-//			hide picker if click away
-//			$(document).bind('click', function(e) {
-//				var $clicked = $(e.target);
-//				if (!$clicked.is($(parent).find('*'))) {
-//					$this.iris('hide');
-//				}
-//			});
 		});
 	}
 	
@@ -46,27 +38,37 @@ jQuery(document).ready(function($){
 		
 		// If the media frame already exists, reopen it.
 		if ( frame ) {
-			frame.open();
+			frame.open('editor');
 			return;
+		} else {
+			wp.media.model.settings.post.id = 1457;
 		}
 		
+		console.log(wp.media.view);
+		
 		// Create the media frame.
-		frame = wp.media.frames.customHeader = wp.media({
+		frame = wp.media.frames.aq_media_uploader = wp.media({
 			// Set the media type
 			library: {
 				type: media_type
 			},
+			view: {
+				
+			}
 		});
 		
 		// When an image is selected, run a callback.
 		frame.on( 'select', function() {
 			// Grab the selected attachment.
 			var attachment = frame.state().get('selection').first();
-				$('#' + input_id).val(attachment.attributes.url);
-				$('#' + input_id).parent().parent().parent().find('.screenshot img').attr('src', attachment.attributes.url);
+			
+			$('#' + input_id).val(attachment.attributes.url);
+			
+			if(media_type == 'image') $('#' + input_id).parent().parent().parent().find('.screenshot img').attr('src', attachment.attributes.url);
+			
 		});
 
-		frame.open();
+		frame.open('toolbar');
 	
 	});
 			
