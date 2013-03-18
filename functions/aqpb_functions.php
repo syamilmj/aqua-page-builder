@@ -150,4 +150,3 @@ if(class_exists('AQ_Page_Builder')) {
 	}
 	
 }
-?>
