@@ -94,7 +94,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	#page-builder .aqpb-tabs { 
 		float: left;
 		margin-left: 0;
-		margin-right: -400px;
+		margin-right: -4000px;
 		padding-right: 10px;
 	}
 	.aqpb-tab { 
