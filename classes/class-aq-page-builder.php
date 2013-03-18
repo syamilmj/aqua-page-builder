@@ -47,7 +47,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			add_action('init', array(&$this, 'add_shortcode'));
 			add_action('template_redirect', array(&$this, 'preview_template'));
 			add_filter('contextual_help', array(&$this, 'contextual_help'));
-			if(!is_admin()) add_filter('init', array(&$this, 'view_enqueue'));
+			if(!is_admin()) add_action('init', array(&$this, 'view_enqueue'));
 			add_action('admin_bar_menu', array(&$this, 'add_admin_bar'), 1000);
 
 			/** TinyMCE button */

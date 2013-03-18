@@ -1,6 +1,9 @@
 <?php 
-/* Media Uploader Block */
-if(!class_exists('AQ_Upload_Block') {
+/* Media Uploader Block 
+ *
+ * Please see media block in cuvette 
+ */
+if(!class_exists('AQ_Upload_Block')) {
 	class AQ_Upload_Block {
 		
 		function __construct() {
