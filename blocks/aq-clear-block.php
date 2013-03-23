@@ -10,7 +10,7 @@ class AQ_Clear_Block extends AQ_Block {
 	function __construct() {
 		$block_options = array(
 			'name' => 'Clear',
-			'size' => 'span12',
+			'size' => 'span3',
 		);
 		
 		//create the block
@@ -23,7 +23,8 @@ class AQ_Clear_Block extends AQ_Block {
 			'horizontal_line' => 'none',
 			'line_color' => '#353535',
 			'pattern' => '1',
-			'height' => ''
+			'bottom_margin' => '40',
+			'top_margin' => '40'
 		);
 		
 		$line_options = array(
@@ -49,12 +50,18 @@ class AQ_Clear_Block extends AQ_Block {
 			</label>
 		</p>
 		<div class="description fourth">
-			<label for="<?php echo $this->get_field_id('height') ?>">
-				Height (optional)<br/>
-				<?php echo aq_field_input('height', $block_id, $height, 'min', 'number') ?> px
+			<label for="<?php echo $this->get_field_id('bottom_margin') ?>">
+				Bottom Margin (optional)<br/>
+				<?php echo aq_field_input('bottom_margin', $block_id, $bottom_margin, 'min', 'number') ?> px
 			</label>
 		</div>
-		<div class="description half last">
+        <div class="description fourth">
+			<label for="<?php echo $this->get_field_id('top_margin') ?>">
+				Top Margin (optional)<br/>
+				<?php echo aq_field_input('top_margin', $block_id, $top_margin, 'min', 'number') ?> px
+			</label>
+		</div>
+		<div class="description fourth last" style="">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
 				Pick a line color<br/>
 				<?php echo aq_field_color_picker('line_color', $block_id, $line_color, $defaults['line_color']) ?>
@@ -72,19 +79,15 @@ class AQ_Clear_Block extends AQ_Block {
 			case 'none':
 				break;
 			case 'single':
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.'; margin-bottom:'.$bottom_margin.'px; margin-top:'.$top_margin.'px;"/>';
 				break;
 			case 'double':
-				echo '<hr class="aq-block-clear aq-block-hr-double" style="background:'.$line_color.';"/>';
-				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-double" style="background:'.$line_color.'; margin-bottom:'.$bottom_margin.'px; margin-top:'.$top_margin.'px;"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.'; margin-bottom:'.$bottom_margin.'px; margin-top:'.$top_margin.'px;"/>';
 				break;
 			case 'image':
-				echo '<hr class="aq-block-clear aq-block-hr-image cf"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-image cf" style="margin-bottom:'.$bottom_margin.'px; margin-top:'.$top_margin.'px;"/>';
 				break;
-		}
-		
-		if($height) {
-			echo '<div class="cf" style="height:'.$height.'px"></div>';
 		}
 		
 	}
