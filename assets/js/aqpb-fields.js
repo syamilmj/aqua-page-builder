@@ -38,13 +38,9 @@ jQuery(document).ready(function($){
 		
 		// If the media frame already exists, reopen it.
 		if ( frame ) {
-			frame.open('editor');
+			frame.open();
 			return;
-		} else {
-			wp.media.model.settings.post.id = 1457;
 		}
-		
-		console.log(wp.media.view);
 		
 		// Create the media frame.
 		frame = wp.media.frames.aq_media_uploader = wp.media({
@@ -68,7 +64,7 @@ jQuery(document).ready(function($){
 			
 		});
 
-		frame.open('toolbar');
+		frame.open();
 	
 	});
 			
