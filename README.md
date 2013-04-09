@@ -51,5 +51,6 @@ Please report any bugs, issues, feedbacks or get help on the Aqua Page Builder's
 
 If you need general help that can't possibly be answered on the Issues page, please contact me directly via this [contact form](http://aquagraphite.com/about).
 
+### Changelog
 
 Full changelog here - http://aquagraphite.com/api/changelog/aqua-page-builder

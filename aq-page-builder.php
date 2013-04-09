@@ -4,7 +4,7 @@
 Plugin Name: Aqua Page Builder
 Plugin URI: http://aquagraphite.com/page-builder
 Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
-Version: 1.0.7
+Version: 1.0.8
 Author: Syamil MJ
 Author URI: http://aquagraphite.com
 
@@ -33,7 +33,7 @@ Author URI: http://aquagraphite.com
  */
 
 //definitions
-if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.7' );
+if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.8' );
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 
