@@ -1,5 +1,6 @@
 <?php
 /**
+ * @legacy
  * AQ_Plugin_Updater Class
  *
  * Request for any later version of the plugin available
