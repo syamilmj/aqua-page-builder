@@ -41,8 +41,6 @@ if(class_exists('AQ_Page_Builder')) {
 	 * Form Field Helper functions
 	 *
 	 * Provides some default fields for use in the blocks
-	 *
-	 * @todo build this into a separate class instead!
 	********************************************************/
 	
 	/* Input field - Options: $size = min, small, full */
