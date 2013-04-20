@@ -1,3 +1,5 @@
+### This plugin is now available for download from [WordPress.org's plugin repository](http://wordpress.org/extend/plugins/aqua-page-builder).
+
 ## AQUA PAGE BUILDER 
 
 * Author:		Syamil MJ

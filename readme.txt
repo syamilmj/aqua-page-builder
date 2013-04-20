@@ -45,8 +45,9 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 
 == Screenshots ==
 
-1. Building panel
-2. Template shortcode inserter
+1. Screenshot 1
+2. Screenshot 2
+3. Screenshot 3
 
 == Changelog ==
 
