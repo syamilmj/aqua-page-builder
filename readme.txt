@@ -1,4 +1,4 @@
-=== Easy Digital Downloads ===
+=== Aqua Page Builder ===
 Author URI: http://aquagraphite.com
 Plugin URI: http://aquagraphite.com/2012/10/aqua-page-builder/
 Contributors: syamilmj
