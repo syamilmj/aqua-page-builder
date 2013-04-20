@@ -4,7 +4,7 @@
 Plugin Name: Aqua Page Builder
 Plugin URI: http://aquagraphite.com/page-builder
 Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
-Version: 1.0.8
+Version: 1.1.0
 Author: Syamil MJ
 Author URI: http://aquagraphite.com
 
@@ -33,7 +33,7 @@ Author URI: http://aquagraphite.com
  */
 
 //definitions
-if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.0.8' );
+if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.1.0' );
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
 
@@ -42,7 +42,7 @@ require_once(AQPB_PATH . 'functions/aqpb_config.php');
 require_once(AQPB_PATH . 'functions/aqpb_blocks.php');
 require_once(AQPB_PATH . 'classes/class-aq-page-builder.php');
 require_once(AQPB_PATH . 'classes/class-aq-block.php');
-require_once(AQPB_PATH . 'classes/class-aq-plugin-updater.php');
+//require_once(AQPB_PATH . 'classes/class-aq-plugin-updater.php');
 require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 
 //some default blocks
@@ -68,6 +68,7 @@ $aqpb_config = aq_page_builder_config();
 $aq_page_builder =& new AQ_Page_Builder($aqpb_config);
 if(!is_network_admin()) $aq_page_builder->init();
 
+/** @legacy
 //set up & fire up plugin updater
 $aqpb_updater_config = array(
 	'api_url'	=> 'http://aquagraphite.com/api/',
@@ -75,3 +76,4 @@ $aqpb_updater_config = array(
 	'filename'	=> 'aq-page-builder.php'
 );
 $aqpb_updater = new AQ_Plugin_Updater($aqpb_updater_config);
+*/
