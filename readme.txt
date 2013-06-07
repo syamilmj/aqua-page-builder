@@ -50,6 +50,10 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 
 == Changelog ==
 
+= 1.1.1: June 8, 2013 =
+
+* FIX - Fixed issue with some blocks not exporting
+
 = 1.1.0: April =
 
 * First offical release!

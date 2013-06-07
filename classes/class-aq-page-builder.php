@@ -386,6 +386,9 @@ if(!class_exists('AQ_Page_Builder')) {
 					$new_instance = $block->update($new_instance, $old_instance);
 				}
 				
+				// sanitize from all occurrences of "\r\n" - see bit.ly/Ajav2a
+				$new_instance = str_replace("\r\n", "\n", $new_instance);
+				
 				//update block
 				update_post_meta($template_id, $new_key, $new_instance);
 				
