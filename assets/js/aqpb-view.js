@@ -18,6 +18,7 @@ jQuery(document).ready(function($){
 	// Toggles
 	$('.aq_block_toggle .tab-head, .aq_block_toggle .arrow').each( function() {
 		var toggle = $(this).parent();
+		$(this).next().removeClass('close');
 		
 		$(this).click(function() {
 			toggle.find('.tab-body').slideToggle();
@@ -31,6 +32,7 @@ jQuery(document).ready(function($){
 		var $clicked = $(this);
 		
 		$clicked.addClass('clicked');
+		$clicked.next().next().removeClass('close');
 		
 		$clicked.parents('.aq_block_accordion_wrapper').find('.tab-body').each(function(i, el) {
 			if($(el).is(':visible') && ( $(el).prev().hasClass('clicked') || $(el).prev().prev().hasClass('clicked') ) == false ) {
@@ -41,6 +43,7 @@ jQuery(document).ready(function($){
 		$clicked.parent().children('.tab-body').slideToggle();
 		
 		$clicked.removeClass('clicked');
+		$clicked.next().next().addClass('open');
 		
 		return false;
 	});
