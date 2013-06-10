@@ -40,11 +40,12 @@ Please refer to our wiki - [Aqua Page Builder's Wiki](https://github.com/sy4mil/
 ### Contributing
 
 Contributions are always welcomed to further improve this plugin.
-To start contributing, please follow the guidelines below:
 
-* 1. Clone/pull the latest version from the dev branch
-* 2. Send your pull request into the same (dev) branch
-* 3. One of the admins will review and merge the pull requests when approved
+To contribute, please follow the guidelines below:
+
+1. Clone/pull the latest version from the dev branch
+2. Send your pull request into the same (dev) branch
+3. One of the admins will review and merge the pull requests when approved
 
 ### Donations
 
