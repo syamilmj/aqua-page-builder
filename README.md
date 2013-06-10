@@ -37,6 +37,15 @@ theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 Please refer to our wiki - [Aqua Page Builder's Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki)
 
+### Contributing
+
+Contributions are always welcomed to further improve this plugin.
+To start contributing, please follow the guidelines below:
+
+* 1. Clone/pull the latest version from the dev branch
+* 2. Send your pull request into the same (dev) branch
+* 3. One of the admins will review and merge the pull requests when approved
+
 ### Donations
 
 <a href="https://www.wfp.org/donate/fillthecup?icn=homepage-donate-cup&ici=small-button-link"><img src="https://www.wfp.org/sites/default/files/640x300_donation-form.jpg"/></a>

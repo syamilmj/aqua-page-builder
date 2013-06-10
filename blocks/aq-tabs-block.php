@@ -179,7 +179,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 		
 		/* AJAX add tab */
 		function add_tab() {
-			$nonce = $_POST['security'];	
+			$nonce = $_POST['security'];
 			if (! wp_verify_nonce($nonce, 'aqpb-settings-page-nonce') ) die('-1');
 			
 			$count = isset($_POST['count']) ? absint($_POST['count']) : false;
