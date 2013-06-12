@@ -397,6 +397,25 @@ jQuery(document).ready(function($){
 		axis: 'x',
 	});
 	
+	$('.aqpb-tabs').on('sortstop', function() {
+		
+		var data = {
+			action: 'aq_page_builder_sort_templates',
+			security: $('#aqpb-nonce').val(),
+			templates: $(this).sortable('serialize')
+		};
+		
+		$.post(ajaxurl, data, function(response) {
+		
+			if(response == '-1') { // check nonce
+				alert('An unknown error has occurred');
+			} else {
+				// alert(response);
+			}
+						
+		});
+	});
+	
 	/** Apply CSS float:left to blocks **/
 	$('li.block').css('float', '');
 	

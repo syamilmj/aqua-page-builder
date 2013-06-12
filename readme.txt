@@ -6,7 +6,7 @@ Tags: page builder, aquagraphite, syamil mj
 Requires at least: 3.3
 Tested up to: 3.6
 
-Stable Tag: 1.1.0
+Stable Tag: 1.1.1
 License: GNU Version 2 or Any Later Version
 
 
@@ -18,8 +18,6 @@ Aqua Page Builder is a powerful WordPress plugin that allows you to create an un
 
 Similar to the Widgets & Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
 
-**Follow this plugin on [GitHub](https://github.com/sy4mil/Aqua-Page-Builder)**
-
 Features of the plugin include:
 
 * Highly intuitive, drag-and-drop user interface
@@ -28,6 +26,9 @@ Features of the plugin include:
 * Unlimited number of reusable templates
 * Highly extensible
 * Developer friendly with dozens of actions and filters
+
+**See our list of [Supported Themes](http://aquagraphite.com/api/documentation/aqua-page-builder#supported-themes)**
+**Follow this plugin on [GitHub](https://github.com/sy4mil/Aqua-Page-Builder)**
 
 More information at [Aquagraphite.com](http://aquagraphite.com/2012/10/aqua-page-builder/).
 
@@ -38,6 +39,9 @@ More information at [Aquagraphite.com](http://aquagraphite.com/2012/10/aqua-page
 3. For detailed instructions please refer to the complete [Documentation](http://aquagraphite.com/api/documentation/aqua-page-builder) page.
 
 == Frequently Asked Questions ==
+
+= Why do I see only 6 blocks? =
+These are default blocks provided with this plugin. Please see the list of [supported themes](http://aquagraphite.com/api/documentation/aqua-page-builder#supported-themes) that includes more blocks, or learn how to create your own from our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki).
 
 = How do I Add My Own Custom Blocks? =
 
@@ -50,6 +54,11 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 3. Screenshot 3
 
 == Changelog ==
+
+= 1.1.1: June 8, 2013 =
+
+* FIX - Fixed issue with some blocks not exporting
+* ADD - Navbar is sortable & will keep this order
 
 = 1.1.0: April =
 
