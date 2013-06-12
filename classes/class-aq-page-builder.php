@@ -54,6 +54,9 @@ if(!class_exists('AQ_Page_Builder')) {
 			add_filter('media_buttons_context', array(&$this, 'add_media_button') );
 			add_action('admin_footer', array(&$this, 'add_media_display') );
 			
+			/** AJAX Sort templates */
+			if(is_admin()) add_action('wp_ajax_aq_page_builder_sort_templates', array($this, 'sort_templates'));
+			
 		}
 		
 		/** 
@@ -301,7 +304,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				'nopaging' => true,
 				'post_type' => 'template',
 				'status' => 'publish',
-				'orderby' => 'title',
+				'orderby' => 'menu_order',
 				'order' => 'ASC',
 			);
 			
@@ -729,6 +732,37 @@ if(!class_exists('AQ_Page_Builder')) {
 			
 		}
 		
+		/**
+		 * AJAX Sort Templates by "menu_order"
+		 * 
+		 * @since 1.1.1
+		 */
+		function sort_templates(){
+			
+			$nonce = $_POST['security'];
+			if (! wp_verify_nonce($nonce, 'aqpb-settings-page-nonce') ) die('-1');
+			
+			$templates = $_POST['templates'];
+			$templates = wp_parse_args($templates);
+			$templates = $templates['template'];
+			
+			foreach($templates as $key => $template_id) {
+				
+				// check if page exists
+				if($this->is_template($template_id)) {
+					
+					wp_update_post(array(
+						'ID'			=> $template_id,
+						'menu_order'	=> $key + 1
+					));
+									
+				}
+				
+			}
+			
+			exit();
+			
+		}
 		
 	}
 }
