@@ -17,6 +17,7 @@ class AQ_Text_Block extends AQ_Block {
 		
 		$defaults = array(
 			'text' => '',
+			'wp_autop' => 0
 		);
 		$instance = wp_parse_args($instance, $defaults);
 		extract($instance);
@@ -34,16 +35,29 @@ class AQ_Text_Block extends AQ_Block {
 				Content
 				<?php echo aq_field_textarea('text', $block_id, $text, $size = 'full') ?>
 			</label>
-		</p>
+			<label for="<?php echo $this->get_field_id('wp_autop') ?>">
+				<?php echo aq_field_checkbox('wp_autop', $block_id, $wp_autop) ?>
+				Do not create the paragraphs automatically. <code>"wpautop"</code> disable.
+			</label>
+	</p>
 		
 		<?php
 	}
 	
 	function block($instance) {
 		extract($instance);
+
+		$wp_autop = ( isset($wp_autop) ) ? $wp_autop : 0;
 		
 		if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
-		echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
+		if($wp_autop == 1){
+			echo do_shortcode(htmlspecialchars_decode($text));
+		}
+		else
+		{
+			echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
+		}
+		
 	}
 	
 }
