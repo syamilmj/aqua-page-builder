@@ -91,7 +91,7 @@ jQuery(document).ready(function($){
 		
 		//set widths when the parent resized
 		$('#' + blockID).bind( "resizestop", function(event, ui) {
-			if($('#' + blockID).hasClass('block-aq_column_block')) {
+			if($('#' + blockID).hasClass('block-container')) {
 				var $blockColumn = $('#' + blockID),
 					new_maxWidth = parseInt($blockColumn.css('width'));
 					child_maxWidth = new Array();
@@ -122,7 +122,7 @@ jQuery(document).ready(function($){
 					$(el).find('.parent').last().val(parent_order);
 				} else {
 					$(el).find('.parent').last().val(0);
-					if($(el).hasClass('block-aq_column_block')) {
+					if($(el).hasClass('block-container')) {
 						block_order = $(el).find('.order').last().val();
 						$(el).find('li.block').each(function(index,elem) {
 							$(elem).find('.parent').val(block_order);
@@ -142,8 +142,8 @@ jQuery(document).ready(function($){
 	}
 	
 	function columns_sortable() {
-		//$('ul#blocks-to-edit, .block-aq_column_block ul.blocks').sortable('disable');
-		$('#page-builder .column-blocks').sortable({
+		//$('ul#blocks-to-edit, .block-container ul.blocks').sortable('disable');
+		$('#page-builder .column-blocks, .block-container').sortable({
 			placeholder: 'placeholder',
 			connectWith: '#blocks-to-edit, .column-blocks',
 			items: 'li.block'
@@ -274,7 +274,7 @@ jQuery(document).ready(function($){
 		    ui.item.attr("id", block_archive.replace("__i__", block_number));
 		    
 		    //if column, remove handle bar
-		    if(ui.item.hasClass('block-aq_column_block')) {
+		    if(ui.item.hasClass('block-container')) {
 		    	ui.item.find('.block-bar').remove();
 		    	ui.item.find('.block-settings').removeClass('block-settings').addClass('block-settings-column');
 		    }
@@ -298,7 +298,7 @@ jQuery(document).ready(function($){
 		}
 		
 		//if moving column inside column, cancel it
-		if(ui.item.hasClass('block-aq_column_block')) {
+		if(ui.item.hasClass('block-container')) {
 			if(ui.item.parent().hasClass('column-blocks')) { 
 				$(this).sortable('cancel');
 				return false;
