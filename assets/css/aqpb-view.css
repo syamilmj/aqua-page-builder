@@ -95,7 +95,7 @@ foreach($columns as $column) {
 echo '</pre>';
 
 **/
-.aq-block-aq_column_block { margin-bottom: 0px; }
+.aq-block-aq_column_block, .block-container { margin-bottom: 0px; }
 .aq-template-wrapper .aq_span1 .aq_span1 { width:100%; }
 .aq-template-wrapper .aq_span2 .aq_span1 { width:47.5%; }
 .aq-template-wrapper .aq_span2 .aq_span2 { width:100%; }
