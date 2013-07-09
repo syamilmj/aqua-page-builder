@@ -299,7 +299,8 @@ jQuery(document).ready(function($){
 		
 		//if moving column inside column, cancel it
 		if(ui.item.hasClass('block-container')) {
-			if(ui.item.parent().hasClass('column-blocks')) { 
+			$parent = ui.item.parent()
+			if( $parent.hasClass('block-container') || $parent.hasClass("column-blocks") ) { 
 				$(this).sortable('cancel');
 				return false;
 			}
