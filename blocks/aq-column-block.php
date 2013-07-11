@@ -15,6 +15,29 @@ class AQ_Column_Block extends AQ_Block {
 		
 	}
 
+
+
+	//form header
+	function before_form($instance) {
+		extract($instance);
+		
+		$title = $title ? '<span class="in-block-title"> : '.$title.'</span>' : '';
+		$resizable = $resizable ? '' : 'not-resizable';
+		
+		echo '<li id="template-block-'.$number.'" class="block block-container block-'.$id_base.' '. $size .' '.$resizable.'">',
+				'<dl class="block-bar">',
+					'<dt class="block-handle">',
+						'<div class="block-title">',
+							$name , $title, 
+						'</div>',
+						'<span class="block-controls">',
+							'<a class="block-edit" id="edit-'.$number.'" title="Edit Block" href="#block-settings-'.$number.'">Edit Block</a>',
+						'</span>',
+					'</dt>',
+				'</dl>',
+				'<div class="block-settings cf" id="block-settings-'.$number.'">';
+	}
+
 	function form($instance) {
 		echo '<p class="empty-column">',
 		__('Drag block items into this column box', 'framework'),
@@ -28,14 +51,14 @@ class AQ_Column_Block extends AQ_Block {
 		//insert the dynamic block_id & block_saving_id into the array
 		$this->block_id = 'aq_block_' . $instance['number'];
 		$instance['block_saving_id'] = 'aq_blocks[aq_block_'. $instance['number'] .']';
-		
+
 		extract($instance);
 		
 		$col_order = $order;
 		
 		//column block header
 		if(isset($template_id)) {
-			echo '<li id="template-block-'.$number.'" class="block block-aq_column_block '.$size.'">',
+			echo '<li id="template-block-'.$number.'" class="block block-container block-aq_column_block '.$size.'">',
 					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
 						'<p class="empty-column">',
 							__('Drag block items into this column box', 'framework'),
