@@ -166,6 +166,7 @@ if(!class_exists('AQ_Block')) {
 	 	function before_block($instance) {
 	 		extract($instance);
 	 		$column_class = $first ? 'aq-first' : '';
+	 		$column_class = $last ? $column_class.' aq-last' : $column_class;
 	 		
 	 		echo '<div id="aq-block-'.$template_id.'-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' cf">';
 	 	}
