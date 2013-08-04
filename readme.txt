@@ -6,7 +6,7 @@ Tags: page builder, aquagraphite, syamil mj
 Requires at least: 3.3
 Tested up to: 3.6
 
-Stable Tag: 1.1.1
+Stable Tag: 1.1.2
 License: GNU Version 2 or Any Later Version
 
 
