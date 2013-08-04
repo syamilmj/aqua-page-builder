@@ -18,11 +18,6 @@ if(!class_exists('AQ_Block')) {
 	 	var $block_options;
 	 	var $instance;
 	 	
-	 	/* PHP4 constructor */
-	 	function AQ_Block($id_base = false, $block_options = array()) {
-	 		AQ_Block::__construct($id_base, $block_options);
-	 	}
-	 	
 	 	/* PHP5 constructor */
 	 	function __construct($id_base = false, $block_options = array()) {
 	 		$this->id_base = isset($id_base) ? strtolower($id_base) : strtolower(get_class($this));

@@ -27,8 +27,8 @@ Features of the plugin include:
 * Highly extensible
 * Developer friendly with dozens of actions and filters
 
-**See our list of [Supported Themes](http://aquagraphite.com/api/documentation/aqua-page-builder#supported-themes)**
-**Follow this plugin on [GitHub](https://github.com/sy4mil/Aqua-Page-Builder)**
+**Looking for themes that support this plugin? [Themeforest themes](http://themeforest.net/browse/tags/default/aqua%20page%20builder?ref=SyamilMJ)**
+**Developer? Follow this plugin on [GitHub](https://github.com/sy4mil/Aqua-Page-Builder)**
 
 More information at [Aquagraphite.com](http://aquagraphite.com/2012/10/aqua-page-builder/).
 
@@ -54,6 +54,13 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 3. Screenshot 3
 
 == Changelog ==
+
+= 1.1.2: August 5, 2013 = 
+
+* DEL - Removed unused legacy files
+* DEL - Removed PHP4 constructor in AQ_Block class
+* FIX - Changed .cf in favor of .clearfix css class
+* FIX - Bug fixes for WP 3.6 final
 
 = 1.1.1: June 8, 2013 =
 
