@@ -15,8 +15,6 @@ class AQ_Column_Block extends AQ_Block {
 		
 	}
 
-
-
 	//form header
 	function before_form($instance) {
 		extract($instance);
@@ -35,14 +33,14 @@ class AQ_Column_Block extends AQ_Block {
 						'</span>',
 					'</dt>',
 				'</dl>',
-				'<div class="block-settings cf" id="block-settings-'.$number.'">';
+				'<div class="block-settings clearfix" id="block-settings-'.$number.'">';
 	}
 
 	function form($instance) {
 		echo '<p class="empty-column">',
 		__('Drag block items into this column box', 'framework'),
 		'</p>';
-		echo '<ul class="blocks column-blocks cf"></ul>';
+		echo '<ul class="blocks column-blocks clearfix"></ul>';
 	}
 	
 	function form_callback($instance = array()) {
@@ -59,11 +57,11 @@ class AQ_Column_Block extends AQ_Block {
 		//column block header
 		if(isset($template_id)) {
 			echo '<li id="template-block-'.$number.'" class="block block-container block-aq_column_block '.$size.'">',
-					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
+					'<div class="block-settings-column clearfix" id="block-settings-'.$number.'">',
 						'<p class="empty-column">',
 							__('Drag block items into this column box', 'framework'),
 						'</p>',
-						'<ul class="blocks column-blocks cf">';
+						'<ul class="blocks column-blocks clearfix">';
 					
 			//check if column has blocks inside it
 			$blocks = aq_get_blocks($template_id);
@@ -99,7 +97,7 @@ class AQ_Column_Block extends AQ_Block {
 		
 		$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
 			
-			echo '<div class="block-control-actions cf"><a href="#" class="delete">Delete</a></div>';
+			echo '<div class="block-control-actions clearfix"><a href="#" class="delete">Delete</a></div>';
 			echo '<input type="hidden" class="id_base" name="'.$this->get_field_name('id_base').'" value="'.$id_base.'" />';
 			echo '<input type="hidden" class="name" name="'.$this->get_field_name('name').'" value="'.$name.'" />';
 			echo '<input type="hidden" class="order" name="'.$this->get_field_name('order').'" value="'.$order.'" />';

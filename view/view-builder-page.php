@@ -124,7 +124,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 			<div id="page-builder-archive" class="postbox">
 				<h3 class="hndle"><span><?php _e('Available Blocks', 'framework') ?></span><span id="removing-block"><?php _e('Deleting', 'framework') ?></span></h3>
 				<div class="inside">
-					<ul id="blocks-archive" class="cf">
+					<ul id="blocks-archive" class="clearfix">
 						<?php $this->blocks_archive() ?>
 					</ul>
 					<p><?php _e('Need help? Use the Help tab in the upper right of your screen.', 'framework') ?></p>
@@ -191,7 +191,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 						<div id="aqpb-header">
 							
 								<div id="submitpost" class="submitbox">
-									<div class="major-publishing-actions cf">
+									<div class="major-publishing-actions clearfix">
 									
 										<label class="open-label" for="template-name">
 											<span><?php _e('Template Name', 'framework') ?></span>
@@ -240,7 +240,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 						
 						<div id="aqpb-body">
 							
-							<ul class="blocks cf" id="blocks-to-edit">
+							<ul class="blocks clearfix" id="blocks-to-edit">
 								<?php 
 								if($selected_template_id === 0) {
 									echo '<p class="empty-template">';
@@ -261,7 +261,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 						</div>
 						
 						<div id="aqpb-footer">
-							<div class="major-publishing-actions cf">
+							<div class="major-publishing-actions clearfix">
 								<div class="publishing-action">
 									<?php if(!empty($selected_template_id)) {
 										submit_button( __( 'Save Template' ), 'button-primary ', 'save_template', false, array( 'id' => 'save_template_footer' ) ); 
@@ -273,7 +273,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 					</div>
 				</form>
 			</div>
-			<p style="float:left"><small>Aqua Page Builder &copy; 2012 by <a href="http://aquagraphite.com">Syamil MJ</a></small></p>
+			<p style="float:left"><small>Aqua Page Builder &copy; 2012 by <a href="http://themeforest.net/user/SyamilMJ/portfolio">Syamil MJ</a></small></p>
 			<p style="float:right"><small>Version <?php echo AQPB_VERSION ?></small></p>
 			
 		</div>

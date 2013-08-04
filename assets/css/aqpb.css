@@ -9,10 +9,22 @@ DO NOT EDIT THIS
 **/
 
 /*generic*/
-.cf:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
-.cf{display:block;}
-* html .cf{height:1%;}
+.cf:after,
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.cf,
+.clearfix {
+	display:block;
+}
+* html .cf, * html .clearfix { height:1%; }
 a:hover, a:active, a:focus { color: #d54e21; }
+
 /*builder page*/
 #page-builder-frame {
 	margin-left: 300px;

@@ -39,7 +39,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			);
 			
 			?>
-			<div class="description cf">
+			<div class="description clearfix">
 				<ul id="aq-sortable-list-<?php echo $block_id ?>" class="aq-sortable-list" rel="<?php echo $block_id ?>">
 					<?php
 					$tabs = is_array($tabs) ? $tabs : $defaults['tabs'];
@@ -68,7 +68,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			?>
 			<li id="<?php echo $this->get_field_id('tabs') ?>-sortable-item-<?php echo $count ?>" class="sortable-item" rel="<?php echo $count ?>">
 				
-				<div class="sortable-head cf">
+				<div class="sortable-head clearfix">
 					<div class="sortable-title">
 						<strong><?php echo $tab['title'] ?></strong>
 					</div>
@@ -107,7 +107,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			if($type == 'tab') {
 			
 				$output .= '<div id="aq_block_tabs_'. rand(1, 100) .'" class="aq_block_tabs"><div class="aq-tab-inner">';
-					$output .= '<ul class="aq-nav cf">';
+					$output .= '<ul class="aq-nav clearfix">';
 					
 					$i = 1;
 					foreach( $tabs as $tab ){
@@ -136,7 +136,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 					$output  .= '<div class="aq_block_toggle">';
 						$output .= '<h2 class="tab-head">'. $tab['title'] .'</h2>';
 						$output .= '<div class="arrow"></div>';
-						$output .= '<div class="tab-body close cf">';
+						$output .= '<div class="tab-body close clearfix">';
 							$output .= wpautop(do_shortcode(htmlspecialchars_decode($tab['content'])));
 						$output .= '</div>';
 					$output .= '</div>';
@@ -163,7 +163,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 					$output  .= '<div class="aq_block_accordion '.$child.'">';
 						$output .= '<h2 class="tab-head">'. $tab['title'] .'</h2>';
 						$output .= '<div class="arrow"></div>';
-						$output .= '<div class="tab-body '.$open.' cf">';
+						$output .= '<div class="tab-body '.$open.' clearfix">';
 							$output .= wpautop(do_shortcode(htmlspecialchars_decode($tab['content'])));
 						$output .= '</div>';
 					$output .= '</div>';

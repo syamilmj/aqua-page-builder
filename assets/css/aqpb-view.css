@@ -10,8 +10,8 @@ DO NOT EDIT THIS
 **/
 
 /** MISC **/
-.cf:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
-.cf{display:block;}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix{display:block;}
 
 /** Basic grid columns 
 -----------------------*/

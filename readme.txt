@@ -55,6 +55,16 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 
 == Changelog ==
 
+= 1.1.2: August 3, 2012 = 
+
+* ADD - .clearfix class in favor of .cf
+* FIX - minor bug with WP3.6
+* FIX - admin bar appears only for permitted users
+* ADD - $last parameter & ".aq-last" class for the last block
+* DEL - removed legacy items
+* ADD - new filter aqpb_before_block
+* ADD  -new filter aqpb_after_block
+
 = 1.1.1: June 8, 2013 =
 
 * FIX - Fixed issue with some blocks not exporting

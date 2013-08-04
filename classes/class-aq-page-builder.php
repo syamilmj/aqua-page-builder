@@ -79,13 +79,16 @@ if(!class_exists('AQ_Page_Builder')) {
 		 * @since 1.0.4
 		 */
 		function add_admin_bar(){
-			global $wp_admin_bar;
-			$wp_admin_bar->add_menu( array( 'id' => 'aq-page-builder', 'parent' => 'appearance', 'title' => 'Page Builder', 'href' => admin_url('themes.php?page='.$this->args['page_slug']) ) );
+
+			if( current_user_can('manage_options') ) {
+				global $wp_admin_bar;
+				$wp_admin_bar->add_menu( array( 'id' => 'aq-page-builder', 'parent' => 'appearance', 'title' => 'Page Builder', 'href' => admin_url('themes.php?page='.$this->args['page_slug']) ) );
+			}
 			
 		}
 		
 		/**
-		 * Register and enqueueu styles/scripts
+		 * Register and enqueue styles/scripts
 		 *
 		 * @since 1.0.0
 		 * @todo min versions
@@ -457,8 +460,8 @@ if(!class_exists('AQ_Page_Builder')) {
 			if($post_type == 'template') {
 				get_header();
 				?>
-					<div id="main" class="cf">
-						<div id="content" class="cf">
+					<div id="main" class="clearfix">
+						<div id="content" class="clearfix">
 							<?php $this->display_template(get_the_ID()); ?>
 							<?php if($this->args['debug'] == true) print_r(aq_get_blocks(get_the_ID())) //for debugging ?>
 						</div>
@@ -521,6 +524,7 @@ if(!class_exists('AQ_Page_Builder')) {
 						//display the block
 						if($parent == 0) {
 							
+							// determine first block
 							$col_size = absint(preg_replace("/[^0-9]/", '', $size));
 							
 							$overgrid = $span + $col_size;
@@ -533,13 +537,31 @@ if(!class_exists('AQ_Page_Builder')) {
 							if($first == true) {
 								$instance['first'] = true;
 							}
-							
+
+							// determine if last block
+							$next_number = $number + 1;
+							$next_size = isset($blocks['aq_block_'.$next_number]['size']) ? isset($blocks['aq_block_'.$next_number]['size']) : false;
+
+							if($next_size) {
+
+								$next_col_size = absint(preg_replace("/[^0-9]/", '', $next_size));
+								$next_overgrid = $span + $next_col_size;
+								$next_span = $span + $col_size;
+
+								// check if next block is a "first"
+								if($next_overgrid > 12 || $next_span == 12 || $next_span == 0 ) {
+									// last block
+								}
+
+							}
+
 							$block->block_callback($instance);
 							
 							$span = $span + $col_size;
 							
 							$overgrid = 0; //reset $overgrid
 							$first = false; //reset $first
+
 						}
 					}
 				}

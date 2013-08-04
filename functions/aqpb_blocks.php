@@ -221,7 +221,7 @@ function aq_block_column($block) {
 	echo '<p class="empty-column">',
 	__('Drag block items into this box', 'framework'),
 	'</p>';
-	echo '<ul class="blocks column-blocks cf"></ul>';
+	echo '<ul class="blocks column-blocks clearfix"></ul>';
 }
 
 function aq_block_clear($block) {

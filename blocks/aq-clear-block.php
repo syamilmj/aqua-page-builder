@@ -79,12 +79,12 @@ class AQ_Clear_Block extends AQ_Block {
 				echo '<hr class="aq-block-clear aq-block-hr-single" style="background:'.$line_color.';"/>';
 				break;
 			case 'image':
-				echo '<hr class="aq-block-clear aq-block-hr-image cf"/>';
+				echo '<hr class="aq-block-clear aq-block-hr-image clearfix"/>';
 				break;
 		}
 		
 		if($height) {
-			echo '<div class="cf" style="height:'.$height.'px"></div>';
+			echo '<div class="clearfix" style="height:'.$height.'px"></div>';
 		}
 		
 	}
