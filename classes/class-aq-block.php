@@ -142,7 +142,7 @@ if(!class_exists('AQ_Block')) {
 	 						'</span>',
 	 					'</dt>',
 	 				'</dl>',
-	 				'<div class="block-settings cf" id="block-settings-'.$number.'">';
+	 				'<div class="block-settings clearfix" id="block-settings-'.$number.'">';
 	 	}
 	 	
 	 	//form footer

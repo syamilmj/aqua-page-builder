@@ -457,8 +457,8 @@ if(!class_exists('AQ_Page_Builder')) {
 			if($post_type == 'template') {
 				get_header();
 				?>
-					<div id="main" class="cf">
-						<div id="content" class="cf">
+					<div id="main" class="clearfix">
+						<div id="content" class="clearfix">
 							<?php $this->display_template(get_the_ID()); ?>
 							<?php if($this->args['debug'] == true) print_r(aq_get_blocks(get_the_ID())) //for debugging ?>
 						</div>
