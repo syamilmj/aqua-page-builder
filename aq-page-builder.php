@@ -65,15 +65,5 @@ aq_register_block('AQ_Tabs_Block');
 
 //fire up page builder
 $aqpb_config = aq_page_builder_config();
-$aq_page_builder =& new AQ_Page_Builder($aqpb_config);
+$aq_page_builder = new AQ_Page_Builder($aqpb_config);
 if(!is_network_admin()) $aq_page_builder->init();
-
-/** @legacy
-//set up & fire up plugin updater
-$aqpb_updater_config = array(
-	'api_url'	=> 'http://aquagraphite.com/api/',
-	'slug'		=> 'aqua-page-builder',
-	'filename'	=> 'aq-page-builder.php'
-);
-$aqpb_updater = new AQ_Plugin_Updater($aqpb_updater_config);
-*/

@@ -151,7 +151,7 @@ if(!class_exists('AQ_Block')) {
 	 		
 	 		$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
 	 			
-	 			echo '<div class="block-control-actions cf"><a href="#" class="delete">Delete</a> | <a href="#" class="close">Close</a></div>';
+	 			echo '<div class="block-control-actions clearfix"><a href="#" class="delete">Delete</a> | <a href="#" class="close">Close</a></div>';
 	 			echo '<input type="hidden" class="id_base" name="'.$this->get_field_name('id_base').'" value="'.$id_base.'" />';
 	 			echo '<input type="hidden" class="name" name="'.$this->get_field_name('name').'" value="'.$name.'" />';
 	 			echo '<input type="hidden" class="order" name="'.$this->get_field_name('order').'" value="'.$order.'" />';
@@ -167,7 +167,7 @@ if(!class_exists('AQ_Block')) {
 	 		extract($instance);
 	 		$column_class = $first ? 'aq-first' : '';
 	 		
-	 		echo '<div id="aq-block-'.$template_id.'-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' cf">';
+	 		echo '<div id="aq-block-'.$template_id.'-'.$number.'" class="aq-block aq-block-'.$id_base.' aq_'.$size.' '.$column_class.' clearfix">';
 	 	}
 	 	
 	 	/* block footer */
