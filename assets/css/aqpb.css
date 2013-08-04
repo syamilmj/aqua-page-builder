@@ -9,8 +9,11 @@ DO NOT EDIT THIS
 **/
 
 /*generic*/
+.clearfix:after,
 .cf:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix,
 .cf{display:block;}
+* html .clearfix,
 * html .cf{height:1%;}
 a:hover, a:active, a:focus { color: #d54e21; }
 /*builder page*/
