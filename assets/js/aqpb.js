@@ -10,6 +10,13 @@ jQuery.noConflict();
 /** Fire up jQuery - let's dance! **/
 jQuery(document).ready(function($){
 	
+	/** Quick Template List Display
+	------------------------------------------------------------------------------------**/
+	$('#quick_list').click(function(){
+		$('.quick_list').show();
+		return false;
+	});
+	
 	/** Variables 
 	------------------------------------------------------------------------------------**/
 	
