@@ -115,6 +115,26 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 ?>
 
 <div class="wrap">
+	
+	<div class="quick_list">
+		<div class="quick_list_wrapper">
+		<h2><?php _e('Page Template Quick List', 'framework') ?> <small><?php _e('Select an item to close this window', 'framework') ?></small></h2>
+		<?php
+		foreach ( (array) $templates as $template ) {
+				echo '<a class="" data-template_id="'.$template->ID.'" href="' . esc_url(add_query_arg(
+					array(
+						'page' => $this->args['page_slug'], 
+						'action' => 'edit',
+						'template' => $template->ID,
+					),
+					admin_url( 'themes.php' )
+				)) . '">'. htmlspecialchars($template->post_title) .'</a>';
+		}
+		?>
+		<div class="clear"></div>
+		</div>
+	</div>
+	
 	<div id="icon-themes" class="icon32"><br/></div>
 	<h2><?php echo $this->args['page_title'] ?></h2>
 	
