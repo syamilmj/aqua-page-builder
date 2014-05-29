@@ -57,6 +57,19 @@
         "sanitize": false,
         "gfm": false
       }
+    },
+    "380c18fc": {
+      "id": "380c18fc",
+      "pid": "bd5496d5",
+      "name": "TODO.md",
+      "input": "TODO.md",
+      "customOutput": false,
+      "type": "Md",
+      "config": {
+        "autoCompile": false,
+        "sanitize": false,
+        "gfm": false
+      }
     }
   },
   "imports": {},

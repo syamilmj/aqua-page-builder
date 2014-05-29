@@ -4,9 +4,9 @@ Plugin URI: http://aquagraphite.com/2012/10/aqua-page-builder/
 Contributors: syamilmj
 Tags: page builder, aquagraphite, syamil mj
 Requires at least: 3.3
-Tested up to: 3.6
+Tested up to: 3.9.1
 
-Stable Tag: 1.1.2
+Stable Tag: 1.1.3
 License: GNU Version 2 or Any Later Version
 
 

@@ -1,17 +1,17 @@
 <?php
 /** بسم الله الرحمن الرحيم **
-
-Plugin Name: Aqua Page Builder
-Plugin URI: http://aquagraphite.com/page-builder
-Description: Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5
-Version: 1.1.2
-Author: Syamil MJ
-Author URI: http://aquagraphite.com
-
-*/
+ * 
+ * Plugin Name: Aqua Page Builder
+ * Plugin URI: http://aquagraphite.com/page-builder
+ * Description: Fast, lightweight and intuitive drag-and-drop page builder.
+ * Version: 1.1.3
+ * Author: Syamil MJ
+ * Author URI: http://aquagraphite.com
+ *
+ */
  
 /**
- * Copyright (c) 2013 Syamil MJ. All rights reserved.
+ * Copyright (c) 2014 Syamil MJ. All rights reserved.
  *
  * Released under the GPL license
  * http://www.opensource.org/licenses/gpl-license.php
