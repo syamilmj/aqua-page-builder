@@ -70,6 +70,32 @@
         "sanitize": false,
         "gfm": false
       }
+    },
+    "8a612a29": {
+      "id": "8a612a29",
+      "pid": "bd5496d5",
+      "name": "contributors.md",
+      "input": "contributors.md",
+      "customOutput": false,
+      "type": "Md",
+      "config": {
+        "autoCompile": false,
+        "sanitize": false,
+        "gfm": false
+      }
+    },
+    "f02fccb1": {
+      "id": "f02fccb1",
+      "pid": "bd5496d5",
+      "name": "contribute.md",
+      "input": "contribute.md",
+      "customOutput": false,
+      "type": "Md",
+      "config": {
+        "autoCompile": false,
+        "sanitize": false,
+        "gfm": false
+      }
     }
   },
   "imports": {},
@@ -151,7 +177,7 @@
     "htmlPathType": "REPLACE_TYPE",
     "jsPathType": "REPLACE_TYPE",
     "minJsPathType": "RELATIVE_FILEDIR",
-    "htmlTypes": "jade, haml, slim, markdown, md",
+    "htmlTypes": "",
     "cssTypes": "less, sass, stylus, scss, styl",
     "jsTypes": "coffee, coffeescript, coffeescripts, ls, livescript, livescripts",
     "cssPreprocessorPath": "",
