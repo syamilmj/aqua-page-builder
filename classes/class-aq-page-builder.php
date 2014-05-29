@@ -93,10 +93,10 @@ if(!class_exists('AQ_Page_Builder')) {
 		function admin_enqueue() {
 		
 			// Register 'em
-			wp_register_style( 'aqpb-css', $this->url.'assets/css/aqpb.css', array(), time(), 'all');
-			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/css/aqpb_blocks.css', array(), time(), 'all');
-			wp_register_script('aqpb-js', $this->url . 'assets/js/aqpb.js', array('jquery'), time(), true);
-			wp_register_script('aqpb-fields-js', $this->url . 'assets/js/aqpb-fields.js', array('jquery'), time(), true);
+			wp_register_style( 'aqpb-css', $this->url.'assets/stylesheets/aqpb.css', array(), time(), 'all');
+			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/stylesheets/aqpb_blocks.css', array(), time(), 'all');
+			wp_register_script('aqpb-js', $this->url . 'assets/javascripts/aqpb.js', array('jquery'), time(), true);
+			wp_register_script('aqpb-fields-js', $this->url . 'assets/javascripts/aqpb-fields.js', array('jquery'), time(), true);
 			
 			// Enqueue 'em
 			wp_enqueue_style('aqpb-css');
@@ -132,11 +132,11 @@ if(!class_exists('AQ_Page_Builder')) {
 		function view_enqueue() {
 			
 			// front-end css
-			wp_register_style( 'aqpb-view-css', $this->url.'assets/css/aqpb-view.css', array(), time(), 'all');
+			wp_register_style( 'aqpb-view-css', $this->url.'assets/stylesheets/aqpb-view.css', array(), time(), 'all');
 			wp_enqueue_style('aqpb-view-css');
 				
 			// front-end js
-			wp_register_script('aqpb-view-js', $this->url . 'assets/js/aqpb-view.js', array('jquery'), time(), true);
+			wp_register_script('aqpb-view-js', $this->url . 'assets/javascripts/aqpb-view.js', array('jquery'), time(), true);
 			wp_enqueue_script('aqpb-view-js');
 			
 			//hook to register custom styles/scripts

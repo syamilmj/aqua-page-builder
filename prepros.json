@@ -1,0 +1,158 @@
+{
+  "id": "bd5496d5",
+  "cfgVersion": 1,
+  "name": "aqua-page-builder",
+  "files": {
+    "11b1417f": {
+      "id": "11b1417f",
+      "pid": "bd5496d5",
+      "name": "aqpb-fields.js",
+      "input": "assets\\javascripts\\aqpb-fields.js",
+      "customOutput": false,
+      "type": "Js",
+      "config": {
+        "autoCompile": false,
+        "uglify": false,
+        "mangle": true,
+        "sourcemaps": false
+      }
+    },
+    "4c2a3893": {
+      "id": "4c2a3893",
+      "pid": "bd5496d5",
+      "name": "aqpb-view.js",
+      "input": "assets\\javascripts\\aqpb-view.js",
+      "customOutput": false,
+      "type": "Js",
+      "config": {
+        "autoCompile": false,
+        "uglify": false,
+        "mangle": true,
+        "sourcemaps": false
+      }
+    },
+    "17481a54": {
+      "id": "17481a54",
+      "pid": "bd5496d5",
+      "name": "aqpb.js",
+      "input": "assets\\javascripts\\aqpb.js",
+      "customOutput": false,
+      "type": "Js",
+      "config": {
+        "autoCompile": false,
+        "uglify": false,
+        "mangle": true,
+        "sourcemaps": false
+      }
+    },
+    "2e8f9ea2": {
+      "id": "2e8f9ea2",
+      "pid": "bd5496d5",
+      "name": "README.md",
+      "input": "README.md",
+      "customOutput": false,
+      "type": "Md",
+      "config": {
+        "autoCompile": false,
+        "sanitize": false,
+        "gfm": false
+      }
+    }
+  },
+  "imports": {},
+  "images": {
+    "3f253615": {
+      "id": "3f253615",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\aqua-media-button.png",
+      "size": 1273,
+      "name": "aqua-media-button.png",
+      "type": "Png",
+      "initialSize": 1273,
+      "status": "FAILED"
+    },
+    "786b992e": {
+      "id": "786b992e",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\arrows-dark.png",
+      "size": 280,
+      "name": "arrows-dark.png",
+      "type": "Png",
+      "initialSize": 495,
+      "status": "OPTIMIZED"
+    },
+    "8e41c715": {
+      "id": "8e41c715",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\arrows.png",
+      "size": 280,
+      "name": "arrows.png",
+      "type": "Png",
+      "initialSize": 494,
+      "status": "OPTIMIZED"
+    },
+    "e3cbbca4": {
+      "id": "e3cbbca4",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\drop-bg.png",
+      "size": 932,
+      "name": "drop-bg.png",
+      "type": "Png",
+      "initialSize": 938,
+      "status": "OPTIMIZED"
+    },
+    "4e90870f": {
+      "id": "4e90870f",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\dropdown-arrows.png",
+      "size": 1831,
+      "name": "dropdown-arrows.png",
+      "type": "Png",
+      "initialSize": 1831,
+      "status": "OPTIMIZED"
+    },
+    "b2d2185d": {
+      "id": "b2d2185d",
+      "pid": "bd5496d5",
+      "path": "assets\\images\\tab-arrows.png",
+      "size": 1149,
+      "name": "tab-arrows.png",
+      "type": "Png",
+      "initialSize": 1271,
+      "status": "OPTIMIZED"
+    }
+  },
+  "config": {
+    "watch": true,
+    "liveRefresh": true,
+    "liveRefreshDelay": 0,
+    "filterPatterns": "",
+    "useCustomServer": false,
+    "customServerUrl": "",
+    "cssPath": "css/",
+    "jsPath": "js/",
+    "htmlPath": "html/",
+    "minJsPath": "min/",
+    "htmlExtension": ".html",
+    "cssPathType": "REPLACE_TYPE",
+    "htmlPathType": "REPLACE_TYPE",
+    "jsPathType": "REPLACE_TYPE",
+    "minJsPathType": "RELATIVE_FILEDIR",
+    "htmlTypes": "jade, haml, slim, markdown, md",
+    "cssTypes": "less, sass, stylus, scss, styl",
+    "jsTypes": "coffee, coffeescript, coffeescripts, ls, livescript, livescripts",
+    "cssPreprocessorPath": "",
+    "htmlPreprocessorPath": "",
+    "jsPreprocessorPath": "",
+    "minJsPreprocessorPath": "",
+    "autoprefixerBrowsers": "",
+    "ftpHost": "",
+    "ftpPort": "21",
+    "ftpRemotePath": "",
+    "ftpIgnorePreprocessorFiles": true,
+    "ftpType": "FTP",
+    "ftpExcludePatterns": "",
+    "ftpPassword": "",
+    "ftpUsername": ""
+  }
+}
