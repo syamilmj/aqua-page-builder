@@ -7,128 +7,128 @@
  */
  
 // Text Block
-function aq_block_text($block) {
+function aq_block_text( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number.']';
 	
 	?>
 	<p class="description">
 		<label for="<?php echo $block_id ?>_title">
-			Title (optional)
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	
 	<p class="description">
-		<label for="<?php echo $block_id ?>_text">
-			Content
-			<textarea id="<?php echo $block_id ?>_text" class="textarea-full" name="<?php echo $block_saving_id ?>[text]" rows="5"><?php echo $text ?></textarea>
+		<label for="<?php echo $block_id; ?>_text">
+			<?php _e( 'Content', 'aq-page-builder' ); ?>
+			<textarea id="<?php echo $block_id; ?>_text" class="textarea-full" name="<?php echo $block_saving_id; ?>[text]" rows="5"><?php echo $text; ?></textarea>
 		</label>
 	</p>
 	<?php
 }
 
 //slogan
-function aq_block_slogan($block) {
+function aq_block_slogan( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number . ']';
 	
 	?>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_text">
-			Enter your text slogan below
-			<textarea id="<?php echo $block_id ?>_text" class="textarea-full" name="<?php echo $block_saving_id ?>[text]" rows="5"><?php echo $text ?></textarea>
+		<label for="<?php echo $block_id; ?>_text">
+			<?php _e( 'Enter your text slogan below', 'aq-page-builder' ); ?>
+			<textarea id="<?php echo $block_id; ?>_text" class="textarea-full" name="<?php echo $block_saving_id; ?>[text]" rows="5"><?php echo $text; ?></textarea>
 		</label>
 	</p>
 	<?php
 }
 
 // Slider
-function aq_block_slider($block) {
+function aq_block_slider( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number . ']';
 	
 	?>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_slide">
+		<label for="<?php echo $block_id; ?>_slide">
 		<?php 
 		$args = array (
 			'nopaging' => true,
 			'post_type' => 'slider',
 			'status' => 'publish',
 		);
-		$slides = get_posts($args);
+		$slides = get_posts( $args );
 		
-		echo '<select id="'.$block_id.'" class="select" name="'.$block_saving_id.'[slide]">';
+		echo '<select id="' . $block_id . '" class="select" name="' . $block_saving_id . '[slide]">';
 			echo '<option>Choose a slider</option>';
-			foreach($slides as $slide) {
-				echo '<option value="'.$slide->ID.'">'.htmlspecialchars($slide->post_title).'</option>';
+			foreach( $slides as $slide ) {
+				echo '<option value="' . $slide->ID . '">' . htmlspecialchars( $slide->post_title ) . '</option>';
 			}
 		echo '</select>';
 		?>
 		</label>
 	</p>
 	<p class="description description-float">
-		<label for="<?php echo $block_id ?>_speed">
-			Slider Speed<br/>
-			<input type="text" class="input-small" id="<?php echo $block_id ?>_speed" value="<?php echo $speed ?>" name="<?php echo $block_saving_id ?>[speed]">
+		<label for="<?php echo $block_id; ?>_speed">
+			<?php _e( 'Slider Speed', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-small" id="<?php echo $block_id; ?>_speed" value="<?php echo $speed; ?>" name="<?php echo $block_saving_id; ?>[speed]">
 		</label>
 	</p>
 	<p class="description description-float">
-		<label for="<?php echo $block_id ?>_transition">
-			Slider Speed<br/>
-			<input type="text" class="input-small" id="<?php echo $block_id ?>_speed" value="<?php echo $speed ?>" name="<?php echo $block_saving_id ?>[speed]">
+		<label for="<?php echo $block_id; ?>_transition">
+			<?php _e( 'Slider Speed', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-small" id="<?php echo $block_id; ?>_speed" value="<?php echo $speed; ?>" name="<?php echo $block_saving_id; ?>[speed]">
 		</label>
 	</p>
 	<?php
 }
 
 // Google Map
-function aq_block_googlemap($block) {
+function aq_block_googlemap( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number . ']';
 	
 	?>
 	
 	<p class="description half">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description half last">
-		<label for="<?php echo $block_id ?>_address">
-			Address<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_address" value="<?php echo $address ?>" name="<?php echo $block_saving_id ?>[address]">
+		<label for="<?php echo $block_id; ?>_address">
+			<?php _e( 'Address', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_address" value="<?php echo $address; ?>" name="<?php echo $block_saving_id; ?>[address]">
 		</label>
 	</p>
 	<p class="description two-third">
-		<label for="<?php echo $block_id ?>_coordinates">
-			Coordinates (optional) e.g. "3.82497,103.32390"<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_coordinates" value="<?php echo $coordinates ?>" name="<?php echo $block_saving_id ?>[coordinates]">
+		<label for="<?php echo $block_id; ?>_coordinates">
+			<?php _e( 'Coordinates (optional) e.g. "3.82497,103.32390"', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_coordinates" value="<?php echo $coordinates; ?>" name="<?php echo $block_saving_id; ?>[coordinates]">
 		</label>
 	</p>
 	<p class="description third last">
-		<label for="<?php echo $block_id ?>_height">
-			Map height, in pixels.<br/>
-			<input type="number" class="input-min" id="<?php echo $block_id ?>_height" value="<?php echo $height ?>" name="<?php echo $block_saving_id ?>[height]"> &nbsp; px
+		<label for="<?php echo $block_id; ?>_height">
+			<?php _e( 'Map height, in pixels.', 'aq-page-builder' ); ?><br/>
+			<input type="number" class="input-min" id="<?php echo $block_id; ?>_height" value="<?php echo $height; ?>" name="<?php echo $block_saving_id; ?>[height]"> &nbsp; px
 		</label>
 	</p>
 	
@@ -136,80 +136,80 @@ function aq_block_googlemap($block) {
 }
 
 // Portfolio
-function aq_block_portfolio($block) {
+function aq_block_portfolio( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks['.$block_id.']';
+	$block_saving_id = 'aq_blocks[' . $block_id . ']';
 	
 	$columns_options = array(
-		'one' => 'Single',
-		'two' => 'Two Columns',
-		'three' => 'Three Columns',
-		'four' => 'Four Columns',
+		'one' => __( 'Single', 'aq-page-builder' ),
+		'two' => __( 'Two Columns', 'aq-page-builder' ),
+		'three' => __( 'Three Columns', 'aq-page-builder' ),
+		'four' => __( 'Four Columns', 'aq-page-builder' ),
 	);
 	//todo image as checkbox
 	
 	$types = ''; //get all portfolio 'type' taxonomy terms
 	?>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description">
 		<label for="">
-			Number of Columns<br/>
+			<?php _e( 'Number of Columns', 'aq-page-builder' ); ?><br/>
 			<?php echo aqpb_select($columns_options, $columns, $block_id, 'columns'); ?>
 		</label>
 	</p>
 	<?php
 }
 
-function aq_block_featured_portfolio($block) {
+function aq_block_featured_portfolio( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number . ']';
 	
 	?>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description">
-		<label for="<?php echo $block_id ?>_items">
-			Maximum number of items<br/>
-			<input type="number" class="input-min" id="<?php echo $block_id ?>_items" value="<?php echo $items ?>" name="<?php echo $block_saving_id ?>[items]">
+		<label for="<?php echo $block_id; ?>_items">
+			<?php _e( 'Maximum number of items', 'aq-page-builder' ); ?><br/>
+			<input type="number" class="input-min" id="<?php echo $block_id; ?>_items" value="<?php echo $items; ?>" name="<?php echo $block_saving_id; ?>[items]">
 		</label>
 	</p>
 	<?php
 	
 }
 
-function aq_block_widgets($block) {
+function aq_block_widgets( $block ) {
 	extract( $block, EXTR_OVERWRITE );
 	$block_id = 'aq_block_' . $number;
-	$block_saving_id = 'aq_blocks[aq_block_'.$number.']';
+	$block_saving_id = 'aq_blocks[aq_block_' . $number . ']';
 
 	//get all registered sidebars
 	global $wp_registered_sidebars;
 	$sidebar_options = array();
-	foreach ($wp_registered_sidebars as $registered_sidebar) {
+	foreach ( $wp_registered_sidebars as $registered_sidebar ) {
 		$sidebar_options[$registered_sidebar['id']] = $registered_sidebar['name'];
 	}
 	
 	?>
 	<p class="description half">
-		<label for="<?php echo $block_id ?>_title">
-			Title (optional)<br/>
-			<input type="text" class="input-full" id="<?php echo $block_id ?>_title" value="<?php echo $title ?>" name="<?php echo $block_saving_id ?>[title]">
+		<label for="<?php echo $block_id; ?>_title">
+			<?php _e( 'Title (optional)', 'aq-page-builder' ); ?><br/>
+			<input type="text" class="input-full" id="<?php echo $block_id; ?>_title" value="<?php echo $title; ?>" name="<?php echo $block_saving_id; ?>[title]">
 		</label>
 	</p>
 	<p class="description half last">
 		<label for="">
-			Choose sidebar/widget area<br/>
+			<?php _e( 'Choose sidebar/widget area', 'aq-page-builder' ); ?><br/>
 			<?php echo aqpb_select($sidebar_options, $sidebar, $block_id, 'sidebar'); ?>
 		</label>
 	</p>
@@ -217,16 +217,16 @@ function aq_block_widgets($block) {
 	
 }
 
-function aq_block_column($block) {
+function aq_block_column( $block ) {
 	echo '<p class="empty-column">',
-	__('Drag block items into this box', 'framework'),
+	__( 'Drag block items into this box', 'aq-page-builder' ),
 	'</p>';
 	echo '<ul class="blocks column-blocks cf"></ul>';
 }
 
-function aq_block_clear($block) {
+function aq_block_clear( $block ) {
 	echo '<p class="description">';
-	echo 'This block has no editable attributes. You can use it to clear the floats between two or more separate blocks vertically.';
+	echo __( 'This block has no editable attributes. You can use it to clear the floats between two or more separate blocks vertically.', 'aq-page-builder' );
 	echo '</p>';
 }
 

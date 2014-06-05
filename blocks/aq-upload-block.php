@@ -3,31 +3,31 @@
  *
  * Please see media block in cuvette 
  */
-if(!class_exists('AQ_Upload_Block')) {
+if( !class_exists( 'AQ_Upload_Block' ) ) {
 	class AQ_Upload_Block {
 		
 		function __construct() {
 			$block_options = array(
-				'name' => 'Media',
+				'name' => __( 'Media', 'aq-page-builder' ),
 				'size' => 'span6',
 			);
 			
 			//create the block
-			parent::__construct('aq_upload_block', $block_options);
+			parent::__construct( 'aq_upload_block', $block_options );
 		}
 		
-		function form($instance) {
+		function form( $instance ) {
 			$defaults = array(
 				'media' => '',
 			);
-			$instance = wp_parse_args($instance, $defaults);
-			extract($instance);
+			$instance = wp_parse_args( $instance, $defaults );
+			extract( $instance );
 			
 			
 		}
 		
-		function block($instance) {
-			if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
+		function block( $instance ) {
+			if( $title ) echo '<h4 class="aq-block-title">' . strip_tags( $title ) . '</h4>';
 		}
 		
 	}

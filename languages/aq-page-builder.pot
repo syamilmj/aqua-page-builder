@@ -1,0 +1,473 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Aqua Page Builder\n"
+"POT-Creation-Date: 2014-06-05 14:43-0300\n"
+"PO-Revision-Date: 2014-06-05 14:43-0300\n"
+"Last-Translator: LRW <luizrrp@gmail.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../aqua-page-builder/aq-page-builder.php:4
+msgid "Aqua Page Builder"
+msgstr ""
+
+#: ../aqua-page-builder/aq-page-builder.php:6
+msgid "Easily create custom page templates with intuitive drag-and-drop interface. Requires PHP5 and WP3.5"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:10
+msgid "Alerts"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:30
+msgid "Standard"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:31
+msgid "Info"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:32
+msgid "Notification"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:33
+msgid "Warning"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:34
+msgid "Tips"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:41 ../blocks/aq-richtext-block.php:27
+#: ../blocks/aq-text-block.php:28 ../blocks/aq-widgets-block.php:34
+#: ../functions/aqpb_blocks.php:19 ../functions/aqpb_blocks.php:42
+#: ../functions/aqpb_blocks.php:64 ../functions/aqpb_blocks.php:112
+#: ../functions/aqpb_blocks.php:156 ../functions/aqpb_blocks.php:177
+#: ../functions/aqpb_blocks.php:206
+msgid "Title (optional)"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:47
+msgid "Alert Text (required)"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:53
+msgid "Alert Type"
+msgstr ""
+
+#: ../blocks/aq-alert-block.php:59
+msgid "Additional inline css styling (optional)"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:12
+msgid "Clear"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:30
+msgid "None"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:31 ../functions/aqpb_blocks.php:145
+msgid "Single"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:32
+msgid "Double"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:33
+msgid "Use Image"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:43
+msgid ""
+"Use this block to clear the floats between two or more separate blocks "
+"vertically."
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:47
+msgid "Pick a horizontal line"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:53
+msgid " Height (optional)"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:54
+msgid "px"
+msgstr ""
+
+#: ../blocks/aq-clear-block.php:59
+msgid "Pick a line color"
+msgstr ""
+
+#: ../blocks/aq-column-block.php:9
+msgid "Column"
+msgstr ""
+
+#: ../blocks/aq-column-block.php:32 ../classes/class-aq-block.php:136
+msgid "Edit Block"
+msgstr ""
+
+#: ../blocks/aq-column-block.php:41 ../blocks/aq-column-block.php:62
+msgid "Drag block items into this column box"
+msgstr ""
+
+#: ../blocks/aq-column-block.php:100 ../blocks/aq-tabs-block.php:93
+#: ../classes/class-aq-block.php:149
+msgid "Delete"
+msgstr ""
+
+#: ../blocks/aq-richtext-block.php:8
+msgid "Rich Text"
+msgstr ""
+
+#: ../blocks/aq-richtext-block.php:34 ../blocks/aq-text-block.php:35
+#: ../functions/aqpb_blocks.php:26
+msgid "Content"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:8
+msgid "Tabs &amp; Toggles"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:25
+msgid "My New Tab"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:26
+msgid "My tab contents"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:36
+msgid "Tabs"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:37
+msgid "Toggles"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:38
+msgid "Accordion"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:54
+msgid "Add New"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:59
+msgid "Tabs style"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:76
+msgid "Open / Close"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:83
+msgid "Tab Title"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:89
+msgid "Tab Content"
+msgstr ""
+
+#: ../blocks/aq-tabs-block.php:190
+msgid "New Tab"
+msgstr ""
+
+#: ../blocks/aq-text-block.php:8
+msgid "Text"
+msgstr ""
+
+#: ../blocks/aq-text-block.php:40
+msgid ""
+"Do not create the paragraphs automatically. <code>\"wpautop\"</code> disable."
+msgstr ""
+
+#: ../blocks/aq-upload-block.php:11
+msgid "Media"
+msgstr ""
+
+#: ../blocks/aq-widgets-block.php:7
+msgid "Widgets"
+msgstr ""
+
+#: ../blocks/aq-widgets-block.php:40
+msgid "Choose widget area"
+msgstr ""
+
+#: ../classes/class-aq-block.php:36
+msgid ""
+"function AQ_Block::block should not be accessed directly. Output generated "
+"by the "
+msgstr ""
+
+#: ../classes/class-aq-block.php:57
+msgid "There are no options for this block."
+msgstr ""
+
+#: ../classes/class-aq-block.php:149
+msgid "Close"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:24
+#: ../classes/class-aq-page-builder.php:25
+#: ../classes/class-aq-page-builder.php:83 ../functions/aqpb_config.php:14
+#: ../functions/aqpb_config.php:15
+msgid "Page Builder"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:26 ../functions/aqpb_config.php:16
+msgid "aq-page-builder"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:159
+msgid "Templates"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:268
+msgid ""
+"Drag block items from the left into this area to begin building your "
+"template."
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:340
+msgid "Template names must be unique, try a different name"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:356
+msgid "Error : Template id is not valid"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:500
+msgid "This template is empty"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:645
+msgid "Please select your template first!"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:662
+#, php-format
+msgid "You don't have any template yet. Let's %s create %s one!"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:667
+msgid "Choose Your Page Template"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:701
+msgid "For more information:"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:702
+msgid ""
+"<a href=\"http://aquagraphite.com/api/documentation/aqua-page-builder\" "
+"target=\"_blank\">Documentation</a>"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:703
+msgid ""
+"<a href=\"http://aquagraphite.com/api/changelog/aqua-page-builder\" target="
+"\"_blank\">Changelog</a>"
+msgstr ""
+
+#: ../classes/class-aq-page-builder.php:709
+msgid "Overview"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:48
+msgid "Enter your text slogan below"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:89 ../functions/aqpb_blocks.php:95
+msgid "Slider Speed"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:118
+msgid "Address"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:124
+msgid "Coordinates (optional) e.g. \"3.82497,103.32390\""
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:130
+msgid "Map height, in pixels."
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:146
+msgid "Two Columns"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:147
+msgid "Three Columns"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:148
+msgid "Four Columns"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:162
+msgid "Number of Columns"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:183
+msgid "Maximum number of items"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:212
+msgid "Choose sidebar/widget area"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:222
+msgid "Drag block items into this box"
+msgstr ""
+
+#: ../functions/aqpb_blocks.php:229
+msgid ""
+"This block has no editable attributes. You can use it to clear the floats "
+"between two or more separate blocks vertically."
+msgstr ""
+
+#: ../functions/aqpb_config.php:21
+msgid ""
+"The page builder allows you to create custom page templates which you can "
+"later use for your pages."
+msgstr ""
+
+#: ../functions/aqpb_config.php:22
+msgid ""
+"To use the page builder, start by adding a new template. You can drag and "
+"drop the blocks on the left into the building area on the right of the "
+"screen. Each block has its own unique configuration which you can manually "
+"configure to suit your needs"
+msgstr ""
+
+#: ../functions/aqpb_config.php:23
+msgid "Please refer to the"
+msgstr ""
+
+#: ../functions/aqpb_config.php:23
+msgid "Aqua Page Builder Documentation"
+msgstr ""
+
+#: ../functions/aqpb_config.php:23
+msgid " documentation page "
+msgstr ""
+
+#: ../functions/aqpb_config.php:23
+msgid "for more information on how to use this feature."
+msgstr ""
+
+#: ../functions/aqpb_functions.php:110
+msgid "Upload"
+msgstr ""
+
+#: ../view/view-builder-page.php:19
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: ../view/view-builder-page.php:36
+msgid "No Title"
+msgstr ""
+
+#: ../view/view-builder-page.php:67 ../view/view-builder-page.php:90
+msgid "The "
+msgstr ""
+
+#: ../view/view-builder-page.php:67
+msgid " page template has been successfully created"
+msgstr ""
+
+#: ../view/view-builder-page.php:75
+msgid "Sorry, the operation was unsuccessful for the following reason(s): "
+msgstr ""
+
+#: ../view/view-builder-page.php:90
+msgid "page template has been updated"
+msgstr ""
+
+#: ../view/view-builder-page.php:102
+msgid "The template has been successfully deleted"
+msgstr ""
+
+#: ../view/view-builder-page.php:125
+msgid "Available Blocks"
+msgstr ""
+
+#: ../view/view-builder-page.php:125
+msgid "Deleting"
+msgstr ""
+
+#: ../view/view-builder-page.php:130
+msgid "Need help? Use the Help tab in the upper right of your screen."
+msgstr ""
+
+#: ../view/view-builder-page.php:165 ../view/view-builder-page.php:177
+msgid "Add Template"
+msgstr ""
+
+#: ../view/view-builder-page.php:197
+msgid "Template Name"
+msgstr ""
+
+#: ../view/view-builder-page.php:198
+msgid "Enter template name here"
+msgstr ""
+
+#: ../view/view-builder-page.php:206
+msgid "Create Template"
+msgstr ""
+
+#: ../view/view-builder-page.php:206 ../view/view-builder-page.php:267
+msgid "Save Template"
+msgstr ""
+
+#: ../view/view-builder-page.php:220
+msgid "Delete Template"
+msgstr ""
+
+#: ../view/view-builder-page.php:247
+msgid ""
+"To create a custom page template, give it a name above and click Create "
+"Template. Then choose blocks like text, widgets or tabs &amp; toggles from "
+"the left column to add to this template."
+msgstr ""
+
+#: ../view/view-builder-page.php:249
+msgid ""
+"You can drag and drop the blocks to put them in the order you want. Click on "
+"the small arrow at the corner of each block to reveal additional "
+"configuration options. You can also resize each block by clicking on either "
+"side of the block (Note that some blocks are not resizable)"
+msgstr ""
+
+#: ../view/view-builder-page.php:251
+msgid ""
+"When you have finished building your custom page template, make sure you "
+"click the Save Template button."
+msgstr ""
+
+#: ../view/view-builder-page.php:276
+msgid "Aqua Page Builder &copy; "
+msgstr ""
+
+#: ../view/view-builder-page.php:276
+msgid " by"
+msgstr ""
+
+#: ../view/view-builder-page.php:277
+msgid "Version "
+msgstr ""

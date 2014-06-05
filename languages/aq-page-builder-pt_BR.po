@@ -1,0 +1,561 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Aqua Page Builder\n"
+"POT-Creation-Date: 2014-06-05 14:43-0300\n"
+"PO-Revision-Date: 2014-06-05 15:15-0300\n"
+"Last-Translator: LRW <luizrrp@gmail.com>\n"
+"Language-Team: Luiz Ricardo <luizrrp@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../aqua-page-builder/aq-page-builder.php:4
+#, fuzzy
+msgid "Aqua Page Builder"
+msgstr "Construtor de Página"
+
+#: ../aqua-page-builder/aq-page-builder.php:6
+msgid ""
+"Easily create custom page templates with intuitive drag-and-drop interface. "
+"Requires PHP5 and WP3.5"
+msgstr ""
+"Criar facilmente Modelos de Páginas personalizados com interface Drag-and-"
+"Grop intuitiva. Requer PHP5 e WP3.5"
+
+#: ../blocks/aq-alert-block.php:10
+msgid "Alerts"
+msgstr "Alertas"
+
+#: ../blocks/aq-alert-block.php:30
+msgid "Standard"
+msgstr "Padrão"
+
+#: ../blocks/aq-alert-block.php:31
+msgid "Info"
+msgstr "Informação"
+
+#: ../blocks/aq-alert-block.php:32
+msgid "Notification"
+msgstr "Notificação"
+
+#: ../blocks/aq-alert-block.php:33
+msgid "Warning"
+msgstr "Aviso"
+
+#: ../blocks/aq-alert-block.php:34
+msgid "Tips"
+msgstr "Dicas"
+
+#: ../blocks/aq-alert-block.php:41 ../blocks/aq-richtext-block.php:27
+#: ../blocks/aq-text-block.php:28 ../blocks/aq-widgets-block.php:34
+#: ../functions/aqpb_blocks.php:19 ../functions/aqpb_blocks.php:42
+#: ../functions/aqpb_blocks.php:64 ../functions/aqpb_blocks.php:112
+#: ../functions/aqpb_blocks.php:156 ../functions/aqpb_blocks.php:177
+#: ../functions/aqpb_blocks.php:206
+msgid "Title (optional)"
+msgstr "Título (opcional)"
+
+#: ../blocks/aq-alert-block.php:47
+msgid "Alert Text (required)"
+msgstr "Texto de Alerta (necessário)"
+
+#: ../blocks/aq-alert-block.php:53
+msgid "Alert Type"
+msgstr "Tipo de alerta"
+
+#: ../blocks/aq-alert-block.php:59
+msgid "Additional inline css styling (optional)"
+msgstr "Estilos CSS inline adicionais (opcionais)"
+
+#: ../blocks/aq-clear-block.php:12
+msgid "Clear"
+msgstr "Limpar"
+
+#: ../blocks/aq-clear-block.php:30
+msgid "None"
+msgstr "Nenhum"
+
+#: ../blocks/aq-clear-block.php:31 ../functions/aqpb_blocks.php:145
+msgid "Single"
+msgstr "Singular"
+
+#: ../blocks/aq-clear-block.php:32
+msgid "Double"
+msgstr "Duplo"
+
+#: ../blocks/aq-clear-block.php:33
+msgid "Use Image"
+msgstr "Usar imagem"
+
+#: ../blocks/aq-clear-block.php:43
+msgid ""
+"Use this block to clear the floats between two or more separate blocks "
+"vertically."
+msgstr ""
+"Utilize este bloco para limpar os floats entre dois ou mais blocos separados "
+"verticalmente."
+
+#: ../blocks/aq-clear-block.php:47
+msgid "Pick a horizontal line"
+msgstr "Escolha uma linha horizontal"
+
+#: ../blocks/aq-clear-block.php:53
+msgid " Height (optional)"
+msgstr "Altura (opcional)"
+
+#: ../blocks/aq-clear-block.php:54
+msgid "px"
+msgstr "px"
+
+#: ../blocks/aq-clear-block.php:59
+msgid "Pick a line color"
+msgstr "Escolha uma cor da linha"
+
+#: ../blocks/aq-column-block.php:9
+msgid "Column"
+msgstr "Coluna"
+
+#: ../blocks/aq-column-block.php:32 ../classes/class-aq-block.php:136
+msgid "Edit Block"
+msgstr "Editar Bloco"
+
+#: ../blocks/aq-column-block.php:41 ../blocks/aq-column-block.php:62
+msgid "Drag block items into this column box"
+msgstr "Arrastar os blocos para caixa da coluna"
+
+#: ../blocks/aq-column-block.php:100 ../blocks/aq-tabs-block.php:93
+#: ../classes/class-aq-block.php:149
+msgid "Delete"
+msgstr "Deletar"
+
+#: ../blocks/aq-richtext-block.php:8
+msgid "Rich Text"
+msgstr "Editor WYSIWYG"
+
+#: ../blocks/aq-richtext-block.php:34 ../blocks/aq-text-block.php:35
+#: ../functions/aqpb_blocks.php:26
+msgid "Content"
+msgstr "Conteúdo"
+
+#: ../blocks/aq-tabs-block.php:8
+msgid "Tabs &amp; Toggles"
+msgstr "Tabs &amp; Toggles"
+
+#: ../blocks/aq-tabs-block.php:25
+msgid "My New Tab"
+msgstr "Minha nova Tab"
+
+#: ../blocks/aq-tabs-block.php:26
+msgid "My tab contents"
+msgstr "Meu conteúdo da Tab"
+
+#: ../blocks/aq-tabs-block.php:36
+msgid "Tabs"
+msgstr "Tabs"
+
+#: ../blocks/aq-tabs-block.php:37
+msgid "Toggles"
+msgstr "Toggles"
+
+#: ../blocks/aq-tabs-block.php:38
+msgid "Accordion"
+msgstr "Accordion"
+
+#: ../blocks/aq-tabs-block.php:54
+msgid "Add New"
+msgstr "Adicionar Novo"
+
+#: ../blocks/aq-tabs-block.php:59
+msgid "Tabs style"
+msgstr "Estilos Tab"
+
+#: ../blocks/aq-tabs-block.php:76
+msgid "Open / Close"
+msgstr "Abrir / Fechar"
+
+#: ../blocks/aq-tabs-block.php:83
+msgid "Tab Title"
+msgstr "T&iacute;tulo da Tab"
+
+#: ../blocks/aq-tabs-block.php:89
+msgid "Tab Content"
+msgstr "Conteúdo da Tab"
+
+#: ../blocks/aq-tabs-block.php:190
+msgid "New Tab"
+msgstr "Nova Tab"
+
+#: ../blocks/aq-text-block.php:8
+msgid "Text"
+msgstr "Texto"
+
+#: ../blocks/aq-text-block.php:40
+msgid ""
+"Do not create the paragraphs automatically. <code>\"wpautop\"</code> disable."
+msgstr ""
+"Não crie parágrafos automaticamente. Desabilitar <code>\"wpautop\"</code>."
+
+#: ../blocks/aq-upload-block.php:11
+msgid "Media"
+msgstr "Mídia"
+
+#: ../blocks/aq-widgets-block.php:7
+msgid "Widgets"
+msgstr "Widgets"
+
+#: ../blocks/aq-widgets-block.php:40
+msgid "Choose widget area"
+msgstr "Escolha a área de widget"
+
+#: ../classes/class-aq-block.php:36
+msgid ""
+"function AQ_Block::block should not be accessed directly. Output generated "
+"by the "
+msgstr ""
+"função AQ_Block :: blocos não devem ser acessados diretamente. Saída gerado "
+"pelo"
+
+#: ../classes/class-aq-block.php:57
+msgid "There are no options for this block."
+msgstr "Não há opções para este bloco."
+
+#: ../classes/class-aq-block.php:149
+msgid "Close"
+msgstr "Fechar"
+
+#: ../classes/class-aq-page-builder.php:24
+#: ../classes/class-aq-page-builder.php:25
+#: ../classes/class-aq-page-builder.php:83 ../functions/aqpb_config.php:14
+#: ../functions/aqpb_config.php:15
+msgid "Page Builder"
+msgstr "Construtor de Página"
+
+#: ../classes/class-aq-page-builder.php:26 ../functions/aqpb_config.php:16
+msgid "aq-page-builder"
+msgstr "aq-page-builder"
+
+#: ../classes/class-aq-page-builder.php:159
+msgid "Templates"
+msgstr "Modelo"
+
+#: ../classes/class-aq-page-builder.php:268
+msgid ""
+"Drag block items from the left into this area to begin building your "
+"template."
+msgstr ""
+"Arraste itens dos blocos da esquerda para essa área para começar a construir "
+"o seu modelo."
+
+#: ../classes/class-aq-page-builder.php:340
+msgid "Template names must be unique, try a different name"
+msgstr "Os nomes dos Modelos devem ser exclusivos, tente um nome diferente"
+
+#: ../classes/class-aq-page-builder.php:356
+msgid "Error : Template id is not valid"
+msgstr "Erro: ID do Modelo não é válido"
+
+#: ../classes/class-aq-page-builder.php:500
+msgid "This template is empty"
+msgstr "Este Modelo está vazio"
+
+#: ../classes/class-aq-page-builder.php:645
+msgid "Please select your template first!"
+msgstr "Por favor selecione o seu primeiro o Modelo!"
+
+#: ../classes/class-aq-page-builder.php:662
+#, php-format
+msgid "You don't have any template yet. Let's %s create %s one!"
+msgstr "Você ainda não tem qualquer Modelo. Vamos %s criar %s um!"
+
+#: ../classes/class-aq-page-builder.php:667
+msgid "Choose Your Page Template"
+msgstr "Escolha seu Modelo de Página"
+
+#: ../classes/class-aq-page-builder.php:701
+msgid "For more information:"
+msgstr "Para mais informações"
+
+#: ../classes/class-aq-page-builder.php:702
+msgid ""
+"<a href=\"http://aquagraphite.com/api/documentation/aqua-page-builder\" "
+"target=\"_blank\">Documentation</a>"
+msgstr ""
+"<a href=\"http://aquagraphite.com/api/documentation/aqua-page-builder\" "
+"target=\"_blank\">Documentação</a>"
+
+#: ../classes/class-aq-page-builder.php:703
+msgid ""
+"<a href=\"http://aquagraphite.com/api/changelog/aqua-page-builder\" target="
+"\"_blank\">Changelog</a>"
+msgstr ""
+"<a href=\"http://aquagraphite.com/api/changelog/aqua-page-builder\" target="
+"\"_blank\">Changelog</a>"
+
+#: ../classes/class-aq-page-builder.php:709
+msgid "Overview"
+msgstr "Visão geral"
+
+#: ../functions/aqpb_blocks.php:48
+msgid "Enter your text slogan below"
+msgstr "Digite o texto do seu slogan abaixo"
+
+#: ../functions/aqpb_blocks.php:89 ../functions/aqpb_blocks.php:95
+msgid "Slider Speed"
+msgstr "Velocidade Slider"
+
+#: ../functions/aqpb_blocks.php:118
+msgid "Address"
+msgstr "Endereço"
+
+#: ../functions/aqpb_blocks.php:124
+msgid "Coordinates (optional) e.g. \"3.82497,103.32390\""
+msgstr "Coordenadas (opcional) ex. \"3.82497,103.32390\""
+
+#: ../functions/aqpb_blocks.php:130
+msgid "Map height, in pixels."
+msgstr "Mapa altura, em pixels."
+
+#: ../functions/aqpb_blocks.php:146
+msgid "Two Columns"
+msgstr "Duas colunas"
+
+#: ../functions/aqpb_blocks.php:147
+msgid "Three Columns"
+msgstr "Três colunas"
+
+#: ../functions/aqpb_blocks.php:148
+msgid "Four Columns"
+msgstr "Quatro colunas"
+
+#: ../functions/aqpb_blocks.php:162
+msgid "Number of Columns"
+msgstr "Número de colunas"
+
+#: ../functions/aqpb_blocks.php:183
+msgid "Maximum number of items"
+msgstr "Número máximo de itens"
+
+#: ../functions/aqpb_blocks.php:212
+msgid "Choose sidebar/widget area"
+msgstr "Escolha a área de sidebar/widget"
+
+#: ../functions/aqpb_blocks.php:222
+msgid "Drag block items into this box"
+msgstr "Arrastar blocos para dentro da caixa"
+
+#: ../functions/aqpb_blocks.php:229
+msgid ""
+"This block has no editable attributes. You can use it to clear the floats "
+"between two or more separate blocks vertically."
+msgstr ""
+"Este bloco não tem atributos editáveis. Você pode usá-lo para limpar os "
+"floats entre dois ou mais blocos separados verticalmente."
+
+#: ../functions/aqpb_config.php:21
+msgid ""
+"The page builder allows you to create custom page templates which you can "
+"later use for your pages."
+msgstr ""
+"O Construtor de Página permite criar modelos de página personalizados que "
+"você pode usar mais tarde para suas páginas."
+
+#: ../functions/aqpb_config.php:22
+msgid ""
+"To use the page builder, start by adding a new template. You can drag and "
+"drop the blocks on the left into the building area on the right of the "
+"screen. Each block has its own unique configuration which you can manually "
+"configure to suit your needs"
+msgstr ""
+"Para utilizar o construtor de página, comece adicionando um novo modelo. "
+"Você pode arrastar e soltar os blocos da esquerda para a área do construtor "
+"à direita da tela. Cada bloco tem sua própria configuração única, que você "
+"pode configurar manualmente para atender às suas necessidades"
+
+#: ../functions/aqpb_config.php:23
+msgid "Please refer to the"
+msgstr "Por favor, consulte o"
+
+#: ../functions/aqpb_config.php:23
+msgid "Aqua Page Builder Documentation"
+msgstr "Documentação do Construtor de Página"
+
+#: ../functions/aqpb_config.php:23
+msgid " documentation page "
+msgstr "  página da documentação"
+
+#: ../functions/aqpb_config.php:23
+msgid "for more information on how to use this feature."
+msgstr "para mais informações sobre como usar este recurso."
+
+#: ../functions/aqpb_functions.php:110
+msgid "Upload"
+msgstr "Upload"
+
+#: ../view/view-builder-page.php:19
+msgid "Cheatin&#8217; uh?"
+msgstr "Trapaceando, é?"
+
+#: ../view/view-builder-page.php:36
+msgid "No Title"
+msgstr "Sem Título"
+
+#: ../view/view-builder-page.php:67 ../view/view-builder-page.php:90
+msgid "The "
+msgstr "O "
+
+#: ../view/view-builder-page.php:67
+msgid " page template has been successfully created"
+msgstr " modelo de página foi criada com sucesso"
+
+#: ../view/view-builder-page.php:75
+msgid "Sorry, the operation was unsuccessful for the following reason(s): "
+msgstr "Desculpe, a operação não foi bem sucedida pelo seguinte motivo (s):"
+
+#: ../view/view-builder-page.php:90
+msgid "page template has been updated"
+msgstr "modelo de página foi atualizada"
+
+#: ../view/view-builder-page.php:102
+msgid "The template has been successfully deleted"
+msgstr "O modelo foi excluído com sucesso"
+
+#: ../view/view-builder-page.php:125
+msgid "Available Blocks"
+msgstr "Blocos Disponíveis"
+
+#: ../view/view-builder-page.php:125
+msgid "Deleting"
+msgstr "Excluindo"
+
+#: ../view/view-builder-page.php:130
+msgid "Need help? Use the Help tab in the upper right of your screen."
+msgstr ""
+"Precisa de ajuda? Use a guia Ajuda no canto superior direito da sua tela."
+
+#: ../view/view-builder-page.php:165 ../view/view-builder-page.php:177
+msgid "Add Template"
+msgstr "Adicionar Modelo"
+
+#: ../view/view-builder-page.php:197
+msgid "Template Name"
+msgstr "Nome do Modelo"
+
+#: ../view/view-builder-page.php:198
+msgid "Enter template name here"
+msgstr "Digite o nome do modelo aqui"
+
+#: ../view/view-builder-page.php:206
+msgid "Create Template"
+msgstr "Criar Modelo"
+
+#: ../view/view-builder-page.php:206 ../view/view-builder-page.php:267
+msgid "Save Template"
+msgstr "Salvar Modelo"
+
+#: ../view/view-builder-page.php:220
+msgid "Delete Template"
+msgstr "Deletar Modelo"
+
+#: ../view/view-builder-page.php:247
+msgid ""
+"To create a custom page template, give it a name above and click Create "
+"Template. Then choose blocks like text, widgets or tabs &amp; toggles from "
+"the left column to add to this template."
+msgstr ""
+"Para criar um modelo de página personalizado, dar-lhe um nome acima e clique "
+"em Criar Modelo. Em seguida, escolha como blocos de texto, widgets ou tabs "
+"&amp; toggles na coluna da esquerda para adicionar a este modelo."
+
+#: ../view/view-builder-page.php:249
+msgid ""
+"You can drag and drop the blocks to put them in the order you want. Click on "
+"the small arrow at the corner of each block to reveal additional "
+"configuration options. You can also resize each block by clicking on either "
+"side of the block (Note that some blocks are not resizable)"
+msgstr ""
+"Você pode arrastar e soltar os blocos para colocá-los na ordem que quiser. "
+"Clique na pequena seta no canto de cada bloco para revelar as opções de "
+"configuração adicionais. Você também pode redimensionar cada bloco, clicando "
+"em ambos os lados do bloco (Note que alguns blocos não são redimensionáveis)"
+
+#: ../view/view-builder-page.php:251
+msgid ""
+"When you have finished building your custom page template, make sure you "
+"click the Save Template button."
+msgstr ""
+"Quando terminar a construção de seu modelo de página personalizado, "
+"certifique-se de clicar no botão Salvar modelo."
+
+#: ../view/view-builder-page.php:276
+msgid "Aqua Page Builder &copy; "
+msgstr "Aqua Page Builder &copy; "
+
+#: ../view/view-builder-page.php:276
+msgid " by"
+msgstr " por"
+
+#: ../view/view-builder-page.php:277
+msgid "Version "
+msgstr "Versão "
+
+#~ msgid ""
+#~ "An Unexpected HTTP Error occurred during the API request.</p> <p><a href="
+#~ "\"?\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+#~ msgstr ""
+#~ "Um erro HTTP inesperado ocorreu durante a requisição da API. </p> <p><a "
+#~ "href=\"?\" onclick=\"document.location.reload(); return false;\">Tente "
+#~ "novamente</a>"
+
+#~ msgid "An unknown error occurred"
+#~ msgstr "Ocorreu um erro desconhecido"
+
+#~ msgid "Correcting plugin folder name & activating plugin..."
+#~ msgstr "Corrigindo nome da pasta do plugin e ativando plugin..."
+
+#~ msgid ""
+#~ "The plugin has been updated, but could not be reactivated. Please "
+#~ "reactivate it manually."
+#~ msgstr ""
+#~ "O plugin foi atualizado, mas não pode ser reativado. Por favor, reative "
+#~ "manualmente."
+
+#~ msgid "Plugin reactivated successfully."
+#~ msgstr "Plugin reativado com sucesso."
+
+#~ msgid " page template has been updated"
+#~ msgstr " modelo de página foi atualizada"
+
+#~ msgid ""
+#~ "To create a custom page template, give it a name above and click Create "
+#~ "Template. Then choose blocks like text, widgets or tabs &amp; toggles "
+#~ "from the left column to add to this template.\n"
+#~ "\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+#~ "\t\t\t\t\t\t\t\t\tYou can drag and drop the blocks to put them in the "
+#~ "order you want. Click on the small arrow at the corner of each block to "
+#~ "reveal additional configuration options. You can also resize each block "
+#~ "by clicking on either side of the block (Note that some blocks are not "
+#~ "resizable)\n"
+#~ "\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+#~ "\t\t\t\t\t\t\t\t\tWhen you have finished building your custom page "
+#~ "template, make sure you click the Save Template button."
+#~ msgstr ""
+#~ "Para criar um modelo de página personalizado, dar-lhe um nome acima e "
+#~ "clique em Criar Modelo. Em seguida, escolha como blocos de texto, widgets "
+#~ "ou tabs &amp; toggles na coluna da esquerda para adicionar a este "
+#~ "modelo.\n"
+#~ "<br/><br/>\n"
+#~ "Você pode arrastar e soltar os blocos para colocá-los na ordem que "
+#~ "quiser. Clique na pequena seta no canto de cada bloco para revelar as "
+#~ "opções de configuração adicionais. Você também pode redimensionar cada "
+#~ "bloco, clicando em ambos os lados do bloco (Note que alguns blocos não "
+#~ "são redimensionáveis)\n"
+#~ "<br/><br/>\n"
+#~ "Quando terminar a construção de seu modelo de página personalizado, "
+#~ "certifique-se de clicar no botão Salvar modelo."
