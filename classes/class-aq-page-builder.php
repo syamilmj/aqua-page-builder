@@ -659,9 +659,8 @@ if(!class_exists('AQ_Page_Builder')) {
 						<?php
 						/** If there is no template created yet */
 						if ( empty( $templates ) ) {
-							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'framework' ), '<a href="' .admin_url().'themes.php?page=aq-page-builder">', '</a>' );
-							return;
-						}
+							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'framework' ), '<a href="' .admin_url().'themes.php?page=aq-page-builder">', '</a>' )
+						} else {
 						?>						
 
 						<h3><?php _e( 'Choose Your Page Template', 'framework' ); ?></h3><br />
@@ -673,6 +672,9 @@ if(!class_exists('AQ_Page_Builder')) {
 						</select>
 
 						<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'framework' ); ?>" onclick="insertTemplate();" />
+						<?php
+						}
+						?>
 						<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'framework' ); ?>"><?php echo esc_attr__( 'Cancel', 'framework' ); ?></a>
 
 						<?php do_action( 'aqpb_after_iframe_display', $templates ); ?>
