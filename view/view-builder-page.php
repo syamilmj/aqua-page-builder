@@ -206,7 +206,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 									
 										<label class="open-label howto" for="template-name">
 											<span><?php _e('Template Name', 'aqpb') ?></span>
-											<input name="template-name" id="template-name" type="text" class="template-name regular-text input-with-default-title" title="Enter template name here" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
+											<input name="template-name" id="template-name" type="text" class="template-name regular-text" title="Enter template name here" placeholder="<?php _e('Enter template name here', 'aqpb') ?>" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
 										</label>
 										
 										<div id="template-shortcode">
@@ -253,7 +253,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 								?>
 							</ul>
 							
-						</div>
+						</div><!-- END #aqpb-body -->
 						
 						<div id="aqpb-footer">
 

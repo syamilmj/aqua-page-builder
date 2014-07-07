@@ -388,10 +388,9 @@ margin-left: 20px;
 		left: -10px;
 	}
 	#page-builder .placeholder {
-		background: #f5f5f5;
 		border: 1px dashed #bbb;
 		float: left;
-		height: 36px;
+		height: 43px;
 		margin: 13px 0 0 20px;
 		width: 300px;
 		-webkit-box-sizing: border-box;
