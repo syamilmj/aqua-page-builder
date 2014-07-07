@@ -40,7 +40,7 @@ class AQ_Column_Block extends AQ_Block {
 
 	function form($instance) {
 		echo '<p class="empty-column">',
-		__('Drag block items into this column box', 'framework'),
+		__('Drag block items into this column box', 'aqpb'),
 		'</p>';
 		echo '<ul class="blocks column-blocks cf"></ul>';
 	}
@@ -61,7 +61,7 @@ class AQ_Column_Block extends AQ_Block {
 			echo '<li id="template-block-'.$number.'" class="block block-container block-aq_column_block '.$size.'">',
 					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
 						'<p class="empty-column">',
-							__('Drag block items into this column box', 'framework'),
+							__('Drag block items into this column box', 'aqpb'),
 						'</p>',
 						'<ul class="blocks column-blocks cf">';
 					

@@ -21,9 +21,9 @@ if(!class_exists('AQ_Page_Builder')) {
 		 */
 		function __construct( $config = array()) {
 			
-			$defaults['menu_title'] = __('Page Builder', 'framework');
-			$defaults['page_title'] = __('Page Builder', 'framework');
-			$defaults['page_slug'] = __('aq-page-builder', 'framework');
+			$defaults['menu_title'] = __('Page Builder', 'aqpb');
+			$defaults['page_title'] = __('Page Builder', 'aqpb');
+			$defaults['page_slug'] = __('aqua-page-builder', 'aqpb');
 			$defaults['debug'] = false;
 			
 			$this->args = wp_parse_args($config, $defaults);
@@ -80,7 +80,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 */
 		function add_admin_bar(){
 			global $wp_admin_bar;
-			$wp_admin_bar->add_menu( array( 'id' => 'aq-page-builder', 'parent' => 'appearance', 'title' => 'Page Builder', 'href' => admin_url('themes.php?page='.$this->args['page_slug']) ) );
+			$wp_admin_bar->add_menu( array( 'id' => $this->args['page_slug'], 'parent' => 'appearance', 'title' => 'Page Builder', 'href' => admin_url('themes.php?page='.$this->args['page_slug']) ) );
 			
 		}
 		
@@ -177,7 +177,7 @@ if(!class_exists('AQ_Page_Builder')) {
 				register_post_type( 'template', $template_args);
 				
 			} else {
-				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'framework') .'</p></div>';"));
+				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"template\" post type already exists, possibly added by the theme or other plugins. Please consult with theme author to consult with this issue', 'aqpb') .'</p></div>';"));
 			}
 			
 		}
@@ -265,7 +265,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			//return early if no blocks
 			if(empty($blocks)) {
 				echo '<p class="empty-template">';
-				echo __('Drag block items from the left into this area to begin building your template.', 'framework');
+				echo __('Drag block items from the left into this area to begin building your template.', 'aqpb');
 				echo '</p>';
 				return;
 				
@@ -497,7 +497,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			if(empty($blocks)) {
 			
 				echo '<p class="empty-template">';
-				echo __('This template is empty', 'framework');
+				echo __('This template is empty', 'aqpb');
 				echo '</p>';
 				
 			} else {
@@ -561,7 +561,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			if ( !array_key_exists( 'template', $shortcode_tags ) ) {
 				add_shortcode( 'template', array(&$this, 'do_shortcode') );
 			} else {
-				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'framework') .'</p></div>';"));
+				add_action('admin_notices', create_function('', "echo '<div id=\"message\" class=\"error\"><p><strong>Aqua Page Builder notice: </strong>'. __('The \"[template]\" shortcode already exists, possibly added by the theme or other plugins. Please consult with the theme author to consult with this issue', 'aqpb') .'</p></div>';"));
 			}
 			
 		}
@@ -601,11 +601,11 @@ if(!class_exists('AQ_Page_Builder')) {
 			if ( in_array( $pagenow, array( 'post.php', 'page.php', 'post-new.php', 'post-edit.php' ) ) ) {
 
 				if ( version_compare( $wp_version, '3.5', '<' ) ) {
-					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Page Template', 'framework' )  . '" />';
-					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Page Template', 'framework' )  . '">' . $img . '</a>';
+					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Page Template', 'aqpb' )  . '" />';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Page Template', 'aqpb' )  . '">' . $img . '</a>';
 				} else {
 					$img 	= '<span class="wp-media-buttons-icon" style="background-image: url(' . AQPB_DIR . '/assets/images/aqua-media-button.png ); margin-top: -1px;"></span>';
-					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Page Template', 'framework' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'framework' ) . '</a>';
+					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Page Template', 'aqpb' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'aqpb' ) . '</a>';
 				}
 				
 			}
@@ -642,7 +642,7 @@ if(!class_exists('AQ_Page_Builder')) {
 
 						/** Alert user if there is no template selected */
 						if ( '' == id ) {
-							alert("<?php echo esc_js( __( 'Please select your template first!', 'framework' ) ); ?>");
+							alert("<?php echo esc_js( __( 'Please select your template first!', 'aqpb' ) ); ?>");
 							return;
 						}
 
@@ -659,12 +659,12 @@ if(!class_exists('AQ_Page_Builder')) {
 						<?php
 						/** If there is no template created yet */
 						if ( empty( $templates ) ) {
-							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'framework' ), '<a href="' .admin_url().'themes.php?page=aq-page-builder">', '</a>' );
+							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'aqpb' ), '<a href="' .admin_url().'themes.php?page=aqua-page-builder">', '</a>' );
 							return;
 						}
 						?>						
 
-						<h3><?php _e( 'Choose Your Page Template', 'framework' ); ?></h3><br />
+						<h3><?php _e( 'Choose Your Page Template', 'aqpb' ); ?></h3><br />
 						<select id="select-aqpb-template" style="clear: both; min-width:200px; display: inline-block; margin-right: 3em;">
 						<?php
 							foreach ( $templates as $template )
@@ -672,8 +672,8 @@ if(!class_exists('AQ_Page_Builder')) {
 						?>
 						</select>
 
-						<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'framework' ); ?>" onclick="insertTemplate();" />
-						<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'framework' ); ?>"><?php echo esc_attr__( 'Cancel', 'framework' ); ?></a>
+						<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'aqpb' ); ?>" onclick="insertTemplate();" />
+						<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'aqpb' ); ?>"><?php echo esc_attr__( 'Cancel', 'aqpb' ); ?></a>
 
 						<?php do_action( 'aqpb_after_iframe_display', $templates ); ?>
 

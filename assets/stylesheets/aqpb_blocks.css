@@ -97,9 +97,8 @@ DO NOT EDIT THIS
 /* Columns */
 #blocks-to-edit .block-container {
 	padding: 4px;
-	background: #FCFCFC;
 	margin: 8px -5px -5px 15px;
-	border: 1px dotted #E3E3E3;
+	border: 1px dashed #dfdfdf;
 	max-width: 734px;
 }
 #blocks-to-edit .block-container ul.blocks { 

@@ -40,7 +40,7 @@ class AQ_Clear_Block extends AQ_Block {
 		
 		?>
 		<p class="description note">
-			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'framework') ?>
+			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'aqpb') ?>
 		</p>
 		<p class="description fourth">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
