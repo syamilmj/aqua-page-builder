@@ -672,20 +672,20 @@ if(!class_exists('AQ_Page_Builder')) {
 						/** If there is no template created yet */
 						if ( empty( $templates ) ) {
 							echo sprintf( __( 'You don\'t have any template yet. Let\'s %s create %s one!', 'aqpb' ), '<a href="' .admin_url().'themes.php?page=aqua-page-builder">', '</a>' );
-							return;
-						}
-						?>						
+						} else { ?>						
 
-						<h3><?php _e( 'Choose Your Page Template', 'aqpb' ); ?></h3><br />
-						<select id="select-aqpb-template" style="clear: both; min-width:200px; display: inline-block; margin-right: 3em;">
-						<?php
-							foreach ( $templates as $template )
-								echo '<option value="' . absint( $template->ID ) . '">' . esc_attr( $template->post_title ) . '</option>';
-						?>
-						</select>
+							<h3><?php _e( 'Choose Your Page Template', 'aqpb' ); ?></h3><br />
+							<select id="select-aqpb-template" style="clear: both; min-width:200px; display: inline-block; margin-right: 3em;">
+							<?php
+								foreach ( $templates as $template )
+									echo '<option value="' . absint( $template->ID ) . '">' . esc_attr( $template->post_title ) . '</option>';
+							?>
+							</select>
 
-						<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'aqpb' ); ?>" onclick="insertTemplate();" />
-						<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'aqpb' ); ?>"><?php echo esc_attr__( 'Cancel', 'aqpb' ); ?></a>
+							<input type="button" id="aqpb-insert-template" class="button-primary" value="<?php echo esc_attr__( 'Insert Template', 'aqpb' ); ?>" onclick="insertTemplate();" />
+							<a id="aqpb-cancel-template" class="button-secondary" onclick="tb_remove();" title="<?php echo esc_attr__( 'Cancel', 'aqpb' ); ?>"><?php echo esc_attr__( 'Cancel', 'aqpb' ); ?></a>
+							
+						<?php } ?>
 
 						<?php do_action( 'aqpb_after_iframe_display', $templates ); ?>
 
