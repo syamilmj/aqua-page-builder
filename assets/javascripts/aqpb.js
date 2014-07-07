@@ -24,8 +24,11 @@ jQuery(document).ready(function($){
 			maxWidth: 724,
 			minWidth: 104,
 			resize: function(event, ui) { 
+				ui.helper.css("position", "relative"); // bug
 			    ui.helper.css("height", "inherit");
 			    ui.helper.css("top", "0"); // bug
+			    ui.helper.css("left", "0"); // bug
+			    ui.helper.css("margin-left", ui.position.left + 20 + "px");
 			},
 			stop: function(event, ui) {
 				ui.helper.css('left', ui.originalPosition.left);
@@ -33,6 +36,7 @@ jQuery(document).ready(function($){
 				    return (css.match (/\bspan\S+/g) || []).join(' ');
 				}).addClass(block_size( $(ui.helper).css('width') ));
 				ui.helper.find('> div > .size').val(block_size( $(ui.helper).css('width') ));
+				ui.helper.css("margin-left", "");
 			}
 		},
 		$parent, 
