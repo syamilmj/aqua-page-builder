@@ -186,10 +186,9 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 					<ul id="blocks-archive" class="cf">
 						<?php $this->blocks_archive() ?>
 					</ul>
-					<p><?php _e('Need help? Use the Help tab in the upper right of your screen.', 'aqpb') ?></p>
 				</div>
 			</div>
-		</div>
+		</div><!-- END #page-builder-column -->
 	
 		<div id="page-builder-fixed">
 

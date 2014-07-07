@@ -4,7 +4,7 @@
  * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Fast, lightweight and intuitive drag-and-drop page builder.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
  *
@@ -33,9 +33,14 @@
  */
 
 //definitions
-if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', '1.1.2' );
 if(!defined('AQPB_PATH')) define( 'AQPB_PATH', plugin_dir_path(__FILE__) );
 if(!defined('AQPB_DIR')) define( 'AQPB_DIR', plugin_dir_url(__FILE__) );
+
+function aqpb_get_version() {
+	$plugin_data = get_plugin_data(__FILE__);
+	$version     = $plugin_data['Version'];
+	return $version;
+}
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');

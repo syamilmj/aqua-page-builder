@@ -14,6 +14,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		
 		public $url = AQPB_DIR;
 		public $config = array();
+		protected $version;
 		private $admin_notices;
 		
 		/**
@@ -32,9 +33,20 @@ if(!class_exists('AQ_Page_Builder')) {
 				array('page' => $this->args['page_slug']),
 				admin_url( 'themes.php' )
 			));
+
+			add_action('admin_init', array($this, 'get_version'));
 			
 		}
 		
+		/** 
+		 * Get plugin version
+		 *
+		 * @since 1.1.4
+		 */
+		function get_version() {
+			if(!defined('AQPB_VERSION')) define( 'AQPB_VERSION', aqpb_get_version() );
+		}
+
 		/**
 		 * Initialise Page Builder page and its settings
 		 *
@@ -58,7 +70,7 @@ if(!class_exists('AQ_Page_Builder')) {
 			if(is_admin()) add_action('wp_ajax_aq_page_builder_sort_templates', array($this, 'sort_templates'));
 			
 		}
-		
+
 		/** 
 		 * Create Admin Pages
 		 *
@@ -604,7 +616,7 @@ if(!class_exists('AQ_Page_Builder')) {
 					$img 	= '<img src="' . AQPB_DIR . '/assets/images/aqua-media-button.png" width="16px" height="16px" alt="' . esc_attr__( 'Add Page Template', 'aqpb' )  . '" />';
 					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox" title="' . esc_attr__( 'Add Page Template', 'aqpb' )  . '">' . $img . '</a>';
 				} else {
-					$img 	= '<span class="wp-media-buttons-icon" style="background-image: url(' . AQPB_DIR . '/assets/images/aqua-media-button.png ); margin-top: -1px;"></span>';
+					$img 	= '<span class="wp-media-buttons-icon" style="background-image: url(' . AQPB_DIR . '/assets/images/aqua-media-button.png ); background-repeat: no-repeat; margin-top: 1px;"></span>';
 					$output = '<a href="#TB_inline?width=640&inlineId=aqpb-iframe-container" class="thickbox button" title="' . esc_attr__( 'Add Page Template', 'aqpb' ) . '" style="padding-left: .4em;">' . $img . ' ' . esc_attr__( 'Add Template', 'aqpb' ) . '</a>';
 				}
 				
