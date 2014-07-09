@@ -16,8 +16,8 @@ class AQ_Text_Block extends AQ_Block {
 	function form($instance) {
 		
 		$defaults = array(
-			'text' => '',
-			'wp_autop' => 0
+			'text'   => '',
+			'filter' => 0
 		);
 		$instance = wp_parse_args($instance, $defaults);
 		extract($instance);
@@ -35,11 +35,11 @@ class AQ_Text_Block extends AQ_Block {
 				Content
 				<?php echo aq_field_textarea('text', $block_id, $text, $size = 'full') ?>
 			</label>
-			<label for="<?php echo $this->get_field_id('wp_autop') ?>">
-				<?php echo aq_field_checkbox('wp_autop', $block_id, $wp_autop) ?>
-				Do not create the paragraphs automatically. <code>"wpautop"</code> disable.
+			<label for="<?php echo $this->get_field_id('filter') ?>">
+				<?php echo aq_field_checkbox('filter', $block_id, $filter) ?>
+				<?php _e('Automatically add paragraphs', 'aqpb') ?>
 			</label>
-	</p>
+		</p>
 		
 		<?php
 	}
