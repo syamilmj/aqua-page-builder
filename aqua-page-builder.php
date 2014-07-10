@@ -47,7 +47,6 @@ require_once(AQPB_PATH . 'functions/aqpb_config.php');
 require_once(AQPB_PATH . 'functions/aqpb_blocks.php');
 require_once(AQPB_PATH . 'classes/class-aq-page-builder.php');
 require_once(AQPB_PATH . 'classes/class-aq-block.php');
-//require_once(AQPB_PATH . 'classes/class-aq-plugin-updater.php');
 require_once(AQPB_PATH . 'functions/aqpb_functions.php');
 
 //some default blocks
@@ -57,11 +56,11 @@ require_once(AQPB_PATH . 'blocks/aq-clear-block.php');
 require_once(AQPB_PATH . 'blocks/aq-widgets-block.php');
 require_once(AQPB_PATH . 'blocks/aq-alert-block.php');
 require_once(AQPB_PATH . 'blocks/aq-tabs-block.php');
-//require_once(AQPB_PATH . 'blocks/aq-richtext-block.php'); //buggy
+require_once(AQPB_PATH . 'blocks/aq-editor-block.php'); //buggy
 
 //register default blocks
 aq_register_block('AQ_Text_Block');
-//aq_register_block('AQ_Richtext_Block'); //buggy
+aq_register_block('AQ_Editor_Block'); //buggy
 aq_register_block('AQ_Column_Block');
 aq_register_block('AQ_Clear_Block');
 aq_register_block('AQ_Widgets_Block');

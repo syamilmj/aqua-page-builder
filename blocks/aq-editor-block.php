@@ -1,16 +1,16 @@
 <?php
 /** A simple rich textarea block **/
-class AQ_Richtext_Block extends AQ_Block {
+class AQ_Editor_Block extends AQ_Block {
 	
 	//set and create block
 	function __construct() {
 		$block_options = array(
-			'name' => 'Rich Text',
+			'name' => 'Visual Editor',
 			'size' => 'span6',
 		);
 		
 		//create the block
-		parent::__construct('aq_richtext_block', $block_options);
+		parent::__construct('aq_editor_block', $block_options);
 	}
 	
 	function form($instance) {
@@ -34,10 +34,11 @@ class AQ_Richtext_Block extends AQ_Block {
 				Content
 				<?php 
 				$args = array (
-//				    'tinymce' => false,
-				    'quicktags' => true,
+				    'tinymce'       => true,
+				    'quicktags'     => true,
+				    'textarea_name' => $this->get_field_name('text')
 				);
-				wp_editor( htmlspecialchars_decode($text), 'aq_blocks['.$block_id.'][text]', $args );
+				wp_editor( htmlspecialchars_decode($text), $this->get_field_id('text'), $args );
 				?>
 			</label>
 		</p>
@@ -48,7 +49,7 @@ class AQ_Richtext_Block extends AQ_Block {
 	function block($instance) {
 		extract($instance);
 		
-		if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
+		//if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
 		echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
 	}
 	
