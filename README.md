@@ -1,10 +1,4 @@
-### This plugin is now available for download from [WordPress.org's plugin repository](http://wordpress.org/extend/plugins/aqua-page-builder).
-
-## AQUA PAGE BUILDER 
-
-* Author:		Syamil MJ
-* Author URI:	[Aquagraphite.com](http://aquagraphite.com)
-* Contributors:	[Arya Prakasa](https://twitter.com/arya_prakasa)
+# Aqua Page Builder
 
 ### Overview
 
@@ -19,15 +13,12 @@ Aqua Page Builder is released under GPLv3 - [http://www.gnu.org/copyleft/gpl.htm
 
 ### User Guide
 
-**Basic Instructions**  
+** Manual Installation **  
 * Download the package, unzip.
 * Rename the folder to "aqua-page-builder"
 * Upload it to your `wp-content/plugins/` directory, then activate in your theme.
 
-I've written a quite extensive guide for the users so they can get up and running
-with the plugin in no time. The link to this guide is provided in the "Help" tab
-for easier access, but you can also link to it manually in the theme description or
-theme documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
+Official documentation: http://aquagraphite.com/api/documentation/aqua-page-builder
 
 ### Developer's Guide
 
@@ -51,7 +42,9 @@ It takes just one dollar to fill four cups with nutritious meals. Working togeth
 
 ### Bugs, Issues, Feedbacks, Help?
 
-Please report any bugs, issues, feedbacks or get help on the Aqua Page Builder's Issues page on Github - [Issues page](https://github.com/sy4mil/Aqua-Page-Builder/issues).
+Please submit all bugs, issues, and feedbacks on Aqua Page Builder's Issues page on Github - [Issues page](https://github.com/sy4mil/Aqua-Page-Builder/issues).
+
+Unfortunately, we do not provide for theme-specific issues.
 
 ### Changelog
 
