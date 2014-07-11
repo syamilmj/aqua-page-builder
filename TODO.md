@@ -6,12 +6,12 @@ Feel free to add to the todo lists
 
 * Caps - allow users with post edit capabilities to build templates
   - authors should only able to edit own template
-
 * Template duplications
 * Localization
 
 ## FUTURE / REQUESTS
 
+* AJAX-saving blocks
 * Enable builder to operate inside post editor
 * SEO plugins like Yoast can't read inside shortcode, add support to that
 * Bulk actions
@@ -20,3 +20,4 @@ Feel free to add to the todo lists
 
 * Move template manager on a separate section, preferably similar to how it's done on Menus
 * UI minor revamps to follow current WP UI
+* Visual Editor

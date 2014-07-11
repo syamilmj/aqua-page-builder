@@ -157,11 +157,8 @@ jQuery(document).ready(function($){
 	$('ul.blocks').bind('sortstart', function(event, ui) {
 		if( ui.item.hasClass('block-aq_editor_block') ) {
 			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
-			try { 
-				tinyMCE.execCommand('mceAddEditor', false, textareaID); 
-				tinyMCE.execCommand('mceAddControls', false, textareaID); 
-			} catch(e){
-				// console.log(e);
+			try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
+				console.log(e);
 			}
 		}
 	});
@@ -173,7 +170,7 @@ jQuery(document).ready(function($){
 				tinyMCE.execCommand('mceAddEditor', false, textareaID); 
 				tinyMCE.execCommand('mceAddControls', false, textareaID); 
 			} catch(e){
-				// console.log(e);
+				console.log(e);
 			}
 		}
 	});
@@ -182,7 +179,7 @@ jQuery(document).ready(function($){
 		if( ui.element.hasClass('block-aq_editor_block') ) {
 			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
 			try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
-				// console.log(e);
+				console.log(e);
 			}
 		}
 	});
@@ -194,7 +191,7 @@ jQuery(document).ready(function($){
 				tinyMCE.execCommand('mceAddEditor', false, textareaID); 
 				tinyMCE.execCommand('mceAddControls', false, textareaID); 
 			} catch(e){
-				// console.log(e);
+				console.log(e);
 			}
 		}
 	});
