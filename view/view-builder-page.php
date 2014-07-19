@@ -123,6 +123,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 		<?php if($templates) { ?>
 			
 			<form method="get" action="<?php echo admin_url('themes.php') ?>" >
+
 				<input type="hidden" name="page" value="<?php echo $this->args['page_slug'] ?>">
 				<input type="hidden" name="action" value="edit">
 
@@ -137,7 +138,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 
 						<?php
 						foreach ( (array) $templates as $template ) {
-							$selected = selected( $selected_template_id, $template_id, false );
+							$selected = selected( $selected_template_id, $template->ID, false );
 
 							echo '<option value="'. $template->ID .'" '. $selected .'>'. htmlspecialchars($template->post_title) .'</option>';
 						}
