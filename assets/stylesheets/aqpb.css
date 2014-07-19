@@ -208,7 +208,17 @@ a:hover, a:active, a:focus { color: #d54e21; }
 		color: #F00;
 		text-decoration: none;
 	}
-	
+#page-builder .clone-action{
+	margin-top: 5px;
+}
+    #page-builder .clone-action .submitclone{
+        display: block;
+        float: left;
+        margin: 4px 0;
+        line-height: 15px;
+        text-decoration: none;
+    }
+    
 /*blocks*/
 #page-builder .blocks {
 	padding: 1em 0 2em;
