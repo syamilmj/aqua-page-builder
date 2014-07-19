@@ -76,7 +76,31 @@ switch($action) {
 		}
 		
 		break;
+        
+	case 'clone' :
 		
+		$new_id = $this->clone_template( $selected_template_id );
+		
+		if(!is_wp_error($new_id)) {
+			$selected_template_id = $new_id;
+		
+			//refresh templates var
+			$templates = $this->get_templates();
+			$selected_template_object = get_post($selected_template_id);
+			
+			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'framework') . '<strong>' . $template_name . '</strong>' . __(' template has been successfully cloned', 'framework') . '</p></div>';
+		} else {
+			$errors = '<ul>';
+			foreach( $new_id->get_error_messages() as $error ) {
+				$errors .= '<li><strong>'. $error . '</strong></li>';
+			}
+			$errors .= '</ul>';
+			
+			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'framework') . '</p>' . $errors . '</div>';
+		}
+		
+		break;
+        
 	case 'update' :
 	
 		$blocks = isset($_REQUEST['aq_blocks']) ? $_REQUEST['aq_blocks'] : '';
@@ -273,6 +297,22 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 									)) . '">'. __('Delete Template', 'aqpb') .'</a>';
 									?>
 								</div><!-- END .delete-action -->
+                                
+                                <div class="clone-action">
+                                    <?php 
+                                    echo '<a class="submitclone cloning template-clone" href="' . esc_url(add_query_arg(
+                                        array(
+                                            'page' => $this->args['page_slug'], 
+                                            'action' => 'clone',
+                                            'template' => $selected_template_id,
+                                            'template-name' => is_object($selected_template_object) ? $selected_template_object->post_title : '',
+                                            '_wpnonce' => wp_create_nonce('clone-template'),
+                                        ),
+                                        admin_url( 'themes.php' )
+                                    )) . '">'. __('Clone Template', 'framework') .'</a>';
+                                    ?>
+                                </div><!-- END .clone-action -->
+                                
 								<?php } ?>
 
 								<div class="publishing-action">

@@ -356,7 +356,61 @@ if(!class_exists('AQ_Page_Builder')) {
 			return $template_id;
 			
 		}
-		
+        
+		/**
+		 * Creates a new template by cloning another template
+		 *
+		 * @since
+		 */
+        function clone_template( $template_id ){
+
+            //verify template
+            if( !$template_id ) return;
+            if( !$this->is_template($template_id) ) return;
+            
+            //wp security layer
+            check_admin_referer( 'clone-template', '_wpnonce' );
+            
+            $post = get_post( $template_id );
+            
+            //set up template name
+            $template_name = $post->post_title.'_copy';
+            
+            //create new template only if title don't yet exist
+            if( !get_page_by_title( $template_name, 'OBJECT', 'template' ) ) {
+                
+                $arg = array(
+                    'post_title' => wp_strip_all_tags( $template_name ),
+                    'post_type' => $post->post_type,
+                    'post_status' => $post->post_status,
+                );
+                
+                //create the template and get its ID
+                $new_template_id = wp_insert_post( $arg );
+
+                //copy post meta data
+                $post_meta_keys = get_post_custom_keys( $post->ID );
+                if( !empty($post_meta_keys) ){
+                
+                    foreach( $post_meta_keys as $meta_key ){
+                        $meta_values = get_post_custom_values( $meta_key, $post->ID );
+                        foreach( $meta_values as $meta_value ){
+                            $meta_value = maybe_unserialize( $meta_value );
+                            add_post_meta( $new_template_id, $meta_key, $meta_value );
+                        }
+                    }
+                    
+                }
+                
+            } else {
+                return new WP_Error('duplicate_template', 'Template names must be unique, try a different name');
+            }
+            
+            //return the new template ID
+            return $new_template_id;
+            
+        }
+        
 		/**
 		 * Function to update templates
 		 * 
