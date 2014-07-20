@@ -194,7 +194,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	text-align: left;
 	float: left;
 	padding-right: 15px;
-	margin-top: 5px;
+	margin-top: 6px;
 	
 }
 	#page-builder .delete-action .submitdelete { 
@@ -209,7 +209,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 		text-decoration: none;
 	}
 #page-builder .clone-action{
-	margin-top: 5px;
+	margin-top: 6px;
 	float: left;
 }
     #page-builder .clone-action .submitclone{

@@ -88,7 +88,7 @@ switch($action) {
 			$templates = $this->get_templates();
 			$selected_template_object = get_post($selected_template_id);
 			
-			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'framework') . '<strong>' . $template_name . '</strong>' . __(' template has been successfully cloned', 'framework') . '</p></div>';
+			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'aqpb') . '<strong>' . $template_name . '</strong>' . __(' template has been successfully cloned', 'aqpb') . '</p></div>';
 		} else {
 			$errors = '<ul>';
 			foreach( $new_id->get_error_messages() as $error ) {
@@ -96,7 +96,7 @@ switch($action) {
 			}
 			$errors .= '</ul>';
 			
-			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'framework') . '</p>' . $errors . '</div>';
+			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'aqpb') . '</p>' . $errors . '</div>';
 		}
 		
 		break;
@@ -305,11 +305,11 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
                                             'page' => $this->args['page_slug'], 
                                             'action' => 'clone',
                                             'template' => $selected_template_id,
-                                            'template-name' => is_object($selected_template_object) ? $selected_template_object->post_title : '',
+                                            'template-name' => is_object($selected_template_object) ? urlencode($selected_template_object->post_title) : '',
                                             '_wpnonce' => wp_create_nonce('clone-template'),
                                         ),
                                         admin_url( 'themes.php' )
-                                    )) . '">'. __('Clone Template', 'framework') .'</a>';
+                                    )) . '">'. __('Clone Template', 'aqpb') .'</a>';
                                     ?>
                                 </div><!-- END .clone-action -->
                                 
