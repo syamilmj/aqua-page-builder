@@ -41,7 +41,7 @@ More information at [Aquagraphite.com](http://aquagraphite.com/2012/10/aqua-page
 == Frequently Asked Questions ==
 
 = Why do I see only 6 blocks? =
-These are default blocks provided with this plugin. Please see the list of [supported themes](http://aquagraphite.com/api/documentation/aqua-page-builder#supported-themes) that includes more blocks, or learn how to create your own from our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki).
+These are default blocks provided with this plugin. Please see the list of [supported themes](https://github.com/syamilmj/Aqua-Page-Builder/wiki/Supported-Themes) that includes more blocks, or learn how to create your own from our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki).
 
 = How do I Add My Own Custom Blocks? =
 
@@ -49,9 +49,9 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 
 == Screenshots ==
 
-1. Screenshot 1
-2. Screenshot 2
-3. Screenshot 3
+1. Main page builder panel
+2. Available blocks. You can easily extend these to include your own
+3. Simple button to insert page templates shortcode inside the post editor
 
 == Changelog ==
 
