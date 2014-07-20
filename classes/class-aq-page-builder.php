@@ -705,7 +705,8 @@ if(!class_exists('AQ_Page_Builder')) {
 				<script type="text/javascript">
 					function insertTemplate() {
 						var id = jQuery( '#select-aqpb-template' ).val();
-
+						var name = jQuery( '#select-aqpb-template' ).find("option:selected").text();
+                        
 						/** Alert user if there is no template selected */
 						if ( '' == id ) {
 							alert("<?php echo esc_js( __( 'Please select your template first!', 'aqpb' ) ); ?>");
@@ -713,7 +714,7 @@ if(!class_exists('AQ_Page_Builder')) {
 						}
 
 						/** Send shortcode to editor */
-						window.send_to_editor('[template id="' + id + '"]');
+						window.send_to_editor('[template id="' + id + '" name="' + name + '"]');
 					}
 				</script>
 

@@ -178,7 +178,7 @@ a:hover, a:active, a:focus { color: #d54e21; }
 		float: left;
 	}
 		#template-shortcode input {
-			width: 120px;
+			width: auto;
 			height: 2em;
 		}
 
