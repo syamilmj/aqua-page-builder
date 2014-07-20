@@ -5,7 +5,7 @@ class AQ_Text_Block extends AQ_Block {
 	//set and create block
 	function __construct() {
 		$block_options = array(
-			'name' => 'Text',
+			'name' => __('Text', 'aqpb-l10n'),
 			'size' => 'span6',
 		);
 		
@@ -37,7 +37,7 @@ class AQ_Text_Block extends AQ_Block {
 			</label>
 			<label for="<?php echo $this->get_field_id('filter') ?>">
 				<?php echo aq_field_checkbox('filter', $block_id, $filter) ?>
-				<?php _e('Automatically add paragraphs', 'aqpb') ?>
+				<?php _e('Automatically add paragraphs', 'aqpb-l10n') ?>
 			</label>
 		</p>
 		

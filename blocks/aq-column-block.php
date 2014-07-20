@@ -6,7 +6,7 @@ class AQ_Column_Block extends AQ_Block {
 	function __construct() {
 		
 		$block_options = array(
-			'name' => 'Column',
+			'name' => __('Column', 'aqpb-l10n'),
 			'size' => 'span6',
 		);
 		
@@ -40,7 +40,7 @@ class AQ_Column_Block extends AQ_Block {
 
 	function form($instance) {
 		echo '<p class="empty-column">',
-		__('Drag block items into this column box', 'aqpb'),
+		__('Drag block items into this column box', 'aqpb-l10n'),
 		'</p>';
 		echo '<ul class="blocks column-blocks cf"></ul>';
 	}
@@ -61,7 +61,7 @@ class AQ_Column_Block extends AQ_Block {
 			echo '<li id="template-block-'.$number.'" class="block block-container block-aq_column_block '.$size.'">',
 					'<div class="block-settings-column cf" id="block-settings-'.$number.'">',
 						'<p class="empty-column">',
-							__('Drag block items into this column box', 'aqpb'),
+							__('Drag block items into this column box', 'aqpb-l10n'),
 						'</p>',
 						'<ul class="blocks column-blocks cf">';
 					

@@ -55,6 +55,19 @@ Please see our [Wiki](https://github.com/sy4mil/Aqua-Page-Builder/wiki) section 
 
 == Changelog ==
 
+= 1.1.4: July 21, 2014
+
+* NEW - Visual editor
+* NEW - Template Manager
+* NEW - Clone template
+* IMP - UI/UX Minor revamps
+* NEW - Localization
+
+= 1.1.3: June 2014
+
+* FIX - Various bug & CSS Fixes
+* FIX - Compatibility with WP 3.8+
+
 = 1.1.2: August 5, 2013 = 
 
 * DEL - Removed unused legacy files

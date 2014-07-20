@@ -7,6 +7,8 @@
  * Version: 1.1.4
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
+ * Domain Path: /languages/
+ * Text Domain: aqpb-l10n
  *
  */
  
@@ -41,6 +43,11 @@ function aqpb_get_version() {
 	$version     = $plugin_data['Version'];
 	return $version;
 }
+
+function aqpb_localisation() {
+	load_plugin_textdomain( 'aqpb-i10n', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+add_action('init', 'aqpb_localisation');
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');

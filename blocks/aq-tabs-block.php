@@ -5,7 +5,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 	
 		function __construct() {
 			$block_options = array(
-				'name' => 'Tabs &amp; Toggles',
+				'name' => __('Tabs &amp; Toggles', 'aqpb-l10n'),
 				'size' => 'span6',
 			);
 			

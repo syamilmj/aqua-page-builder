@@ -8,7 +8,7 @@ if(!class_exists('AQ_Upload_Block')) {
 		
 		function __construct() {
 			$block_options = array(
-				'name' => 'Media',
+				'name' => __('Media', 'aqpb-l10n'),
 				'size' => 'span6',
 			);
 			

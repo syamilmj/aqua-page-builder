@@ -5,7 +5,7 @@ class AQ_Editor_Block extends AQ_Block {
 	//set and create block
 	function __construct() {
 		$block_options = array(
-			'name' => 'Visual Editor',
+			'name' => __('Visual Editor', 'aqpb-l10n'),
 			'size' => 'span6',
 		);
 		

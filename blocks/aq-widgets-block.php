@@ -4,7 +4,7 @@ class AQ_Widgets_Block extends AQ_Block {
 	
 	function __construct() {
 		$block_options = array(
-			'name' => 'Widgets',
+			'name' => __('Widgets', 'aqpb-l10n'),
 			'size' => 'span4',
 		);
 		

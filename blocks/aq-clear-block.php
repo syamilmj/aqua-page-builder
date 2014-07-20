@@ -9,7 +9,7 @@ class AQ_Clear_Block extends AQ_Block {
 	//set and create block
 	function __construct() {
 		$block_options = array(
-			'name' => 'Clear',
+			'name' => __('Clear', 'aqpb-l10n'),
 			'size' => 'span12',
 		);
 		
@@ -40,7 +40,7 @@ class AQ_Clear_Block extends AQ_Block {
 		
 		?>
 		<p class="description note">
-			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'aqpb') ?>
+			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'aqpb-l10n') ?>
 		</p>
 		<p class="description fourth">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
