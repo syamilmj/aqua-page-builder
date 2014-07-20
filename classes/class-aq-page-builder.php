@@ -362,7 +362,7 @@ if(!class_exists('AQ_Page_Builder')) {
 		 *
 		 * @since
 		 */
-        function clone_template( $template_id ){
+        function clone_template( $template_id, $count = 1 ){
 
             //verify template
             if( !$template_id ) return;
@@ -374,7 +374,7 @@ if(!class_exists('AQ_Page_Builder')) {
             $post = get_post( $template_id );
             
             //set up template name
-            $template_name = $post->post_title.'_copy';
+            $template_name = "{$post->post_title} Copy {$count}";
             
             //create new template only if title don't yet exist
             if( !get_page_by_title( $template_name, 'OBJECT', 'template' ) ) {
@@ -403,7 +403,7 @@ if(!class_exists('AQ_Page_Builder')) {
                 }
                 
             } else {
-                return new WP_Error('duplicate_template', 'Template names must be unique, try a different name');
+                return $this->clone_template( $template_id, $count+1 );
             }
             
             //return the new template ID
@@ -705,7 +705,8 @@ if(!class_exists('AQ_Page_Builder')) {
 				<script type="text/javascript">
 					function insertTemplate() {
 						var id = jQuery( '#select-aqpb-template' ).val();
-
+						var name = jQuery( '#select-aqpb-template' ).find("option:selected").text();
+                        
 						/** Alert user if there is no template selected */
 						if ( '' == id ) {
 							alert("<?php echo esc_js( __( 'Please select your template first!', 'aqpb' ) ); ?>");
@@ -713,7 +714,7 @@ if(!class_exists('AQ_Page_Builder')) {
 						}
 
 						/** Send shortcode to editor */
-						window.send_to_editor('[template id="' + id + '"]');
+						window.send_to_editor('[template id="' + id + '" name="' + name + '"]');
 					}
 				</script>
 
