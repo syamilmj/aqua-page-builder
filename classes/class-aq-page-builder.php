@@ -374,8 +374,12 @@ if(!class_exists('AQ_Page_Builder')) {
             $post = get_post( $template_id );
             
             //set up template name
-            $template_name = $post->post_title.'_copy';
-            
+	    $clone_number = 0;
+	    do {
+	    	$clone_number++;
+		$template_name = $post->post_title.'_copy_'.$clone_number;
+	    } while ( isset( get_page_by_title( $template_name, 'OBJECT', 'template' ) ) );
+			
             //create new template only if title don't yet exist
             if( !get_page_by_title( $template_name, 'OBJECT', 'template' ) ) {
                 
