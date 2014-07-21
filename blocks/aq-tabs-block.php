@@ -7,6 +7,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 			$block_options = array(
 				'name' => __('Tabs &amp; Toggles', 'aqpb-l10n'),
 				'size' => 'span6',
+                'icon' => 'fa-list-alt',
 			);
 			
 			//create the widget

@@ -9,6 +9,7 @@ if(!class_exists('AQ_Alert_Block')) {
 			$block_options = array(
 				'name' => __('Alerts', 'aqpb-l10n'),
 				'size' => 'span6',
+                'icon' => 'fa-exclamation-circle',
 			);
 			
 			//create the block

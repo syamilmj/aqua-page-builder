@@ -32,7 +32,9 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	#manage-templates .add-new-template-action {
 		float: left;
 	}
-
+    #manage-templates .add-new-template-action i.fa {
+        margin-right: 5px;
+    }
 	#manage-templates label {
 		padding-right: 5px;
 	}
@@ -158,6 +160,9 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	clear: both;
 	padding: 3px 0 6px;
 }
+#page-builder .major-publishing-actions i.fa {
+    margin-right: 5px;
+}
 	#page-builder .major-publishing-actions .open-label { 
 		color: #666;
 		display: block;
@@ -178,10 +183,9 @@ a:hover, a:active, a:focus { color: #d54e21; }
 		float: left;
 	}
 		#template-shortcode input {
-			width: 120px;
+			width: 200px;
 			height: 2em;
 		}
-
 
 #page-builder .publishing-action { 
 	text-align: right;
@@ -195,7 +199,6 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	float: left;
 	padding-right: 15px;
 	margin-top: 6px;
-	
 }
 	#page-builder .delete-action .submitdelete { 
 		display: block;
@@ -217,7 +220,6 @@ a:hover, a:active, a:focus { color: #d54e21; }
         float: left;
         margin: 4px 0;
         line-height: 15px;
-        text-decoration: none;
     }
     
 /*blocks*/
@@ -259,6 +261,12 @@ a:hover, a:active, a:focus { color: #d54e21; }
 	font-weight: bold;
 	display: block;
 	margin-right: 20px;
+}
+#page-builder .block-title i.fa, 
+#blocks-archive .block-title i.fa {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #999999;
 }
 	#page-builder .block-title {overflow: hidden;}
 	.in-block-title { color: #666; }

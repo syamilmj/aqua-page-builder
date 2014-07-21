@@ -6,6 +6,7 @@ class AQ_Widgets_Block extends AQ_Block {
 		$block_options = array(
 			'name' => __('Widgets', 'aqpb-l10n'),
 			'size' => 'span4',
+            'icon' => 'fa-th-large',
 		);
 		
 		parent::__construct('AQ_Widgets_Block', $block_options);

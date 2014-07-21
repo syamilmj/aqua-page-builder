@@ -7,6 +7,7 @@ class AQ_Text_Block extends AQ_Block {
 		$block_options = array(
 			'name' => __('Text', 'aqpb-l10n'),
 			'size' => 'span6',
+            'icon' => 'fa-font',
 		);
 		
 		//create the block
