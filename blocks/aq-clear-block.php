@@ -11,6 +11,7 @@ class AQ_Clear_Block extends AQ_Block {
 		$block_options = array(
 			'name' => __('Clear', 'aqpb-l10n'),
 			'size' => 'span12',
+            'icon' => 'fa-minus',
 		);
 		
 		//create the block

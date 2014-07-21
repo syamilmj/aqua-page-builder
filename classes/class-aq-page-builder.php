@@ -107,12 +107,14 @@ if(!class_exists('AQ_Page_Builder')) {
 			// Register 'em
 			wp_register_style( 'aqpb-css', $this->url.'assets/stylesheets/aqpb.css', array(), time(), 'all');
 			wp_register_style( 'aqpb-blocks-css', $this->url.'assets/stylesheets/aqpb_blocks.css', array(), time(), 'all');
+			wp_register_style( 'font-awesome-css', $this->url.'assets/stylesheets/font-awesome.min.css', array(), time(), 'all');
 			wp_register_script('aqpb-js', $this->url . 'assets/javascripts/aqpb.js', array('jquery'), time(), true);
 			wp_register_script('aqpb-fields-js', $this->url . 'assets/javascripts/aqpb-fields.js', array('jquery'), time(), true);
 			
 			// Enqueue 'em
 			wp_enqueue_style('aqpb-css');
 			wp_enqueue_style('aqpb-blocks-css');
+			wp_enqueue_style('font-awesome-css');
 			wp_enqueue_style('wp-color-picker');
 			wp_enqueue_script('jquery');
 			wp_enqueue_script('jquery-ui-sortable');

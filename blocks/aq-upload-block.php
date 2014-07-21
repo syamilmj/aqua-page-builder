@@ -10,6 +10,7 @@ if(!class_exists('AQ_Upload_Block')) {
 			$block_options = array(
 				'name' => __('Media', 'aqpb-l10n'),
 				'size' => 'span6',
+				'icon' => 'fa-upload', //Font awesome icon class
 			);
 			
 			//create the block

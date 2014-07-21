@@ -111,6 +111,7 @@ if(!class_exists('AQ_Block')) {
 	 			'number' => '__i__',			//block consecutive numbering
 	 			'first' => false,				//column first
 	 			'resizable' => 1,				//whether block is resizable/not
+	 			'icon' => '',				//font-awesome icon class e.g: fa-cog      http://fontawesome.io/icons/
 	 		);
 	 		
 	 		$block_options = is_array($block_options) ? wp_parse_args($block_options, $defaults) : $defaults;
@@ -124,13 +125,14 @@ if(!class_exists('AQ_Block')) {
 	 		extract($instance);
 	 		
 	 		$title = $title ? '<span class="in-block-title"> : '.$title.'</span>' : '';
+            $fa_icon = $icon ? '<i class=" fa '.$icon.'"></i>' : '';
 	 		$resizable = $resizable ? '' : 'not-resizable';
 	 		
 	 		echo '<li id="template-block-'.$number.'" class="block block-'.$id_base.' '. $size .' '.$resizable.'">',
 	 				'<dl class="block-bar">',
 	 					'<dt class="block-handle">',
 	 						'<div class="block-title">',
-	 							$name , $title, 
+	 							$fa_icon, $name , $title, 
 	 						'</div>',
 	 						'<span class="block-controls">',
 	 							'<a class="block-edit" id="edit-'.$number.'" title="'. __('Edit Block', 'aqpb-l10n') .'" href="#block-settings-'.$number.'">'. __('Edit Block', 'aqpb-l10n') .'</a>',

@@ -8,6 +8,7 @@ class AQ_Column_Block extends AQ_Block {
 		$block_options = array(
 			'name' => __('Column', 'aqpb-l10n'),
 			'size' => 'span6',
+            'icon' => 'fa-columns',
 		);
 		
 		//create the widget
@@ -22,13 +23,14 @@ class AQ_Column_Block extends AQ_Block {
 		extract($instance);
 		
 		$title = $title ? '<span class="in-block-title"> : '.$title.'</span>' : '';
+        $fa_icon = $icon ? '<i class="fa '.$icon.'"></i>' : '';
 		$resizable = $resizable ? '' : 'not-resizable';
 		
 		echo '<li id="template-block-'.$number.'" class="block block-container block-'.$id_base.' '. $size .' '.$resizable.'">',
 				'<dl class="block-bar">',
 					'<dt class="block-handle">',
 						'<div class="block-title">',
-							$name , $title, 
+							$fa_icon, $name , $title, 
 						'</div>',
 						'<span class="block-controls">',
 							'<a class="block-edit" id="edit-'.$number.'" title="Edit Block" href="#block-settings-'.$number.'">Edit Block</a>',
@@ -55,7 +57,8 @@ class AQ_Column_Block extends AQ_Block {
 		extract($instance);
 		
 		$col_order = $order;
-		
+		$self = $id_base;
+        
 		//column block header
 		if(isset($template_id)) {
 			echo '<li id="template-block-'.$number.'" class="block block-container block-aq_column_block '.$size.'">',
@@ -77,7 +80,7 @@ class AQ_Column_Block extends AQ_Block {
 					//get the block object
 					$block = $aq_registered_blocks[$id_base];
 					
-					if($parent == $col_order) {
+					if($parent == $col_order && ($id_base != $self) ) {   // prevents self as child block
 						$block->form_callback($child);
 					}
 				}

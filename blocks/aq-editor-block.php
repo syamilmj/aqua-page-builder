@@ -7,6 +7,7 @@ class AQ_Editor_Block extends AQ_Block {
 		$block_options = array(
 			'name' => __('Visual Editor', 'aqpb-l10n'),
 			'size' => 'span6',
+            'icon' => 'fa-file-text',
 		);
 		
 		//create the block

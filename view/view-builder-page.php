@@ -189,7 +189,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 						admin_url( 'themes.php' )
 					));
 					?>
-					"><?php _e('Create a new template', 'aqpb-l10n') ?></a>
+					"><i class="fa fa-plus"></i><?php _e('Create a new template', 'aqpb-l10n') ?></a>
 				</span>
 				
 			</form>
@@ -294,12 +294,12 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 											'_wpnonce' => wp_create_nonce('delete-template'),
 										),
 										admin_url( 'themes.php' )
-									)) . '">'. __('Delete Template', 'aqpb-l10n') .'</a>';
+									)) . '"><i class="fa fa-trash-o"></i>'. __('Delete Template', 'aqpb-l10n') .'</a>';
 									?>
 								</div><!-- END .delete-action -->
                                 
                                 <div class="clone-action">
-                                    <?php 
+                                    <?php
                                     echo '<a class="submitclone cloning template-clone" href="' . esc_url(add_query_arg(
                                         array(
                                             'page' => $this->args['page_slug'], 
@@ -309,7 +309,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
                                             '_wpnonce' => wp_create_nonce('clone-template'),
                                         ),
                                         admin_url( 'themes.php' )
-                                    )) . '">'. __('Clone Template', 'aqpb-l10n') .'</a>';
+                                    )) . '"><i class="fa fa-copy"></i>'. __('Clone Template', 'aqpb-l10n') .'</a>';
                                     ?>
                                 </div><!-- END .clone-action -->
                                 
