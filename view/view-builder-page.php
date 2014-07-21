@@ -234,7 +234,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 										</label>
 										
 										<div id="template-shortcode">
-											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>" name="<?php echo $selected_template_object->post_title ?>"]' onclick="select()"/>
+											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>" name="<?php echo  is_object($selected_template_object) ?  $selected_template_object->post_title : ''; ?>"]' onclick="select()"/>
 										</div>
 										
 										<div class="publishing-action">
