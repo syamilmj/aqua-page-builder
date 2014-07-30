@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Aqua Page Builder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-21 04:00+0730\n"
+"PO-Revision-Date: 2014-07-30 13:02-0300\n"
+"Last-Translator: LRW <luizrrp@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"Language: pt_BR\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../blocks/aq-clear-block.php:43
+msgid ""
+"Use this block to clear the floats between two or more separate blocks "
+"vertically."
+msgstr ""
+"Utilize este bloco para limpar os floats entre dois ou mais blocos separados "
+"verticalmente."
+
+#: ../blocks/aq-column-block.php:43 ../blocks/aq-column-block.php:64
+msgid "Drag block items into this column box"
+msgstr "Arrastar os blocos para caixa da coluna"
+
+#: ../blocks/aq-text-block.php:40
+msgid "Automatically add paragraphs"
+msgstr "Adicionar parágrafos automaticamente"
+
+#: ../classes/class-aq-block.php:36
+msgid ""
+"function AQ_Block::block should not be accessed directly. Output generated "
+"by the "
+msgstr ""
+"função AQ_Block ::block não deve ser acessada diretamente. Saída gerada por "
+
+#: ../classes/class-aq-block.php:57
+msgid "There are no options for this block."
+msgstr "Não há opções para este bloco."
+
+#: ../classes/class-aq-page-builder.php:25
+#: ../classes/class-aq-page-builder.php:26 ../functions/aqpb_config.php:14
+#: ../functions/aqpb_config.php:15
+msgid "Page Builder"
+msgstr "Construtor de Páginas"
+
+#: ../classes/class-aq-page-builder.php:27 ../functions/aqpb_config.php:16
+msgid "aqua-page-builder"
+msgstr "aqua-page-builder"
+
+#: ../classes/class-aq-page-builder.php:280
+msgid ""
+"Drag block items from the left into this area to begin building your "
+"template."
+msgstr ""
+"Arraste itens dos blocos da esquerda para essa área para começar a construir "
+"o seu template."
+
+#: ../classes/class-aq-page-builder.php:566
+msgid "This template is empty"
+msgstr "Este Template está vazio"
+
+#: ../classes/class-aq-page-builder.php:711
+msgid "Please select your template first!"
+msgstr "Por favor selecione primeiro o Template!"
+
+#: ../classes/class-aq-page-builder.php:728
+#, php-format
+msgid "You don't have any template yet. Let's %s create %s one!"
+msgstr "Você ainda não tem qualquer Template. Vamos %s criar %s um!"
+
+#: ../classes/class-aq-page-builder.php:731
+msgid "Choose Your Page Template"
+msgstr "Escolha seu Template de Página"
+
+#: ../classes/class-aq-page-builder.php:767
+msgid "For more information:"
+msgstr "Para mais informações"
+
+#: ../classes/class-aq-page-builder.php:768
+msgid ""
+"<a href=\"http://aquagraphite.com/api/documentation/aqua-page-builder\" "
+"target=\"_blank\">Documentation</a>"
+msgstr ""
+"<a href=\"http://aquagraphite.com/api/documentation/aqua-page-builder\" "
+"target=\"_blank\">Documentação</a>"
+
+#: ../classes/class-aq-page-builder.php:769
+msgid ""
+"<a href=\"https://wordpress.org/plugins/aqua-page-builder/changelog/\" "
+"target=\"_blank\">Changelog</a>"
+msgstr ""
+"<a href=\"https://wordpress.org/plugins/aqua-page-builder/changelog/\" "
+"target=\"_blank\">Changelog</a>"
+
+#: ../classes/class-aq-page-builder.php:775
+msgid "Overview"
+msgstr "Visão geral"
+
+#: ../functions/aqpb_blocks.php:222
+msgid "Drag block items into this box"
+msgstr "Arrastar blocos para dentro da caixa"
+
+#: ../functions/aqpb_config.php:21
+msgid ""
+"The page builder allows you to create custom page templates which you can "
+"later use for your pages."
+msgstr ""
+"O construtor de páginas permite criar templates de páginas personalizados "
+"que você pode usar mais tarde para suas páginas."
+
+#: ../functions/aqpb_config.php:22
+msgid ""
+"To use the page builder, start by adding a new template. You can drag and "
+"drop the blocks on the left into the building area on the right of the "
+"screen. Each block has its own unique configuration which you can manually "
+"configure to suit your needs"
+msgstr ""
+"Para utilizar o construtor de páginas, comece adicionando um novo template. "
+"Você pode arrastar e soltar os blocos da esquerda para a área do construtor "
+"à direita da tela. Cada bloco tem sua própria configuração, que você pode "
+"configurar manualmente para atender às suas necessidades"
+
+#: ../functions/aqpb_config.php:23
+msgid "Please refer to the"
+msgstr "Por favor, consulte o"
+
+#: ../functions/aqpb_config.php:23
+msgid " documentation page "
+msgstr "  página da documentação "
+
+#: ../functions/aqpb_config.php:23
+msgid "for more information on how to use this feature."
+msgstr "para mais informações sobre como usar este recurso."
+
+#: ../view/view-builder-page.php:19
+msgid "Cheatin&#8217; uh?"
+msgstr "Trapaceando, é?"
+
+#: ../view/view-builder-page.php:67 ../view/view-builder-page.php:91
+#: ../view/view-builder-page.php:114
+msgid "The "
+msgstr "O "
+
+#: ../view/view-builder-page.php:67
+msgid " page template has been successfully created"
+msgstr " template de página foi criada com sucesso"
+
+#: ../view/view-builder-page.php:75 ../view/view-builder-page.php:99
+msgid "Sorry, the operation was unsuccessful for the following reason(s): "
+msgstr "Desculpe, a operação não foi bem sucedida pelo seguinte motivo (s): "
+
+#: ../view/view-builder-page.php:91
+msgid " template has been successfully cloned"
+msgstr " template de página foi clonado com sucesso"
+
+#: ../view/view-builder-page.php:114
+msgid " page template has been updated"
+msgstr " template de página foi atualizada"
+
+#: ../view/view-builder-page.php:126
+msgid "The template has been successfully deleted"
+msgstr "O template foi excluído com sucesso"
+
+#: ../view/view-builder-page.php:155
+msgid "Select a template to edit:"
+msgstr "Selecione um template para editar:"
+
+#: ../view/view-builder-page.php:160
+msgid "-- Select --"
+msgstr "-- Selecione --"
+
+#: ../view/view-builder-page.php:179
+msgid "or"
+msgstr "ou"
+
+#: ../view/view-builder-page.php:192
+msgid "Create a new template"
+msgstr "Criar um novo template"
+
+#: ../view/view-builder-page.php:199
+msgid "Create your new template below"
+msgstr "Criar um novo template abaixo"
+
+#: ../view/view-builder-page.php:209
+msgid "Available Blocks"
+msgstr "Blocos Disponíveis"
+
+#: ../view/view-builder-page.php:209
+msgid "Deleting"
+msgstr "Excluindo"
+
+#: ../view/view-builder-page.php:232
+msgid "Template Name"
+msgstr "Nome do Template"
+
+#: ../view/view-builder-page.php:233
+msgid "Enter template name here"
+msgstr "Digite o nome do template aqui"
+
+#: ../view/view-builder-page.php:241
+msgid "Create Template"
+msgstr "Criar Template"
+
+#: ../view/view-builder-page.php:241 ../view/view-builder-page.php:320
+msgid "Save Template"
+msgstr "Salvar Template"
+
+#: ../view/view-builder-page.php:266
+msgid ""
+"To create a custom page template, give it a name above and click Create "
+"Template. Then choose blocks like text, widgets or tabs &amp; toggles from "
+"the left column to add to this template.\n"
+"\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+"\t\t\t\t\t\t\t\t\tYou can drag and drop the blocks to put them in the order "
+"you want. Click on the small arrow at the corner of each block to reveal "
+"additional configuration options. You can also resize each block by clicking "
+"on either side of the block (Note that some blocks are not resizable)\n"
+"\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+"\t\t\t\t\t\t\t\t\tWhen you have finished building your custom page template, "
+"make sure you click the Save Template button."
+msgstr ""
+"Para criar um template de página personalizado, dar-lhe um nome acima e "
+"clique em Criar Template. Em seguida, escolha blocos como texto, widgets ou "
+"tabs &amp; toggles na coluna da esquerda para adicionar a este modelo.\n"
+"\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+"\t\t\t\t\t\t\t\t\tVocê pode arrastar e soltar os blocos para colocá-los na "
+"ordem que quiser. Clique na pequena seta no canto de cada bloco para revelar "
+"as opções de configuração adicionais. Você também pode redimensionar cada "
+"bloco, clicando em ambos os lados do bloco (Note que alguns blocos não são "
+"redimensionáveis)\n"
+"\t\t\t\t\t\t\t\t\t<br/><br/>\n"
+"\t\t\t\t\t\t\t\t\tQuando terminar a construção de seu template de página "
+"personalizado, certifique-se de clicar no botão Salvar Template."
+
+#: ../view/view-builder-page.php:297
+msgid "Delete Template"
+msgstr "Deletar Template"
+
+#: ../view/view-builder-page.php:312
+msgid "Clone Template"
+msgstr "Clonar Template"
