@@ -16,7 +16,7 @@ if(isset($_POST) && $this->args['debug'] == true) {
 
 // Permissions Check
 if ( ! current_user_can('edit_theme_options') )
-	wp_die( __( 'Cheatin&#8217; uh?' ) );
+	wp_die( __( 'Cheatin&#8217; uh?', 'aqpb' ) );
 	
 $messages = array();
 
@@ -64,7 +64,7 @@ switch($action) {
 			$templates = $this->get_templates();
 			$selected_template_object = get_post($selected_template_id);
 			
-			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'aqpb-l10n') . '<strong>' . $template_name . '</strong>' . __(' page template has been successfully created', 'aqpb-l10n') . '</p></div>';
+			$messages[] = '<div id="message" class="updated"><p>' . sprintf( __( 'The %s page template has been successfully created', 'aqpb'), '<strong>' . $template_name . '</strong>' ) . '</p></div>';
 		} else {
 			$errors = '<ul>';
 			foreach( $new_id->get_error_messages() as $error ) {
@@ -72,7 +72,7 @@ switch($action) {
 			}
 			$errors .= '</ul>';
 			
-			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'aqpb-l10n') . '</p>' . $errors . '</div>';
+			$messages[] = '<div id="message" class="error"><p>' . __( 'Sorry, the operation was unsuccessful for the following reason(s): ', 'aqpb' ) . '</p>' . $errors . '</div>';
 		}
 		
 		break;
@@ -88,7 +88,7 @@ switch($action) {
 			$templates = $this->get_templates();
 			$selected_template_object = get_post($selected_template_id);
 			
-			$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'aqpb-l10n') . '<strong>' . $template_name . '</strong>' . __(' template has been successfully cloned', 'aqpb-l10n') . '</p></div>';
+			$messages[] = '<div id="message" class="updated"><p>' . sprintf( __( 'The %s template has been successfully cloned', 'aqpb'), '<strong>' . $template_name . '</strong>' ) . '</p></div>';
 		} else {
 			$errors = '<ul>';
 			foreach( $new_id->get_error_messages() as $error ) {
@@ -96,7 +96,7 @@ switch($action) {
 			}
 			$errors .= '</ul>';
 			
-			$messages[] = '<div id="message" class="error"><p>' . __('Sorry, the operation was unsuccessful for the following reason(s): ', 'aqpb-l10n') . '</p>' . $errors . '</div>';
+			$messages[] = '<div id="message" class="error"><p>' . __( 'Sorry, the operation was unsuccessful for the following reason(s): ', 'aqpb' ) . '</p>' . $errors . '</div>';
 		}
 		
 		break;
@@ -111,7 +111,7 @@ switch($action) {
 		$templates = $this->get_templates();
 		$selected_template_object = get_post($selected_template_id);
 		
-		$messages[] = '<div id="message" class="updated"><p>' . __('The ', 'aqpb-l10n') . '<strong>' . $template_name . '</strong>' . __(' page template has been updated', 'aqpb-l10n') . '</p></div>';
+		$messages[] = '<div id="message" class="updated"><p>' . sprintf( __( 'The %s page template has been updated.'), '<strong>' . $template_name . '</strong>' ) . '</p></div>';
 		break;
 		
 	case 'delete' :
@@ -123,7 +123,7 @@ switch($action) {
 		$selected_template_id =	!empty($templates) ? $templates[0]->ID : 0;
 		$selected_template_object = get_post($selected_template_id);
 		
-		$messages[] = '<div id="message" class="updated"><p>' . __('The template has been successfully deleted', 'aqpb-l10n') . '</p></div>';
+		$messages[] = '<div id="message" class="updated"><p>' . __( 'The template has been successfully deleted', 'aqpb' ) . '</p></div>';
 		break;
 }
 
@@ -152,12 +152,12 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 				<input type="hidden" name="action" value="edit">
 
 				<label for="template">
-					<?php _e('Select a template to edit:', 'aqpb-l10n') ?> 
+					<?php _e( 'Select a template to edit:', 'aqpb' ) ?> 
 
 					<select name="template" id="">
 						
 						<?php if($selected_template_id === 0) { ?>
-							<option value="0" selected="selected"><?php _e('-- Select --', 'aqpb-l10n') ?></option>
+							<option value="0" selected="selected"><?php _e('-- Select --', 'aqpb' ) ?></option>
 						<?php } ?>
 
 						<?php
@@ -176,27 +176,27 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 				</span>
 				
 				<span class="add-new-template-action">
-					<?php _e('or', 'aqpb-l10n') ?>
+					<?php _e( 'or', 'aqpb' ) ?>
 					
 					<a href="
 					<?php 
 					echo esc_url(add_query_arg(
 						array(
-							'page' => $this->args['page_slug'], 
-							'action' => 'edit',
-							'template' => 0,
+							'page' 		=> $this->args['page_slug'], 
+							'action' 	=> 'edit',
+							'template' 	=> 0,
 						),
 						admin_url( 'themes.php' )
 					));
 					?>
-					"><?php _e('Create a new template', 'aqpb-l10n') ?></a>
+					"><?php _e( 'Create a new template', 'aqpb' ) ?></a>
 				</span>
 				
 			</form>
 
 		<?php } else { ?>
 			<span class="add-new-template-action">
-				<?php _e('Create your new template below', 'aqpb-l10n') ?>
+				<?php _e( 'Create your new template below', 'aqpb' ) ?>
 			</span>
 		<?php } ?>
 
@@ -206,7 +206,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 	
 		<div id="page-builder-column" class="metabox-holder <?php echo $disabled ?>">
 			<div id="page-builder-archive" class="postbox">
-				<h3 class="hndle"><span><?php _e('Available Blocks', 'aqpb-l10n') ?></span><span id="removing-block"><?php _e('Deleting', 'aqpb-l10n') ?></span></h3>
+				<h3 class="hndle"><span><?php _e( 'Available Blocks', 'aqpb' ) ?></span><span id="removing-block"><?php _e( 'Deleting', 'aqpb' ) ?></span></h3>
 				<div class="inside">
 					<ul id="blocks-archive" class="cf">
 						<?php $this->blocks_archive() ?>
@@ -229,8 +229,8 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 									<div class="major-publishing-actions cf">
 									
 										<label class="open-label howto" for="template-name">
-											<span><?php _e('Template Name', 'aqpb-l10n') ?></span>
-											<input name="template-name" id="template-name" type="text" class="template-name regular-text" title="Enter template name here" placeholder="<?php _e('Enter template name here', 'aqpb-l10n') ?>" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
+											<span><?php _e( 'Template Name', 'aqpb' ) ?></span>
+											<input name="template-name" id="template-name" type="text" class="template-name regular-text" title="Enter template name here" placeholder="<?php _e('Enter template name here', 'aqpb') ?>" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
 										</label>
 										
 										<div id="template-shortcode">
@@ -238,7 +238,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 										</div>
 										
 										<div class="publishing-action">
-											<?php submit_button( empty( $selected_template_id ) ? __( 'Create Template', 'aqpb-l10n' ) : __( 'Save Template', 'aqpb-l10n' ), 'button-primary ', 'save_template', false, array( 'id' => 'save_template_header' ) ); ?>
+											<?php submit_button( empty( $selected_template_id ) ? __( 'Create Template', 'aqpb' ) : __( 'Save Template', 'aqpb' ), 'button-primary ', 'save_template', false, array( 'id' => 'save_template_header' ) ); ?>
 										</div><!-- END .publishing-action -->
 										
 									</div><!-- END .major-publishing-actions -->
@@ -263,11 +263,11 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 								<?php 
 								if($selected_template_id === 0) {
 									echo '<p class="empty-template">';
-									echo __('To create a custom page template, give it a name above and click Create Template. Then choose blocks like text, widgets or tabs &amp; toggles from the left column to add to this template.
-									<br/><br/>
-									You can drag and drop the blocks to put them in the order you want. Click on the small arrow at the corner of each block to reveal additional configuration options. You can also resize each block by clicking on either side of the block (Note that some blocks are not resizable)
-									<br/><br/>
-									When you have finished building your custom page template, make sure you click the Save Template button.', 'aqpb-l10n');
+									echo __( 'To create a custom page template, give it a name above and click Create Template. Then choose blocks like text, widgets or tabs &amp; toggles from the left column to add to this template.', 'aqpb' );
+									echo '<br/><br/>';
+									echo __( 'You can drag and drop the blocks to put them in the order you want. Click on the small arrow at the corner of each block to reveal additional configuration options. You can also resize each block by clicking on either side of the block (Note that some blocks are not resizable)', 'aqpb' );
+									echo '<br/><br/>';
+									echo __( 'When you have finished building your custom page template, make sure you click the Save Template button.', 'aqpb' );
 									echo '</p>';
 									
 									
@@ -294,7 +294,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 											'_wpnonce' => wp_create_nonce('delete-template'),
 										),
 										admin_url( 'themes.php' )
-									)) . '">'. __('Delete Template', 'aqpb-l10n') .'</a>';
+									)) . '">'. __( 'Delete Template', 'aqpb' ) .'</a>';
 									?>
 								</div><!-- END .delete-action -->
                                 
@@ -309,7 +309,7 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
                                             '_wpnonce' => wp_create_nonce('clone-template'),
                                         ),
                                         admin_url( 'themes.php' )
-                                    )) . '">'. __('Clone Template', 'aqpb-l10n') .'</a>';
+                                    )) . '">'. __( 'Clone Template', 'aqpb' ) .'</a>';
                                     ?>
                                 </div><!-- END .clone-action -->
                                 
@@ -330,8 +330,8 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 
 			</div>
 
-			<p style="float:left"><small>Aqua Page Builder &copy; <?php echo date("Y") ?> by <a href="http://aquagraphite.com">Syamil MJ</a></small></p>
-			<p style="float:right"><small>Version <?php echo AQPB_VERSION ?></small></p>
+			<p style="float:left"><small>Aqua Page Builder &copy; <?php echo date("Y") ?> <?php _e( 'by', 'aqpb' )?> <a href="http://aquagraphite.com">Syamil MJ</a></small></p>
+			<p style="float:right"><small><?php _e( 'Version', 'aqpb' );?> <?php echo AQPB_VERSION ?></small></p>
 			
 		</div>
 		

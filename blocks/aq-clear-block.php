@@ -9,7 +9,7 @@ class AQ_Clear_Block extends AQ_Block {
 	//set and create block
 	function __construct() {
 		$block_options = array(
-			'name' => __('Clear', 'aqpb-l10n'),
+			'name' => __( 'Clear', 'aqpb' ),
 			'size' => 'span12',
 		);
 		
@@ -20,17 +20,17 @@ class AQ_Clear_Block extends AQ_Block {
 	function form($instance) {
 		
 		$defaults = array(
-			'horizontal_line' => 'none',
-			'line_color' => '#353535',
-			'pattern' => '1',
-			'height' => ''
+			'horizontal_line' 	=> 'none',
+			'line_color' 		=> '#353535',
+			'pattern' 			=> '1',
+			'height' 			=> ''
 		);
 		
 		$line_options = array(
-			'none' => 'None',
-			'single' => 'Single',
-			'double' => 'Double',
-			'image' => 'Use Image',
+			'none' 		=> __( 'None', 'aqpb' ),
+			'single' 	=> __( 'Single', 'aqpb' ),
+			'double' 	=> __( 'Double', 'aqpb' ),
+			'image' 	=> __( 'Use Image', 'aqpb' ),
 		);
 		
 		$instance = wp_parse_args($instance, $defaults);
@@ -40,23 +40,23 @@ class AQ_Clear_Block extends AQ_Block {
 		
 		?>
 		<p class="description note">
-			<?php _e('Use this block to clear the floats between two or more separate blocks vertically.', 'aqpb-l10n') ?>
+			<?php _e( 'Use this block to clear the floats between two or more separate blocks vertically.', 'aqpb' ) ?>
 		</p>
 		<p class="description fourth">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
-				Pick a horizontal line<br/>
+				<?php _e( 'Pick a horizontal line', 'aqpb' );?><br/>
 				<?php echo aq_field_select('horizontal_line', $block_id, $line_options, $horizontal_line, $block_id); ?>
 			</label>
 		</p>
 		<div class="description fourth">
 			<label for="<?php echo $this->get_field_id('height') ?>">
-				Height (optional)<br/>
+				<?php _e( 'Height (optional)', 'aqpb' );?><br/>
 				<?php echo aq_field_input('height', $block_id, $height, 'min', 'number') ?> px
 			</label>
 		</div>
 		<div class="description half last">
 			<label for="<?php echo $this->get_field_id('line_color') ?>">
-				Pick a line color<br/>
+				<?php _e( 'Pick a line color', 'aqpb' );?><br/>
 				<?php echo aq_field_color_picker('line_color', $block_id, $line_color, $defaults['line_color']) ?>
 			</label>
 			
