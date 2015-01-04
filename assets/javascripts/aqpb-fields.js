@@ -155,43 +155,51 @@ jQuery(document).ready(function($){
 	
 	// Visual Editor Block
 	$('ul.blocks').bind('sortstart', function(event, ui) {
-		if( ui.item.hasClass('block-aq_editor_block') ) {
-			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
-			try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
-				console.log(e);
+		if( ui != null ){
+			if( ui.item.hasClass('block-aq_editor_block') ) {
+				textareaID = $(ui.item).find('.wp-editor-area').attr('id');
+				try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
+					console.log(e);
+				}
 			}
 		}
 	});
 
 	$('ul.blocks').bind('sortstop', function(event, ui) {
-		if( ui.item.hasClass('block-aq_editor_block') ) {
-			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
-			try { 
-				tinyMCE.execCommand('mceAddEditor', false, textareaID); 
-				tinyMCE.execCommand('mceAddControls', false, textareaID); 
-			} catch(e){
-				console.log(e);
+		if( ui != null ){
+			if( ui.item.hasClass('block-aq_editor_block') ) {
+				textareaID = $(ui.item).find('.wp-editor-area').attr('id');
+				try { 
+					tinyMCE.execCommand('mceAddEditor', false, textareaID); 
+					tinyMCE.execCommand('mceAddControls', false, textareaID); 
+				} catch(e){
+					console.log(e);
+				}
 			}
 		}
 	});
 
 	$('ul.blocks .ui-resizable').bind('resizestart', function(event, ui) {
-		if( ui.element.hasClass('block-aq_editor_block') ) {
-			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
-			try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
-				console.log(e);
+		if( ui != null ){
+			if( ui.element.hasClass('block-aq_editor_block') ) {
+				textareaID = $(ui.item).find('.wp-editor-area').attr('id');
+				try { tinyMCE.execCommand('mceRemoveEditor', false, textareaID); } catch(e){
+					console.log(e);
+				}
 			}
 		}
 	});
 
 	$('ul.blocks .ui-resizable').bind('resizestop', function(event, ui) {
-		if( ui.element.hasClass('block-aq_editor_block') ) {
-			textareaID = $(ui.item).find('.wp-editor-area').attr('id');
-			try { 
-				tinyMCE.execCommand('mceAddEditor', false, textareaID); 
-				tinyMCE.execCommand('mceAddControls', false, textareaID); 
-			} catch(e){
-				console.log(e);
+		if( ui != null ){
+			if( ui.element.hasClass('block-aq_editor_block') ) {
+				textareaID = $(ui.item).find('.wp-editor-area').attr('id');
+				try { 
+					tinyMCE.execCommand('mceAddEditor', false, textareaID); 
+					tinyMCE.execCommand('mceAddControls', false, textareaID); 
+				} catch(e){
+					console.log(e);
+				}
 			}
 		}
 	});

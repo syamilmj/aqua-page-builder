@@ -301,19 +301,23 @@ jQuery(document).ready(function($){
 	
 	/** Delete Block (via "Delete" anchor) **/
 	$(document).on('click', '.block-control-actions a', function() {
+		
 		$clicked = $(this);
 		$parent = $(this.parentNode.parentNode.parentNode);
-		
+			
 		if($clicked.hasClass('delete')) {
-			$parent.find('> .block-bar .block-handle').css('background', 'red');
-			$parent.slideUp(function() {
-				$(this).remove();
-				update_block_order();
-				update_block_number();
-			}).fadeOut('fast');
+			if (confirm('Are you sure to Remove it')) {
+				$parent.find('> .block-bar .block-handle').css('background', 'red');
+				$parent.slideUp(function() {
+					$(this).remove();
+					update_block_order();
+					update_block_number();
+				}).fadeOut('fast');
+			}
 		} else if($clicked.hasClass('close')) {
 			$parent.find('> .block-bar a.block-edit').click();
 		}
+		
 		return false;
 	});
 	
