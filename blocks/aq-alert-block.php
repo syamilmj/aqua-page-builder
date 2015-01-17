@@ -7,7 +7,7 @@ if(!class_exists('AQ_Alert_Block')) {
 		//set and create block
 		function __construct() {
 			$block_options = array(
-				'name' => __('Alerts', 'aqpb-l10n'),
+				'name' => __( 'Alerts', 'aqpb' ),
 				'size' => 'span6',
 			);
 			
@@ -18,44 +18,44 @@ if(!class_exists('AQ_Alert_Block')) {
 		function form($instance) {
 			
 			$defaults = array(
-				'content' => '',
-				'type' => 'note',
-				'style' => ''
+				'content' 	=> '',
+				'type' 		=> 'note',
+				'style' 	=> ''
 			);
 			$instance = wp_parse_args($instance, $defaults);
 			extract($instance);
 			
 			$type_options = array(
-				'default' => 'Standard',
-				'info' => 'Info',
-				'note' => 'Notification',
-				'warn' => 'Warning',
-				'tips' => 'Tips'
+				'default' 	=> __( 'Standard', 'aqpb' ),
+				'info' 		=> __( 'Info', 'aqpb' ),
+				'note' 		=> __( 'Notification', 'aqpb' ),
+				'warn' 		=> __( 'Warning', 'aqpb' ),
+				'tips' 		=> __( 'Tips', 'aqpb' )
 			);
 			
 			?>
 			
 			<p class="description">
 				<label for="<?php echo $this->get_field_id('title') ?>">
-					Title (optional)<br/>
+					<?php _e( 'Title (optional)', 'aqpb' );?><br/>
 					<?php echo aq_field_input('title', $block_id, $title) ?>
 				</label>
 			</p>
 			<p class="description">
 				<label for="<?php echo $this->get_field_id('content') ?>">
-					Alert Text (required)<br/>
+					<?php _e( 'Alert Text (required)', 'aqpb' );?><br/>
 					<?php echo aq_field_textarea('content', $block_id, $content) ?>
 				</label>
 			</p>
 			<p class="description half">
 				<label for="<?php echo $this->get_field_id('type') ?>">
-					Alert Type<br/>
+					<?php _e( 'Alert Type', 'aqpb' );?><br/>
 					<?php echo aq_field_select('type', $block_id, $type_options, $type) ?>
 				</label>
 			</p>
 			<p class="description half last">
 				<label for="<?php echo $this->get_field_id('style') ?>">
-					Additional inline css styling (optional)<br/>
+					<?php _e( 'Additional inline css styling (optional)', 'aqpb' );?><br/>
 					<?php echo aq_field_input('style', $block_id, $style) ?>
 				</label>
 			</p>

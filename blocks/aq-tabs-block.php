@@ -5,7 +5,7 @@ if(!class_exists('AQ_Tabs_Block')) {
 	
 		function __construct() {
 			$block_options = array(
-				'name' => __('Tabs &amp; Toggles', 'aqpb-l10n'),
+				'name' => __( 'Tabs &amp; Toggles', 'aqpb' ),
 				'size' => 'span6',
 			);
 			
@@ -33,8 +33,8 @@ if(!class_exists('AQ_Tabs_Block')) {
 			extract($instance);
 			
 			$tab_types = array(
-				'tab' => 'Tabs',
-				'toggle' => 'Toggles',
+				'tab' 		=> 'Tabs',
+				'toggle' 	=> 'Toggles',
 				'accordion' => 'Accordion'
 			);
 			
@@ -73,24 +73,24 @@ if(!class_exists('AQ_Tabs_Block')) {
 						<strong><?php echo $tab['title'] ?></strong>
 					</div>
 					<div class="sortable-handle">
-						<a href="#">Open / Close</a>
+						<a href="#"><?php _e( 'Open / Close', 'aqpb' ) ?></a>
 					</div>
 				</div>
 				
 				<div class="sortable-body">
 					<p class="tab-desc description">
 						<label for="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-title">
-							Tab Title<br/>
+							<?php _e( 'Tab Title', 'aqpb' );?><br/>
 							<input type="text" id="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-title" class="input-full" name="<?php echo $this->get_field_name('tabs') ?>[<?php echo $count ?>][title]" value="<?php echo $tab['title'] ?>" />
 						</label>
 					</p>
 					<p class="tab-desc description">
 						<label for="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-content">
-							Tab Content<br/>
+							<?php _e( 'Tab Content', 'aqpb' );?><br/>
 							<textarea id="<?php echo $this->get_field_id('tabs') ?>-<?php echo $count ?>-content" class="textarea-full" name="<?php echo $this->get_field_name('tabs') ?>[<?php echo $count ?>][content]" rows="5"><?php echo $tab['content'] ?></textarea>
 						</label>
 					</p>
-					<p class="tab-desc description"><a href="#" class="sortable-delete">Delete</a></p>
+					<p class="tab-desc description"><a href="#" class="sortable-delete"><?php _e( 'Delete', 'aqpb' ); ?></a></p>
 				</div>
 				
 			</li>

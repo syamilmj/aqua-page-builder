@@ -4,7 +4,7 @@ class AQ_Widgets_Block extends AQ_Block {
 	
 	function __construct() {
 		$block_options = array(
-			'name' => __('Widgets', 'aqpb-l10n'),
+			'name' => __( 'Widgets', 'aqpb' ),
 			'size' => 'span4',
 		);
 		
@@ -31,13 +31,13 @@ class AQ_Widgets_Block extends AQ_Block {
 		?>
 		<p class="description half">
 			<label for="<?php echo $block_id ?>_title">
-				Title (optional)<br/>
+				<?php _e( 'Title (optional)', 'aqpb' );?><br/>
 				<?php echo aq_field_input('title', $block_id, $title, $size = 'full') ?>
 			</label>
 		</p>
 		<p class="description half last">
 			<label for="">
-				Choose widget area<br/>
+				<?php _e( 'Choose widget area', 'aqpb' );?><br/>
 				<?php echo aq_field_select('sidebar', $block_id, $sidebar_options, $sidebar); ?>
 			</label>
 		</p>

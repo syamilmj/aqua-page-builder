@@ -8,7 +8,7 @@
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
  * Domain Path: /languages/
- * Text Domain: aqpb-l10n
+ * Text Domain: aqpb
  *
  */
  
@@ -45,9 +45,14 @@ function aqpb_get_version() {
 }
 
 function aqpb_localisation() {
-	load_plugin_textdomain( 'aqpb-i10n', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    $domain = 'aqpb';
+    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+    /* Load the translation of the plugin. */
+    load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
+    load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
-add_action('init', 'aqpb_localisation');
+add_action( 'plugins_loaded', 'aqpb_localisation' );
 
 //required functions & classes
 require_once(AQPB_PATH . 'functions/aqpb_config.php');

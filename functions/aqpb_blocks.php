@@ -219,7 +219,7 @@ function aq_block_widgets($block) {
 
 function aq_block_column($block) {
 	echo '<p class="empty-column">',
-	__('Drag block items into this box', 'aqpb-l10n'),
+	__('Drag block items into this box', 'aqpb'),
 	'</p>';
 	echo '<ul class="blocks column-blocks cf"></ul>';
 }
