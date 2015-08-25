@@ -25,15 +25,15 @@ jQuery(document).ready(function($){
 			minWidth: 104,
 			resize: function(event, ui) { 
 				ui.helper.css("position", "relative"); // bug
-			    ui.helper.css("height", "inherit");
-			    ui.helper.css("top", "0"); // bug
-			    ui.helper.css("left", "0"); // bug
-			    ui.helper.css("margin-left", ui.position.left + 20 + "px");
+				ui.helper.css("height", "inherit");
+				ui.helper.css("top", "0"); // bug
+				ui.helper.css("left", "0"); // bug
+				ui.helper.css("margin-left", ui.position.left + 20 + "px");
 			},
 			stop: function(event, ui) {
 				ui.helper.css('left', ui.originalPosition.left);
 				ui.helper.removeClass (function (index, css) {
-				    return (css.match (/\bspan\S+/g) || []).join(' ');
+					return (css.match (/\bspan\S+/g) || []).join(' ');
 				}).addClass(block_size( $(ui.helper).css('width') ));
 				ui.helper.find('> div > .size').val(block_size( $(ui.helper).css('width') ));
 				ui.helper.css("margin-left", "");
@@ -49,13 +49,13 @@ jQuery(document).ready(function($){
 	/** create unique id **/
 	function makeid()
 	{
-	    var text = "";
-	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	
-	    for( var i=0; i < 5; i++ )
-	        text += possible.charAt(Math.floor(Math.random() * possible.length));
+		for( var i=0; i < 5; i++ )
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
 	
-	    return text;
+		return text;
 	}
 	
 	/** Get correct class for block size **/
@@ -223,42 +223,45 @@ jQuery(document).ready(function($){
 		
 		//if coming from archive
 		if (ui.item.hasClass('ui-draggable')) {
-		
+
+			// set height to auto
+			ui.item.css('height', 'auto');
+
 			//remove draggable class
-		    ui.item.removeClass('ui-draggable');
-		    
-		    //set random block id
-		    block_number = makeid();
-		    
-		    //replace id
-		    ui.item.html(ui.item.html().replace(/<[^<>]+>/g, function(obj) {
-		        return obj.replace(/__i__|%i%/g, block_number)
-		    }));
-		    
-		    ui.item.attr("id", block_archive.replace("__i__", block_number));
-		    
-		    //if column, remove handle bar
-		    if(ui.item.hasClass('block-container')) {
-		    	ui.item.find('.block-bar').remove();
-		    	ui.item.find('.block-settings').removeClass('block-settings').addClass('block-settings-column');
-		    }
-		    
-		    //init resize on newly added block
-		    ui.item.resizable(resizable_args);
-		    
-		    //set dynamic width for blocks inside columns
-		    resizable_dynamic_width(ui.item.attr('id'));
-		    
-		    //trigger resize
-		    ui.item.trigger("resize");
-		    ui.item.trigger("resizestop");
-		    
-		    //open on drop
-		    ui.item.find('a.block-edit').click();
-		    
-		    //disable resizable on .not-resizable blocks
-		    $(".ui-resizable.not-resizable").resizable("destroy");
-		    
+			ui.item.removeClass('ui-draggable');
+			
+			//set random block id
+			block_number = makeid();
+			
+			//replace id
+			ui.item.html(ui.item.html().replace(/<[^<>]+>/g, function(obj) {
+				return obj.replace(/__i__|%i%/g, block_number)
+			}));
+			
+			ui.item.attr("id", block_archive.replace("__i__", block_number));
+			
+			//if column, remove handle bar
+			if(ui.item.hasClass('block-container')) {
+				ui.item.find('.block-bar').remove();
+				ui.item.find('.block-settings').removeClass('block-settings').addClass('block-settings-column');
+			}
+			
+			//init resize on newly added block
+			ui.item.resizable(resizable_args);
+			
+			//set dynamic width for blocks inside columns
+			resizable_dynamic_width(ui.item.attr('id'));
+			
+			//trigger resize
+			ui.item.trigger("resize");
+			ui.item.trigger("resizestop");
+			
+			//open on drop
+			ui.item.find('a.block-edit').click();
+			
+			//disable resizable on .not-resizable blocks
+			$(".ui-resizable.not-resizable").resizable("destroy");
+			
 		}
 		
 		//if moving column inside column, cancel it
@@ -294,8 +297,8 @@ jQuery(document).ready(function($){
 			ui.draggable.parent().find('.placeholder').show();
 		},
 		drop: function(ev, ui) {
-	        ui.draggable.remove();
-	        $(this).find('#removing-block').fadeOut('fast');
+			ui.draggable.remove();
+			$(this).find('#removing-block').fadeOut('fast');
 		}
 	});
 	
