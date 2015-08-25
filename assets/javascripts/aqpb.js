@@ -224,6 +224,9 @@ jQuery(document).ready(function($){
 		//if coming from archive
 		if (ui.item.hasClass('ui-draggable')) {
 		
+			// set height to auto
+			ui.item.css('height', 'auto');
+
 			//remove draggable class
 		    ui.item.removeClass('ui-draggable');
 		    
