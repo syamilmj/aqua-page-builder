@@ -189,15 +189,13 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 						admin_url( 'themes.php' )
 					));
 					?>
-					"><?php _e('Create a new template', 'aqpb-l10n') ?></a>
+					"><?php _e('create a new template', 'aqpb-l10n') ?></a>
 				</span>
 				
 			</form>
 
 		<?php } else { ?>
-			<span class="add-new-template-action">
-				<?php _e('Create your new template below', 'aqpb-l10n') ?>
-			</span>
+			<?php _e('Create your new template below', 'aqpb-l10n') ?>
 		<?php } ?>
 
 	</div>
@@ -233,9 +231,11 @@ $disabled = $selected_template_id === 0 ? 'metabox-holder-disabled' : '';
 											<input name="template-name" id="template-name" type="text" class="template-name regular-text" title="Enter template name here" placeholder="<?php _e('Enter template name here', 'aqpb-l10n') ?>" value="<?php echo is_object($selected_template_object) ? $selected_template_object->post_title : ''; ?>">
 										</label>
 										
-										<div id="template-shortcode">
-											<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>"]' onclick="select()"/>
-										</div>
+										<?php if($selected_template_id !== 0) { ?>
+											<div id="template-shortcode">
+												<input type="text" readonly="readonly" value='[template id="<?php echo $selected_template_id ?>"]' onclick="select()"/>
+											</div>
+										<?php } ?>
 										
 										<div class="publishing-action">
 											<?php submit_button( empty( $selected_template_id ) ? __( 'Create Template', 'aqpb-l10n' ) : __( 'Save Template', 'aqpb-l10n' ), 'button-primary ', 'save_template', false, array( 'id' => 'save_template_header' ) ); ?>

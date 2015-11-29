@@ -18,7 +18,6 @@ class AQ_Clear_Block extends AQ_Block {
 	}
 	
 	function form($instance) {
-		
 		$defaults = array(
 			'horizontal_line' => 'none',
 			'line_color' => '#353535',
@@ -62,7 +61,6 @@ class AQ_Clear_Block extends AQ_Block {
 			
 		</div>
 		<?php
-		
 	}
 	
 	function block($instance) {
@@ -86,7 +84,6 @@ class AQ_Clear_Block extends AQ_Block {
 		if($height) {
 			echo '<div class="cf" style="height:'.$height.'px"></div>';
 		}
-		
 	}
 	
 }

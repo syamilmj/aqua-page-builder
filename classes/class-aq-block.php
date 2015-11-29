@@ -55,7 +55,7 @@ if(!class_exists('AQ_Block')) {
 	 	 */
 	 	function form($instance) {
 	 		echo '<p class="no-options-block">' . __('There are no options for this block.', 'aqpb-l10n') . '</p>';
-	 		return 'noform';
+	 		return false;
 	 	}
 	 	
 	 	/** 

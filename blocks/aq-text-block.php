@@ -40,7 +40,6 @@ class AQ_Text_Block extends AQ_Block {
 				<?php _e('Automatically add paragraphs', 'aqpb-l10n') ?>
 			</label>
 		</p>
-		
 		<?php
 	}
 	
@@ -50,11 +49,9 @@ class AQ_Text_Block extends AQ_Block {
 		$wp_autop = ( isset($wp_autop) ) ? $wp_autop : 0;
 		
 		if($title) echo '<h4 class="aq-block-title">'.strip_tags($title).'</h4>';
-		if($wp_autop == 1){
+		if($wp_autop == 1) {
 			echo do_shortcode(htmlspecialchars_decode($text));
-		}
-		else
-		{
+		} else {
 			echo wpautop(do_shortcode(htmlspecialchars_decode($text)));
 		}
 		

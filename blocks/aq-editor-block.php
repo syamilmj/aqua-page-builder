@@ -16,7 +16,7 @@ class AQ_Editor_Block extends AQ_Block {
 	function form($instance) {
 		
 		$defaults = array(
-			'text' => ''
+			'content' => ''
 		);
 		$instance = wp_parse_args($instance, $defaults);
 		extract($instance);
@@ -30,15 +30,15 @@ class AQ_Editor_Block extends AQ_Block {
 		</p>
 		
 		<p class="description">
-			<label for="<?php echo $this->get_field_id('text') ?>">
+			<label for="<?php echo $this->get_field_id('content') ?>">
 				Content
 				<?php 
 				$args = array (
 				    'tinymce'       => true,
 				    'quicktags'     => true,
-				    'textarea_name' => $this->get_field_name('text')
+				    'textarea_name' => $this->get_field_name('content')
 				);
-				wp_editor( htmlspecialchars_decode($text), $this->get_field_id('text'), $args );
+				wp_editor( htmlspecialchars_decode($content), $this->get_field_id('content'), $args );
 				?>
 			</label>
 		</p>

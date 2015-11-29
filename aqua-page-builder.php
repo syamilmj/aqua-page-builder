@@ -4,7 +4,7 @@
  * Plugin Name: Aqua Page Builder
  * Plugin URI: http://aquagraphite.com/page-builder
  * Description: Fast, lightweight and intuitive drag-and-drop page builder.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: Syamil MJ
  * Author URI: http://aquagraphite.com
  * Domain Path: /languages/

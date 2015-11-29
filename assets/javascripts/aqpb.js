@@ -197,6 +197,9 @@ jQuery(document).ready(function($){
 			revert: 'invalid',
 			start: function(event, ui) {
 				block_archive = $(this).attr('id');
+			},
+			stop: function(event, ui) {
+				ui.helper.css('height', 'auto');
 			}
 		});
 	});
@@ -294,8 +297,8 @@ jQuery(document).ready(function($){
 			ui.draggable.parent().find('.placeholder').show();
 		},
 		drop: function(ev, ui) {
-	        ui.draggable.remove();
-	        $(this).find('#removing-block').fadeOut('fast');
+      ui.draggable.remove();
+      $(this).find('#removing-block').fadeOut('fast');
 		}
 	});
 	
