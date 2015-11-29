@@ -13,7 +13,8 @@ Aqua Page Builder is released under GPLv3 - [http://www.gnu.org/copyleft/gpl.htm
 
 ### User Guide
 
-** Manual Installation **  
+**Manual Installation**
+
 * Download the package, unzip.
 * Rename the folder to "aqua-page-builder"
 * Upload it to your `wp-content/plugins/` directory, then activate in your theme.
