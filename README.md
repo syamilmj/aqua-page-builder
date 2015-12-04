@@ -5,7 +5,7 @@
 Aqua Page Builder is a powerful WordPress plugin that allows you to create an unlimited number of template variations for use in your WordPress themes. 
 It follows the same user interface used by the Menus & Widgets admin pages - making you feel right at home with the UI.
 
-Similar to the Widgets &amps Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
+Similar to the Widgets & Menus, Aqua Page Builder features the drag and drop interaction to build its templates.
 
 ### License
 
